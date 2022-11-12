@@ -1,0 +1,31 @@
+export type QuestionType = {
+  id: string
+  title: string
+  body: string
+  post_username: string
+  answer_list: string[]
+  tags: string[]
+}
+
+export type AnswerType = {
+  id: string
+  body: string
+  question_id: string
+  respondent_username: string
+}
+
+export type UserInfo = {
+  username: string
+}
+
+export type User = {
+  username: string
+  email: string
+  password: string
+}
+
+export type CsrfToken = {
+  csrf_token: string
+}
+
+export type MenubarTabType = 'EveryoneQuestions' | 'MyQuestions' | 'MyProfile'

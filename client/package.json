@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tailwindcss/line-clamp": "^0.4.2",
     "daisyui": "^2.39.1",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",

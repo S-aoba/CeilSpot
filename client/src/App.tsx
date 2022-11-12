@@ -1,7 +1,5 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import { Header } from './components/Header/Header'
-import { HeaderLeft } from './components/Header/HeaderLeft/HeaderLeft'
-import { QuestionDetail } from './components/Users/QuestionDetail'
+import { QuestionItem } from './components/Users/QuestionItem'
 import { Question } from './pages/Question'
 
 const router = createBrowserRouter([
@@ -11,8 +9,8 @@ const router = createBrowserRouter([
     errorElement: <div>Error</div>,
     children: [
       {
-        path: '/questions/:questionId',
-        element: <QuestionDetail />,
+        path: '/',
+        element: <QuestionItem />,
       },
     ],
   },
