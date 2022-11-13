@@ -2,7 +2,6 @@ import LanguageIcon from '../../../assets/LanguageIcon/python.png'
 import DefaultUserIcon from '../../../assets/defaultUserIcon.png'
 
 export const Card: React.FC = () => {
-  const min = ''
   return (
     <div className=' col-span-1 grid h-28 w-full grid-cols-12 rounded-xl '>
       <div className=' col-span-3 flex w-full items-center justify-center rounded-xl bg-white'>
