@@ -6,7 +6,7 @@ import { Login } from './Login'
 import { SignUp } from './SignUp'
 import { useQueryUser } from '../../shared/hooks/useQueryUser'
 import { useProcessAuth } from '../../shared/hooks/useProcessAuth'
-import { toast } from 'react-toastify'
+import { Logout } from './Logout'
 type Props = {
   displayWidth: number
 }
@@ -15,7 +15,6 @@ export const HeaderLight: React.FC<Props> = ({ displayWidth }) => {
   const { data: dataUser, error } = useQueryUser()
   const [searchValue, setSearchValue] = useState('')
   const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => setSearchValue(e.target.value)
-  const { logout } = useProcessAuth()
   return (
     <div className='col-span-9 flex items-center justify-around gap-3 lg:col-span-10 lg:justify-start'>
       <SearchBar
@@ -37,9 +36,7 @@ export const HeaderLight: React.FC<Props> = ({ displayWidth }) => {
           {displayWidth >= 576 && (
             <>
               <Button className=' btn-info btn text-white hover:opacity-75'>質問する</Button>
-              <Button onClick={logout} className=' btn-warning btn text-white hover:opacity-75'>
-                ログアウト
-              </Button>
+              <Logout className=' btn-warning btn text-white hover:opacity-75'>ログアウト</Logout>
             </>
           )}
         </>
