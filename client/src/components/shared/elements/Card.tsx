@@ -1,7 +1,12 @@
 import LanguageIcon from '../../../assets/LanguageIcon/python.png'
 import DefaultUserIcon from '../../../assets/defaultUserIcon.png'
+import { Link } from 'react-router-dom'
 
-export const Card: React.FC = () => {
+type LinkPathProps = {
+  path: string
+}
+
+export const Card: React.FC<LinkPathProps> = ({ path }) => {
   return (
     <div className=' col-span-1 grid h-28 w-full grid-cols-12 rounded-xl '>
       <div className=' col-span-3 flex w-full items-center justify-center rounded-xl bg-white'>
@@ -9,9 +14,11 @@ export const Card: React.FC = () => {
       </div>
       <div className=' col-span-8 grid grid-rows-6 px-3'>
         <div className=' row-span-4 flex items-center'>
-          <p className=' text-lg font-semibold line-clamp-2 lg:line-clamp-3'>
-            【Flutter】プログラミング歴半年で、モバイルアプリを2個リリースした話
-          </p>
+          <Link to={path} relative='path' className=' hover:text-sky-400'>
+            <p className=' text-lg font-semibold line-clamp-2 lg:line-clamp-3'>
+              【Flutter】プログラミング歴半年で、モバイルアプリを2個リリースした話
+            </p>
+          </Link>
         </div>
         <div className='row-span-2 flex items-center gap-3'>
           <img src={DefaultUserIcon} alt='userIcon' className=' h-10 w-10 rounded-full' />
