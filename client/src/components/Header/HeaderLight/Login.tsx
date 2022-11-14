@@ -23,7 +23,7 @@ export const Login: React.FC<Props> = ({ children, ...props }) => {
   if (registerMutation.isLoading || loginMutation.isLoading) {
     return (
       <div className='flex min-h-screen flex-col items-center justify-center'>
-        <h1 className='font-mono text-xl text-gray-600'>Loading...</h1>
+        <button className='loading btn-info btn'></button>
       </div>
     )
   }

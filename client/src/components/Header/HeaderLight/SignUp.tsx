@@ -22,13 +22,7 @@ export const SignUp: React.FC<Props> = ({ children, ...props }) => {
     loginMutation,
     processAuth,
   } = useProcessAuth()
-  if (registerMutation.isLoading || loginMutation.isLoading) {
-    return (
-      <div className='flex min-h-screen flex-col items-center justify-center'>
-        <h1 className='font-mono text-xl text-gray-600'>Loading...</h1>
-      </div>
-    )
-  }
+
   return (
     <>
       <label htmlFor='signUp-modal' {...props} onClick={() => setIsLogin(false)}>

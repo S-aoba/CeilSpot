@@ -6,7 +6,7 @@ import { Login } from './Login'
 import { SignUp } from './SignUp'
 import { useQueryUser } from '../../shared/hooks/useQueryUser'
 import { useProcessAuth } from '../../shared/hooks/useProcessAuth'
-
+import { toast } from 'react-toastify'
 type Props = {
   displayWidth: number
 }

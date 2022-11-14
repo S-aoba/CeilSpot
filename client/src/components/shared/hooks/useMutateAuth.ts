@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { useMutation, useQueryClient } from 'react-query'
 import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
 import { useAppDispatch } from '../../../app/hooks'
 import { changeMenubarTab, resetEditedQuestion, toggleCsrfState } from '../../../slices/appSlice'
 import { User } from '../types/types'
@@ -14,7 +15,10 @@ export const useMutateAuth = () => {
     {
       onSuccess: () => {
         queryClient.invalidateQueries(['user'])
-        alert('ログインしました')
+        toast.success('ログインしました。', {
+          autoClose: 2000,
+          closeOnClick: true,
+        })
         navigate('/')
       },
       onError: (err: any) => {
@@ -28,6 +32,12 @@ export const useMutateAuth = () => {
   const registerMutation = useMutation(
     async (user: User) => await axios.post(`${import.meta.env.VITE_API_URL}/register`, user),
     {
+      onSuccess: () => {
+        toast.success('アカウントの作成に成功しました', {
+          autoClose: 2000,
+          closeOnClick: true,
+        })
+      },
       onError: (err: any) => {
         alert(`${err.response.data.detail}\n${err.message}`)
         if (err.response.data.detail === 'The CSRF token has expired.') {
@@ -36,8 +46,9 @@ export const useMutateAuth = () => {
       },
     }
   )
-  const logoutMutation = useMutation(
-    async () =>
+  const logoutMutation = useMutation(async () => {
+    const isLogout = confirm('ログアウトしてもよろしいですか？')
+    if (isLogout) {
       await axios.post(
         `${import.meta.env.VITE_API_URL}/logout`,
         {},
@@ -45,21 +56,22 @@ export const useMutateAuth = () => {
           withCredentials: true,
         }
       ),
-    {
-      onSuccess: () => {
-        alert('ログアウトしました。')
-        navigate('/')
-      },
-      onError: (err: any) => {
-        alert(`${err.response.data.detail}\n${err.message}`)
-        if (err.response.data.detail === 'The CSRF token has expired.') {
-          dispatch(toggleCsrfState())
-          dispatch(resetEditedQuestion())
-          dispatch(changeMenubarTab('EveryoneQuestions'))
-          navigate('/')
+        {
+          onSuccess: () => {
+            navigate('/')
+          },
+          onError: (err: any) => {
+            alert(`${err.response.data.detail}\n${err.message}`)
+            if (err.response.data.detail === 'The CSRF token has expired.') {
+              dispatch(toggleCsrfState())
+              dispatch(resetEditedQuestion())
+              dispatch(changeMenubarTab('EveryoneQuestions'))
+              navigate('/')
+            }
+          },
         }
-      },
     }
-  )
+    return
+  })
   return { loginMutation, registerMutation, logoutMutation }
 }
