@@ -14,7 +14,6 @@ export const Login: React.FC<Props> = ({ children, ...props }) => {
     setPw,
     email,
     setEmail,
-    isLogin,
     setIsLogin,
     registerMutation,
     loginMutation,
