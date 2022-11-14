@@ -34,10 +34,14 @@ export const HeaderLight: React.FC<Props> = ({ displayWidth }) => {
           <Button>
             <img src={DefaultUserIcon} alt='userIcon' className=' h-12 w-12 rounded-full' />
           </Button>
-          {displayWidth >= 576 && <Button className=' btn-info btn text-white hover:opacity-75'>質問する</Button>}
-          <Button onClick={logout} className=' btn-warning btn text-white hover:opacity-75'>
-            ログアウト
-          </Button>
+          {displayWidth >= 576 && (
+            <>
+              <Button className=' btn-info btn text-white hover:opacity-75'>質問する</Button>
+              <Button onClick={logout} className=' btn-warning btn text-white hover:opacity-75'>
+                ログアウト
+              </Button>
+            </>
+          )}
         </>
       )}
     </div>
