@@ -2,6 +2,7 @@ import { FormEvent, useState } from 'react'
 import { useQueryClient } from 'react-query'
 import { useNavigate } from 'react-router-dom'
 import { useMutateAuth } from './useMutateAuth'
+import { toast } from 'react-toastify'
 
 export const useProcessAuth = () => {
   const [isLogin, setIsLogin] = useState(true)
@@ -43,6 +44,10 @@ export const useProcessAuth = () => {
   }
   const logout = async () => {
     await logoutMutation.mutateAsync()
+    toast.success('ログアウトしました。', {
+      autoClose: 2000,
+      closeOnClick: true,
+    })
     // queryClient.removeQueries('questions')
     queryClient.removeQueries('user')
     queryClient.invalidateQueries(['user'])
