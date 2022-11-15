@@ -24,9 +24,9 @@ export const useMutateQuestion = () => {
         }
         dispatch(resetEditedQuestion())
         toastInfo('投稿が完了しました')
-        // queryClient.invalidateQueries(['question'])
+        queryClient.invalidateQueries(['singleQuestion'])
         // queryClient.invalidateQueries(['userQuestions'])
-        navigate('/question')
+        navigate('/')
       },
       onError: (err: any) => {
         alert(`${err.response.data.detail}\n${err.message}`)

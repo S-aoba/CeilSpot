@@ -3,8 +3,9 @@ import { useEffect } from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { useAppSelector } from './app/hooks'
 import { CsrfToken } from './components/shared/types/types'
-import { QuestionDetail } from './components/Users/QuestionDetail'
-import { QuestionItem } from './components/Users/QuestionItem'
+import { QuestionDetail } from './components/Users/QuestionDetail/QuestionDetail'
+import { QuestionItem } from './components/Users/QuestionItem/QuestionItem'
+import { QuestionAsk } from './components/Users/QuestionAsk/QuestionAsk'
 import { Question } from './pages/Question'
 import { selectCsrfState } from './slices/appSlice'
 
@@ -18,16 +19,13 @@ const router = createBrowserRouter([
         path: '/',
         element: <QuestionItem />,
       },
-    ],
-  },
-  {
-    path: '/question/:username/:question_id',
-    element: <Question />,
-    errorElement: <div>Error</div>,
-    children: [
       {
         path: '/question/:username/:question_id',
         element: <QuestionDetail />,
+      },
+      {
+        path: '/question/ask',
+        element: <QuestionAsk />,
       },
     ],
   },
