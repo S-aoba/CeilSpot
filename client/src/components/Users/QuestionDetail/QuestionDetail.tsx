@@ -1,4 +1,3 @@
-import LanguageIcon from '../../../assets/LanguageIcon/python.png'
 import { Title } from '../../shared/elements/Title'
 import { useLocation } from 'react-router-dom'
 import { DetailCard } from './DetailCard'
@@ -29,10 +28,10 @@ export const QuestionDetail = () => {
         </div>
         <DetailCard question_id={question_id} />
       </div>
-      <AnswerReply question_id={question_id} />
       {dataQuestion?.answer_list.map((answer) => (
         <AnswerItem key={answer} answer_id={answer} />
       ))}
+      <AnswerReply question_id={question_id} />
     </div>
   )
 }
