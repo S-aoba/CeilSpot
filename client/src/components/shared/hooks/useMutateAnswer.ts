@@ -9,7 +9,7 @@ import {
   toggleCsrfState,
   toggleEditMode,
 } from '../../../slices/appSlice'
-import { useQueryUser } from './useQueryUser'
+import { useQueryUser } from './UseQuery/useQueryUser'
 import { useQuerySingleQuestion } from './UseQuery/useQuerySingleQuestion'
 import { AnswerType } from '../types/types'
 import { useToastify } from './useToastify'

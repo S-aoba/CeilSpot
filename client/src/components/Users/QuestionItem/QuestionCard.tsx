@@ -1,13 +1,13 @@
-import LanguageIcon from '../../../assets/LanguageIcon/python.png'
 import DefaultUserIcon from '../../../assets/defaultUserIcon.png'
 import { Link } from 'react-router-dom'
-import { QuestionType } from '../types/types'
+import { QuestionType } from '../../shared/types/types'
+import { useSelectQuestionIcon } from '../../shared/hooks/useSelectQuestionIcon'
 
 type LinkPathProps = {
   path: string
 } & QuestionType
 
-export const Card: React.FC<LinkPathProps & QuestionType> = ({
+export const QuestionCard: React.FC<LinkPathProps & QuestionType> = ({
   path,
   id,
   title,
@@ -16,10 +16,11 @@ export const Card: React.FC<LinkPathProps & QuestionType> = ({
   answer_list,
   tags,
 }) => {
+  const { selectQuestionIcon } = useSelectQuestionIcon()
   return (
     <div className=' col-span-1 grid h-fit w-full grid-cols-12 rounded-xl'>
       <div className=' col-span-3 flex w-full items-center justify-center rounded-xl bg-white'>
-        <img src={LanguageIcon} alt='languageIcon' className=' h-16 w-16' />
+        <img src={selectQuestionIcon(tags[0])} alt='languageIcon' className=' h-16 w-16' />
       </div>
       <div className=' col-span-9 grid grid-rows-6 px-3'>
         <div className=' row-span-4 flex items-center'>

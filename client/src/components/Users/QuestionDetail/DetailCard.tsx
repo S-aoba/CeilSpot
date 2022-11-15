@@ -27,7 +27,7 @@ export const DetailCard: React.FC<Props> = ({ question_id }) => {
         <div className=' flex w-11/12 flex-wrap items-center justify-start gap-4 py-5'>
           <p className=' font-bold'>タグ : </p>
           {dataQuestion?.tags.map((tag) => (
-            <div className=' rounded-3xl border border-sky-400 py-1 px-3 text-sky-400'>
+            <div className=' rounded-3xl border border-sky-400 py-1 px-3 text-sky-400' key={tag}>
               <p>{tag}</p>
             </div>
           ))}

@@ -1,6 +1,6 @@
 import { useQuery } from 'react-query'
 import axios from 'axios'
-import { UserInfo } from '../types/types'
+import { UserInfo } from '../../types/types'
 import { useNavigate } from 'react-router-dom'
 
 export const useQueryUser = () => {

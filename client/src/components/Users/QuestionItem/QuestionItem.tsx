@@ -1,4 +1,4 @@
-import { Card as QuestionCard } from '../../shared/elements/Card'
+import { QuestionCard } from './QuestionCard'
 import { Title } from '../../shared/elements/Title'
 import { useQueryQuestions } from '../../shared/hooks/UseQuery/useQueryQuestions'
 

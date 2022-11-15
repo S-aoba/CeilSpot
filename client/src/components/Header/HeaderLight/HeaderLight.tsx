@@ -4,7 +4,7 @@ import { Input as SearchBar } from '../../shared/elements/Input'
 import DefaultUserIcon from '../../../assets/defaultUserIcon.png'
 import { Login } from './Login'
 import { SignUp } from './SignUp'
-import { useQueryUser } from '../../shared/hooks/useQueryUser'
+import { useQueryUser } from '../../shared/hooks/UseQuery/useQueryUser'
 import { Logout } from './Logout'
 import { Link } from 'react-router-dom'
 type Props = {
