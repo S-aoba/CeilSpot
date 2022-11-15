@@ -19,12 +19,8 @@ export const QuestionDetail = () => {
     <div id='detail' className=' flex h-fit min-h-screen flex-col items-center py-20 lg:container lg:mx-auto'>
       <Title className=' w-11/12 py-3 text-3xl font-bold xl:w-8/12'>Question Detail</Title>
       <div className=' flex h-fit w-11/12 flex-col items-center justify-center gap-8 py-5'>
-        <div>
-          <img
-            src={selectQuestionIcon(dataQuestion?.tags[0] as string)}
-            alt='languageIcon'
-            className=' h-24 w-24 rounded-full'
-          />
+        <div className=' rounded-xl py-5 px-5 bg-white'>
+          <img src={selectQuestionIcon(dataQuestion?.tags[0] as string)} alt='languageIcon' className=' h-24 w-24' />
         </div>
         <DetailCard question_id={question_id} />
       </div>
