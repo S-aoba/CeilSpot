@@ -4,11 +4,11 @@ import { useQuerySingleQuestion } from '../../shared/hooks/UseQuery/useQuerySing
 import defaultUserIcon from '../../../assets/defaultUserIcon.png'
 
 type Props = {
-  id: string
+  question_id: string
 }
 
-export const DetailCard: React.FC<Props> = ({ id }) => {
-  const { data: dataQuestion } = useQuerySingleQuestion(id)
+export const DetailCard: React.FC<Props> = ({ question_id }) => {
+  const { data: dataQuestion } = useQuerySingleQuestion(question_id)
 
   return (
     <div className=' flex w-full flex-col items-center justify-center'>
@@ -35,7 +35,11 @@ export const DetailCard: React.FC<Props> = ({ id }) => {
         <div className=' w-11/12'>
           <hr className='mb-6 border-gray-300' />
           <div>
-            <MDEditor.Markdown source={dataQuestion?.body} style={{ whiteSpace: 'pre-wrap' }} />
+            <MDEditor.Markdown
+              source={dataQuestion?.body}
+              style={{ whiteSpace: 'pre-wrap' }}
+              className=' tracking-wide'
+            />
           </div>
           <hr className=' my-6 border-gray-300' />
         </div>
