@@ -9,7 +9,7 @@ import { useProcessQuestion } from '../../shared/hooks/useProcessQuestion'
 import { useQueryUser } from '../../shared/hooks/useQueryUser'
 import { useAppDispatch, useAppSelector } from '../../../app/hooks'
 import { useTag } from './hooks/useTag'
-import { useChangeTitle } from './hooks/UseChangeTitle'
+import { useChangeTitle } from './hooks/useChangeTitle'
 export const QuestionForm = () => {
   const { tagOptions, tagColorStyles } = TagStyle()
   const { processQuestion } = useProcessQuestion()
