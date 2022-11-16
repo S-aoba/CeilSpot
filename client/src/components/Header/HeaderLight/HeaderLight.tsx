@@ -1,12 +1,13 @@
 import { ChangeEvent, useState } from 'react'
-import { Button, Button as QuestionPostBtn } from '../../shared/elements/Button'
+import { Button } from '../../shared/elements/Button'
 import { Input as SearchBar } from '../../shared/elements/Input'
 import DefaultUserIcon from '../../../assets/defaultUserIcon.png'
 import { Login } from './Login'
 import { SignUp } from './SignUp'
 import { useQueryUser } from '../../shared/hooks/UseQuery/useQueryUser'
-import { Logout } from './Logout'
-import { Link } from 'react-router-dom'
+import { LinkBtn as QuestionPostBtn } from '../../shared/elements/LinkBtn'
+import { ModalBtn as LogoutBtn, ModalBtn } from '../../shared/elements/ModalBtn'
+import { useProcessAuth } from '../../shared/hooks/useProcessAuth'
 type Props = {
   displayWidth: number
 }
@@ -14,6 +15,8 @@ type Props = {
 export const HeaderLight: React.FC<Props> = ({ displayWidth }) => {
   const { data: dataUser, error } = useQueryUser()
   const [searchValue, setSearchValue] = useState('')
+  const { logout } = useProcessAuth()
+
   const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => setSearchValue(e.target.value)
   return (
     <div className='col-span-9 flex items-center justify-around gap-3 lg:col-span-10 lg:justify-start'>
@@ -35,12 +38,19 @@ export const HeaderLight: React.FC<Props> = ({ displayWidth }) => {
           </Button>
           {displayWidth >= 576 && (
             <>
-              <Link to={'/question/ask'}>
-                <QuestionPostBtn className=' btn-info btn w-16 text-white hover:opacity-75 lg:w-24'>
-                  質問する
-                </QuestionPostBtn>
-              </Link>
-              <Logout className=' btn-warning btn text-white hover:opacity-75'>ログアウト</Logout>
+              <QuestionPostBtn
+                path='/question/ask'
+                relative='path'
+                children={'質問する'}
+                className=' btn-info btn w-16 text-white hover:opacity-75 lg:w-24'
+              />
+              <LogoutBtn
+                className=' btn-warning btn text-white hover:opacity-75'
+                modalTitle='ログアウトしてもよろしいですか？'
+                children={'ログアウト'}
+                modalName='logout'
+                onClick={logout}
+              />
             </>
           )}
         </>

@@ -1,16 +1,20 @@
-import { MdDeleteOutline } from 'react-icons/md'
+import { ReactNode } from 'react'
 import { Button } from './Button'
 type Props = {
+  className?: string
+  modalTitle: string
+  children: ReactNode
+  modalName: 'login' | 'signUp' | 'logout' | 'delete'
   onClick: () => void
 }
-export const DeleteBtn: React.FC<Props> = ({ onClick }) => {
+export const ModalBtn: React.FC<Props> = ({ className, modalTitle, children, modalName, onClick }) => {
   return (
     <>
-      <label htmlFor='delete-modal'>
-        <MdDeleteOutline className=' h-10 w-10 text-sky-400 hover:cursor-pointer hover:opacity-75' />
+      <label htmlFor={`${modalName}`} className={className}>
+        {children}
       </label>
-      <input type='checkbox' id='delete-modal' className='modal-toggle' />
-      <label htmlFor='delete-modal' className='modal cursor-pointer'>
+      <input type='checkbox' id={`${modalName}`} className='modal-toggle' />
+      <label htmlFor={`${modalName}`} className='modal cursor-pointer'>
         <label className='modal-box relative' htmlFor=''>
           <div className=' grid h-44 grid-rows-6'>
             <div className=' row-span-1 flex items-center'>
@@ -18,13 +22,13 @@ export const DeleteBtn: React.FC<Props> = ({ onClick }) => {
             </div>
             <div className=' row-span-5 flex flex-col items-center justify-center gap-6 pt-5'>
               <div className=' flex justify-center font-mono text-xl'>
-                <p>本当に削除してもよろしいですか？</p>
+                <p>{modalTitle}</p>
               </div>
               <div className=' flex w-7/12 justify-around'>
                 <Button onClick={onClick} className=' btn-warning btn w-20 text-white hover:opacity-75'>
                   はい
                 </Button>
-                <label htmlFor='delete-modal' className=' btn w-20 text-white hover:opacity-75'>
+                <label htmlFor={`${modalName}`} className=' btn w-20 text-white hover:opacity-75'>
                   いいえ
                 </label>
               </div>

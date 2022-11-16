@@ -1,12 +1,14 @@
 import React from 'react'
 import MDEditor from '@uiw/react-md-editor'
+import { FiEdit } from 'react-icons/fi'
+import { MdDeleteOutline } from 'react-icons/md'
 import { useQuerySingleQuestion } from '../../shared/hooks/UseQuery/useQuerySingleQuestion'
 import defaultUserIcon from '../../../assets/defaultUserIcon.png'
-// import { UpdateBtn } from '../../shared/elements/UpdateBtn'
-// import { useAppDispatch } from '../../../app/hooks'
-// import { setEditedQuestion } from '../../../slices/appSlice'
-// import { DeleteBtn } from '../../shared/elements/DeleteBtn'
-// import { useMutateQuestion } from '../../shared/hooks/useMutateQuestion'
+import { LinkBtn as UpdateBtn } from '../../shared/elements/LinkBtn'
+import { useAppDispatch } from '../../../app/hooks'
+import { setEditedQuestion } from '../../../slices/appSlice'
+import { useMutateQuestion } from '../../shared/hooks/useMutateQuestion'
+import { ModalBtn as DeleteBtn } from '../../shared/elements/ModalBtn'
 
 type Props = {
   question_id: string
@@ -14,8 +16,8 @@ type Props = {
 
 export const DetailCard: React.FC<Props> = ({ question_id }) => {
   const { data: dataQuestion } = useQuerySingleQuestion(question_id)
-  // const dispatch = useAppDispatch()
-  // const { deleteQuestionMutation } = useMutateQuestion()
+  const dispatch = useAppDispatch()
+  const { deleteQuestionMutation } = useMutateQuestion()
 
   return (
     <div className=' flex w-full flex-col items-center justify-center'>
@@ -51,9 +53,10 @@ export const DetailCard: React.FC<Props> = ({ question_id }) => {
           <hr className=' my-6 border-gray-300' />
         </div>
         <div className=' flex w-11/12 items-center justify-end gap-3'>
-          {/* <UpdateBtn
+          <UpdateBtn
             path='/question/ask'
             relative='path'
+            children={<FiEdit className=' h-10 w-10 text-sky-400 hover:cursor-pointer hover:opacity-75' />}
             onClick={() => {
               dispatch(
                 setEditedQuestion({
@@ -68,10 +71,13 @@ export const DetailCard: React.FC<Props> = ({ question_id }) => {
             }}
           />
           <DeleteBtn
+            modalTitle='削除してもよろしいですか？'
+            children={<MdDeleteOutline className=' h-10 w-10 text-sky-400 hover:cursor-pointer hover:opacity-75' />}
+            modalName='delete'
             onClick={() => {
               deleteQuestionMutation.mutate(question_id)
             }}
-          /> */}
+          />
         </div>
       </div>
     </div>
