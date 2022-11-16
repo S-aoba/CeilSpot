@@ -69,9 +69,9 @@ export const useMutateQuestion = () => {
         dispatch(resetEditedQuestion())
         toastInfo('更新しました')
         queryClient.invalidateQueries(['questions'])
-        queryClient.invalidateQueries(['userQuestions'])
+        // queryClient.invalidateQueries(['userQuestions'])
         queryClient.invalidateQueries(['singleQuestion'])
-        navigate(`/question/users/${variables.post_username}/${variables.id}`, {
+        navigate(`/question/${variables.post_username}/${variables.id}`, {
           state: {
             id: variables.id,
             title: variables.title,
@@ -110,11 +110,11 @@ export const useMutateQuestion = () => {
           )
         }
         dispatch(resetEditedQuestion())
-        dispatch(changeMenubarTab('EveryoneQuestions'))
+        // dispatch(changeMenubarTab('EveryoneQuestions'))
         toastInfo('削除しました')
         queryClient.invalidateQueries(['questions'])
-        queryClient.invalidateQueries(['userQuestions'])
-        navigate('/question')
+        // queryClient.invalidateQueries(['userQuestions'])
+        navigate('/')
       },
       onError: (err: any) => {
         alert(`${err.response.data.detail}\n${err.message}`)

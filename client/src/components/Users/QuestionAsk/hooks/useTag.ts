@@ -22,5 +22,14 @@ export const useTag = () => {
     }
     return selectedTags
   }
-  return { convertToTagType, multiValue, setMultiValue }
+
+  const displayTagsWhenUpdate = (tags: string[]) => {
+    const displayTagList = []
+    for (let i: number = 0; i < tags.length; i++) {
+      if (tags[i] === 'undefined') break
+      displayTagList.push({ value: tags[i], label: tags[i], color: '#e0f2fe' })
+    }
+    return displayTagList
+  }
+  return { convertToTagType, multiValue, setMultiValue, displayTagsWhenUpdate }
 }

@@ -4,7 +4,7 @@ import rehypeSanitize from 'rehype-sanitize'
 import Select from 'react-select'
 import { Input as TitleInput } from '../../shared/elements/Input'
 import { Button as SubmitBtn } from '../../shared/elements/Button'
-import { TagStyle } from '../../shared/styles/TagStyle'
+import { TagStyle } from './styles/TagStyle'
 import { useProcessQuestion } from '../../shared/hooks/useProcessQuestion'
 import { useQueryUser } from '../../shared/hooks/UseQuery/useQueryUser'
 import { useAppDispatch, useAppSelector } from '../../../app/hooks'
@@ -16,13 +16,14 @@ export const QuestionForm = () => {
   const { data: dataUser } = useQueryUser()
   const editedQuestion = useAppSelector(selectQuestion)
   const dispatch = useAppDispatch()
-  const { convertToTagType, multiValue, setMultiValue } = useTag()
+  const { convertToTagType, multiValue, setMultiValue, displayTagsWhenUpdate } = useTag()
   const { setTitleHandler } = useChangeTitle()
   return (
     <form onSubmit={processQuestion} className='flex w-full justify-center'>
       <div className=' flex w-8/12 flex-col items-center justify-center gap-5 rounded-xl bg-white py-10'>
         <div className=' grid w-11/12 grid-cols-12 gap-3'>
           <TitleInput
+            autoFocus
             className=' col-span-6 border border-gray-300 px-3 outline-sky-400'
             value={editedQuestion.title}
             onChange={setTitleHandler}
@@ -31,7 +32,7 @@ export const QuestionForm = () => {
           <Select
             name='Tags'
             isOptionDisabled={() => multiValue?.length! >= 5}
-            value={multiValue}
+            // value={multiValue}
             onChange={(val) => setMultiValue(val)}
             closeMenuOnSelect={false}
             options={tagOptions}
@@ -42,6 +43,7 @@ export const QuestionForm = () => {
             isClearable
             placeholder='タグを5つまで選択できます'
             noOptionsMessage={() => '一致するタグがありません'}
+            defaultValue={editedQuestion.id === '' ? multiValue : displayTagsWhenUpdate(editedQuestion.tags)}
           />
         </div>
         <MDEditor
