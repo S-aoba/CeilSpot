@@ -2,6 +2,11 @@ import React from 'react'
 import MDEditor from '@uiw/react-md-editor'
 import { useQuerySingleQuestion } from '../../shared/hooks/UseQuery/useQuerySingleQuestion'
 import defaultUserIcon from '../../../assets/defaultUserIcon.png'
+// import { UpdateBtn } from '../../shared/elements/UpdateBtn'
+// import { useAppDispatch } from '../../../app/hooks'
+// import { setEditedQuestion } from '../../../slices/appSlice'
+// import { DeleteBtn } from '../../shared/elements/DeleteBtn'
+// import { useMutateQuestion } from '../../shared/hooks/useMutateQuestion'
 
 type Props = {
   question_id: string
@@ -9,6 +14,8 @@ type Props = {
 
 export const DetailCard: React.FC<Props> = ({ question_id }) => {
   const { data: dataQuestion } = useQuerySingleQuestion(question_id)
+  // const dispatch = useAppDispatch()
+  // const { deleteQuestionMutation } = useMutateQuestion()
 
   return (
     <div className=' flex w-full flex-col items-center justify-center'>
@@ -42,6 +49,29 @@ export const DetailCard: React.FC<Props> = ({ question_id }) => {
             />
           </div>
           <hr className=' my-6 border-gray-300' />
+        </div>
+        <div className=' flex w-11/12 items-center justify-end gap-3'>
+          {/* <UpdateBtn
+            path='/question/ask'
+            relative='path'
+            onClick={() => {
+              dispatch(
+                setEditedQuestion({
+                  id: dataQuestion?.id!,
+                  title: dataQuestion?.title!,
+                  body: dataQuestion?.body!,
+                  post_username: dataQuestion?.post_username!,
+                  answer_list: dataQuestion?.answer_list!,
+                  tags: dataQuestion?.tags!,
+                })
+              )
+            }}
+          />
+          <DeleteBtn
+            onClick={() => {
+              deleteQuestionMutation.mutate(question_id)
+            }}
+          /> */}
         </div>
       </div>
     </div>
