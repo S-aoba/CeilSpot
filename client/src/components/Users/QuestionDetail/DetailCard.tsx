@@ -6,7 +6,7 @@ import { useQuerySingleQuestion } from '../../shared/hooks/UseQuery/useQuerySing
 import defaultUserIcon from '../../../assets/defaultUserIcon.png'
 import { LinkBtn as UpdateBtn } from '../../shared/elements/LinkBtn'
 import { useAppDispatch } from '../../../app/hooks'
-import { setEditedQuestion } from '../../../slices/appSlice'
+import { setEditedQuestion, toggleEditMode } from '../../../slices/appSlice'
 import { useMutateQuestion } from '../../shared/hooks/useMutateQuestion'
 import { ModalBtn as DeleteBtn } from '../../shared/elements/ModalBtn'
 
@@ -68,6 +68,7 @@ export const DetailCard: React.FC<Props> = ({ question_id }) => {
                   tags: dataQuestion?.tags!,
                 })
               )
+              dispatch(toggleEditMode(true))
             }}
           />
           <DeleteBtn
