@@ -49,8 +49,8 @@ export const appSlice = createSlice({
     toggleCsrfState: (state) => {
       state.csrfTokenExp = !state.csrfTokenExp
     },
-    toggleEditMode: (state) => {
-      state.editMode = !state.editMode
+    toggleEditMode: (state, action: PayloadAction<boolean>) => {
+      state.editMode = action.payload
     },
     changeMenubarTab: (state, action: PayloadAction<MenubarTabType>) => {
       state.selectedMenubarTab = action.payload
