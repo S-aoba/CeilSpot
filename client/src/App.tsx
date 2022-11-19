@@ -10,6 +10,8 @@ import { Question } from './pages/Question'
 import { selectCsrfState } from './slices/appSlice'
 import { Dashboard } from './components/Dashboard/Dashboard'
 import { DashboardQuestion } from './components/Dashboard/DashboardQuestion/DashboardQuestion'
+import { DashboardAnswer } from './components/Dashboard/DashboardAnswer/DashboardAnswer'
+import { DashboardProfile } from './components/Dashboard/DashboardProfile/DashboardProfile'
 
 const router = createBrowserRouter([
   {
@@ -30,12 +32,20 @@ const router = createBrowserRouter([
         element: <QuestionAsk />,
       },
       {
-        path: '/dashboard/:username/question',
+        path: '/dashboard/',
         element: <Dashboard />,
         children: [
           {
             path: '/dashboard/:username/question',
             element: <DashboardQuestion />,
+          },
+          {
+            path: '/dashboard/:username/answer',
+            element: <DashboardAnswer />,
+          },
+          {
+            path: '/dashboard/:username/profile',
+            element: <DashboardProfile />,
           },
         ],
       },
