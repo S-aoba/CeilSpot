@@ -25,7 +25,7 @@ async def create_answer(request: Request, response: Response, data: AnswerBody, 
 
 
 # userごとの回答の全件取得
-@router.get("/api/answer/{username}", response_model=List[Answer])
+@router.get("/api/{username}/answer", response_model=List[Answer])
 async def get_user_answers(request: Request, response: Response, username: str):
     new_token, _ = auth.verify_update_jwt(request)
     res = await db_get_user_answers(username)

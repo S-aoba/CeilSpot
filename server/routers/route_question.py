@@ -24,7 +24,7 @@ async def create_question(request: Request, response: Response, data: QuestionBo
     raise HTTPException(status_code=404, detail="Create question failed")
 
 
-@router.get("/api/users/{username}", response_model=List[Question])
+@router.get("/api/{username}/question", response_model=List[Question])
 async def get_user_questions(request: Request, response: Response, username: str):
     new_token, _ = auth.verify_update_jwt(request)
     res = await db_get_user_questions(username)
