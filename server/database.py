@@ -18,7 +18,7 @@ auth = AuthJwtCsrf()
 
 
 def user_serializer(user) -> dict:
-    return {"id": str(user["_id"]), "username": user["username"], "email": user["email"]}
+    return {"id": str(user["_id"]), "username": user["username"], "email": user["email"], "self_introduction": user["self_introduction"], "twitter": user["twitter"], "github": user["github"], "website": user["website"]}
 
 
 # userの作成
