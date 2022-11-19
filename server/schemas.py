@@ -53,10 +53,10 @@ class AnswerBody(BaseModel):
 class UserInfo(BaseModel):
     id: Optional[str] = None
     username: str
-    self_introduction: str
-    twitter: str
-    github: str
-    website: str
+    self_introduction: Optional[str] = None
+    twitter: Optional[str] = None
+    github: Optional[str] = None
+    website: Optional[str] = None
 
 
 # データベースへ格納する際のデータ型
