@@ -114,6 +114,14 @@ def answer_serializer(answer) -> dict:
     return {"id": str(answer["_id"]), "body": answer["body"], "question_id": answer["question_id"], "respondent_username": answer["respondent_username"]}
 
 
+# userごとのanswerの全件取得(100件まで)
+async def db_get_user_answers(username: str) -> list:
+    answers = []
+    for answer in await collection_answer.find({"respondent_username": username}).to_list(length=100):
+        answers.append(answer_serializer(answer))
+    return answers
+
+
 # answerの取得(該当の質問に紐づいた回答のみを返す)
 async def db_get_single_answer(answer_id: str) -> Union[dict, bool]:
     answer = await collection_answer.find_one({"_id": ObjectId(answer_id)})
