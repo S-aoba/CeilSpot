@@ -70,5 +70,14 @@ class UserBody(BaseModel):
     website: Optional[str] = None
 
 
+# 更新用のUserのデータ型
+class UpdateUser(BaseModel):
+    username: str
+    self_introduction: Optional[str] = None
+    twitter: Optional[str] = None
+    github: Optional[str] = None
+    website: Optional[str] = None
+
+
 class Csrf(BaseModel):
     csrf_token: str
