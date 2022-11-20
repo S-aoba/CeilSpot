@@ -3,7 +3,7 @@ import { Header } from '../components/Header/Header'
 
 export const Question = () => {
   return (
-    <div className='h-fit min-h-screen bg-slate-200'>
+    <div className=' min-h-screen bg-slate-200'>
       <Header />
       <Outlet />
     </div>

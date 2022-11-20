@@ -4,7 +4,7 @@ from auth_utils import AuthJwtCsrf
 from fastapi_csrf_protect import CsrfProtect
 from starlette.status import HTTP_201_CREATED
 from schemas import Answer, AnswerBody, SuccessMsg
-from database import db_create_answer, db_update_answer, db_delete_answer, db_get_single_answer
+from database import db_create_answer, db_update_answer, db_delete_answer, db_get_single_answer, db_get_user_answers
 from typing import List
 
 
@@ -22,6 +22,17 @@ async def create_answer(request: Request, response: Response, data: AnswerBody, 
     if res:
         return res
     raise HTTPException(status_code=404, detail="Create answer failed")
+
+
+# userごとの回答の全件取得
+@router.get("/api/{username}/answer", response_model=List[Answer])
+async def get_user_answers(request: Request, response: Response, username: str):
+    new_token, _ = auth.verify_update_jwt(request)
+    res = await db_get_user_answers(username)
+    response.set_cookie(key="access_token", value=f"Bearer {new_token}", httponly=True, samesite="none", secure=True)
+    if res or len(res) == 0:
+        return res
+    raise HTTPException(status_code=404, detail=f"respondent_username: {username} doesn't exist")
 
 
 # 個別の質問に紐づけられた回答の取得

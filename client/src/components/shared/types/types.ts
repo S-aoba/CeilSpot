@@ -16,12 +16,20 @@ export type AnswerType = {
 
 export type UserInfo = {
   username: string
+  self_introduction?: string
+  twitter?: string
+  github?: string
+  website?: string
 }
 
 export type User = {
   username: string
   email: string
   password: string
+  self_introduction?: string
+  twitter?: string
+  github?: string
+  website?: string
 }
 
 export type CsrfToken = {

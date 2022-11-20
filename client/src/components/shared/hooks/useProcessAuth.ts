@@ -9,6 +9,10 @@ export const useProcessAuth = () => {
   const [userName, setUserName] = useState('')
   const [email, setEmail] = useState('')
   const [pw, setPw] = useState('')
+  const [selfIntroduction, setSelfIntroduction] = useState('')
+  const [twitter, setTwitter] = useState('')
+  const [github, setGithub] = useState('')
+  const [website, setWebsite] = useState('')
   const { loginMutation, registerMutation, logoutMutation } = useMutateAuth()
   const navigate = useNavigate()
   const queryClient = useQueryClient()
@@ -28,6 +32,10 @@ export const useProcessAuth = () => {
           username: userName,
           email: email,
           password: pw,
+          self_introduction: selfIntroduction,
+          twitter: twitter,
+          github: github,
+          website: website,
         })
         .then(() =>
           loginMutation.mutate({
@@ -40,6 +48,10 @@ export const useProcessAuth = () => {
           setUserName('')
           setPw('')
           setEmail('')
+          setSelfIntroduction('')
+          setTwitter('')
+          setGithub('')
+          setWebsite('')
         })
     }
   }
@@ -61,6 +73,14 @@ export const useProcessAuth = () => {
     setEmail,
     pw,
     setPw,
+    selfIntroduction,
+    setSelfIntroduction,
+    twitter,
+    setTwitter,
+    github,
+    setGithub,
+    website,
+    setWebsite,
     isLogin,
     setIsLogin,
     processAuth,

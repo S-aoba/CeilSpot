@@ -8,7 +8,10 @@ import { QuestionItem } from './components/Users/QuestionItem/QuestionItem'
 import { QuestionAsk } from './components/Users/QuestionAsk/QuestionAsk'
 import { Question } from './pages/Question'
 import { selectCsrfState } from './slices/appSlice'
-import { AnswerReply } from './components/Users/AnswerReply/AnswerReply'
+import { Dashboard } from './components/Dashboard/Dashboard'
+import { DashboardQuestion } from './components/Dashboard/DashboardQuestion/DashboardQuestion'
+import { DashboardAnswer } from './components/Dashboard/DashboardAnswer/DashboardAnswer'
+import { DashboardProfile } from './components/Dashboard/DashboardProfile/DashboardProfile'
 
 const router = createBrowserRouter([
   {
@@ -27,6 +30,24 @@ const router = createBrowserRouter([
       {
         path: '/question/ask',
         element: <QuestionAsk />,
+      },
+      {
+        path: '/dashboard/',
+        element: <Dashboard />,
+        children: [
+          {
+            path: '/dashboard/:username/question',
+            element: <DashboardQuestion />,
+          },
+          {
+            path: '/dashboard/:username/answer',
+            element: <DashboardAnswer />,
+          },
+          {
+            path: '/dashboard/:username/profile',
+            element: <DashboardProfile />,
+          },
+        ],
       },
     ],
   },

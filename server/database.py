@@ -18,7 +18,11 @@ auth = AuthJwtCsrf()
 
 
 def user_serializer(user) -> dict:
-    return {"id": str(user["_id"]), "username": user["username"], "email": user["email"]}
+    return {"id": str(user["_id"]), "username": user["username"], "email": user["email"], "self_introduction": user["self_introduction"], "twitter": user["twitter"], "github": user["github"], "website": user["website"]}
+
+
+def update_user_serializer(user) -> dict:
+    return {"username": user["username"], "self_introduction": user["self_introduction"], "twitter": user["twitter"], "github": user["github"], "website": user["website"]}
 
 
 # userの作成
@@ -26,12 +30,16 @@ async def db_signup(data: dict) -> dict:
     username = data.get("username")
     email = data.get("email")
     password = data.get("password")
+    self_introduction = data.get("self_introduction")
+    twitter = data.get("twitter")
+    github = data.get("github")
+    website = data.get("website")
     overlap_user = await collection_user.find_one({"username": username})
     if overlap_user:
         raise HTTPException(status_code=400, detail="Username is already taken")
     if not password or len(password) < 6:
         raise HTTPException(status_code=400, detail="Password too short")
-    user = await collection_user.insert_one({"username": username, "email": email, "password": auth.generate_hashed_pw(password)})
+    user = await collection_user.insert_one({"username": username, "email": email, "password": auth.generate_hashed_pw(password), "self_introduction": self_introduction, "twitter": twitter, "github": github, "website": website})
     new_user = await collection_user.find_one({"_id": user.inserted_id})
     return user_serializer(new_user)
 
@@ -47,6 +55,29 @@ async def db_login(data: dict) -> str:
         raise HTTPException(status_code=401, detail="Invalid username, email or password")
     token = auth.encode_jwt(user["username"])
     return token
+
+
+# userInfoの取得
+async def db_get_userInfo(username: str) -> Union[dict, bool]:
+    user = await collection_user.find_one({"username": username})
+    if user:
+        return user
+    return False
+
+
+# userInfoの更新
+async def db_userInfo_update(username: str, update_data: dict) -> Union[dict, bool]:
+    user = await collection_user.find_one({"username": username})
+    if not user:
+        raise HTTPException(status_code=401, detail="Invalid username")
+    updated_user = await collection_user.update_one({"username": username}, {"$set": {"username": update_data["username"], "self_introduction": update_data["self_introduction"], "twitter": update_data["twitter"], "github": update_data["github"], "website": update_data["website"]}})
+    if updated_user.modified_count > 0:
+        new_user = await collection_user.find_one({"username": update_data["username"]})
+        return update_user_serializer(new_user)
+    return False
+
+
+# userの削除
 
 
 # Mongodbの_idをstring型にした上で、dataを辞書型(dict)に変換する
@@ -112,6 +143,14 @@ async def db_delete_question(id: str) -> bool:
 # Mongodbの_idをstring型にした上で、dataを辞書型(dict)に変換する
 def answer_serializer(answer) -> dict:
     return {"id": str(answer["_id"]), "body": answer["body"], "question_id": answer["question_id"], "respondent_username": answer["respondent_username"]}
+
+
+# userごとのanswerの全件取得(100件まで)
+async def db_get_user_answers(username: str) -> list:
+    answers = []
+    for answer in await collection_answer.find({"respondent_username": username}).to_list(length=100):
+        answers.append(answer_serializer(answer))
+    return answers
 
 
 # answerの取得(該当の質問に紐づいた回答のみを返す)

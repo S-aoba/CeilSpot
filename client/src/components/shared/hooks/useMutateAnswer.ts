@@ -80,7 +80,7 @@ export const useMutateAnswer = (question_id: string) => {
           },
         })
         dispatch(changeMenubarTab('MyQuestions'))
-        dispatch(toggleEditMode())
+        // dispatch(toggleEditMode())
       },
       onError: (err: any) => {
         alert(`${err.response.data.detail}\n${err.message}`)
@@ -105,8 +105,9 @@ export const useMutateAnswer = (question_id: string) => {
         dispatch(resetEditedAnswer())
         alert('削除しました')
         queryClient.invalidateQueries(['singleQuestion'])
+        queryClient.invalidateQueries(['singleAnswer'])
         dispatch(changeMenubarTab('EveryoneQuestions'))
-        navigate('/question')
+        navigate('/')
       },
       onError: (err: any) => {
         alert(`${err.response.data.detail}\n${err.message}`)
