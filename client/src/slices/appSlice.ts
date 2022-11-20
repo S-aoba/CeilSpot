@@ -1,8 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { RootState } from '../app/store'
-import { AnswerType, MenubarTabType, QuestionType } from '../components/shared/types/types'
+import { AnswerType, MenubarTabType, QuestionType, UserInfo } from '../components/shared/types/types'
 
 export interface AppState {
+  editedUserInfo: UserInfo
   editedQuestion: QuestionType
   editedAnswer: AnswerType
   csrfTokenExp: boolean
@@ -11,6 +12,13 @@ export interface AppState {
 }
 
 const initialState: AppState = {
+  editedUserInfo: {
+    username: '',
+    self_introduction: '',
+    twitter: '',
+    github: '',
+    website: '',
+  },
   editedQuestion: {
     id: '',
     title: '',
@@ -34,11 +42,17 @@ export const appSlice = createSlice({
   name: 'app',
   initialState,
   reducers: {
+    setEditedUserInfo: (state, action: PayloadAction<UserInfo>) => {
+      state.editedUserInfo = action.payload
+    },
     setEditedQuestion: (state, action: PayloadAction<QuestionType>) => {
       state.editedQuestion = action.payload
     },
     resetEditedQuestion: (state) => {
       state.editedQuestion = initialState.editedQuestion
+    },
+    resetEditedUserInfo: (state) => {
+      state.editedUserInfo = initialState.editedUserInfo
     },
     setEditedAnswer: (state, action: PayloadAction<AnswerType>) => {
       state.editedAnswer = action.payload
@@ -59,8 +73,10 @@ export const appSlice = createSlice({
 })
 
 export const {
+  setEditedUserInfo,
   setEditedQuestion,
   resetEditedQuestion,
+  resetEditedUserInfo,
   setEditedAnswer,
   resetEditedAnswer,
   toggleCsrfState,
@@ -68,6 +84,7 @@ export const {
   changeMenubarTab,
 } = appSlice.actions
 
+export const selectUserInfo = (state: RootState): UserInfo => state.app.editedUserInfo
 export const selectQuestion = (state: RootState): QuestionType => state.app.editedQuestion
 export const selectAnswer = (state: RootState): AnswerType => state.app.editedAnswer
 export const selectCsrfState = (state: RootState): boolean => state.app.csrfTokenExp

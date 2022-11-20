@@ -7,14 +7,23 @@ import { ModalBtn as LogoutBtn } from '../../shared/elements/ModalBtn'
 import { useProcessAuth } from '../../shared/hooks/useProcessAuth'
 import { useHeaderLight } from './useHeaderLight'
 import { IconMenu } from './IconMenu'
+import { useQueryUserInfo } from '../../shared/hooks/UseQuery/useQueryUserInfo'
 type Props = {
   displayWidth: number
 }
 
 export const HeaderLight: React.FC<Props> = ({ displayWidth }) => {
-  const { data: dataUser, error } = useQueryUser()
+  const { data: dataUser, error, isLoading: isUserDataLoading } = useQueryUser()
   const { logout } = useProcessAuth()
   const { onChangeSearchValue, searchValue } = useHeaderLight()
+  const { data: dataUserInfo, isLoading: iseUserInfoLoading } = useQueryUserInfo(dataUser?.username!)
+  if (isUserDataLoading || iseUserInfoLoading) {
+    return (
+      <div>
+        <p>isLoading..</p>
+      </div>
+    )
+  }
 
   return (
     <div className='col-span-9 flex items-center justify-around gap-3 lg:col-span-10 lg:justify-start'>
@@ -31,7 +40,13 @@ export const HeaderLight: React.FC<Props> = ({ displayWidth }) => {
         </>
       ) : (
         <>
-          <IconMenu username={dataUser?.username!} />
+          <IconMenu
+            username={dataUserInfo?.username!}
+            self_introduction={dataUserInfo?.self_introduction!}
+            twitter={dataUserInfo?.twitter!}
+            github={dataUserInfo?.github!}
+            website={dataUserInfo?.website!}
+          />
           {displayWidth >= 576 && (
             <>
               <QuestionPostBtn

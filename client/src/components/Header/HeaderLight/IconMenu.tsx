@@ -1,14 +1,11 @@
 import { BsPatchQuestion, BsQuestionSquare } from 'react-icons/bs'
 import { CgProfile } from 'react-icons/cg'
-
 import { Link } from 'react-router-dom'
 import DefaultUserIcon from '../../../assets/defaultUserIcon.png'
+import { useQueryUserInfo } from '../../shared/hooks/UseQuery/useQueryUserInfo'
+import { UserInfo } from '../../shared/types/types'
 
-type Props = {
-  username: string
-}
-
-export const IconMenu: React.FC<Props> = ({ username }) => {
+export const IconMenu: React.FC<UserInfo> = ({ username, self_introduction, twitter, github, website }) => {
   return (
     <div className=' dropdown-hover dropdown-bottom dropdown-end dropdown'>
       <img tabIndex={0} src={DefaultUserIcon} alt='userIcon' className=' h-12 w-12 rounded-full hover:cursor-pointer' />
@@ -41,8 +38,8 @@ export const IconMenu: React.FC<Props> = ({ username }) => {
           <Link
             to={`/dashboard/${username}/profile`}
             relative='path'
-            state={username}
-            className=' hover:bg-sky-400 hover:text-white'>
+            className=' hover:bg-sky-400 hover:text-white'
+            state={{ username, self_introduction, twitter, github, website }}>
             <span>
               <CgProfile />
             </span>
