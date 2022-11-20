@@ -57,6 +57,14 @@ async def db_login(data: dict) -> str:
     return token
 
 
+# userInfoの取得
+async def db_get_userInfo(username: str) -> Union[dict, bool]:
+    user = await collection_user.find_one({"username": username})
+    if user:
+        return user
+    return False
+
+
 # userInfoの更新
 async def db_userInfo_update(username: str, update_data: dict) -> Union[dict, bool]:
     user = await collection_user.find_one({"username": username})
