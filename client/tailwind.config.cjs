@@ -5,6 +5,7 @@ module.exports = {
     extend: {},
     screens: {
       // レスポンシブのオーバーライド
+      md:'600px',
       lg: '965px',
       xl: '1280px',
     },
