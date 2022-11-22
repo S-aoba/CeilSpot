@@ -68,7 +68,7 @@ export const useMutateAnswer = (question_id: string) => {
     {
       onSuccess: (res, variables) => {
         dispatch(resetEditedAnswer())
-        alert('編集が完了しました')
+        toastInfo('更新しました')
         queryClient.invalidateQueries(['singleAnswer'])
         navigate(`/question/users/${dataUser?.username}/${dataQuestion?.id}`, {
           state: {
@@ -103,7 +103,7 @@ export const useMutateAnswer = (question_id: string) => {
     {
       onSuccess: () => {
         dispatch(resetEditedAnswer())
-        alert('削除しました')
+        toastInfo('削除が完了しました')
         queryClient.invalidateQueries(['singleQuestion'])
         queryClient.invalidateQueries(['singleAnswer'])
         dispatch(changeMenubarTab('EveryoneQuestions'))

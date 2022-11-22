@@ -1,12 +1,12 @@
 import { Title } from '../../shared/elements/Title'
 import { useLocation } from 'react-router-dom'
 import { DetailCard } from './DetailCard'
-import { AnswerForm } from '../AnswerReply/AnswerForm'
 import { useQuerySingleQuestion } from '../../shared/hooks/UseQuery/useQuerySingleQuestion'
 import { AnswerItem } from '../AnswerItem/AnswerItem'
 import { Base } from '../../shared/layout/Base'
 import { DetailProfileCard } from './DetailProfileCard'
 import { DetailTitle } from './DetailTitle'
+import { AnswerForm } from '../AnswerReply/AnswerForm'
 
 type State = {
   id: string
