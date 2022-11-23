@@ -7,7 +7,15 @@ type LinkPathProps = {
   path: string
 } & QuestionType
 
-export const QuestionCard: React.FC<LinkPathProps & QuestionType> = ({ path, id, title, post_username, tags }) => {
+export const QuestionCard: React.FC<LinkPathProps & QuestionType> = ({
+  path,
+  id,
+  title,
+  body,
+  post_username,
+  answer_list,
+  tags,
+}) => {
   const { selectQuestionIcon } = useSelectQuestionIcon()
   return (
     <div className=' col-span-1 grid h-fit grid-cols-12 rounded-xl py-3 md:w-10/12 lg:w-full'>
@@ -16,7 +24,11 @@ export const QuestionCard: React.FC<LinkPathProps & QuestionType> = ({ path, id,
       </div>
       <div className=' col-span-9 grid grid-rows-6 px-3'>
         <div className=' row-span-4 flex items-center'>
-          <Link to={path} relative='path' className=' hover:text-sky-400' state={{ id }}>
+          <Link
+            to={path}
+            relative='path'
+            className=' hover:text-sky-400'
+            state={{ id, title, body, post_username, answer_list, tags }}>
             <p className=' text-lg font-semibold line-clamp-2 lg:line-clamp-3'>{title}</p>
           </Link>
         </div>

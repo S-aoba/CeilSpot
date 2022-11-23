@@ -2,19 +2,15 @@ import React from 'react'
 import MDEditor from '@uiw/react-md-editor'
 import { FiEdit } from 'react-icons/fi'
 import { MdDeleteOutline } from 'react-icons/md'
-import { useQuerySingleQuestion } from '../../../Functional/UseQuery/useQuerySingleQuestion'
+
 import { LinkBtn as UpdateBtn } from '../../shared/elements/LinkBtn'
 import { useAppDispatch } from '../../../app/hooks'
 import { setEditedQuestion, toggleEditMode } from '../../../slices/appSlice'
 import { useMutateQuestion } from '../../../Functional/hooks/useMutateQuestion'
 import { ModalBtn as DeleteBtn } from '../../shared/elements/ModalBtn'
+import { QuestionType } from '../../../types/types'
 
-type Props = {
-  question_id: string
-}
-
-export const DetailCard: React.FC<Props> = ({ question_id }) => {
-  const { data: dataQuestion } = useQuerySingleQuestion(question_id)
+export const DetailCard: React.FC<QuestionType> = ({ id, title, body, post_username, answer_list, tags }) => {
   const dispatch = useAppDispatch()
   const { deleteQuestionMutation } = useMutateQuestion()
 
@@ -23,7 +19,7 @@ export const DetailCard: React.FC<Props> = ({ question_id }) => {
       <div className=' flex w-6/12 flex-col items-center justify-center rounded-xl bg-white py-5 md:w-11/12 xl:w-full'>
         <div className=' flex w-11/12 flex-wrap items-center justify-start gap-4 py-5'>
           <p className=' font-bold'>タグ : </p>
-          {dataQuestion?.tags.map((tag) => (
+          {tags.map((tag) => (
             <div className=' rounded-3xl border border-sky-400 py-1 px-3 text-sky-400' key={tag}>
               <p>{tag}</p>
             </div>
@@ -32,11 +28,7 @@ export const DetailCard: React.FC<Props> = ({ question_id }) => {
         <div className=' w-11/12'>
           <hr className='mb-6 border-gray-300' />
           <div>
-            <MDEditor.Markdown
-              source={dataQuestion?.body}
-              style={{ whiteSpace: 'pre-wrap' }}
-              className=' tracking-wide'
-            />
+            <MDEditor.Markdown source={body} style={{ whiteSpace: 'pre-wrap' }} className=' tracking-wide' />
           </div>
           <hr className=' my-6 border-gray-300' />
         </div>
@@ -48,12 +40,12 @@ export const DetailCard: React.FC<Props> = ({ question_id }) => {
             onClick={() => {
               dispatch(
                 setEditedQuestion({
-                  id: dataQuestion?.id!,
-                  title: dataQuestion?.title!,
-                  body: dataQuestion?.body!,
-                  post_username: dataQuestion?.post_username!,
-                  answer_list: dataQuestion?.answer_list!,
-                  tags: dataQuestion?.tags!,
+                  id,
+                  title,
+                  body,
+                  post_username,
+                  answer_list,
+                  tags,
                 })
               )
               dispatch(toggleEditMode(true))
@@ -64,7 +56,7 @@ export const DetailCard: React.FC<Props> = ({ question_id }) => {
             children={<MdDeleteOutline className=' h-10 w-10 text-sky-400 hover:cursor-pointer hover:opacity-75' />}
             modalName='delete'
             onClick={() => {
-              deleteQuestionMutation.mutate(question_id)
+              deleteQuestionMutation.mutate(id)
             }}
           />
         </div>

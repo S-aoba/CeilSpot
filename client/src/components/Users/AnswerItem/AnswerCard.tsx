@@ -1,12 +1,16 @@
 import MDEditor from '@uiw/react-md-editor'
 import { useQuerySingleAnswer } from '../../../Functional/UseQuery/useQuerySingleAnswer'
 import defaultIcon from '../../../assets/defaultUserIcon.png'
+import { Loading } from '../../Loading/Loading'
+import { Error } from '../../Error/Error'
 
 type Props = {
   answer_id: string
 }
 export const AnswerCard: React.FC<Props> = ({ answer_id }) => {
-  const { data: dataAnswer } = useQuerySingleAnswer(answer_id)
+  const { data: dataAnswer, isLoading: isSingleAnswerLoading, error } = useQuerySingleAnswer(answer_id)
+  if (isSingleAnswerLoading) return <Loading />
+  if (error) return <Error />
 
   return (
     <div className=' w-9/12 rounded-3xl'>
