@@ -7,6 +7,7 @@ import { store } from './app/store'
 import './index.css'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import { ReactQueryDevtools } from 'react-query/devtools'
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -22,5 +23,6 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
       <App />
       <ToastContainer />
     </Provider>
+    <ReactQueryDevtools initialIsOpen={false} />
   </QueryClientProvider>
 )
