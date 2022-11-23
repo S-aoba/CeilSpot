@@ -39,37 +39,38 @@ export const QuestionForm = () => {
   }, [editMode])
 
   return (
-    <form onSubmit={processQuestion} className='flex w-full justify-center'>
-      <div className=' flex w-8/12 flex-col items-center justify-center gap-5 rounded-xl bg-white py-10'>
-        <div className=' grid w-11/12 grid-cols-12 gap-3'>
-          <TitleInput
-            type='text'
-            autoFocus
-            className=' col-span-6 border border-gray-300 px-3 outline-sky-400'
-            value={editedQuestion.title}
-            onChange={setTitleHandler}
-            placeholder='質問のタイトル'
-          />
-          <Select
-            name='Tags'
-            isOptionDisabled={() => multiValue?.length! >= 5}
-            // value={multiValue}
-            onChange={(val) => {
-              setMultiValue(val)
-              dispatch(toggleEditMode(true))
-            }}
-            closeMenuOnSelect={false}
-            options={tagOptions}
-            styles={tagColorStyles}
-            className='col-span-6'
-            isMulti
-            isSearchable
-            isClearable
-            placeholder='タグを5つまで選択できます'
-            noOptionsMessage={() => '一致するタグがありません'}
-            defaultValue={editedQuestion.id === '' ? multiValue : displayTagsWhenUpdate(editedQuestion.tags)}
-          />
-        </div>
+    <form onSubmit={processQuestion} className='flex w-full flex-col items-center justify-center gap-5'>
+      <div className=' flex w-full'>
+        <TitleInput
+          type=' text'
+          autoFocus
+          className=' w-full border-gray-300 bg-slate-200 px-3 py-5 outline-none text-4xl'
+          value={editedQuestion.title}
+          onChange={setTitleHandler}
+          placeholder='質問のタイトル'
+          maxLength={77}
+          height='55px'
+        />
+      </div>
+      <div className=' flex w-8/12 flex-col items-center justify-center gap-5 rounded-xl bg-white py-3'>
+        <Select
+          name='Tags'
+          className=' w-11/12'
+          isOptionDisabled={() => multiValue?.length! >= 5}
+          onChange={(val) => {
+            setMultiValue(val)
+            dispatch(toggleEditMode(true))
+          }}
+          closeMenuOnSelect={false}
+          options={tagOptions}
+          styles={tagColorStyles}
+          isMulti
+          isSearchable
+          isClearable
+          placeholder='タグを5つまで選択できます'
+          noOptionsMessage={() => '一致するタグがありません'}
+          defaultValue={editedQuestion.id === '' ? multiValue : displayTagsWhenUpdate(editedQuestion.tags)}
+        />
         <MDEditor
           className=' w-11/12'
           value={editedQuestion.body}
