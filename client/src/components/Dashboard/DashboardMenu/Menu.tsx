@@ -7,14 +7,16 @@ type Props = {
 }
 
 export const Menu: React.FC<Props> = ({ username }) => {
+  const listStyle =
+    'hover:underline-sky-400 flex h-full w-36 items-center gap-2 px-3 py-2 text-gray-400 hover:cursor-pointer hover:text-sky-400 hover:underline hover:underline-offset-8'
   return (
-    <nav className='flex h-10 w-11/12 justify-center rounded-3xl bg-sky-100 shadow-lg'>
+    <nav className='flex h-10 w-11/12 justify-center rounded-3xl bg-white'>
       <ul className=' flex h-full w-full list-none items-center justify-center'>
         <li className=' flex h-full items-center'>
           <QuestionTab
             username={username}
             path={`/dashboard/${username}/question`}
-            className=' hover:underline-sky-400 flex h-full w-36 items-center gap-2 px-3 py-2 text-gray-400 hover:cursor-pointer hover:text-sky-400 hover:underline hover:underline-offset-8'
+            className={listStyle}
             icon={<BsQuestionSquare />}
             tabWord='Question'
           />
@@ -23,7 +25,7 @@ export const Menu: React.FC<Props> = ({ username }) => {
           <AnswerTab
             username={username}
             path={`/dashboard/${username}/answer`}
-            className=' hover:underline-sky-400 flex h-full w-36 items-center gap-2 px-3 py-2 text-gray-400 hover:cursor-pointer hover:text-sky-400 hover:underline hover:underline-offset-8'
+            className={listStyle}
             icon={<BsPatchExclamation />}
             tabWord='Answer'
           />
@@ -32,7 +34,7 @@ export const Menu: React.FC<Props> = ({ username }) => {
           <ProfileTab
             username={username}
             path={`/dashboard/${username}/profile`}
-            className=' hover:underline-sky-400 flex h-full w-36 items-center gap-2 px-3 py-2 text-gray-400 hover:cursor-pointer hover:text-sky-400 hover:underline hover:underline-offset-8'
+            className={listStyle}
             icon={<CgProfile />}
             tabWord='Profile'
           />

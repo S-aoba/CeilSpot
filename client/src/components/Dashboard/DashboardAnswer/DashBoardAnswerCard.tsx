@@ -16,21 +16,20 @@ export const DashBoardAnswerCard: React.FC<LinkPathProps & AnswerType> = ({
 }) => {
   const { deleteAnswerMutation } = useMutateAnswer(question_id)
   return (
-    <div className=' col-span-1 grid h-40 w-full grid-rows-6 rounded-xl bg-white'>
-      <div className=' row-span-4 px-3 py-3'>
-        <p className=' text-lg font-semibold line-clamp-2 lg:line-clamp-3'>{body}</p>
-      </div>
-      <div className='row-span-2 flex w-full items-center justify-end gap-3'>
-        <div className=' w-40'>
-          <p className=' truncate text-sm'>{respondent_username}</p>
+    <div className=' col-span-1 flex w-full rounded-xl bg-white px-5 py-5'>
+      <div className=' flex w-full justify-between'>
+        <div className=' w-9/12 line-clamp-1'>
+          <p>{body}</p>
         </div>
-        <p className=' text-sm text-gray-400'>29日前</p>
-        <DeleteBtn
-          modalTitle='削除してもよろしいですか？'
-          children={<MdDeleteOutline className=' h-10 w-10 text-sky-400 hover:cursor-pointer hover:opacity-75' />}
-          modalName='delete'
-          onClick={() => deleteAnswerMutation.mutate(id)}
-        />
+        <div className=' flex gap-3'>
+          <span>30日前</span>
+          <DeleteBtn
+            modalTitle='削除してもよろしいですか？'
+            children={<MdDeleteOutline className=' h-7 w-7 text-sky-400 hover:cursor-pointer hover:opacity-75' />}
+            modalName='delete'
+            onClick={() => deleteAnswerMutation.mutate(id)}
+          />
+        </div>
       </div>
     </div>
   )
