@@ -1,5 +1,4 @@
 import { QuestionCard } from './QuestionCard'
-import { Title } from '../../shared/elements/Title'
 import { useQueryQuestions } from '../../shared/hooks/UseQuery/useQueryQuestions'
 import { Base } from '../../shared/layout/Base'
 
