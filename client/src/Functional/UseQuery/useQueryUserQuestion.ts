@@ -26,7 +26,7 @@ export const useQueryUserQuestion = (username: string) => {
         err.response.data.detail === 'The CSRF token has expired.'
       ) {
         dispatch(toggleCsrfState())
-        navigate('/question')
+        navigate('/')
       }
     },
   })

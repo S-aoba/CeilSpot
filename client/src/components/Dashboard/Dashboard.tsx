@@ -10,7 +10,7 @@ export const Dashboard = () => {
       id='dashboard'
       className=' flex h-fit min-h-screen flex-col items-center justify-start gap-5 pt-5 lg:container lg:mx-auto'>
       <Menu username={username} />
-      <Outlet />
+      <Outlet context={username} />
     </div>
   )
 }

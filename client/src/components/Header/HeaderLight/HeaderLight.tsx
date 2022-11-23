@@ -7,23 +7,15 @@ import { ModalBtn as LogoutBtn } from '../../shared/elements/ModalBtn'
 import { useProcessAuth } from '../../../Functional/hooks/useProcessAuth'
 import { useHeaderLight } from './useHeaderLight'
 import { IconMenu } from './IconMenu'
-import { useQueryUserInfo } from '../../../Functional/UseQuery/useQueryUserInfo'
-type Props = {
-  displayWidth: number
-}
+import { Loading } from '../../Loading/Loading'
+import { Error } from '../../Error/Error'
 
-export const HeaderLight: React.FC<Props> = ({ displayWidth }) => {
-  const { data: dataUser, error, isLoading: isUserDataLoading } = useQueryUser()
+export const HeaderLight: React.FC = () => {
+  const { data: dataUserName, isLoading: isDataUserNameLoading, error } = useQueryUser()
   const { logout } = useProcessAuth()
   const { onChangeSearchValue, searchValue } = useHeaderLight()
-  const { data: dataUserInfo, isLoading: iseUserInfoLoading } = useQueryUserInfo(dataUser?.username!)
-  if (isUserDataLoading || iseUserInfoLoading) {
-    return (
-      <div>
-        <p>isLoading..</p>
-      </div>
-    )
-  }
+  if (error) return <Error />
+  if (isDataUserNameLoading) return <Loading />
 
   return (
     <div className='col-span-9 flex items-center justify-around gap-3 lg:col-span-10 lg:justify-start'>
@@ -40,30 +32,20 @@ export const HeaderLight: React.FC<Props> = ({ displayWidth }) => {
         </>
       ) : (
         <>
-          <IconMenu
-            username={dataUserInfo?.username!}
-            self_introduction={dataUserInfo?.self_introduction!}
-            twitter={dataUserInfo?.twitter!}
-            github={dataUserInfo?.github!}
-            website={dataUserInfo?.website!}
+          {dataUserName && <IconMenu username={dataUserName.username} />}
+          <QuestionPostBtn
+            path='/question/ask'
+            relative='path'
+            children={'質問する'}
+            className=' btn-info btn w-16 text-white hover:opacity-75 lg:w-24'
           />
-          {displayWidth >= 576 && (
-            <>
-              <QuestionPostBtn
-                path='/question/ask'
-                relative='path'
-                children={'質問する'}
-                className=' btn-info btn w-16 text-white hover:opacity-75 lg:w-24'
-              />
-              <LogoutBtn
-                className=' btn-warning btn text-white hover:opacity-75'
-                modalTitle='ログアウトしてもよろしいですか？'
-                children={'ログアウト'}
-                modalName='logout'
-                onClick={logout}
-              />
-            </>
-          )}
+          <LogoutBtn
+            className=' btn-warning btn text-white hover:opacity-75'
+            modalTitle='ログアウトしてもよろしいですか？'
+            children={'ログアウト'}
+            modalName='logout'
+            onClick={logout}
+          />
         </>
       )}
     </div>

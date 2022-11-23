@@ -20,13 +20,12 @@ export const useQueryUserAnswer = (username: string) => {
     enabled: !!username,
     staleTime: Infinity,
     onError: (err: any) => {
-      // alert(`${err.response.data.detail as string}\n${err.message as string}`)
       if (
         err.response.data.detail === 'The JWT has expired' ||
         err.response.data.detail === 'The CSRF token has expired.'
       ) {
         dispatch(toggleCsrfState())
-        navigate('/question')
+        navigate('/')
       }
     },
   })
