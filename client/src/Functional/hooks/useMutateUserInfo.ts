@@ -3,10 +3,10 @@ import { useMutation, useQueryClient } from 'react-query'
 import { useNavigate } from 'react-router-dom'
 import { useAppDispatch } from '../../app/hooks'
 import { resetEditedQuestion, resetEditedUserInfo, toggleCsrfState } from '../../slices/appSlice'
-import { QuestionType, UserInfo } from '../../types/types'
+import { UserInfo } from '../../types/types'
 import { useToastify } from './useToastify'
 
-export const useMutateUser = () => {
+export const useMutateUserInfo = () => {
   const navigate = useNavigate()
   const dispatch = useAppDispatch()
   const queryClient = useQueryClient()
@@ -29,10 +29,8 @@ export const useMutateUser = () => {
     {
       onSuccess: (res, variables) => {
         dispatch(resetEditedUserInfo())
-        toastInfo('更新しました')
-        queryClient.invalidateQueries(['user'])
-        // queryClient.invalidateQueries(['userQuestions'])
-        navigate('/')
+        queryClient.invalidateQueries(['userInfo'])
+        toastInfo('プロフィールが変更されました。')
       },
       onError: (err: any) => {
         alert(`${err.response.data.detail}\n${err.message}`)

@@ -14,7 +14,6 @@ export const HeaderLight: React.FC = () => {
   const { data: dataUserName, isLoading: isDataUserNameLoading, error } = useQueryUser()
   const { logout } = useProcessAuth()
   const { onChangeSearchValue, searchValue } = useHeaderLight()
-  if (error) return <Error />
   if (isDataUserNameLoading) return <Loading />
 
   return (

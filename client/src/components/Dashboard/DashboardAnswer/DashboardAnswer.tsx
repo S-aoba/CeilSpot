@@ -1,12 +1,13 @@
 import { useOutletContext } from 'react-router-dom'
 import { useQueryUserAnswer } from '../../../Functional/UseQuery/useQueryUserAnswer'
+import { UserInfo } from '../../../types/types'
 import { Error } from '../../Error/Error'
 import { Loading } from '../../Loading/Loading'
 import { Base } from '../../shared/layout/Base'
 import { DashBoardAnswerCard } from './DashBoardAnswerCard'
 
 export const DashboardAnswer = () => {
-  const username = useOutletContext<string>()
+  const { username } = useOutletContext<UserInfo>()
   const { data: dataUserAnswers, isLoading: isUserAnswerLoading, error } = useQueryUserAnswer(username)
   if (error) return <Error />
   if (isUserAnswerLoading) return <Loading />
