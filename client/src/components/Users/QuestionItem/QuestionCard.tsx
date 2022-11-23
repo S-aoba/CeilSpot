@@ -7,15 +7,7 @@ type LinkPathProps = {
   path: string
 } & QuestionType
 
-export const QuestionCard: React.FC<LinkPathProps & QuestionType> = ({
-  path,
-  id,
-  title,
-  body,
-  post_username,
-  answer_list,
-  tags,
-}) => {
+export const QuestionCard: React.FC<LinkPathProps & QuestionType> = ({ path, id, title, post_username, tags }) => {
   const { selectQuestionIcon } = useSelectQuestionIcon()
   return (
     <div className=' col-span-1 grid h-fit grid-cols-12 rounded-xl py-3 md:w-10/12 lg:w-full'>
