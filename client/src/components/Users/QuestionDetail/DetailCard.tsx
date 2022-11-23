@@ -2,11 +2,11 @@ import React from 'react'
 import MDEditor from '@uiw/react-md-editor'
 import { FiEdit } from 'react-icons/fi'
 import { MdDeleteOutline } from 'react-icons/md'
-import { useQuerySingleQuestion } from '../../shared/hooks/UseQuery/useQuerySingleQuestion'
+import { useQuerySingleQuestion } from '../../../Functional/UseQuery/useQuerySingleQuestion'
 import { LinkBtn as UpdateBtn } from '../../shared/elements/LinkBtn'
 import { useAppDispatch } from '../../../app/hooks'
 import { setEditedQuestion, toggleEditMode } from '../../../slices/appSlice'
-import { useMutateQuestion } from '../../shared/hooks/useMutateQuestion'
+import { useMutateQuestion } from '../../../Functional/hooks/useMutateQuestion'
 import { ModalBtn as DeleteBtn } from '../../shared/elements/ModalBtn'
 
 type Props = {

@@ -1,5 +1,5 @@
 import defaultUserIcon from '../../../assets/defaultUserIcon.png'
-import { useSelectQuestionIcon } from '../../shared/hooks/useSelectQuestionIcon'
+import { useSelectQuestionIcon } from '../../../Functional/hooks/useSelectQuestionIcon'
 
 type DetailProfileCardProps = {
   tag: string
@@ -10,7 +10,7 @@ export const DetailProfileCard: React.FC<DetailProfileCardProps> = ({ tag, usern
   const { selectQuestionIcon } = useSelectQuestionIcon()
 
   return (
-    <div className='xl:col-span-3 flex justify-center pl-5'>
+    <div className='flex justify-center pl-5 xl:col-span-3'>
       <div className='  flex h-96 w-80 flex-col gap-10 rounded-3xl bg-white px-5 pt-5 text-base'>
         <div className=' flex justify-center'>
           <img src={selectQuestionIcon(tag)} alt='languageIcon' className=' h-24 w-24 rounded-xl' />

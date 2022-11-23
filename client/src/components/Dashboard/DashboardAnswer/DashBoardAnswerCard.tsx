@@ -1,6 +1,6 @@
 import { MdDeleteOutline } from 'react-icons/md'
-import { useMutateAnswer } from '../../shared/hooks/useMutateAnswer'
-import { AnswerType } from '../../shared/types/types'
+import { useMutateAnswer } from '../../../Functional/hooks/useMutateAnswer'
+import { AnswerType } from '../../../types/types'
 import { ModalBtn as DeleteBtn } from '../../shared/elements/ModalBtn'
 
 type LinkPathProps = {

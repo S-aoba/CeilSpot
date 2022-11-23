@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { useAppDispatch } from '../../../app/hooks'
+import { useAppDispatch } from '../../app/hooks'
 import { useMutation, useQueryClient } from 'react-query'
 import { useNavigate } from 'react-router-dom'
 import {
@@ -8,10 +8,10 @@ import {
   resetEditedQuestion,
   toggleCsrfState,
   toggleEditMode,
-} from '../../../slices/appSlice'
-import { useQueryUser } from './UseQuery/useQueryUser'
-import { useQuerySingleQuestion } from './UseQuery/useQuerySingleQuestion'
-import { AnswerType } from '../types/types'
+} from '../../slices/appSlice'
+import { useQueryUser } from '../UseQuery/useQueryUser'
+import { useQuerySingleQuestion } from '../UseQuery/useQuerySingleQuestion'
+import { AnswerType } from '../../types/types'
 import { useToastify } from './useToastify'
 
 export const useMutateAnswer = (question_id: string) => {

@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { RootState } from '../app/store'
-import { AnswerType, MenubarTabType, QuestionType, UserInfo } from '../components/shared/types/types'
+import { AnswerType, MenubarTabType, QuestionType, UserInfo } from '../types/types'
 
 export interface AppState {
   editedUserInfo: UserInfo

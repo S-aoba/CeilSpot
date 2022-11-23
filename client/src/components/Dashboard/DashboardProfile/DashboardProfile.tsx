@@ -7,10 +7,10 @@ import { WebSite } from './WebSite'
 import { useAppDispatch, useAppSelector } from '../../../app/hooks'
 import { selectUserInfo } from '../../../slices/appSlice'
 import { useLocation } from 'react-router-dom'
-import { UserInfo } from '../../shared/types/types'
+import { UserInfo } from '../../../types/types'
 import { useEffect } from 'react'
 import { SetRegisteredUserInfo } from './Function/SetRegisteredUserInfo'
-import { useProcessUserInfo } from '../../shared/hooks/useProcessUserInfo'
+import { useProcessUserInfo } from '../../../Functional/hooks/useProcessUserInfo'
 
 export const DashboardProfile = () => {
   const location = useLocation()

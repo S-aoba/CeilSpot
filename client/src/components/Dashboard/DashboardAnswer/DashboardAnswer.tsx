@@ -1,5 +1,5 @@
 import { useLocation } from 'react-router-dom'
-import { useQueryUserAnswer } from '../../shared/hooks/UseQuery/useQueryUserAnswer'
+import { useQueryUserAnswer } from '../../../Functional/UseQuery/useQueryUserAnswer'
 import { Base } from '../../shared/layout/Base'
 import { DashBoardAnswerCard } from './DashBoardAnswerCard'
 

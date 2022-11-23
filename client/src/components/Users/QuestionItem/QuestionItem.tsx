@@ -1,5 +1,5 @@
 import { QuestionCard } from './QuestionCard'
-import { useQueryQuestions } from '../../shared/hooks/UseQuery/useQueryQuestions'
+import { useQueryQuestions } from '../../../Functional/UseQuery/useQueryQuestions'
 import { Base } from '../../shared/layout/Base'
 
 export const QuestionItem = () => {

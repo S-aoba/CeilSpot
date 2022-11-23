@@ -1,7 +1,7 @@
 import { ThunkDispatch, AnyAction } from '@reduxjs/toolkit'
 import { Dispatch } from 'react'
 import { AppState, setEditedUserInfo } from '../../../../slices/appSlice'
-import { UserInfo } from '../../../shared/types/types'
+import { UserInfo } from '../../../../types/types'
 
 export const SetRegisteredUserInfo = (
   username: string,

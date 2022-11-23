@@ -5,13 +5,13 @@ import Select from 'react-select'
 import { Input as TitleInput } from '../../shared/elements/Input'
 import { Button as SubmitBtn } from '../../shared/elements/Button'
 import { TagStyle } from './styles/TagStyle'
-import { useProcessQuestion } from '../../shared/hooks/useProcessQuestion'
-import { useQueryUser } from '../../shared/hooks/UseQuery/useQueryUser'
+import { useProcessQuestion } from '../../../Functional/hooks/useProcessQuestion'
+import { useQueryUser } from '../../../Functional/UseQuery/useQueryUser'
 import { useAppDispatch, useAppSelector } from '../../../app/hooks'
 import { useTag } from './hooks/useTag'
 import { useChangeTitle } from './hooks/useChangeTitle'
 import { useEffect } from 'react'
-import { usePageTransition } from '../../shared/hooks/usePageTransition'
+import { usePageTransition } from '../../../Functional/hooks/usePageTransition'
 export const QuestionForm = () => {
   const { tagOptions, tagColorStyles } = TagStyle()
   const { processQuestion } = useProcessQuestion()
@@ -44,7 +44,7 @@ export const QuestionForm = () => {
         <TitleInput
           type=' text'
           autoFocus
-          className=' w-full border-gray-300 bg-slate-200 px-3 py-5 outline-none text-4xl'
+          className=' w-full border-gray-300 bg-slate-200 px-3 py-5 text-4xl outline-none'
           value={editedQuestion.title}
           onChange={setTitleHandler}
           placeholder='質問のタイトル'

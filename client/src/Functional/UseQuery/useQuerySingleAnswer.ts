@@ -1,8 +1,8 @@
 import axios from 'axios'
 import { useQuery } from 'react-query'
 import { useNavigate } from 'react-router-dom'
-import { useAppDispatch } from '../../../../app/hooks'
-import { toggleCsrfState, resetEditedAnswer } from '../../../../slices/appSlice'
+import { useAppDispatch } from '../../app/hooks'
+import { toggleCsrfState, resetEditedAnswer } from '../../slices/appSlice'
 import { AnswerType } from '../../types/types'
 
 export const useQuerySingleAnswer = (answer_id: string) => {

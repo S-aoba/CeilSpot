@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
-import { useAppDispatch } from '../../../app/hooks'
-import { resetEditedQuestion, toggleEditMode } from '../../../slices/appSlice'
+import { useAppDispatch } from '../../app/hooks'
+import { resetEditedQuestion, toggleEditMode } from '../../slices/appSlice'
 
 export const usePageTransition = () => {
   const dispatch = useAppDispatch()

@@ -1,6 +1,6 @@
 import { useLocation } from 'react-router-dom'
 import { DetailCard } from './DetailCard'
-import { useQuerySingleQuestion } from '../../shared/hooks/UseQuery/useQuerySingleQuestion'
+import { useQuerySingleQuestion } from '../../../Functional/UseQuery/useQuerySingleQuestion'
 import { AnswerItem } from '../AnswerItem/AnswerItem'
 import { Base } from '../../shared/layout/Base'
 import { DetailProfileCard } from './DetailProfileCard'

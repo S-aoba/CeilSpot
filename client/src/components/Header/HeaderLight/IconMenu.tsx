@@ -2,8 +2,8 @@ import { BsPatchQuestion, BsQuestionSquare } from 'react-icons/bs'
 import { CgProfile } from 'react-icons/cg'
 import { Link } from 'react-router-dom'
 import DefaultUserIcon from '../../../assets/defaultUserIcon.png'
-import { useQueryUserInfo } from '../../shared/hooks/UseQuery/useQueryUserInfo'
-import { UserInfo } from '../../shared/types/types'
+import { useQueryUserInfo } from '../../../Functional/UseQuery/useQueryUserInfo'
+import { UserInfo } from '../../../types/types'
 
 export const IconMenu: React.FC<UserInfo> = ({ username, self_introduction, twitter, github, website }) => {
   return (

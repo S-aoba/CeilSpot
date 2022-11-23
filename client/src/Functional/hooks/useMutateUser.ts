@@ -1,9 +1,9 @@
 import axios from 'axios'
 import { useMutation, useQueryClient } from 'react-query'
 import { useNavigate } from 'react-router-dom'
-import { useAppDispatch } from '../../../app/hooks'
-import { resetEditedQuestion, resetEditedUserInfo, toggleCsrfState } from '../../../slices/appSlice'
-import { QuestionType, UserInfo } from '../types/types'
+import { useAppDispatch } from '../../app/hooks'
+import { resetEditedQuestion, resetEditedUserInfo, toggleCsrfState } from '../../slices/appSlice'
+import { QuestionType, UserInfo } from '../../types/types'
 import { useToastify } from './useToastify'
 
 export const useMutateUser = () => {

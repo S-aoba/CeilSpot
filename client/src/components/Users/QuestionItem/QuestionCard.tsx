@@ -1,7 +1,7 @@
 import DefaultUserIcon from '../../../assets/defaultUserIcon.png'
 import { Link } from 'react-router-dom'
-import { QuestionType } from '../../shared/types/types'
-import { useSelectQuestionIcon } from '../../shared/hooks/useSelectQuestionIcon'
+import { QuestionType } from '../../../types/types'
+import { useSelectQuestionIcon } from '../../../Functional/hooks/useSelectQuestionIcon'
 
 type LinkPathProps = {
   path: string

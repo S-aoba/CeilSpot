@@ -1,13 +1,12 @@
 import { FormEvent } from 'react'
-import { useAppSelector } from '../../../app/hooks'
-import { selectAnswer } from '../../../slices/appSlice'
+import { useAppSelector } from '../../app/hooks'
+import { selectAnswer } from '../../slices/appSlice'
 import { useMutateAnswer } from './useMutateAnswer'
 
 export const useProcessAnswer = () => {
   const editedAnswer = useAppSelector(selectAnswer)
   const { createAnswerMutation, updateAnswerMutation } = useMutateAnswer(editedAnswer.question_id)
   const processAnswer = (e: FormEvent<HTMLFormElement>) => {
-
     e.preventDefault()
     if (editedAnswer.id === '') {
       createAnswerMutation.mutate({

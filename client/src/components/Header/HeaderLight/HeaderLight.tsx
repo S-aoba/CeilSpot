@@ -1,13 +1,13 @@
 import { Input as SearchBar } from '../../shared/elements/Input'
 import { Login } from './Login'
 import { SignUp } from './SignUp'
-import { useQueryUser } from '../../shared/hooks/UseQuery/useQueryUser'
+import { useQueryUser } from '../../../Functional/UseQuery/useQueryUser'
 import { LinkBtn as QuestionPostBtn } from '../../shared/elements/LinkBtn'
 import { ModalBtn as LogoutBtn } from '../../shared/elements/ModalBtn'
-import { useProcessAuth } from '../../shared/hooks/useProcessAuth'
+import { useProcessAuth } from '../../../Functional/hooks/useProcessAuth'
 import { useHeaderLight } from './useHeaderLight'
 import { IconMenu } from './IconMenu'
-import { useQueryUserInfo } from '../../shared/hooks/UseQuery/useQueryUserInfo'
+import { useQueryUserInfo } from '../../../Functional/UseQuery/useQueryUserInfo'
 type Props = {
   displayWidth: number
 }

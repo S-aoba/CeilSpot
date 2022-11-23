@@ -1,5 +1,5 @@
 import MDEditor from '@uiw/react-md-editor'
-import { useQuerySingleAnswer } from '../../shared/hooks/UseQuery/useQuerySingleAnswer'
+import { useQuerySingleAnswer } from '../../../Functional/UseQuery/useQuerySingleAnswer'
 import defaultIcon from '../../../assets/defaultUserIcon.png'
 
 type Props = {
@@ -10,7 +10,7 @@ export const AnswerCard: React.FC<Props> = ({ answer_id }) => {
 
   return (
     <div className=' w-9/12 rounded-3xl'>
-      <div className=' flex flex-col items-center justify-center rounded-2xl bg-white py-5 px-3 mb-5'>
+      <div className=' mb-5 flex flex-col items-center justify-center rounded-2xl bg-white py-5 px-3'>
         <div className='w-11/12'>
           <hr className=' my-6 border-gray-300' />
           <MDEditor.Markdown source={dataAnswer?.body} style={{ whiteSpace: 'pre-wrap' }} className=' tracking-wide' />
