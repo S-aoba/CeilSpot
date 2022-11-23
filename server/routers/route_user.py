@@ -10,14 +10,14 @@ router = APIRouter()
 auth = AuthJwtCsrf()
 
 
-@router.put("/api/user/{username}", response_model=SuccessMsg)
+@router.put("/api/user/{username}", response_model=UpdateUser)
 async def userInfo_update(request: Request, response: Response, username: str, data: UpdateUser, csrf_protect: CsrfProtect = Depends()):
     new_token = auth.verify_csrf_update_jwt(request, csrf_protect, request.headers)
     user = jsonable_encoder(data)
     res = await db_userInfo_update(username, user)
     response.set_cookie(key="access_token", value=f"Bearer {new_token}", httponly=True, samesite="none", secure=True)
     if res:
-        return {"message": "Successfully Updated"}
+        return res
     raise HTTPException(status_code=404, detail="Update user failed")
 
 
