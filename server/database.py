@@ -77,7 +77,7 @@ async def db_update_userInfo(id: str, update_data: dict) -> Union[dict, bool]:
     updated_user = await collection_user.update_one({"_id": ObjectId(id)}, {"$set": {"username": update_data["username"], "self_introduction": update_data["self_introduction"], "twitter": update_data["twitter"], "github": update_data["github"], "website": update_data["website"]}})
     if updated_user.modified_count > 0:
         new_user = await collection_user.find_one({"_id": ObjectId(id)})
-        return user_Info_serializer(new_user)
+        return user_info_serializer(new_user)
     return False
 
 

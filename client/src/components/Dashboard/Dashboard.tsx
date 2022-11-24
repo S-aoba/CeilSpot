@@ -18,21 +18,21 @@ export const Dashboard = () => {
   if (isDataUserNameLoading || isUserInfoLoading) return <Loading />
 
   return (
-    <div
-      id='dashboard'
-      className=' flex h-fit min-h-screen flex-col items-center justify-start gap-5 pt-5 lg:container lg:mx-auto'>
+    <div className=' min-h-screen bg-slate-200'>
       <Header />
-      <Menu username={dataUserName?.username!} />
-      <Outlet
-        context={{
-          id: dataUserInfo?.id,
-          username: dataUserName?.username,
-          self_introduction: dataUserInfo?.self_introduction,
-          twitter: dataUserInfo?.twitter,
-          github: dataUserInfo?.github,
-          website: dataUserInfo?.website,
-        }}
-      />
+      <div className=' flex h-fit min-h-screen flex-col items-center justify-start gap-5 pt-5 lg:container lg:mx-auto'>
+        <Menu username={dataUserName?.username!} />
+        <Outlet
+          context={{
+            id: dataUserInfo?.id,
+            username: dataUserName?.username,
+            self_introduction: dataUserInfo?.self_introduction,
+            twitter: dataUserInfo?.twitter,
+            github: dataUserInfo?.github,
+            website: dataUserInfo?.website,
+          }}
+        />
+      </div>
     </div>
   )
 }

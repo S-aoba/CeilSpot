@@ -15,7 +15,6 @@ import { DashboardProfile } from './components/Dashboard/DashboardProfile/Dashbo
 
 const router = createBrowserRouter([
   {
-    path: '/',
     element: <Question />,
     children: [
       {

@@ -20,7 +20,8 @@ export const DashboardProfile = () => {
 
   useEffect(() => {
     SetRegisteredUserInfo(id!, username, self_introduction!, twitter!, github!, website!, dispatch, editedUserInfo)
-  }, [username])
+  }, [self_introduction, twitter, github, website])
+  console.log(editedUserInfo)
 
   return (
     <>
