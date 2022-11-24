@@ -41,4 +41,4 @@ export type CsrfToken = {
   csrf_token: string
 }
 
-export type MenubarTabType = 'EveryoneQuestions' | 'MyQuestions' | 'MyProfile'
+export type MenubarTabType = 'question' | 'answer' | 'profile'

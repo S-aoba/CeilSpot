@@ -7,10 +7,11 @@ type Props = {
   className: string
   icon: ReactNode
   tabWord: 'Question' | 'Answer' | 'Profile'
+  onClick: () => void
 }
-export const MenuLinkTab: React.FC<Props> = ({ username, path, className, icon, tabWord }) => {
+export const MenuLinkTab: React.FC<Props> = ({ username, path, className, icon, tabWord, onClick }) => {
   return (
-    <Link to={path} relative='path' state={username} className={className}>
+    <Link to={path} relative='path' state={username} className={className} onClick={onClick}>
       <span>{icon}</span>
       {tabWord}
     </Link>

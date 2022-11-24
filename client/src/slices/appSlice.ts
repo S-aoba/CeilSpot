@@ -36,7 +36,7 @@ const initialState: AppState = {
   },
   csrfTokenExp: false,
   editMode: false,
-  selectedMenubarTab: 'EveryoneQuestions',
+  selectedMenubarTab: 'question',
 }
 
 export const appSlice = createSlice({
