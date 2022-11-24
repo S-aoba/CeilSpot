@@ -2,7 +2,7 @@ import axios from 'axios'
 import { useQueryClient, useMutation } from 'react-query'
 import { useNavigate } from 'react-router-dom'
 import { useAppDispatch } from '../../app/hooks'
-import { resetEditedQuestion, toggleCsrfState, changeMenubarTab } from '../../slices/appSlice'
+import { resetEditedQuestion, toggleCsrfState } from '../../slices/appSlice'
 import { QuestionType } from '../../types/types'
 import { useToastify } from './useToastify'
 
@@ -23,9 +23,10 @@ export const useMutateQuestion = () => {
           queryClient.setQueryData('questions', [...previousQuestions, res.data])
         }
         dispatch(resetEditedQuestion())
-        toastInfo('投稿が完了しました')
         queryClient.invalidateQueries(['singleQuestion'])
-        // queryClient.invalidateQueries(['userQuestions'])
+        queryClient.invalidateQueries(['questions'])
+        queryClient.invalidateQueries(['userQuestions'])
+        toastInfo('投稿が完了しました')
         navigate('/')
       },
       onError: (err: any) => {
@@ -67,18 +68,13 @@ export const useMutateQuestion = () => {
           )
         }
         dispatch(resetEditedQuestion())
-        toastInfo('更新しました')
         queryClient.invalidateQueries(['questions'])
-        // queryClient.invalidateQueries(['userQuestions'])
+        queryClient.invalidateQueries(['userQuestions'])
         queryClient.invalidateQueries(['singleQuestion'])
+        toastInfo('更新しました')
         navigate(`/question/${variables.post_username}/${variables.id}`, {
           state: {
             id: variables.id,
-            title: variables.title,
-            body: variables.body,
-            post_username: variables.post_username,
-            answer_list: variables.answer_list,
-            tags: variables.tags,
           },
         })
       },
@@ -110,10 +106,10 @@ export const useMutateQuestion = () => {
           )
         }
         dispatch(resetEditedQuestion())
-        // dispatch(changeMenubarTab('EveryoneQuestions'))
-        toastInfo('削除しました')
         queryClient.invalidateQueries(['questions'])
-        // queryClient.invalidateQueries(['userQuestions'])
+        queryClient.invalidateQueries(['userQuestions'])
+        queryClient.invalidateQueries(['singleQuestion'])
+        toastInfo('削除しました')
         navigate('/')
       },
       onError: (err: any) => {
