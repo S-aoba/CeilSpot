@@ -2,6 +2,7 @@ import { useOutletContext } from 'react-router-dom'
 import { useQueryUserQuestion } from '../../../Functional/UseQuery/useQueryUserQuestion'
 import { UserInfo } from '../../../types/types'
 import { Error } from '../../Error/Error'
+import { Loading } from '../../Loading/Loading'
 import { Base } from '../../shared/layout/Base'
 import { QuestionCard } from '../../Users/QuestionItem/QuestionCard'
 
@@ -9,7 +10,7 @@ export const DashboardQuestion = () => {
   const { username } = useOutletContext<UserInfo>()
   const { data: dataUserQuestions, isLoading: isUserQuestionsLoading, error } = useQueryUserQuestion(username)
   if (error) return <Error />
-  if (isUserQuestionsLoading) return
+  if (isUserQuestionsLoading) return <Loading />
 
   return (
     <Base id='userQuestions'>

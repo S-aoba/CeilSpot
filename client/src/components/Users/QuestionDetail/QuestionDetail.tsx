@@ -9,6 +9,7 @@ import { AnswerForm } from '../AnswerReply/AnswerForm'
 import { QuestionType } from '../../../types/types'
 import { useQuerySingleQuestion } from '../../../Functional/UseQuery/useQuerySingleQuestion'
 import { Error } from '../../Error/Error'
+import { Loading } from '../../Loading/Loading'
 
 export const QuestionDetail = () => {
   const location = useLocation()
@@ -19,8 +20,8 @@ export const QuestionDetail = () => {
     error: isErrorSingleQuestion,
   } = useQuerySingleQuestion(id)
 
-  if (isDataSingleQuestion) return
   if (isErrorSingleQuestion) return <Error />
+  if (isDataSingleQuestion) return <Loading />
 
   return (
     <Base id='questionDetail'>

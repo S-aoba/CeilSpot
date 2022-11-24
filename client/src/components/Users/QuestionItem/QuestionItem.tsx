@@ -3,11 +3,12 @@ import { useQueryQuestions } from '../../../Functional/UseQuery/useQueryQuestion
 import { Base } from '../../shared/layout/Base'
 import { Error } from '../../Error/Error'
 import { QuestionType } from '../../../types/types'
+import { Loading } from '../../Loading/Loading'
 
 export const QuestionItem = () => {
   const { data: dataQuestions, isLoading: isLoadingQuestions, error } = useQueryQuestions()
-  if (isLoadingQuestions) return
   if (error) return <Error />
+  if (isLoadingQuestions) return <Loading />
 
   return (
     <Base id='questionItemList'>
