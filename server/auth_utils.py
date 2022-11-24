@@ -49,7 +49,7 @@ class AuthJwtCsrf:
 
     # JWTの検証と更新
     def verify_update_jwt(self, request) -> tuple[str, str]:
-        # emailが返ってくる
+        # usernameが返ってくる
         subject = self.verify_jwt(request)
         new_token = self.encode_jwt(subject)
         return new_token, subject
@@ -57,7 +57,7 @@ class AuthJwtCsrf:
     # CSRFトークンの検証とJWTの更新
     def verify_csrf_update_jwt(self, request, csrf_protect, headers) -> str:
         csrf_token = csrf_protect.get_csrf_from_headers(headers)
-        # CSRFtトークンが有効かどうかの検証
+        # CSRFトークンが有効かどうかの検証
         csrf_protect.validate_csrf(csrf_token)
         # JWTの検証
         subject = self.verify_jwt(request)

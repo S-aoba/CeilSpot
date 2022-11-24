@@ -18,7 +18,8 @@ export const useQueryUserQuestion = (username: string) => {
     queryKey: ['userQuestions', username],
     queryFn: () => getUserQuestions(username),
     enabled: !!username,
-    staleTime: Infinity,
+    cacheTime: 10,
+    // staleTime: Infinity,
     onError: (err: any) => {
       // alert(`${err.response.data.detail as string}\n${err.message as string}`)
       if (

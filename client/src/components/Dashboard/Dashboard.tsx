@@ -1,24 +1,32 @@
-import { Outlet, useLocation } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
+import { useQueryUser } from '../../Functional/UseQuery/useQueryUser'
 import { useQueryUserInfo } from '../../Functional/UseQuery/useQueryUserInfo'
 import { Error } from '../Error/Error'
+import { Header } from '../Header/Header'
 import { Loading } from '../Loading/Loading'
 import { Menu } from './DashboardMenu/Menu'
 
 export const Dashboard = () => {
-  const location = useLocation()
-  const username = location.state as string
-  const { data: dataUserInfo, isLoading: isUserInfoLoading, error } = useQueryUserInfo(username)
+  const { data: dataUserName, isLoading: isDataUserNameLoading, error: dataUserNameError } = useQueryUser()
+  const {
+    data: dataUserInfo,
+    isLoading: isUserInfoLoading,
+    error: dataUserInfoError,
+  } = useQueryUserInfo(dataUserName?.username!)
 
-  if (error) return <Error />
-  if (isUserInfoLoading) return <Loading />
+  if (dataUserNameError || dataUserInfoError) return <Error />
+  if (isDataUserNameLoading || isUserInfoLoading) return <Loading />
+
   return (
     <div
       id='dashboard'
       className=' flex h-fit min-h-screen flex-col items-center justify-start gap-5 pt-5 lg:container lg:mx-auto'>
-      <Menu username={username} />
+      <Header />
+      <Menu username={dataUserName?.username!} />
       <Outlet
         context={{
-          username,
+          id: dataUserInfo?.id,
+          username: dataUserName?.username,
           self_introduction: dataUserInfo?.self_introduction,
           twitter: dataUserInfo?.twitter,
           github: dataUserInfo?.github,

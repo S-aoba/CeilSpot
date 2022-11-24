@@ -13,6 +13,7 @@ export interface AppState {
 
 const initialState: AppState = {
   editedUserInfo: {
+    id: '',
     username: '',
     self_introduction: '',
     twitter: '',

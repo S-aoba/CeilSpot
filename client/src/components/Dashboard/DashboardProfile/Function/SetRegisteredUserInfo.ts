@@ -4,6 +4,7 @@ import { AppState, setEditedUserInfo } from '../../../../slices/appSlice'
 import { UserInfo } from '../../../../types/types'
 
 export const SetRegisteredUserInfo = (
+  id: string,
   username: string,
   self_introduction: string,
   twitter: string,
@@ -22,6 +23,7 @@ export const SetRegisteredUserInfo = (
   dispatch(
     setEditedUserInfo({
       ...editedUserInfo,
+      id,
       username,
       self_introduction,
       twitter,

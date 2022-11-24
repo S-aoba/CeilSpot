@@ -18,7 +18,8 @@ export const useQuerySingleQuestion = (id: string) => {
     queryKey: ['singleQuestion', id],
     queryFn: () => getSingleQuestion(id),
     enabled: !!id,
-    staleTime: Infinity,
+    cacheTime: 10,
+    // staleTime: Infinity,
     onError: (err: any) => {
       alert(`${err.response.data.detail}\n${err.message}`)
       if (

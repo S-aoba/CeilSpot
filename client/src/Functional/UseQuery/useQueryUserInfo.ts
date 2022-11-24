@@ -18,7 +18,8 @@ export const useQueryUserInfo = (username: string) => {
     queryKey: ['userInfo', username],
     queryFn: () => getCurrentUserInfo(username),
     enabled: !!username,
-    staleTime: Infinity,
+    cacheTime: 10,
+    // staleTime: Infinity,
     onError: (err: any) => {
       if (
         err.response.data.detail === 'The JWT has expired' ||

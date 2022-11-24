@@ -18,7 +18,8 @@ export const useQuerySingleAnswer = (answer_id: string) => {
     queryKey: ['singleAnswer', answer_id],
     queryFn: () => fetchAnswerData(answer_id),
     enabled: !!answer_id,
-    staleTime: Infinity,
+    cacheTime: 10,
+    // staleTime: Infinity,
     onError: (err: any) => {
       alert(`${err.response.data.detail}\n${err.message}`)
       if (

@@ -14,7 +14,12 @@ export type AnswerType = {
   respondent_username: string
 }
 
+export type UsernameType = {
+  username: string
+}
+
 export type UserInfo = {
+  id?: string
   username: string
   self_introduction?: string
   twitter?: string

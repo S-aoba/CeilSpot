@@ -5,7 +5,7 @@ module.exports = {
     extend: {},
     screens: {
       // レスポンシブのオーバーライド
-      md:'600px',
+      md: '600px',
       lg: '965px',
       xl: '1280px',
     },
@@ -19,6 +19,7 @@ module.exports = {
           accent: '#37cdbe',
           neutral: '#3d4451',
           'base-100': '#ffffff',
+          warning: '#ef4444',
         },
       },
     ],

@@ -21,8 +21,12 @@ def user_serializer(user) -> dict:
     return {"id": str(user["_id"]), "username": user["username"], "email": user["email"], "self_introduction": user["self_introduction"], "twitter": user["twitter"], "github": user["github"], "website": user["website"]}
 
 
-def update_user_serializer(user) -> dict:
-    return {"username": user["username"], "self_introduction": user["self_introduction"], "twitter": user["twitter"], "github": user["github"], "website": user["website"]}
+def user_info_serializer(user) -> dict:
+    return {"id": str(user["_id"]), "username": user["username"], "self_introduction": user["self_introduction"], "twitter": user["twitter"], "github": user["github"], "website": user["website"]}
+
+
+def username_serializer(user) -> dict:
+    return {"username": user["username"]}
 
 
 # userの作成
@@ -61,19 +65,34 @@ async def db_login(data: dict) -> str:
 async def db_get_userInfo(username: str) -> Union[dict, bool]:
     user = await collection_user.find_one({"username": username})
     if user:
-        return user
+        return user_info_serializer(user)
     return False
 
 
 # userInfoの更新
-async def db_userInfo_update(username: str, update_data: dict) -> Union[dict, bool]:
-    user = await collection_user.find_one({"username": username})
+async def db_update_userInfo(id: str, update_data: dict) -> Union[dict, bool]:
+    user = await collection_user.find_one({"_id": ObjectId(id)})
     if not user:
         raise HTTPException(status_code=401, detail="Invalid username")
-    updated_user = await collection_user.update_one({"username": username}, {"$set": {"username": update_data["username"], "self_introduction": update_data["self_introduction"], "twitter": update_data["twitter"], "github": update_data["github"], "website": update_data["website"]}})
+    updated_user = await collection_user.update_one({"_id": ObjectId(id)}, {"$set": {"username": update_data["username"], "self_introduction": update_data["self_introduction"], "twitter": update_data["twitter"], "github": update_data["github"], "website": update_data["website"]}})
     if updated_user.modified_count > 0:
-        new_user = await collection_user.find_one({"username": update_data["username"]})
-        return update_user_serializer(new_user)
+        new_user = await collection_user.find_one({"_id": ObjectId(id)})
+        return user_Info_serializer(new_user)
+    return False
+
+
+# usernameの変更
+async def db_change_username(id: str, update_data: dict) -> Union[dict, bool]:
+    user = await collection_user.find_one({"_id": ObjectId(id)})
+    if not user:
+        raise HTTPException(status_code=401, detail="Invalid username")
+    updated_user = await collection_user.update_one({"_id": ObjectId(id)}, {"$set": {"username": update_data["username"]}})
+    updated_question_post_user = await collection_question.update_one({"post_username": user["username"]}, {"$set": {"post_username": update_data["username"]}})
+    updated_question_post_user = await collection_question.update_many({"post_username": user["username"]}, {"$set": {"post_username": update_data["username"]}})
+    updated_respondent_user = await collection_answer.update_many({"respondent_username": user["username"]}, {"$set": {"respondent_username": update_data["username"]}})
+    if updated_user.modified_count > 0:
+        new_user = await collection_user.find_one({"_id": ObjectId(id)})
+        return username_serializer(new_user)
     return False
 
 

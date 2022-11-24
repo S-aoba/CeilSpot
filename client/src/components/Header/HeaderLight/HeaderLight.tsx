@@ -7,14 +7,11 @@ import { ModalBtn as LogoutBtn } from '../../shared/elements/ModalBtn'
 import { useProcessAuth } from '../../../Functional/hooks/useProcessAuth'
 import { useHeaderLight } from './useHeaderLight'
 import { IconMenu } from './IconMenu'
-import { Loading } from '../../Loading/Loading'
-import { Error } from '../../Error/Error'
 
 export const HeaderLight: React.FC = () => {
-  const { data: dataUserName, isLoading: isDataUserNameLoading, error } = useQueryUser()
+  const { error } = useQueryUser()
   const { logout } = useProcessAuth()
   const { onChangeSearchValue, searchValue } = useHeaderLight()
-  if (isDataUserNameLoading) return <Loading />
 
   return (
     <div className='col-span-9 flex items-center justify-around gap-3 lg:col-span-10 lg:justify-start'>
@@ -31,7 +28,7 @@ export const HeaderLight: React.FC = () => {
         </>
       ) : (
         <>
-          {dataUserName && <IconMenu username={dataUserName.username} />}
+          <IconMenu />
           <QuestionPostBtn
             path='/question/ask'
             relative='path'

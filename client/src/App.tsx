@@ -30,23 +30,23 @@ const router = createBrowserRouter([
         path: '/question/ask',
         element: <QuestionAsk />,
       },
+    ],
+  },
+  {
+    path: '/dashboard/',
+    element: <Dashboard />,
+    children: [
       {
-        path: '/dashboard/',
-        element: <Dashboard />,
-        children: [
-          {
-            path: '/dashboard/:username/question',
-            element: <DashboardQuestion />,
-          },
-          {
-            path: '/dashboard/:username/answer',
-            element: <DashboardAnswer />,
-          },
-          {
-            path: '/dashboard/:username/profile',
-            element: <DashboardProfile />,
-          },
-        ],
+        path: '/dashboard/question',
+        element: <DashboardQuestion />,
+      },
+      {
+        path: '/dashboard/answer',
+        element: <DashboardAnswer />,
+      },
+      {
+        path: '/dashboard/profile',
+        element: <DashboardProfile />,
       },
     ],
   },

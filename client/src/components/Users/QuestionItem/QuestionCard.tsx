@@ -17,6 +17,7 @@ export const QuestionCard: React.FC<LinkPathProps & QuestionType> = ({
   tags,
 }) => {
   const { selectQuestionIcon } = useSelectQuestionIcon()
+
   return (
     <div className=' col-span-1 grid h-fit grid-cols-12 rounded-xl py-3 md:w-10/12 lg:w-full'>
       <div className=' col-span-3 flex w-full items-center justify-center rounded-xl bg-white'>

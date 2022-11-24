@@ -79,5 +79,15 @@ class UpdateUser(BaseModel):
     website: Optional[str] = None
 
 
+# ユーザーネームのデータ型
+class Username(BaseModel):
+    username: str
+
+
+# ユーザーネーム変更用のデータ型
+class ChangeUsername(BaseModel):
+    username: str
+
+
 class Csrf(BaseModel):
     csrf_token: str

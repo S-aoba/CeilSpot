@@ -2,19 +2,14 @@ import { BsPatchQuestion, BsQuestionSquare } from 'react-icons/bs'
 import { CgProfile } from 'react-icons/cg'
 import { Link } from 'react-router-dom'
 import DefaultUserIcon from '../../../assets/defaultUserIcon.png'
-import { UserInfo } from '../../../types/types'
 
-export const IconMenu: React.FC<UserInfo> = ({ username }) => {
+export const IconMenu: React.FC = () => {
   return (
     <div className=' dropdown-hover dropdown-bottom dropdown-end dropdown'>
       <img tabIndex={0} src={DefaultUserIcon} alt='userIcon' className=' h-12 w-12 rounded-full hover:cursor-pointer' />
       <ul tabIndex={0} className='dropdown-content menu rounded-box w-52 bg-base-100 p-2 shadow '>
         <li>
-          <Link
-            to={`/dashboard/${username}/question`}
-            relative='path'
-            state={username}
-            className=' hover:bg-sky-400 hover:text-white'>
+          <Link to={`/dashboard/question`} relative='path' className=' hover:bg-sky-400 hover:text-white'>
             <span>
               <BsPatchQuestion />
             </span>
@@ -22,11 +17,7 @@ export const IconMenu: React.FC<UserInfo> = ({ username }) => {
           </Link>
         </li>
         <li>
-          <Link
-            to={`/dashboard/${username}/answer`}
-            relative='path'
-            state={username}
-            className=' hover:bg-sky-400 hover:text-white'>
+          <Link to={`/dashboard/answer`} relative='path' className=' hover:bg-sky-400 hover:text-white'>
             <span>
               <BsQuestionSquare />
             </span>
@@ -34,11 +25,7 @@ export const IconMenu: React.FC<UserInfo> = ({ username }) => {
           </Link>
         </li>
         <li>
-          <Link
-            to={`/dashboard/${username}/profile`}
-            relative='path'
-            state={username}
-            className=' hover:bg-sky-400 hover:text-white'>
+          <Link to={`/dashboard/profile`} relative='path' className=' hover:bg-sky-400 hover:text-white'>
             <span>
               <CgProfile />
             </span>

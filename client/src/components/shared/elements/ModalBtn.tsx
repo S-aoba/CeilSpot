@@ -3,11 +3,19 @@ import { Button } from './Button'
 type Props = {
   className?: string
   modalTitle: string
+  modalDescription?: string
   children: ReactNode
-  modalName: 'login' | 'signUp' | 'logout' | 'delete'
+  modalName: 'login' | 'signUp' | 'logout' | 'delete' | 'rename'
   onClick: () => void
 }
-export const ModalBtn: React.FC<Props> = ({ className, modalTitle, children, modalName, onClick }) => {
+export const ModalBtn: React.FC<Props> = ({
+  className,
+  modalTitle,
+  modalDescription,
+  children,
+  modalName,
+  onClick,
+}) => {
   return (
     <>
       <label htmlFor={`${modalName}`} className={className}>
@@ -16,13 +24,11 @@ export const ModalBtn: React.FC<Props> = ({ className, modalTitle, children, mod
       <input type='checkbox' id={`${modalName}`} className='modal-toggle' />
       <label htmlFor={`${modalName}`} className='modal cursor-pointer'>
         <label className='modal-box relative' htmlFor=''>
-          <div className=' grid h-44 grid-rows-6'>
-            <div className=' row-span-1 flex items-center'>
-              <p className=' mb-3 text-2xl font-bold'>Logout</p>
-            </div>
-            <div className=' row-span-5 flex flex-col items-center justify-center gap-6 pt-5'>
-              <div className=' flex justify-center font-mono text-xl'>
-                <p>{modalTitle}</p>
+          <div className=' h-96'>
+            <div className=' flex flex-col items-center gap-14 pt-5'>
+              <div className=' flex flex-col justify-center gap-5'>
+                <p className=' text-3xl'>{modalTitle}</p>
+                <p>{modalDescription}</p>
               </div>
               <div className=' flex w-7/12 justify-around'>
                 <Button onClick={onClick} className=' btn-warning btn w-20 text-white hover:opacity-75'>
