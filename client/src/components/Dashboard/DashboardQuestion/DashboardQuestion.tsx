@@ -26,6 +26,7 @@ export const DashboardQuestion = () => {
               post_username={question.post_username}
               answer_list={question.answer_list}
               tags={question.tags}
+              isDashboard
             />
           ))}
       </div>

@@ -10,7 +10,15 @@ import { useMutateQuestion } from '../../../Functional/hooks/useMutateQuestion'
 import { ModalBtn as DeleteBtn } from '../../shared/elements/ModalBtn'
 import { QuestionType } from '../../../types/types'
 
-export const DetailCard: React.FC<QuestionType> = ({ id, title, body, post_username, answer_list, tags }) => {
+export const DetailCard: React.FC<QuestionType & { isDashboard: boolean }> = ({
+  id,
+  title,
+  body,
+  post_username,
+  answer_list,
+  tags,
+  isDashboard,
+}) => {
   const dispatch = useAppDispatch()
   const { deleteQuestionMutation } = useMutateQuestion()
 
@@ -33,32 +41,36 @@ export const DetailCard: React.FC<QuestionType> = ({ id, title, body, post_usern
           <hr className=' my-6 border-gray-300' />
         </div>
         <div className=' flex w-11/12 items-center justify-end gap-3'>
-          <UpdateBtn
-            path='/question/ask'
-            relative='path'
-            children={<FiEdit className=' h-10 w-10 text-sky-400 hover:cursor-pointer hover:opacity-75' />}
-            onClick={() => {
-              dispatch(
-                setEditedQuestion({
-                  id,
-                  title,
-                  body,
-                  post_username,
-                  answer_list,
-                  tags,
-                })
-              )
-              dispatch(toggleEditMode(true))
-            }}
-          />
-          <DeleteBtn
-            modalTitle='削除してもよろしいですか？'
-            children={<MdDeleteOutline className=' h-10 w-10 text-sky-400 hover:cursor-pointer hover:opacity-75' />}
-            modalName='delete'
-            onClick={() => {
-              deleteQuestionMutation.mutate(id)
-            }}
-          />
+          {isDashboard && (
+            <>
+              <UpdateBtn
+                path='/question/ask'
+                relative='path'
+                children={<FiEdit className=' h-10 w-10 text-sky-400 hover:cursor-pointer hover:opacity-75' />}
+                onClick={() => {
+                  dispatch(
+                    setEditedQuestion({
+                      id,
+                      title,
+                      body,
+                      post_username,
+                      answer_list,
+                      tags,
+                    })
+                  )
+                  dispatch(toggleEditMode(true))
+                }}
+              />
+              <DeleteBtn
+                modalTitle='削除してもよろしいですか？'
+                children={<MdDeleteOutline className=' h-10 w-10 text-sky-400 hover:cursor-pointer hover:opacity-75' />}
+                modalName='delete'
+                onClick={() => {
+                  deleteQuestionMutation.mutate(id)
+                }}
+              />
+            </>
+          )}
         </div>
       </div>
     </div>

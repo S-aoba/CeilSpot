@@ -11,9 +11,14 @@ import { useQuerySingleQuestion } from '../../../Functional/UseQuery/useQuerySin
 import { Error } from '../../Error/Error'
 import { Loading } from '../../Loading/Loading'
 
+type State = {
+  id: string
+  isDashboard: boolean
+}
+
 export const QuestionDetail = () => {
   const location = useLocation()
-  const { id } = location.state as QuestionType
+  const { id, isDashboard } = location.state as State
   const {
     data: dataSingleQuestion,
     isLoading: isDataSingleQuestion,
@@ -36,6 +41,7 @@ export const QuestionDetail = () => {
               post_username={dataSingleQuestion.post_username}
               answer_list={dataSingleQuestion.answer_list}
               tags={dataSingleQuestion.tags}
+              isDashboard={isDashboard}
             />
             <DetailProfileCard tag={dataSingleQuestion.tags[0]} username={dataSingleQuestion.post_username} />
           </div>
