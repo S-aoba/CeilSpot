@@ -65,6 +65,9 @@ export const useMutateUserInfo = () => {
         queryClient.invalidateQueries(['userInfo'])
         queryClient.invalidateQueries(['user'])
         queryClient.invalidateQueries(['questions'])
+        queryClient.invalidateQueries(['singleQuestion'])
+        queryClient.invalidateQueries(['userQuestions'])
+        queryClient.invalidateQueries(['singleAnswer'])
         queryClient.invalidateQueries(['userAnswer'])
         toastInfo('ユーザーネームが変更されました。')
       },
