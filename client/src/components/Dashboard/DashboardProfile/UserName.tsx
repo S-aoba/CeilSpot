@@ -13,7 +13,7 @@ export const UserName: React.FC<Props> = ({ username }) => {
   const editedUserInfo = useAppSelector(selectUserInfo)
   const { changeUsernameMutation } = useMutateUserInfo()
   return (
-    <div className=' w-9/12'>
+    <div className='w-full pr-3'>
       <div className=' mb-2 flex items-center gap-2'>
         <span>
           <ImUser />
