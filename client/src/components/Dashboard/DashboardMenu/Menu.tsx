@@ -15,7 +15,7 @@ export const Menu: React.FC<Props> = ({ username }) => {
         <li className=' flex h-full items-center'>
           <QuestionTab
             username={username}
-            path={`/dashboard/${username}/question`}
+            path={`/dashboard/question`}
             className={listStyle}
             icon={<BsQuestionSquare />}
             tabWord='Question'
@@ -24,7 +24,7 @@ export const Menu: React.FC<Props> = ({ username }) => {
         <li className=' flex h-full items-center'>
           <AnswerTab
             username={username}
-            path={`/dashboard/${username}/answer`}
+            path={`/dashboard/answer`}
             className={listStyle}
             icon={<BsPatchExclamation />}
             tabWord='Answer'
@@ -33,7 +33,7 @@ export const Menu: React.FC<Props> = ({ username }) => {
         <li className=' flex h-full items-center'>
           <ProfileTab
             username={username}
-            path={`/dashboard/${username}/profile`}
+            path={`/dashboard/profile`}
             className={listStyle}
             icon={<CgProfile />}
             tabWord='Profile'
