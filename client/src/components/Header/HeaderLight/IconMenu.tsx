@@ -38,7 +38,7 @@ export const IconMenu: React.FC = () => {
           </Link>
         </li>
         <li>
-          <div className='flex'>
+          <div className='flex hover:bg-amber-300 hover:text-white'>
             <span>
               <BiLogOut />
             </span>
