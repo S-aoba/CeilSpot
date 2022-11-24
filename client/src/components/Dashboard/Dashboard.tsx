@@ -2,7 +2,6 @@ import { Outlet } from 'react-router-dom'
 import { useQueryUser } from '../../Functional/UseQuery/useQueryUser'
 import { useQueryUserInfo } from '../../Functional/UseQuery/useQueryUserInfo'
 import { Error } from '../Error/Error'
-import { Loading } from '../Loading/Loading'
 import { Menu } from './DashboardMenu/Menu'
 
 export const Dashboard = () => {
@@ -14,7 +13,7 @@ export const Dashboard = () => {
   } = useQueryUserInfo(dataUserName?.username!)
 
   if (dataUserNameError || dataUserInfoError) return <Error />
-  if (isDataUserNameLoading || isUserInfoLoading) return <Loading />
+  if (isDataUserNameLoading || isUserInfoLoading) return
 
   return (
     <div className=' flex h-fit min-h-screen flex-col items-center justify-start gap-5 pt-5 lg:container lg:mx-auto'>

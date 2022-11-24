@@ -21,10 +21,9 @@ export const DashboardProfile = () => {
   useEffect(() => {
     SetRegisteredUserInfo(id!, username, self_introduction!, twitter!, github!, website!, dispatch, editedUserInfo)
   }, [self_introduction, twitter, github, website])
-  console.log(editedUserInfo)
 
   return (
-    <div className=' mt-5 grid h-fit w-11/12 grid-cols-12  rounded-3xl bg-white py-5'>
+    <div className=' mt-5 grid h-fit w-11/12 animate-fade-in-fwd  grid-cols-12 rounded-3xl bg-white py-5'>
       <div className='col-span-4 flex items-center justify-center'>
         <div>
           <img src={defaultUserIcon} alt='userIcon' className=' h-40 w-40 rounded-full' />
