@@ -10,7 +10,7 @@ import { UserInfo } from '../../../types/types'
 import { useEffect } from 'react'
 import { SetRegisteredUserInfo } from './Function/SetRegisteredUserInfo'
 import { useAppDispatch, useAppSelector } from '../../../app/hooks'
-import { selectUserInfo } from '../../../slices/appSlice'
+import { changeMenubarTab, selectUserInfo } from '../../../slices/appSlice'
 
 export const DashboardProfile = () => {
   const { id, username, self_introduction, twitter, github, website } = useOutletContext<UserInfo>()
@@ -21,6 +21,11 @@ export const DashboardProfile = () => {
   useEffect(() => {
     SetRegisteredUserInfo(id!, username, self_introduction!, twitter!, github!, website!, dispatch, editedUserInfo)
   }, [self_introduction, twitter, github, website])
+
+  useEffect(() => {
+    // 画面更新したい際にナビゲーションタブが初期化されるので、dispatchで上書きする
+    dispatch(changeMenubarTab('profile'))
+  }, [])
 
   return (
     <div className=' mt-5 grid h-fit w-11/12 animate-fade-in-fwd  grid-cols-12 rounded-3xl bg-white py-5'>

@@ -1,5 +1,8 @@
+import { useEffect } from 'react'
 import { useOutletContext } from 'react-router-dom'
+import { useAppDispatch } from '../../../app/hooks'
 import { useQueryUserAnswer } from '../../../Functional/UseQuery/useQueryUserAnswer'
+import { changeMenubarTab } from '../../../slices/appSlice'
 import { UserInfo } from '../../../types/types'
 import { Error } from '../../Error/Error'
 import { Loading } from '../../Loading/Loading'
@@ -7,8 +10,15 @@ import { Base } from '../../shared/layout/Base'
 import { DashBoardAnswerCard } from './DashBoardAnswerCard'
 
 export const DashboardAnswer = () => {
+  const dispatch = useAppDispatch()
   const { username } = useOutletContext<UserInfo>()
   const { data: dataUserAnswers, isLoading: isUserAnswerLoading, error } = useQueryUserAnswer(username)
+
+  useEffect(() => {
+    // 画面更新したい際にナビゲーションタブが初期化されるので、dispatchで上書きする
+    dispatch(changeMenubarTab('answer'))
+  }, [])
+
   if (error) return <Error />
   if (isUserAnswerLoading) return <Loading />
   return (
