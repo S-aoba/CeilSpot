@@ -10,7 +10,6 @@ import { IconMenu } from './IconMenu'
 
 export const HeaderLight: React.FC = () => {
   const { error } = useQueryUser()
-  const { logout } = useProcessAuth()
   const { onChangeSearchValue, searchValue } = useHeaderLight()
 
   return (
@@ -34,13 +33,6 @@ export const HeaderLight: React.FC = () => {
             relative='path'
             children={'質問する'}
             className=' btn-info btn w-16 text-white hover:opacity-75 lg:w-24'
-          />
-          <LogoutBtn
-            className=' btn-warning btn text-white hover:opacity-75'
-            modalTitle='ログアウトしてもよろしいですか？'
-            children={'ログアウト'}
-            modalName='logout'
-            onClick={logout}
           />
         </>
       )}
