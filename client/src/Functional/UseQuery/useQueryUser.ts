@@ -14,7 +14,7 @@ export const useQueryUser = () => {
   return useQuery<UsernameType, Error>({
     queryKey: ['user'],
     queryFn: getCurrentUser,
-    staleTime: 0,
+    staleTime: Infinity,
     onError: () => navigate('/'),
   })
 }

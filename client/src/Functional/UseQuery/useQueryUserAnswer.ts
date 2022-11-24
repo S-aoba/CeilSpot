@@ -18,8 +18,7 @@ export const useQueryUserAnswer = (username: string) => {
     queryKey: ['userAnswer', username],
     queryFn: () => getUserQuestions(username),
     enabled: !!username,
-    cacheTime: 10,
-    // staleTime: Infinity,
+    staleTime: Infinity,
     onError: (err: any) => {
       if (
         err.response.data.detail === 'The JWT has expired' ||

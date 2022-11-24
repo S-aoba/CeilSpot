@@ -12,7 +12,6 @@ export const useQueryQuestions = () => {
   return useQuery<QuestionType[], Error>({
     queryKey: ['questions'],
     queryFn: getQuestions,
-    cacheTime: 10,
-    // staleTime: Infinity,
+    staleTime: Infinity,
   })
 }
