@@ -17,7 +17,6 @@ export const DashboardAnswer = () => {
           dataUserAnswers?.map((answer) => (
             <DashBoardAnswerCard
               key={answer.id}
-              path={'/'}
               id={answer.id}
               body={answer.body}
               question_id={answer.question_id}

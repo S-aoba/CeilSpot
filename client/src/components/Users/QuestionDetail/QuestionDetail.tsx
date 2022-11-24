@@ -7,27 +7,43 @@ import { DetailProfileCard } from './DetailProfileCard'
 import { DetailTitle } from './DetailTitle'
 import { AnswerForm } from '../AnswerReply/AnswerForm'
 import { QuestionType } from '../../../types/types'
+import { useQuerySingleQuestion } from '../../../Functional/UseQuery/useQuerySingleQuestion'
+import { Error } from '../../Error/Error'
 
 export const QuestionDetail = () => {
   const location = useLocation()
-  const { id, title, body, post_username, answer_list, tags } = location.state as QuestionType
+  const { id } = location.state as QuestionType
+  const {
+    data: dataSingleQuestion,
+    isLoading: isDataSingleQuestion,
+    error: isErrorSingleQuestion,
+  } = useQuerySingleQuestion(id)
+
+  if (isDataSingleQuestion) return
+  if (isErrorSingleQuestion) return <Error />
 
   return (
     <Base id='questionDetail'>
-      <DetailTitle>{title}</DetailTitle>
-      <div className='flex flex-col gap-y-5 xl:grid xl:grid-cols-12'>
-        <DetailCard
-          id={id}
-          title={title}
-          body={body}
-          post_username={post_username}
-          answer_list={answer_list}
-          tags={tags}
-        />
-        <DetailProfileCard tag={tags[0]!} username={post_username} />
-      </div>
-      {answer_list && answer_list.map((answer) => <AnswerItem key={answer} answer_id={answer} />)}
-      <AnswerForm question_id={id} />
+      {dataSingleQuestion && (
+        <>
+          <DetailTitle>{dataSingleQuestion.title}</DetailTitle>
+          <div className='flex flex-col gap-y-5 xl:grid xl:grid-cols-12'>
+            <DetailCard
+              id={dataSingleQuestion.id}
+              title={dataSingleQuestion.title}
+              body={dataSingleQuestion.body}
+              post_username={dataSingleQuestion.post_username}
+              answer_list={dataSingleQuestion.answer_list}
+              tags={dataSingleQuestion.tags}
+            />
+            <DetailProfileCard tag={dataSingleQuestion.tags[0]} username={dataSingleQuestion.post_username} />
+          </div>
+          {dataSingleQuestion.answer_list.map((answer: string) => (
+            <AnswerItem key={answer} answer_id={answer} />
+          ))}
+          <AnswerForm question_id={id} />
+        </>
+      )}
     </Base>
   )
 }

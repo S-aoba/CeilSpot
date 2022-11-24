@@ -2,13 +2,7 @@ import axios from 'axios'
 import { useAppDispatch } from '../../app/hooks'
 import { useMutation, useQueryClient } from 'react-query'
 import { useNavigate } from 'react-router-dom'
-import {
-  changeMenubarTab,
-  resetEditedAnswer,
-  resetEditedQuestion,
-  toggleCsrfState,
-  toggleEditMode,
-} from '../../slices/appSlice'
+import { resetEditedAnswer, resetEditedQuestion, toggleCsrfState } from '../../slices/appSlice'
 import { useQueryUser } from '../UseQuery/useQueryUser'
 import { useQuerySingleQuestion } from '../UseQuery/useQuerySingleQuestion'
 import { AnswerType } from '../../types/types'
@@ -28,10 +22,14 @@ export const useMutateAnswer = (question_id: string) => {
         withCredentials: true,
       }),
     {
-      onSuccess: (res, variables) => {
+      onSuccess: () => {
         dispatch(resetEditedAnswer())
-        toastInfo('回答を送信しました')
+        queryClient.invalidateQueries(['questions'])
+        queryClient.invalidateQueries(['singleAnswer'])
         queryClient.invalidateQueries(['singleQuestion'])
+        queryClient.invalidateQueries(['userAnswer'])
+        queryClient.invalidateQueries(['userQuestions'])
+        toastInfo('回答を送信しました')
         navigate(`/question/${dataQuestion?.post_username}/${dataQuestion?.id}`, {
           state: {
             id: dataQuestion!.id,
@@ -79,8 +77,6 @@ export const useMutateAnswer = (question_id: string) => {
             answer_list: dataQuestion!.answer_list,
           },
         })
-        dispatch(changeMenubarTab('MyQuestions'))
-        // dispatch(toggleEditMode())
       },
       onError: (err: any) => {
         alert(`${err.response.data.detail}\n${err.message}`)
@@ -103,10 +99,12 @@ export const useMutateAnswer = (question_id: string) => {
     {
       onSuccess: () => {
         dispatch(resetEditedAnswer())
-        toastInfo('削除が完了しました')
-        queryClient.invalidateQueries(['singleQuestion'])
+        queryClient.invalidateQueries(['questions'])
         queryClient.invalidateQueries(['singleAnswer'])
-        dispatch(changeMenubarTab('EveryoneQuestions'))
+        queryClient.invalidateQueries(['singleQuestion'])
+        queryClient.invalidateQueries(['userAnswer'])
+        queryClient.invalidateQueries(['userQuestions'])
+        toastInfo('削除が完了しました')
         navigate('/')
       },
       onError: (err: any) => {
