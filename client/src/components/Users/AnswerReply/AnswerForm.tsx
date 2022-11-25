@@ -3,8 +3,8 @@ import rehypeSanitize from 'rehype-sanitize'
 import { useAppSelector, useAppDispatch } from '../../../app/hooks'
 import { selectAnswer, setEditedAnswer } from '../../../slices/appSlice'
 import { Button as SubmitBtn } from '../../shared/elements/Button'
-import { useProcessAnswer } from '../../../Functional/hooks/useProcessAnswer'
-import { useQueryUser } from '../../../Functional/UseQuery/useQueryUser'
+import { useProcessAnswer } from '../../../functional/hooks/useProcessAnswer'
+import { useQueryUser } from '../../../functional/UseQuery/useQueryUser'
 
 type Props = {
   question_id: string

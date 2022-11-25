@@ -1,5 +1,5 @@
 import MDEditor from '@uiw/react-md-editor'
-import { useQuerySingleAnswer } from '../../../Functional/UseQuery/useQuerySingleAnswer'
+import { useQuerySingleAnswer } from '../../../functional/UseQuery/useQuerySingleAnswer'
 import defaultIcon from '../../../assets/defaultUserIcon.png'
 import { Loading } from '../../Loading/Loading'
 import { Error } from '../../Error/Error'

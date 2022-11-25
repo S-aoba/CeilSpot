@@ -1,10 +1,10 @@
 import { Input as SearchBar } from '../../shared/elements/Input'
 import { Login } from './Login'
 import { SignUp } from './SignUp'
-import { useQueryUser } from '../../../Functional/UseQuery/useQueryUser'
+import { useQueryUser } from '../../../functional/UseQuery/useQueryUser'
 import { LinkBtn as QuestionPostBtn } from '../../shared/elements/LinkBtn'
 import { ModalBtn as LogoutBtn } from '../../shared/elements/ModalBtn'
-import { useProcessAuth } from '../../../Functional/hooks/useProcessAuth'
+import { useProcessAuth } from '../../../functional/hooks/useProcessAuth'
 import { useHeaderLight } from './useHeaderLight'
 import { IconMenu } from './IconMenu'
 

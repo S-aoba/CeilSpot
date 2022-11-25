@@ -5,13 +5,13 @@ import Select from 'react-select'
 import { Input as TitleInput } from '../../shared/elements/Input'
 import { Button as SubmitBtn } from '../../shared/elements/Button'
 import { TagStyle } from './styles/TagStyle'
-import { useProcessQuestion } from '../../../Functional/hooks/useProcessQuestion'
-import { useQueryUser } from '../../../Functional/UseQuery/useQueryUser'
+import { useProcessQuestion } from '../../../functional/hooks/useProcessQuestion'
+import { useQueryUser } from '../../../functional/UseQuery/useQueryUser'
 import { useAppDispatch, useAppSelector } from '../../../app/hooks'
 import { useTag } from './hooks/useTag'
 import { useChangeTitle } from './hooks/useChangeTitle'
 import { useEffect } from 'react'
-import { usePageTransition } from '../../../Functional/hooks/usePageTransition'
+import { usePageTransition } from '../../../functional/hooks/usePageTransition'
 export const QuestionForm = () => {
   const { tagOptions, tagColorStyles } = TagStyle()
   const { processQuestion } = useProcessQuestion()

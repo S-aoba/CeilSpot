@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useOutletContext } from 'react-router-dom'
 import { useAppDispatch } from '../../../app/hooks'
-import { useQueryUserAnswer } from '../../../Functional/UseQuery/useQueryUserAnswer'
+import { useQueryUserAnswer } from '../../../functional/UseQuery/useQueryUserAnswer'
 import { changeMenubarTab } from '../../../slices/appSlice'
 import { UserInfo } from '../../../types/types'
 import { Error } from '../../Error/Error'

@@ -6,7 +6,7 @@ import { MdDeleteOutline } from 'react-icons/md'
 import { LinkBtn as UpdateBtn } from '../../shared/elements/LinkBtn'
 import { useAppDispatch } from '../../../app/hooks'
 import { setEditedQuestion, toggleEditMode } from '../../../slices/appSlice'
-import { useMutateQuestion } from '../../../Functional/hooks/useMutateQuestion'
+import { useMutateQuestion } from '../../../functional/hooks/useMutateQuestion'
 import { ModalBtn as DeleteBtn } from '../../shared/elements/ModalBtn'
 import { QuestionType } from '../../../types/types'
 

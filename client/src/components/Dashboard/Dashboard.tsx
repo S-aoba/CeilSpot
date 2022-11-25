@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom'
-import { useQueryUser } from '../../Functional/UseQuery/useQueryUser'
-import { useQueryUserInfo } from '../../Functional/UseQuery/useQueryUserInfo'
+import { useQueryUser } from '../../functional/UseQuery/useQueryUser'
+import { useQueryUserInfo } from '../../functional/UseQuery/useQueryUserInfo'
 import { Error } from '../Error/Error'
 import { Loading } from '../Loading/Loading'
 import { Menu } from './DashboardMenu/Menu'

@@ -1,5 +1,5 @@
 import { QuestionCard } from './QuestionCard'
-import { useQueryQuestions } from '../../../Functional/UseQuery/useQueryQuestions'
+import { useQueryQuestions } from '../../../functional/UseQuery/useQueryQuestions'
 import { Base } from '../../shared/layout/Base'
 import { Error } from '../../Error/Error'
 import { QuestionType } from '../../../types/types'

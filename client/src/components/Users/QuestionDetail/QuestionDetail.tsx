@@ -7,7 +7,7 @@ import { DetailProfileCard } from './DetailProfileCard'
 import { DetailTitle } from './DetailTitle'
 import { AnswerForm } from '../AnswerReply/AnswerForm'
 import { QuestionType } from '../../../types/types'
-import { useQuerySingleQuestion } from '../../../Functional/UseQuery/useQuerySingleQuestion'
+import { useQuerySingleQuestion } from '../../../functional/UseQuery/useQuerySingleQuestion'
 import { Error } from '../../Error/Error'
 import { Loading } from '../../Loading/Loading'
 

@@ -3,7 +3,7 @@ import { BiLogOut } from 'react-icons/bi'
 import { CgProfile } from 'react-icons/cg'
 import { Link } from 'react-router-dom'
 import DefaultUserIcon from '../../../assets/defaultUserIcon.png'
-import { useProcessAuth } from '../../../Functional/hooks/useProcessAuth'
+import { useProcessAuth } from '../../../functional/hooks/useProcessAuth'
 import { useAppDispatch } from '../../../app/hooks'
 import { changeMenubarTab } from '../../../slices/appSlice'
 
