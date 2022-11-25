@@ -17,9 +17,9 @@ export const AnswerForm: React.FC<Props> = ({ question_id }) => {
   const { processAnswer } = useProcessAnswer()
 
   return (
-    <form className=' w-full flex justify-center flex-col items-center xl:items-start' onSubmit={processAnswer}>
+    <form className=' flex w-full flex-col items-center justify-center xl:items-start' onSubmit={processAnswer}>
       <MDEditor
-        className=' w-9/12'
+        className=' w-11/12 xl:w-9/12'
         value={editedAnswer.body}
         onChange={(e) => dispatch(setEditedAnswer({ ...editedAnswer, body: e! }))}
         height={500}
@@ -28,7 +28,7 @@ export const AnswerForm: React.FC<Props> = ({ question_id }) => {
           rehypePlugins: [[rehypeSanitize]],
         }}
       />
-      <div className=' mt-5 w-9/12'>
+      <div className=' mt-5 w-11/12 xl:w-9/12'>
         <SubmitBtn
           onClick={() =>
             dispatch(
