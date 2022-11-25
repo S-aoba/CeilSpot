@@ -18,19 +18,22 @@ export const useMutateQuestion = () => {
       }),
     {
       onSuccess: (res) => {
+        // キャッシュされた質問データ配列に対して、該当の質問を挿入する
         const previousQuestions = queryClient.getQueryData<QuestionType[]>('questions')
         if (previousQuestions) {
           queryClient.setQueryData('questions', [...previousQuestions, res.data])
         }
         dispatch(resetEditedQuestion())
-        queryClient.invalidateQueries(['singleQuestion'])
-        queryClient.invalidateQueries(['questions'])
+        // キャッシュデータの更新
         queryClient.invalidateQueries(['userQuestions'])
-        toastInfo('投稿が完了しました')
         navigate('/')
+        toastInfo('投稿が完了しました')
       },
       onError: (err: any) => {
-        alert(`${err.response.data.detail}\n${err.message}`)
+        // エラー内容を知らせる
+        // Hack: エラーの文言を変えよう！今のままだと分かりにくいよ
+        toastInfo(`${err.response.data.detail}\n${err.message}`)
+        // 以下は、変える必要なし
         if (
           err.response.data.detail === 'The JWT has expired' ||
           err.response.data.detail === 'The CSRF token has expired.'
@@ -60,6 +63,7 @@ export const useMutateQuestion = () => {
       ),
     {
       onSuccess: (res, variables) => {
+        // キャッシュされた質問データ配列に対して、該当の質問のみ更新する
         const previousQuestions = queryClient.getQueryData<QuestionType[]>('questions')
         if (previousQuestions) {
           queryClient.setQueryData<QuestionType[]>(
@@ -68,18 +72,25 @@ export const useMutateQuestion = () => {
           )
         }
         dispatch(resetEditedQuestion())
-        queryClient.invalidateQueries(['questions'])
-        queryClient.invalidateQueries(['userQuestions'])
-        queryClient.invalidateQueries(['singleQuestion'])
-        toastInfo('更新しました')
+        // 更新後のデータを画面遷移時に渡す
         navigate(`/question/${variables.post_username}/${variables.id}`, {
           state: {
             id: variables.id,
+            title: variables.title,
+            body: variables.body,
+            post_username: variables.post_username,
+            answer_list: variables.answer_list,
+            tags: variables.tags,
+            isDashboard: false,
           },
         })
+        toastInfo('更新しました')
       },
       onError: (err: any) => {
-        alert(`${err.response.data.detail}\n${err.message}`)
+        // エラー内容を知らせる
+        // Hack: エラーの文言を変えよう！今のままだと分かりにくいよ
+        toastInfo(`${err.response.data.detail}\n${err.message}`)
+        // 以下は、変える必要なし
         if (
           err.response.data.detail === 'The JWT has expired' ||
           err.response.data.detail === 'The CSRF token has expired.'
@@ -98,6 +109,7 @@ export const useMutateQuestion = () => {
       }),
     {
       onSuccess: (res, variables) => {
+        // キャッシュされた質問データ配列に対して、フィルターをかけて該当の質問を削除
         const previousQuestions = queryClient.getQueryData<QuestionType[]>('questions')
         if (previousQuestions) {
           queryClient.setQueryData<QuestionType[]>(
@@ -106,16 +118,15 @@ export const useMutateQuestion = () => {
           )
         }
         dispatch(resetEditedQuestion())
-        queryClient.invalidateQueries(['questions'])
         queryClient.invalidateQueries(['userQuestions'])
-        queryClient.invalidateQueries(['singleQuestion'])
-        queryClient.invalidateQueries(['singleAnswer'])
-        queryClient.invalidateQueries(['userAnswer'])
+        navigate('/dashboard/question')
         toastInfo('削除しました')
-        navigate('/')
       },
       onError: (err: any) => {
-        alert(`${err.response.data.detail}\n${err.message}`)
+        // エラー内容を知らせる
+        // Hack: エラーの文言を変えよう！今のままだと分かりにくいよ
+        toastInfo(`${err.response.data.detail}\n${err.message}`)
+        // 以下は、変える必要なし
         if (
           err.response.data.detail === 'The JWT has expired' ||
           err.response.data.detail === 'The CSRF token has expired.'
