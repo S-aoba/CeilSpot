@@ -1,4 +1,4 @@
-import { BsPatchQuestion, BsQuestionSquare } from 'react-icons/bs'
+import { BsPatchExclamation, BsQuestionSquare } from 'react-icons/bs'
 import { BiLogOut } from 'react-icons/bi'
 import { CgProfile } from 'react-icons/cg'
 import { Link } from 'react-router-dom'
@@ -21,7 +21,7 @@ export const IconMenu: React.FC = () => {
             className=' hover:bg-sky-400 hover:text-white'
             onClick={() => dispatch(changeMenubarTab('question'))}>
             <span>
-              <BsPatchQuestion />
+              <BsQuestionSquare />
             </span>
             <p>My Question</p>
           </Link>
@@ -33,7 +33,7 @@ export const IconMenu: React.FC = () => {
             className=' hover:bg-sky-400 hover:text-white'
             onClick={() => dispatch(changeMenubarTab('answer'))}>
             <span>
-              <BsQuestionSquare />
+              <BsPatchExclamation />
             </span>
             <p>My Answer</p>
           </Link>
