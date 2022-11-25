@@ -5,7 +5,7 @@ import { useMutateAnswer } from './useMutateAnswer'
 
 export const useProcessAnswer = () => {
   const editedAnswer = useAppSelector(selectAnswer)
-  const { createAnswerMutation, updateAnswerMutation } = useMutateAnswer(editedAnswer.question_id)
+  const { createAnswerMutation, updateAnswerMutation } = useMutateAnswer()
   const processAnswer = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     if (editedAnswer.id === '') {

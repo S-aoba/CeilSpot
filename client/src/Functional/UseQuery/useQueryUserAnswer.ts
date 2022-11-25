@@ -15,7 +15,7 @@ export const useQueryUserAnswer = (username: string) => {
     return data
   }
   return useQuery<AnswerType[], Error>({
-    queryKey: ['userAnswer', username],
+    queryKey: ['userAnswers', username],
     queryFn: () => getUserQuestions(username),
     enabled: !!username,
     staleTime: Infinity,

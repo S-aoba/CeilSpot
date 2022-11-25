@@ -27,7 +27,7 @@ export const useMutateQuestion = () => {
         // キャッシュデータの更新
         queryClient.invalidateQueries(['userQuestions'])
         navigate('/')
-        toastInfo('投稿が完了しました')
+        toastInfo('みんなに質問しました！')
       },
       onError: (err: any) => {
         // エラー内容を知らせる
@@ -82,10 +82,10 @@ export const useMutateQuestion = () => {
             post_username: variables.post_username,
             answer_list: variables.answer_list,
             tags: variables.tags,
-            isDashboard: false,
+            isDashboard: true,
           },
         })
-        toastInfo('更新しました')
+        toastInfo('質問を更新しました')
       },
       onError: (err: any) => {
         // エラー内容を知らせる
@@ -120,6 +120,7 @@ export const useMutateQuestion = () => {
         }
         dispatch(resetEditedQuestion())
         queryClient.invalidateQueries(['userQuestions'])
+        queryClient.invalidateQueries(['userAnswers'])
         navigate('/dashboard/question')
         toastInfo('削除しました')
       },

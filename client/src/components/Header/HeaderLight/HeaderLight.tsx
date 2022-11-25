@@ -3,8 +3,6 @@ import { Login } from './Login'
 import { SignUp } from './SignUp'
 import { useQueryUser } from '../../../functional/UseQuery/useQueryUser'
 import { LinkBtn as QuestionPostBtn } from '../../shared/elements/LinkBtn'
-import { ModalBtn as LogoutBtn } from '../../shared/elements/ModalBtn'
-import { useProcessAuth } from '../../../functional/hooks/useProcessAuth'
 import { useHeaderLight } from './useHeaderLight'
 import { IconMenu } from './IconMenu'
 

@@ -31,7 +31,6 @@ export const useMutateUserInfo = () => {
       onSuccess: (res, variables) => {
         dispatch(resetEditedUserInfo())
         queryClient.invalidateQueries(['userInfo'])
-        queryClient.invalidateQueries('user')
         toastInfo('プロフィールが変更されました。')
       },
       onError: (err: any) => {
@@ -66,9 +65,7 @@ export const useMutateUserInfo = () => {
         queryClient.invalidateQueries(['user'])
         queryClient.invalidateQueries(['questions'])
         queryClient.invalidateQueries(['singleQuestion'])
-        queryClient.invalidateQueries(['userQuestions'])
         queryClient.invalidateQueries(['singleAnswer'])
-        queryClient.invalidateQueries(['userAnswer'])
         toastInfo('ユーザーネームが変更されました。')
       },
       onError: (err: any) => {

@@ -8,7 +8,7 @@ import { Loading } from '../../Loading/Loading'
 import { ModalBtn as DeleteBtn } from '../../shared/elements/ModalBtn'
 
 export const DashBoardAnswerCard: React.FC<AnswerType> = ({ id, body, question_id, respondent_username }) => {
-  const { deleteAnswerMutation } = useMutateAnswer(question_id)
+  const { deleteAnswerMutation } = useMutateAnswer()
   const { data: dataQuestion, isLoading: isDataQuestionLoading, error } = useQuerySingleQuestion(question_id)
   if (error) return <Error />
   if (isDataQuestionLoading) return <Loading />

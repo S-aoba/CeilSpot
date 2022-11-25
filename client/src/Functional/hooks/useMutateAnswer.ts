@@ -1,18 +1,15 @@
 import axios from 'axios'
 import { useAppDispatch } from '../../app/hooks'
 import { useMutation, useQueryClient } from 'react-query'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { resetEditedAnswer, resetEditedQuestion, toggleCsrfState } from '../../slices/appSlice'
-import { useQueryUser } from '../UseQuery/useQueryUser'
-import { useQuerySingleQuestion } from '../UseQuery/useQuerySingleQuestion'
 import { AnswerType } from '../../types/types'
 import { useToastify } from './useToastify'
 
-export const useMutateAnswer = (question_id: string) => {
+export const useMutateAnswer = () => {
+  const params = useParams()
   const navigate = useNavigate()
   const dispatch = useAppDispatch()
-  const { data: dataQuestion } = useQuerySingleQuestion(question_id)
-  const { data: dataUser } = useQueryUser()
   const queryClient = useQueryClient()
   const { toastInfo } = useToastify()
 
@@ -25,19 +22,21 @@ export const useMutateAnswer = (question_id: string) => {
       onSuccess: () => {
         dispatch(resetEditedAnswer())
         queryClient.invalidateQueries(['questions'])
-        queryClient.invalidateQueries(['singleAnswer'])
         queryClient.invalidateQueries(['singleQuestion'])
-        queryClient.invalidateQueries(['userAnswer'])
-        queryClient.invalidateQueries(['userQuestions'])
-        toastInfo('回答を送信しました')
-        navigate(`/question/${dataQuestion?.post_username}/${dataQuestion?.id}`, {
+        queryClient.invalidateQueries(['singleAnswer'])
+        queryClient.invalidateQueries(['userAnswers'])
+        navigate(`/question/${params.username}/${params.question_id}`, {
           state: {
-            id: dataQuestion!.id,
+            id: params.question_id,
           },
         })
+        toastInfo('回答しました！ナイス回答！')
       },
       onError: (err: any) => {
-        alert(`${err.response.data.detail}\n${err.message}`)
+        // エラー内容を知らせる
+        // Hack: エラーの文言を変えよう！今のままだと分かりにくいよ
+        toastInfo(`${err.response.data.detail}\n${err.message}`)
+        // 以下は、変える必要なし
         if (
           err.response.data.detail === 'The JWT has expired' ||
           err.response.data.detail === 'The CSRF token has expired.'
@@ -66,20 +65,22 @@ export const useMutateAnswer = (question_id: string) => {
     {
       onSuccess: (res, variables) => {
         dispatch(resetEditedAnswer())
-        toastInfo('更新しました')
-        queryClient.invalidateQueries(['singleAnswer'])
-        navigate(`/question/users/${dataUser?.username}/${dataQuestion?.id}`, {
+        queryClient.invalidateQueries(['questions'])
+        queryClient.invalidateQueries(['singleQuestion'])
+        queryClient.invalidateQueries(['userAnswers'])
+        navigate(`/question/${params.username}/${params.question_id}`, {
           state: {
-            id: dataQuestion!.id,
-            title: dataQuestion!.title,
-            body: dataQuestion!.body,
-            post_username: dataQuestion!.post_username,
-            answer_list: dataQuestion!.answer_list,
+            id: params.question_id,
+            isDashboard: true,
           },
         })
+        toastInfo('回答を更新しました')
       },
       onError: (err: any) => {
-        alert(`${err.response.data.detail}\n${err.message}`)
+        // エラー内容を知らせる
+        // Hack: エラーの文言を変えよう！今のままだと分かりにくいよ
+        toastInfo(`${err.response.data.detail}\n${err.message}`)
+        // 以下は、変える必要なし
         if (
           err.response.data.detail === 'The JWT has expired' ||
           err.response.data.detail === 'The CSRF token has expired.'
@@ -100,15 +101,17 @@ export const useMutateAnswer = (question_id: string) => {
       onSuccess: () => {
         dispatch(resetEditedAnswer())
         queryClient.invalidateQueries(['questions'])
-        queryClient.invalidateQueries(['singleAnswer'])
         queryClient.invalidateQueries(['singleQuestion'])
-        queryClient.invalidateQueries(['userAnswer'])
-        queryClient.invalidateQueries(['userQuestions'])
-        toastInfo('削除が完了しました')
-        navigate('/')
+        queryClient.invalidateQueries(['singleAnswer'])
+        queryClient.invalidateQueries(['userAnswers'])
+        navigate('/dashboard/answer')
+        toastInfo('削除しました')
       },
       onError: (err: any) => {
-        alert(`${err.response.data.detail}\n${err.message}`)
+        // エラー内容を知らせる
+        // Hack: エラーの文言を変えよう！今のままだと分かりにくいよ
+        toastInfo(`${err.response.data.detail}\n${err.message}`)
+        // 以下は、変える必要なし
         if (
           err.response.data.detail === 'The JWT has expired' ||
           err.response.data.detail === 'The CSRF token has expired.'
