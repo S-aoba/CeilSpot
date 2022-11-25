@@ -3,12 +3,14 @@ import { Link } from 'react-router-dom'
 import { useMutateAnswer } from '../../../functional/hooks/useMutateAnswer'
 import { useQuerySingleQuestion } from '../../../functional/UseQuery/useQuerySingleQuestion'
 import { AnswerType } from '../../../types/types'
+import { Error } from '../../Error/Error'
 import { Loading } from '../../Loading/Loading'
 import { ModalBtn as DeleteBtn } from '../../shared/elements/ModalBtn'
 
 export const DashBoardAnswerCard: React.FC<AnswerType> = ({ id, body, question_id, respondent_username }) => {
   const { deleteAnswerMutation } = useMutateAnswer(question_id)
-  const { data: dataQuestion, isLoading: isDataQuestionLoading } = useQuerySingleQuestion(question_id)
+  const { data: dataQuestion, isLoading: isDataQuestionLoading, error } = useQuerySingleQuestion(question_id)
+  if (error) return <Error />
   if (isDataQuestionLoading) return <Loading />
 
   return (

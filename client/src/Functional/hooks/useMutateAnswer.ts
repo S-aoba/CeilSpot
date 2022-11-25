@@ -92,8 +92,8 @@ export const useMutateAnswer = (question_id: string) => {
     }
   )
   const deleteAnswerMutation = useMutation(
-    (id: string) =>
-      axios.delete(`${import.meta.env.VITE_API_URL}/answer/${id}`, {
+    (answer_id: string) =>
+      axios.delete(`${import.meta.env.VITE_API_URL}/answer/${answer_id}`, {
         withCredentials: true,
       }),
     {
