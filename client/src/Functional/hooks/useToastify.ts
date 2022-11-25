@@ -3,7 +3,8 @@ import { toast } from 'react-toastify'
 export const useToastify = () => {
   const toastInfo = (message: string) => {
     toast.info(`${message}`, {
-      autoClose: 2000,
+      position: 'top-center',
+      autoClose: 1000,
       closeOnClick: true,
     })
   }
