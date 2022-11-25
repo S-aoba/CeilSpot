@@ -17,7 +17,7 @@ export const AnswerForm: React.FC<Props> = ({ question_id }) => {
   const { processAnswer } = useProcessAnswer()
 
   return (
-    <form className=' w-full' onSubmit={processAnswer}>
+    <form className=' w-full flex justify-center flex-col items-center xl:items-start' onSubmit={processAnswer}>
       <MDEditor
         className=' w-9/12'
         value={editedAnswer.body}

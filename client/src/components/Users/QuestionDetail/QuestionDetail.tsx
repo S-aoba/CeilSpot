@@ -32,7 +32,7 @@ export const QuestionDetail = () => {
       {dataSingleQuestion && (
         <>
           <DetailTitle>{dataSingleQuestion.title}</DetailTitle>
-          <div className='flex flex-col gap-y-5 xl:grid xl:grid-cols-12'>
+          <div className='flex flex-col gap-y-5 xl:grid xl:grid-cols-12 w-full'>
             <DetailCard
               id={dataSingleQuestion.id}
               title={dataSingleQuestion.title}
