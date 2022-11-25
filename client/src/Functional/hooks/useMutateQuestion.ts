@@ -72,6 +72,7 @@ export const useMutateQuestion = () => {
           )
         }
         dispatch(resetEditedQuestion())
+        queryClient.invalidateQueries(['userQuestions'])
         // 更新後のデータを画面遷移時に渡す
         navigate(`/question/${variables.post_username}/${variables.id}`, {
           state: {
