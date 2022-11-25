@@ -5,52 +5,40 @@ from decouple import config
 CSRF_KEY = config("CSRF_KEY")
 
 
-class CsrfSettings(BaseModel):
-    secret_key: str = CSRF_KEY
-
-
 class SuccessMsg(BaseModel):
     message: str
 
 
-# クライアントへ渡すレスポンスデータ型
-class Question(BaseModel):
-    id: str
-    title: str
-    body: str
-    post_username: str
-    is_already_answered: bool = Field(default=False, title="回答されているかどうかの判定")
-    answer_list: list[str] = Field(title="質問に対する回答の配列")
-    tags: list[str]
+class CsrfSettings(BaseModel):
+    secret_key: str = CSRF_KEY
 
 
-# データベースへ格納する際のデータ型
-class QuestionBody(BaseModel):
-    title: str
-    body: str
-    post_username: str
-    is_already_answered: bool = Field(default=False, title="回答されているかどうかの判定")
-    answer_list: list[str] = Field(title="質問に対する回答の配列")
-    tags: list[str]
+class Csrf(BaseModel):
+    csrf_token: str
 
 
-# クライアントへ渡すレスポンスデータ型
-class Answer(BaseModel):
-    id: str
-    body: str
-    question_id: str = Field(title="紐づいている質問のID")
-    respondent_username: str
+# ユーザーネームのデータ型
+class Username(BaseModel):
+    username: str
 
 
-# データベースへ格納する際のデータ型
-class AnswerBody(BaseModel):
-    body: str
-    question_id: str = Field(title="紐づいている質問のID")
-    respondent_username: str
+# ユーザーネーム変更用のデータ型
+class RenameUsername(BaseModel):
+    username: str
 
 
-# クライアントへ渡すレスポンスデータ型
-class UserInfo(BaseModel):
+# ユーザーネームのデータ型
+class Username(BaseModel):
+    username: str
+
+
+# ユーザーネーム変更用のデータ型
+class RenameUsername(BaseModel):
+    username: str
+
+
+# ユーザー情報: レスポンス
+class ResUser(BaseModel):
     id: Optional[str] = None
     username: str
     self_introduction: Optional[str] = None
@@ -59,8 +47,37 @@ class UserInfo(BaseModel):
     website: Optional[str] = None
 
 
-# データベースへ格納する際のデータ型
-class UserBody(BaseModel):
+# ユーザ情報更新用: レスポンス
+class ResUpdateUser(BaseModel):
+    id: str
+    username: str
+    self_introduction: Optional[str] = None
+    twitter: Optional[str] = None
+    github: Optional[str] = None
+    website: Optional[str] = None
+
+
+# 質問用: レスポンス
+class ResQuestion(BaseModel):
+    id: str
+    title: str
+    body: str
+    post_username: str
+    is_already_answered: bool = Field(default=False, title="回答されているかどうかの判定")
+    answer_list: list[str] = Field(title="質問に対する回答の配列")
+    tags: list[str]
+
+
+# 回答用 レスポンス
+class ResAnswer(BaseModel):
+    id: str
+    body: str
+    question_id: str = Field(title="紐づいている質問のID")
+    respondent_username: str
+
+
+# ユーザ情報用: データベース
+class DbUser(BaseModel):
     username: str
     email: str
     password: str
@@ -70,8 +87,8 @@ class UserBody(BaseModel):
     website: Optional[str] = None
 
 
-# 更新用のUserのデータ型
-class UpdateUser(BaseModel):
+# ユーザ情報更新用: データベース
+class DbUpdateUser(BaseModel):
     username: str
     self_introduction: Optional[str] = None
     twitter: Optional[str] = None
@@ -79,15 +96,18 @@ class UpdateUser(BaseModel):
     website: Optional[str] = None
 
 
-# ユーザーネームのデータ型
-class Username(BaseModel):
-    username: str
+# 質問用: データベース
+class DbQuestion(BaseModel):
+    title: str
+    body: str
+    post_username: str
+    is_already_answered: bool = Field(default=False, title="回答されているかどうかの判定")
+    answer_list: list[str] = Field(title="質問に対する回答の配列")
+    tags: list[str]
 
 
-# ユーザーネーム変更用のデータ型
-class ChangeUsername(BaseModel):
-    username: str
-
-
-class Csrf(BaseModel):
-    csrf_token: str
+# 回答用: データベース
+class DbAnswer(BaseModel):
+    body: str
+    question_id: str = Field(title="紐づいている質問のID")
+    respondent_username: str

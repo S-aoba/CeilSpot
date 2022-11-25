@@ -3,7 +3,7 @@ from fastapi.encoders import jsonable_encoder
 from auth_utils import AuthJwtCsrf
 from fastapi_csrf_protect import CsrfProtect
 from starlette.status import HTTP_201_CREATED
-from schemas import Answer, AnswerBody, SuccessMsg
+from schemas import ResAnswer, DbAnswer, SuccessMsg
 from database import db_create_answer, db_update_answer, db_delete_answer, db_get_single_answer, db_get_user_answers
 from typing import List
 
@@ -12,8 +12,8 @@ router = APIRouter()
 auth = AuthJwtCsrf()
 
 # 回答の作成
-@router.post("/api/answer", response_model=Answer)
-async def create_answer(request: Request, response: Response, data: AnswerBody, csrf_protect: CsrfProtect = Depends()):
+@router.post("/api/answer", response_model=ResAnswer)
+async def create_answer(request: Request, response: Response, data: DbAnswer, csrf_protect: CsrfProtect = Depends()):
     new_token = auth.verify_csrf_update_jwt(request, csrf_protect, request.headers)
     answer = jsonable_encoder(data)
     res = await db_create_answer(answer)
@@ -25,7 +25,7 @@ async def create_answer(request: Request, response: Response, data: AnswerBody, 
 
 
 # userごとの回答の全件取得
-@router.get("/api/{username}/answer", response_model=List[Answer])
+@router.get("/api/{username}/answer", response_model=List[ResAnswer])
 async def get_user_answers(request: Request, response: Response, username: str):
     new_token, _ = auth.verify_update_jwt(request)
     res = await db_get_user_answers(username)
@@ -36,7 +36,7 @@ async def get_user_answers(request: Request, response: Response, username: str):
 
 
 # 個別の質問に紐づけられた回答の取得
-@router.get("/api/answer/{answer_id}", response_model=Answer)
+@router.get("/api/answer/{answer_id}", response_model=ResAnswer)
 async def get_single_answer(request: Request, response: Response, answer_id: str):
     new_token, _ = auth.verify_update_jwt(request)
     res = await db_get_single_answer(answer_id)
@@ -47,8 +47,8 @@ async def get_single_answer(request: Request, response: Response, answer_id: str
 
 
 # 回答の更新
-@router.put("/api/answer/{answer_id}", response_model=Answer)
-async def update_answer(request: Request, response: Response, answer_id: str, data: AnswerBody, csrf_protect: CsrfProtect = Depends()):
+@router.put("/api/answer/{answer_id}", response_model=ResAnswer)
+async def update_answer(request: Request, response: Response, answer_id: str, data: DbAnswer, csrf_protect: CsrfProtect = Depends()):
     new_token = auth.verify_csrf_update_jwt(request, csrf_protect, request.headers)
     answer = jsonable_encoder(data)
     res = await db_update_answer(answer_id, answer)

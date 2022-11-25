@@ -5,15 +5,15 @@ from fastapi_csrf_protect import CsrfProtect
 from starlette.status import HTTP_201_CREATED
 from typing import List
 from database import db_create_question, db_get_questions, db_get_single_question, db_update_question, db_delete_question, db_get_user_questions
-from schemas import Question, QuestionBody, SuccessMsg
+from schemas import ResQuestion, DbQuestion, SuccessMsg
 
 
 router = APIRouter()
 auth = AuthJwtCsrf()
 
 
-@router.post("/api/question", response_model=Question)
-async def create_question(request: Request, response: Response, data: QuestionBody, csrf_protect: CsrfProtect = Depends()):
+@router.post("/api/question", response_model=ResQuestion)
+async def create_question(request: Request, response: Response, data: DbQuestion, csrf_protect: CsrfProtect = Depends()):
     new_token = auth.verify_csrf_update_jwt(request, csrf_protect, request.headers)
     question = jsonable_encoder(data)
     res = await db_create_question(question)
@@ -24,7 +24,7 @@ async def create_question(request: Request, response: Response, data: QuestionBo
     raise HTTPException(status_code=404, detail="Create question failed")
 
 
-@router.get("/api/{username}/question", response_model=List[Question])
+@router.get("/api/{username}/question", response_model=List[ResQuestion])
 async def get_user_questions(request: Request, response: Response, username: str):
     new_token, _ = auth.verify_update_jwt(request)
     res = await db_get_user_questions(username)
@@ -34,14 +34,14 @@ async def get_user_questions(request: Request, response: Response, username: str
     raise HTTPException(status_code=404, detail=f"post_username: {username} doesn't exist")
 
 
-@router.get("/api/question", response_model=List[Question])
+@router.get("/api/question", response_model=List[ResQuestion])
 async def get_questions(request: Request):
     # auth.verify_jwt(request)
     res = await db_get_questions()
     return res
 
 
-@router.get("/api/question/{id}", response_model=Question)
+@router.get("/api/question/{id}", response_model=ResQuestion)
 async def get_single_question(request: Request, response: Response, id: str):
     new_token, _ = auth.verify_update_jwt(request)
     res = await db_get_single_question(id)
@@ -51,8 +51,8 @@ async def get_single_question(request: Request, response: Response, id: str):
     raise HTTPException(status_code=404, detail=f"question of ID: {id} doesn't exist")
 
 
-@router.put("/api/question/{id}", response_model=Question)
-async def update_question(request: Request, response: Response, id: str, data: QuestionBody, csrf_protect: CsrfProtect = Depends()):
+@router.put("/api/question/{id}", response_model=ResQuestion)
+async def update_question(request: Request, response: Response, id: str, data: DbQuestion, csrf_protect: CsrfProtect = Depends()):
     new_token = auth.verify_csrf_update_jwt(request, csrf_protect, request.headers)
     question = jsonable_encoder(data)
     res = await db_update_question(id, question)
