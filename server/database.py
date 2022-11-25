@@ -155,6 +155,7 @@ async def db_delete_question(id: str) -> bool:
     if question:
         deleted_question = await collection_question.delete_one({"_id": ObjectId(id)})
         if deleted_question.deleted_count > 0:
+            rm_question_id_from_answer = await collection_answer.delete_many({"question_id": id})
             return True
     return False
 
