@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Response, Request, Depends
 from fastapi.encoders import jsonable_encoder
 from fastapi_csrf_protect import CsrfProtect
-from schemas import DbUser, SuccessMsg, ResUser, Csrf, Username
+from schemas import DbUser, SuccessMsg, ResUser, Csrf, UserIdAndUsername
 from database import db_signup, db_login
 from auth_utils import AuthJwtCsrf
 
@@ -44,8 +44,8 @@ def logout(request: Request, response: Response, csrf_protect: CsrfProtect = Dep
     return {"message": "Successfully logged-out"}
 
 
-@router.get("/api/user", response_model=Username)
+@router.get("/api/user")
 def get_user_refresh_jwt(request: Request, response: Response):
     new_token, subject = auth.verify_update_jwt(request)
     response.set_cookie(key="access_token", value=f"Bearer {new_token}", httponly=True, samesite="none", secure=True)
-    return {"username": subject}
+    return {"user_id": subject["user_id"], "username": subject["user_name"]}

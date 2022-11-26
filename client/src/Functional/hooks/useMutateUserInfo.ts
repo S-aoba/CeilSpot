@@ -34,7 +34,7 @@ export const useMutateUserInfo = () => {
         toastInfo('プロフィールが変更されました。')
       },
       onError: (err: any) => {
-        alert(`${err.response.data.detail}\n${err.message}`)
+        toastInfo(`${err.response.data.detail}\n${err.message}`)
         if (
           err.response.data.detail === 'The JWT has expired' ||
           err.response.data.detail === 'The CSRF token has expired.'
@@ -47,7 +47,7 @@ export const useMutateUserInfo = () => {
     }
   )
 
-  const changeUsernameMutation = useMutation(
+  const renameUsernameMutation = useMutation(
     (id: string) =>
       axios.put(
         `${import.meta.env.VITE_API_URL}/username/${id}`,
@@ -61,15 +61,16 @@ export const useMutateUserInfo = () => {
     {
       onSuccess: () => {
         dispatch(resetEditedUserInfo())
-        queryClient.invalidateQueries(['userInfo'])
         queryClient.invalidateQueries(['user'])
+        queryClient.invalidateQueries(['userInfo'])
         queryClient.invalidateQueries(['questions'])
         queryClient.invalidateQueries(['singleQuestion'])
         queryClient.invalidateQueries(['singleAnswer'])
+        navigate('/dashboard/profile')
         toastInfo('ユーザーネームが変更されました。')
       },
       onError: (err: any) => {
-        alert(`${err.response.data.detail}\n${err.message}`)
+        toastInfo(`${err.response.data.detail}\n${err.message}`)
         if (
           err.response.data.detail === 'The JWT has expired' ||
           err.response.data.detail === 'The CSRF token has expired.'
@@ -81,5 +82,5 @@ export const useMutateUserInfo = () => {
       },
     }
   )
-  return { updateUserInfoMutation, changeUsernameMutation }
+  return { updateUserInfoMutation, renameUsernameMutation }
 }

@@ -17,18 +17,9 @@ class Csrf(BaseModel):
     csrf_token: str
 
 
-# ユーザーネームのデータ型
-class Username(BaseModel):
-    username: str
-
-
-# ユーザーネーム変更用のデータ型
-class RenameUsername(BaseModel):
-    username: str
-
-
-# ユーザーネームのデータ型
-class Username(BaseModel):
+# ユーザーIDとユーザーネームのデータ型
+class UserIdAndUsername(BaseModel):
+    id: str
     username: str
 
 

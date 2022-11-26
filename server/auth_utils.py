@@ -21,8 +21,8 @@ class AuthJwtCsrf:
 
     # JWT関連のメソッド
     # JWTトークンを生成する
-    def encode_jwt(self, username) -> str:
-        payload = {"exp": datetime.utcnow() + timedelta(days=14, minutes=0), "iat": datetime.utcnow(), "sub": username}
+    def encode_jwt(self, id, username) -> str:
+        payload = {"exp": datetime.utcnow() + timedelta(days=14, minutes=0), "iat": datetime.utcnow(), "sub": {"user_id": id, "user_name": username}}
         return jwt.encode(payload, self.secret_key, algorithm="HS256")
 
     # JWTトークンを受け取って検証する
@@ -39,7 +39,7 @@ class AuthJwtCsrf:
             raise HTTPException(status_code=401, detail="JWT is not valid")
 
     # JWTの検証
-    def verify_jwt(self, request) -> str:
+    def verify_jwt(self, request) -> dict:
         token = request.cookies.get("access_token")
         if not token:
             raise HTTPException(status_code=401, detail="No JWT exist: may not set yet or deleted")
@@ -48,10 +48,10 @@ class AuthJwtCsrf:
         return subject
 
     # JWTの検証と更新
-    def verify_update_jwt(self, request) -> tuple[str, str]:
+    def verify_update_jwt(self, request) -> tuple[str, dict]:
         # usernameが返ってくる
         subject = self.verify_jwt(request)
-        new_token = self.encode_jwt(subject)
+        new_token = self.encode_jwt(subject["user_id"], subject["user_name"])
         return new_token, subject
 
     # CSRFトークンの検証とJWTの更新
@@ -61,5 +61,5 @@ class AuthJwtCsrf:
         csrf_protect.validate_csrf(csrf_token)
         # JWTの検証
         subject = self.verify_jwt(request)
-        new_token = self.encode_jwt(subject)
+        new_token = self.encode_jwt(subject["user_id"], subject["user_name"])
         return new_token

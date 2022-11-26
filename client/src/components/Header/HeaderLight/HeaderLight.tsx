@@ -1,13 +1,13 @@
 import { Input as SearchBar } from '../../shared/elements/Input'
 import { Login } from './Login'
 import { SignUp } from './SignUp'
-import { useQueryUser } from '../../../functional/UseQuery/useQueryUser'
+import { useQueryUserId } from '../../../functional/UseQuery/useQueryUser'
 import { LinkBtn as QuestionPostBtn } from '../../shared/elements/LinkBtn'
 import { useHeaderLight } from './useHeaderLight'
 import { IconMenu } from './IconMenu'
 
 export const HeaderLight: React.FC = () => {
-  const { error } = useQueryUser()
+  const { error } = useQueryUserId()
   const { onChangeSearchValue, searchValue } = useHeaderLight()
 
   return (

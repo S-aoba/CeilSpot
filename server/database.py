@@ -26,7 +26,7 @@ def user_info_serializer(user) -> dict:
 
 
 def username_serializer(user) -> dict:
-    return {"username": user["username"]}
+    return {"id": str(user["_id"]), "username": user["username"]}
 
 
 # userの作成
@@ -51,13 +51,12 @@ async def db_signup(data: dict) -> dict:
 # userのログイン
 async def db_login(data: dict) -> str:
     username = data.get("username")
-    email = data.get("email")
     password = data.get("password")
     user = await collection_user.find_one({"username": username})
     # userが存在しない、もしくはハッシュ化されたパスワードと異なる場合
     if not user or not auth.verify_pw(password, user["password"]):
-        raise HTTPException(status_code=401, detail="Invalid username, email or password")
-    token = auth.encode_jwt(user["username"])
+        raise HTTPException(status_code=401, detail="Invalid username or password")
+    token = auth.encode_jwt(str(user["_id"]), user["username"])
     return token
 
 

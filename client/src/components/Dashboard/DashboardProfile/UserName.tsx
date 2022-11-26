@@ -5,13 +5,14 @@ import { selectUserInfo, setEditedUserInfo } from '../../../slices/appSlice'
 import { ModalBtn } from '../../shared/elements/ModalBtn'
 
 type Props = {
+  userId: string
   username: string
 }
 
-export const UserName: React.FC<Props> = ({ username }) => {
+export const UserName: React.FC<Props> = ({ userId, username }) => {
   const dispatch = useAppDispatch()
   const editedUserInfo = useAppSelector(selectUserInfo)
-  const { changeUsernameMutation } = useMutateUserInfo()
+  const { renameUsernameMutation } = useMutateUserInfo()
   return (
     <div className='w-full pr-3'>
       <div className=' mb-2 flex items-center gap-2'>
@@ -37,7 +38,7 @@ export const UserName: React.FC<Props> = ({ username }) => {
           変更前のユーザーネームに関係するページに対して、リダイレクトは設定されません。
           ユーザー名を変更すると、変更前のユーザー名は誰でも利用できるようになります。
           以上の点に関して、十分に注意してください。'
-          onClick={() => changeUsernameMutation.mutate(editedUserInfo.id!)}>
+          onClick={() => renameUsernameMutation.mutate(userId)}>
           変更する
         </ModalBtn>
       </div>

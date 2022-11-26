@@ -53,7 +53,7 @@ export const DashboardProfile = () => {
           </form>
         </div>
         <div className=' row-span-1 flex w-full justify-center pt-3'>
-          <UserName username={username} />
+          <UserName userId={id!} username={username} />
         </div>
       </div>
     </div>

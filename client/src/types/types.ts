@@ -14,7 +14,8 @@ export type AnswerType = {
   respondent_username: string
 }
 
-export type UsernameType = {
+export type UserIdType = {
+  userId: string
   username: string
 }
 

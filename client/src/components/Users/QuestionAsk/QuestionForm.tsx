@@ -6,7 +6,7 @@ import { Input as TitleInput } from '../../shared/elements/Input'
 import { Button as SubmitBtn } from '../../shared/elements/Button'
 import { TagStyle } from './styles/TagStyle'
 import { useProcessQuestion } from '../../../functional/hooks/useProcessQuestion'
-import { useQueryUser } from '../../../functional/UseQuery/useQueryUser'
+import { useQueryUserId } from '../../../functional/UseQuery/useQueryUser'
 import { useAppDispatch, useAppSelector } from '../../../app/hooks'
 import { useTag } from './hooks/useTag'
 import { useChangeTitle } from './hooks/useChangeTitle'
@@ -15,7 +15,7 @@ import { usePageTransition } from '../../../functional/hooks/usePageTransition'
 export const QuestionForm = () => {
   const { tagOptions, tagColorStyles } = TagStyle()
   const { processQuestion } = useProcessQuestion()
-  const { data: dataUser } = useQueryUser()
+  const { data: dataUser } = useQueryUserId()
   const editedQuestion = useAppSelector(selectQuestion)
   const editMode = useAppSelector(selectEditMode)
   const dispatch = useAppDispatch()

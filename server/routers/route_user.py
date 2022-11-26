@@ -26,7 +26,7 @@ async def change_username(request: Request, response: Response, id: str, data: D
     auth.verify_csrf_update_jwt(request, csrf_protect, request.headers)
     user = jsonable_encoder(data)
     res = await db_change_username(id, user)
-    new_token = auth.encode_jwt(res["username"])
+    new_token = auth.encode_jwt(res["id"], res["username"])
     response.set_cookie(key="access_token", value=f"Bearer {new_token}", httponly=True, samesite="none", secure=True)
     if res:
         return res
