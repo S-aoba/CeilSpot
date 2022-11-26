@@ -11,10 +11,10 @@ export const Dashboard = () => {
     data: dataUserInfo,
     isLoading: isUserInfoLoading,
     error: dataUserInfoError,
-  } = useQueryUserInfo(dataUserId?.username!)
-
-  if (dataUserNameError || dataUserInfoError) return <Error />
+  } = useQueryUserInfo(dataUserId?.userId!)
   if (isDataUserNameLoading || isUserInfoLoading) return <Loading />
+  if (dataUserNameError || dataUserInfoError) return <Error />
+  console.log(dataUserInfo)
 
   return (
     <div className=' flex h-fit min-h-screen flex-col items-center justify-start gap-5 pt-5 lg:container lg:mx-auto'>

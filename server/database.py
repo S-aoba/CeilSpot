@@ -61,8 +61,8 @@ async def db_login(data: dict) -> str:
 
 
 # userInfoの取得
-async def db_get_userInfo(username: str) -> Union[dict, bool]:
-    user = await collection_user.find_one({"username": username})
+async def db_get_userInfo(user_id: str) -> Union[dict, bool]:
+    user = await collection_user.find_one({"_id": ObjectId(user_id)})
     if user:
         return user_info_serializer(user)
     return False
