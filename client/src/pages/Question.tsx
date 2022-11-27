@@ -1,5 +1,7 @@
-import { Outlet } from 'react-router-dom'
+import { Outlet, useOutletContext } from 'react-router-dom'
 
 export const Question = () => {
-  return <Outlet />
+  const isAuth = useOutletContext() as boolean
+
+  return <Outlet context={isAuth} />
 }

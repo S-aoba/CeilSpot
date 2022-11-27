@@ -13,7 +13,7 @@ export const Root = () => {
   return (
     <div className=' min-h-screen bg-slate-200'>
       <Header isAuth={isAuth!} />
-      <Outlet />
+      <Outlet context={isAuth!} />
     </div>
   )
 }

@@ -1,47 +1,53 @@
-import { useLocation } from 'react-router-dom'
+import { useLocation, useOutletContext } from 'react-router-dom'
 import { DetailCard } from './DetailCard'
-
 import { AnswerItem } from '../AnswerItem/AnswerItem'
 import { Base } from '../../shared/layout/Base'
 import { DetailProfileCard } from './DetailProfileCard'
 import { DetailTitle } from './DetailTitle'
 import { AnswerForm } from '../AnswerReply/AnswerForm'
-import { useQuerySingleQuestion } from '../../../functional/UseQuery/useQuerySingleQuestion'
-import { Loading } from '../../Loading/Loading'
-import { Error } from '../../Error/Error'
+import { QuestionType } from '../../../types/types'
 
 type State = {
-  id: string
   isDashboard: boolean
-}
+} & QuestionType
 
 export const QuestionDetail = () => {
   const location = useLocation()
-  const { id, isDashboard } = location.state as State
-  const { data: dataSingleQuestion, isLoading, error } = useQuerySingleQuestion(id)
-  if (error) return <Error />
-  if (isLoading) return <Loading />
+  const { id, title, body, post_username, answer_list, tags, isDashboard } = location.state as State
+  const isAuth = useOutletContext() as boolean
+  console.log(isAuth)
+
   return (
     <Base id='questionDetail'>
-      {dataSingleQuestion && (
-        <>
-          <DetailTitle>{dataSingleQuestion.title}</DetailTitle>
-          <div className='flex w-full flex-col gap-y-5 xl:grid xl:grid-cols-12'>
-            <DetailCard
-              id={dataSingleQuestion.id}
-              title={dataSingleQuestion.title}
-              body={dataSingleQuestion.body}
-              post_username={dataSingleQuestion.post_username}
-              answer_list={dataSingleQuestion.answer_list}
-              tags={dataSingleQuestion.tags}
-              isDashboard={isDashboard}
-            />
-            <DetailProfileCard tag={dataSingleQuestion.tags[0]} username={dataSingleQuestion.post_username} />
+      <DetailTitle>{title}</DetailTitle>
+      <div className='flex w-full flex-col gap-y-5 xl:grid xl:grid-cols-12'>
+        <DetailCard
+          id={id}
+          title={title}
+          body={body}
+          post_username={post_username}
+          answer_list={answer_list}
+          tags={tags}
+          isDashboard={isDashboard}
+        />
+        <DetailProfileCard tag={tags[0]} username={post_username} />
+      </div>
+      {answer_list.map((answer: string) => (
+        <AnswerItem key={answer} answer_id={answer} />
+      ))}
+      {isAuth ? (
+        <AnswerForm question_id={id} />
+      ) : (
+        <div className=' w-full'>
+          <hr className=' mb-5 w-9/12 border-gray-600' />
+          <div className='flex w-9/12 justify-between gap-3'>
+            <p className=' text-gray-400'>
+              ログインするとコメントできます。
+              <br />
+              アカウント作成がまだの方は右上のSighUpでアカウントを無料新規作成してからログインをお願いします。
+            </p>
           </div>
-          {dataSingleQuestion &&
-            dataSingleQuestion.answer_list.map((answer: string) => <AnswerItem key={answer} answer_id={answer} />)}
-          <AnswerForm question_id={id} />
-        </>
+        </div>
       )}
     </Base>
   )
