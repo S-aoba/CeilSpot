@@ -25,11 +25,6 @@ export const useMutateAnswer = () => {
         queryClient.invalidateQueries(['singleQuestion'])
         queryClient.invalidateQueries(['singleAnswer'])
         queryClient.invalidateQueries(['userAnswers'])
-        navigate(`/question/${params.username}/${params.question_id}`, {
-          state: {
-            id: params.question_id,
-          },
-        })
         toastInfo('回答しました！ナイス回答！')
       },
       onError: (err: any) => {

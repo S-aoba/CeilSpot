@@ -16,7 +16,7 @@ export const QuestionItem = () => {
         {dataQuestions &&
           dataQuestions.map((question: QuestionType) => (
             <QuestionCard
-              path={`/question/${question.post_username}/${question.id}`}
+              path={`/${question.post_username}/question/${question.id}`}
               key={question.id}
               id={question.id}
               title={question.title}

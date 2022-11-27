@@ -6,22 +6,24 @@ import { Input as TitleInput } from '../../shared/elements/Input'
 import { Button as SubmitBtn } from '../../shared/elements/Button'
 import { TagStyle } from './styles/TagStyle'
 import { useProcessQuestion } from '../../../functional/hooks/useProcessQuestion'
-import { useQueryUserId } from '../../../functional/UseQuery/useQueryUserIdAndUsername'
+import { useQueryUserIdAndUsername } from '../../../functional/UseQuery/useQueryUserIdAndUsername'
 import { useAppDispatch, useAppSelector } from '../../../app/hooks'
 import { useTag } from './hooks/useTag'
 import { useChangeTitle } from './hooks/useChangeTitle'
 import { useEffect } from 'react'
 import { usePageTransition } from '../../../functional/hooks/usePageTransition'
+import { Loading } from '../../Loading/Loading'
+import { Error } from '../../Error/Error'
 export const QuestionForm = () => {
   const { tagOptions, tagColorStyles } = TagStyle()
   const { processQuestion } = useProcessQuestion()
-  const { data: dataUser } = useQueryUserId()
   const editedQuestion = useAppSelector(selectQuestion)
   const editMode = useAppSelector(selectEditMode)
   const dispatch = useAppDispatch()
   const { convertToTagType, multiValue, setMultiValue, displayTagsWhenUpdate } = useTag()
   const { setTitleHandler } = useChangeTitle()
   const { formScreenRefresh, formScreenBrowserBack } = usePageTransition()
+  const { data: dataUserIdAndUsername, isLoading, error } = useQueryUserIdAndUsername()
 
   useEffect(() => {
     // formの入力有無でブラウザバック及び画面リフレッシュの挙動を変える
@@ -38,69 +40,76 @@ export const QuestionForm = () => {
     }
   }, [editMode])
 
+  if (error) return <Error />
+  if (isLoading) return <Loading />
+
   return (
-    <form onSubmit={processQuestion} className='flex w-full flex-col items-center justify-center gap-5'>
-      <div className=' flex w-full'>
-        <TitleInput
-          type=' text'
-          autoFocus
-          className=' w-full border-gray-300 bg-slate-200 px-3 py-5 text-4xl outline-none'
-          value={editedQuestion.title}
-          onChange={setTitleHandler}
-          placeholder='質問のタイトル'
-          maxLength={77}
-          height='55px'
-        />
-      </div>
-      <div className=' flex w-8/12 flex-col items-center justify-center gap-5 rounded-xl bg-white py-3'>
-        <Select
-          name='Tags'
-          className=' w-11/12'
-          isOptionDisabled={() => multiValue?.length! >= 5}
-          onChange={(val) => {
-            setMultiValue(val)
-            dispatch(toggleEditMode(true))
-          }}
-          closeMenuOnSelect={false}
-          options={tagOptions}
-          styles={tagColorStyles}
-          isMulti
-          isSearchable
-          isClearable
-          placeholder='タグを5つまで選択できます'
-          noOptionsMessage={() => '一致するタグがありません'}
-          defaultValue={editedQuestion.id === '' ? multiValue : displayTagsWhenUpdate(editedQuestion.tags)}
-        />
-        <MDEditor
-          className=' w-11/12'
-          value={editedQuestion.body}
-          onChange={(e) => {
-            dispatch(setEditedQuestion({ ...editedQuestion, body: e! }))
-            dispatch(toggleEditMode(true))
-          }}
-          height={500}
-          preview='edit'
-          previewOptions={{
-            rehypePlugins: [[rehypeSanitize]],
-          }}
-        />
-        <div className=' flex w-11/12 flex-col items-center justify-center gap-3 lg:flex lg:flex-row lg:justify-start'>
-          <SubmitBtn
-            onClick={() => {
-              dispatch(
-                setEditedQuestion({
-                  ...editedQuestion,
-                  post_username: dataUser?.username!,
-                  tags: convertToTagType(multiValue),
-                })
-              )
-            }}
-            className=' btn-info btn text-white hover:opacity-75'
-            disabled={!editedQuestion.title || !editedQuestion.body}>
-            {editedQuestion.id === '' ? '送信する' : '更新する'}
-          </SubmitBtn>
-        </div>
-      </div>
-    </form>
+    <>
+      {dataUserIdAndUsername && (
+        <form onSubmit={processQuestion} className='flex w-full flex-col items-center justify-center gap-5'>
+          <div className=' flex w-full'>
+            <TitleInput
+              type=' text'
+              autoFocus
+              className=' w-full border-gray-300 bg-slate-200 px-3 py-5 text-4xl outline-none'
+              value={editedQuestion.title}
+              onChange={setTitleHandler}
+              placeholder='質問のタイトル'
+              maxLength={77}
+              height='55px'
+            />
+          </div>
+          <div className=' flex w-8/12 flex-col items-center justify-center gap-5 rounded-xl bg-white py-3'>
+            <Select
+              name='Tags'
+              className=' w-11/12'
+              isOptionDisabled={() => multiValue?.length! >= 5}
+              onChange={(val) => {
+                setMultiValue(val)
+                dispatch(toggleEditMode(true))
+              }}
+              closeMenuOnSelect={false}
+              options={tagOptions}
+              styles={tagColorStyles}
+              isMulti
+              isSearchable
+              isClearable
+              placeholder='タグを5つまで選択できます'
+              noOptionsMessage={() => '一致するタグがありません'}
+              defaultValue={editedQuestion.id === '' ? multiValue : displayTagsWhenUpdate(editedQuestion.tags)}
+            />
+            <MDEditor
+              className=' w-11/12'
+              value={editedQuestion.body}
+              onChange={(e) => {
+                dispatch(setEditedQuestion({ ...editedQuestion, body: e! }))
+                dispatch(toggleEditMode(true))
+              }}
+              height={500}
+              preview='edit'
+              previewOptions={{
+                rehypePlugins: [[rehypeSanitize]],
+              }}
+            />
+            <div className=' flex w-11/12 flex-col items-center justify-center gap-3 lg:flex lg:flex-row lg:justify-start'>
+              <SubmitBtn
+                onClick={() => {
+                  dispatch(
+                    setEditedQuestion({
+                      ...editedQuestion,
+                      post_username: dataUserIdAndUsername.username,
+                      tags: convertToTagType(multiValue),
+                    })
+                  )
+                }}
+                className=' btn-info btn text-white hover:opacity-75'
+                disabled={!editedQuestion.title || !editedQuestion.body}>
+                {editedQuestion.id === '' ? '送信する' : '更新する'}
+              </SubmitBtn>
+            </div>
+          </div>
+        </form>
+      )}
+    </>
   )
 }

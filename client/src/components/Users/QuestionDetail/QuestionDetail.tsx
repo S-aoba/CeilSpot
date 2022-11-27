@@ -6,10 +6,9 @@ import { Base } from '../../shared/layout/Base'
 import { DetailProfileCard } from './DetailProfileCard'
 import { DetailTitle } from './DetailTitle'
 import { AnswerForm } from '../AnswerReply/AnswerForm'
-import { QuestionType } from '../../../types/types'
 import { useQuerySingleQuestion } from '../../../functional/UseQuery/useQuerySingleQuestion'
-import { title } from '@uiw/react-md-editor'
 import { Loading } from '../../Loading/Loading'
+import { Error } from '../../Error/Error'
 
 type State = {
   id: string
@@ -19,26 +18,28 @@ type State = {
 export const QuestionDetail = () => {
   const location = useLocation()
   const { id, isDashboard } = location.state as State
-  const { data, isLoading } = useQuerySingleQuestion(id)
+  const { data: dataSingleQuestion, isLoading, error } = useQuerySingleQuestion(id)
+  if (error) return <Error />
   if (isLoading) return <Loading />
   return (
     <Base id='questionDetail'>
-      {data && (
+      {dataSingleQuestion && (
         <>
-          <DetailTitle>{data.title}</DetailTitle>
+          <DetailTitle>{dataSingleQuestion.title}</DetailTitle>
           <div className='flex w-full flex-col gap-y-5 xl:grid xl:grid-cols-12'>
             <DetailCard
-              id={data.id}
-              title={data.title}
-              body={data.body}
-              post_username={data.post_username}
-              answer_list={data.answer_list}
-              tags={data.tags}
+              id={dataSingleQuestion.id}
+              title={dataSingleQuestion.title}
+              body={dataSingleQuestion.body}
+              post_username={dataSingleQuestion.post_username}
+              answer_list={dataSingleQuestion.answer_list}
+              tags={dataSingleQuestion.tags}
               isDashboard={isDashboard}
             />
-            <DetailProfileCard tag={data.tags[0]} username={data.post_username} />
+            <DetailProfileCard tag={dataSingleQuestion.tags[0]} username={dataSingleQuestion.post_username} />
           </div>
-          {data && data.answer_list.map((answer: string) => <AnswerItem key={answer} answer_id={answer} />)}
+          {dataSingleQuestion &&
+            dataSingleQuestion.answer_list.map((answer: string) => <AnswerItem key={answer} answer_id={answer} />)}
           <AnswerForm question_id={id} />
         </>
       )}

@@ -1,25 +1,27 @@
-import { Outlet } from 'react-router-dom'
-import { useQueryUserIdAndUsername } from '../../functional/UseQuery/useQueryUserIdAndUsername'
+import { Outlet, useOutletContext } from 'react-router-dom'
 import { useQueryUserInfo } from '../../functional/UseQuery/useQueryUserInfo'
+import { UserIdAndUsernameType } from '../../types/types'
 import { Error } from '../Error/Error'
 import { Loading } from '../Loading/Loading'
 import { Menu } from './DashboardMenu/Menu'
 
 export const Dashboard = () => {
-  const { data: dataUserId, isLoading: isDataUserNameLoading, error: dataUserNameError } = useQueryUserIdAndUsername()
+  const userIDAndUsername = useOutletContext<UserIdAndUsernameType>()
+  console.log(userIDAndUsername)
+
   const {
     data: dataUserInfo,
     isLoading: isUserInfoLoading,
     error: dataUserInfoError,
-  } = useQueryUserInfo(dataUserId?.userId!)
-  if (isDataUserNameLoading || isUserInfoLoading) return <Loading />
-  if (dataUserNameError || dataUserInfoError) return <Error />
-  console.log(dataUserInfo)
+  } = useQueryUserInfo(userIDAndUsername.userId)
+
+  if (dataUserInfoError) return <Error />
+  if (isUserInfoLoading) return <Loading />
 
   return (
-    <div className=' flex h-fit min-h-screen flex-col items-center justify-start gap-5 pt-5 lg:container lg:mx-auto'>
-      {dataUserInfo && dataUserId && (
-        <>
+    <>
+      {dataUserInfo && (
+        <div className=' flex h-fit min-h-screen flex-col items-center justify-start gap-5 pt-5 lg:container lg:mx-auto'>
           <Menu username={dataUserInfo.username} />
           <Outlet
             context={{
@@ -31,8 +33,8 @@ export const Dashboard = () => {
               website: dataUserInfo.website,
             }}
           />
-        </>
+        </div>
       )}
-    </div>
+    </>
   )
 }
