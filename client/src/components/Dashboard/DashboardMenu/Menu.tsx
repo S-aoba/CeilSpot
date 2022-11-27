@@ -6,10 +6,10 @@ import { MenuLinkTab as ProfileTab, MenuLinkTab as AnswerTab, MenuLinkTab as Que
 import { MenuTabStyle } from './MenuTabStyle'
 
 type Props = {
-  username: string
+  userId: string
 }
 
-export const Menu: React.FC<Props> = ({ username }) => {
+export const Menu: React.FC<Props> = ({ userId }) => {
   const { questionsStyle, answerStyle, profileStyle } = MenuTabStyle()
   const dispatch = useAppDispatch()
   return (
@@ -17,7 +17,7 @@ export const Menu: React.FC<Props> = ({ username }) => {
       <ul className=' flex h-full w-full list-none items-center justify-center'>
         <li className=' flex h-full items-center'>
           <QuestionTab
-            username={username}
+            userId={userId}
             path={`/dashboard/question`}
             className={questionsStyle}
             icon={<BsQuestionSquare />}
@@ -27,7 +27,7 @@ export const Menu: React.FC<Props> = ({ username }) => {
         </li>
         <li className=' flex h-full items-center'>
           <AnswerTab
-            username={username}
+            userId={userId}
             path={`/dashboard/answer`}
             className={answerStyle}
             icon={<BsPatchExclamation />}
@@ -37,7 +37,7 @@ export const Menu: React.FC<Props> = ({ username }) => {
         </li>
         <li className=' flex h-full items-center'>
           <ProfileTab
-            username={username}
+            userId={userId}
             path={`/dashboard/profile`}
             className={profileStyle}
             icon={<CgProfile />}

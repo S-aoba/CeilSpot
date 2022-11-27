@@ -17,7 +17,7 @@ export const Dashboard = () => {
     <>
       {dataUserInfo && (
         <div className=' flex h-fit min-h-screen flex-col items-center justify-start gap-5 pt-5 lg:container lg:mx-auto'>
-          <Menu username={dataUserInfo.username} />
+          <Menu userId={dataUserInfo.id!} />
           <Outlet
             context={{
               id: dataUserInfo.id,
