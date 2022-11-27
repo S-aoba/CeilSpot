@@ -1,17 +1,14 @@
-import { Outlet, useOutletContext } from 'react-router-dom'
+import { Outlet, useLocation, useOutletContext } from 'react-router-dom'
 import { useQueryUserInfo } from '../../functional/UseQuery/useQueryUserInfo'
-import { UserIdAndUsernameType } from '../../types/types'
 import { Error } from '../Error/Error'
 import { Loading } from '../Loading/Loading'
 import { Menu } from './DashboardMenu/Menu'
 
 export const Dashboard = () => {
-  const userIDAndUsername = useOutletContext<UserIdAndUsernameType>()
-  const {
-    data: dataUserInfo,
-    isLoading: isUserInfoLoading,
-    error: dataUserInfoError,
-  } = useQueryUserInfo(userIDAndUsername.userId)
+  // const userIDAndUsername = useOutletContext<UserIdAndUsernameType>()
+  const location = useLocation()
+  const userId = location.state
+  const { data: dataUserInfo, isLoading: isUserInfoLoading, error: dataUserInfoError } = useQueryUserInfo(userId)
 
   if (dataUserInfoError) return <Error />
   if (isUserInfoLoading) return <Loading />

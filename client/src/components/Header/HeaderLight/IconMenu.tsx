@@ -6,61 +6,80 @@ import DefaultUserIcon from '../../../assets/defaultUserIcon.png'
 import { useProcessAuth } from '../../../functional/hooks/useProcessAuth'
 import { useAppDispatch } from '../../../app/hooks'
 import { changeMenubarTab } from '../../../slices/appSlice'
+import { useQueryUserIdAndUsername } from '../../../functional/UseQuery/useQueryUserIdAndUsername'
+import { Loading } from '../../Loading/Loading'
+import { QuestionItem } from '../../Users/QuestionItem/QuestionItem'
 
 export const IconMenu: React.FC = () => {
   const { logout } = useProcessAuth()
   const dispatch = useAppDispatch()
+  const { data: userIdAndUsername, isLoading, error } = useQueryUserIdAndUsername()
+
+  if (error) return <QuestionItem />
+  if (isLoading) return <Loading />
   return (
-    <div className=' dropdown-hover dropdown-bottom dropdown-end dropdown'>
-      <img tabIndex={0} src={DefaultUserIcon} alt='userIcon' className=' h-12 w-12 rounded-full hover:cursor-pointer' />
-      <ul tabIndex={0} className='dropdown-content menu rounded-box w-52 gap-3 bg-base-100 p-2 shadow'>
-        <li>
-          <Link
-            to={`/dashboard/question`}
-            relative='path'
-            className=' hover:bg-sky-400 hover:text-white'
-            onClick={() => dispatch(changeMenubarTab('question'))}>
-            <span>
-              <BsQuestionSquare />
-            </span>
-            <p>My Question</p>
-          </Link>
-        </li>
-        <li>
-          <Link
-            to={`/dashboard/answer`}
-            relative='path'
-            className=' hover:bg-sky-400 hover:text-white'
-            onClick={() => dispatch(changeMenubarTab('answer'))}>
-            <span>
-              <BsPatchExclamation />
-            </span>
-            <p>My Answer</p>
-          </Link>
-        </li>
-        <li>
-          <Link
-            to={`/dashboard/profile`}
-            relative='path'
-            className=' hover:bg-sky-400 hover:text-white'
-            onClick={() => dispatch(changeMenubarTab('profile'))}>
-            <span>
-              <CgProfile />
-            </span>
-            <p>My Profile</p>
-          </Link>
-        </li>
-        <li>
-          <div className='flex hover:bg-amber-300 hover:text-white'>
-            <span>
-              <BiLogOut />
-            </span>
-            <button className=' hover:cursor-pointer' onClick={logout}>
-              ログアウト
-            </button>
-          </div>
-        </li>
-      </ul>
-    </div>
+    <>
+      {userIdAndUsername && (
+        <div className=' dropdown-hover dropdown-bottom dropdown-end dropdown'>
+          <img
+            tabIndex={0}
+            src={DefaultUserIcon}
+            alt='userIcon'
+            className=' h-12 w-12 rounded-full hover:cursor-pointer'
+          />
+          <ul tabIndex={0} className='dropdown-content menu rounded-box w-52 gap-3 bg-base-100 p-2 shadow'>
+            <li>
+              <Link
+                to={`/dashboard/question`}
+                relative='path'
+                className=' hover:bg-sky-400 hover:text-white'
+                state={userIdAndUsername.userId}
+                onClick={() => dispatch(changeMenubarTab('question'))}>
+                <span>
+                  <BsQuestionSquare />
+                </span>
+                <p>My Question</p>
+              </Link>
+            </li>
+            <li>
+              <Link
+                to={`/dashboard/answer`}
+                relative='path'
+                className=' hover:bg-sky-400 hover:text-white'
+                state={userIdAndUsername.userId}
+                onClick={() => dispatch(changeMenubarTab('answer'))}>
+                <span>
+                  <BsPatchExclamation />
+                </span>
+                <p>My Answer</p>
+              </Link>
+            </li>
+            <li>
+              <Link
+                to={`/dashboard/profile`}
+                relative='path'
+                className=' hover:bg-sky-400 hover:text-white'
+                state={userIdAndUsername.userId}
+                onClick={() => dispatch(changeMenubarTab('profile'))}>
+                <span>
+                  <CgProfile />
+                </span>
+                <p>My Profile</p>
+              </Link>
+            </li>
+            <li>
+              <div className='flex hover:bg-amber-300 hover:text-white'>
+                <span>
+                  <BiLogOut />
+                </span>
+                <button className=' hover:cursor-pointer' onClick={logout}>
+                  ログアウト
+                </button>
+              </div>
+            </li>
+          </ul>
+        </div>
+      )}
+    </>
   )
 }

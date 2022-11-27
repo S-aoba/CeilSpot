@@ -66,7 +66,7 @@ export const useMutateUserInfo = () => {
         queryClient.invalidateQueries(['questions'])
         queryClient.invalidateQueries(['singleQuestion'])
         queryClient.invalidateQueries(['singleAnswer'])
-        navigate('/dashboard/profile')
+        navigate('/dashboard/profile', { state: res.data.id })
         toastInfo('ユーザーネームが変更されました。')
       },
       onError: (err: any) => {
