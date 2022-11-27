@@ -18,9 +18,10 @@ export const DashBoardAnswerCard: React.FC<AnswerType> = ({ id, body, question_i
       <div className=' flex w-full justify-between'>
         <div className=' w-9/12 line-clamp-1'>
           <Link
-            to={`/question/${dataQuestion?.post_username}/${dataQuestion?.id}`}
+            to={`/${dataQuestion?.post_username}/question/${dataQuestion?.id}`}
             state={{
               id: dataQuestion?.id,
+              isDashboard: true,
             }}>
             <p className=' hover:text-sky-400'>{body}</p>
           </Link>
