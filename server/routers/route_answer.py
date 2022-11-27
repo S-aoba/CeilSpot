@@ -38,9 +38,9 @@ async def get_user_answers(request: Request, response: Response, username: str):
 # 個別の質問に紐づけられた回答の取得
 @router.get("/api/answer/{answer_id}", response_model=ResAnswer)
 async def get_single_answer(request: Request, response: Response, answer_id: str):
-    new_token, _ = auth.verify_update_jwt(request)
+    # new_token, _ = auth.verify_update_jwt(request)
     res = await db_get_single_answer(answer_id)
-    response.set_cookie(key="access_token", value=f"Bearer {new_token}", httponly=True, samesite="none", secure=True)
+    # response.set_cookie(key="access_token", value=f"Bearer {new_token}", httponly=True, samesite="none", secure=True)
     if res:
         return res
     raise HTTPException(status_code=404, detail=f"answer of ID: {id} doesn't exist")
