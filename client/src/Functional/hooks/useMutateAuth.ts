@@ -53,6 +53,7 @@ export const useMutateAuth = () => {
     ),
       {
         onSuccess: () => {
+          queryClient.invalidateQueries(['auth'])
           navigate('/')
         },
         onError: (err: any) => {

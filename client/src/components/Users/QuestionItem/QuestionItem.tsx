@@ -7,6 +7,7 @@ import { Loading } from '../../Loading/Loading'
 
 export const QuestionItem = () => {
   const { data: dataQuestions, isLoading: isLoadingQuestions, error } = useQueryQuestions()
+
   if (error) return <Error />
   if (isLoadingQuestions) return <Loading />
 

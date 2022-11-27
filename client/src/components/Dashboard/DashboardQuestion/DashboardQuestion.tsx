@@ -9,6 +9,7 @@ import { QuestionCard } from '../../Users/QuestionItem/QuestionCard'
 export const DashboardQuestion = () => {
   const { username } = useOutletContext<UserInfo>()
   const { data: dataUserQuestions, isLoading: isUserQuestionsLoading, error } = useQueryUserQuestion(username)
+
   if (error) return <Error />
   if (isUserQuestionsLoading) return <Loading />
 
@@ -18,7 +19,7 @@ export const DashboardQuestion = () => {
         {dataUserQuestions &&
           dataUserQuestions?.map((question) => (
             <QuestionCard
-              path={`/question/${question.post_username}/${question.id}`}
+              path={`/${question.post_username}/question/${question.id}`}
               key={question.id}
               id={question.id}
               title={question.title}
