@@ -25,10 +25,6 @@ def user_info_serializer(user) -> dict:
     return {"id": str(user["_id"]), "username": user["username"], "self_introduction": user["self_introduction"], "twitter": user["twitter"], "github": user["github"], "website": user["website"]}
 
 
-def username_serializer(user) -> dict:
-    return {"id": str(user["_id"]), "username": user["username"]}
-
-
 # userの作成
 async def db_signup(data: dict) -> dict:
     username = data.get("username")
@@ -91,7 +87,7 @@ async def db_change_username(id: str, update_data: dict) -> Union[dict, bool]:
     updated_respondent_user = await collection_answer.update_many({"respondent_username": user["username"]}, {"$set": {"respondent_username": update_data["username"]}})
     if updated_user.modified_count > 0:
         new_user = await collection_user.find_one({"_id": ObjectId(id)})
-        return username_serializer(new_user)
+        return user_info_serializer(new_user)
     return False
 
 

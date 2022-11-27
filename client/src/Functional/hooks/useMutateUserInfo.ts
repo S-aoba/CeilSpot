@@ -59,7 +59,7 @@ export const useMutateUserInfo = () => {
         }
       ),
     {
-      onSuccess: () => {
+      onSuccess: (res) => {
         dispatch(resetEditedUserInfo())
         queryClient.invalidateQueries(['user'])
         queryClient.invalidateQueries(['userInfo'])

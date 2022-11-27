@@ -7,8 +7,6 @@ import { Menu } from './DashboardMenu/Menu'
 
 export const Dashboard = () => {
   const userIDAndUsername = useOutletContext<UserIdAndUsernameType>()
-  console.log(userIDAndUsername)
-
   const {
     data: dataUserInfo,
     isLoading: isUserInfoLoading,

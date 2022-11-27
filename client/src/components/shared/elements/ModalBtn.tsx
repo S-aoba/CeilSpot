@@ -1,5 +1,4 @@
 import { ReactNode } from 'react'
-import { Button } from './Button'
 type Props = {
   className?: string
   modalTitle: string
@@ -31,9 +30,12 @@ export const ModalBtn: React.FC<Props> = ({
                 <p>{modalDescription}</p>
               </div>
               <div className=' flex w-7/12 justify-around'>
-                <Button onClick={onClick} className=' btn-warning btn w-20 text-white hover:opacity-75'>
+                <label
+                  htmlFor={`${modalName}`}
+                  onClick={onClick}
+                  className=' btn-warning btn w-20 text-white hover:opacity-75'>
                   はい
-                </Button>
+                </label>
                 <label htmlFor={`${modalName}`} className=' btn w-20 text-white hover:opacity-75'>
                   いいえ
                 </label>

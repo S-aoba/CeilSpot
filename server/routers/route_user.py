@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException, Response, Request, Depends
 from fastapi.encoders import jsonable_encoder
 from fastapi_csrf_protect import CsrfProtect
-from schemas import DbUpdateUser, ResUpdateUser, ResUser, RenameUsername
+from schemas import DbUpdateUser, ResUpdateUser, ResUser
 from database import db_update_userInfo, db_get_userInfo, db_change_username
 from auth_utils import AuthJwtCsrf
 
@@ -21,7 +21,7 @@ async def userInfo_update(request: Request, response: Response, id: str, data: D
     raise HTTPException(status_code=404, detail="Update user failed")
 
 
-@router.put("/api/username/{id}", response_model=RenameUsername)
+@router.put("/api/username/{id}", response_model=ResUser)
 async def change_username(request: Request, response: Response, id: str, data: DbUpdateUser, csrf_protect: CsrfProtect = Depends()):
     auth.verify_csrf_update_jwt(request, csrf_protect, request.headers)
     user = jsonable_encoder(data)
