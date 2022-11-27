@@ -17,8 +17,9 @@ export const useMutateAuth = () => {
     {
       onSuccess: () => {
         queryClient.invalidateQueries(['user'])
-        toastInfo('ログインしました。')
+        queryClient.invalidateQueries(['auth'])
         navigate('/')
+        toastInfo('ログインしました。')
       },
       onError: (err: any) => {
         alert(`${err.response.data.detail}\n${err.message}`)

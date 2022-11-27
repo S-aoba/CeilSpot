@@ -44,8 +44,15 @@ def logout(request: Request, response: Response, csrf_protect: CsrfProtect = Dep
     return {"message": "Successfully logged-out"}
 
 
-@router.get("/api/user")
+@router.get("/api/user", response_model=UserIdAndUsername)
 def get_user_refresh_jwt(request: Request, response: Response):
     new_token, subject = auth.verify_update_jwt(request)
+    print(new_token)
     response.set_cookie(key="access_token", value=f"Bearer {new_token}", httponly=True, samesite="none", secure=True)
     return {"user_id": subject["user_id"], "username": subject["user_name"]}
+
+
+@router.get("/api/auth", response_model=bool)
+def authenticate_jwt(request: Request, response: Response):
+    is_auth = auth.is_authenticated(request)
+    return is_auth

@@ -12,25 +12,36 @@ import { Dashboard } from './components/Dashboard/Dashboard'
 import { DashboardQuestion } from './components/Dashboard/DashboardQuestion/DashboardQuestion'
 import { DashboardAnswer } from './components/Dashboard/DashboardAnswer/DashboardAnswer'
 import { DashboardProfile } from './components/Dashboard/DashboardProfile/DashboardProfile'
+import { Root } from './pages/Root'
+import { AnswerItem } from './components/Users/AnswerItem/AnswerItem'
+import { AnswerForm } from './components/Users/AnswerReply/AnswerForm'
 
 const router = createBrowserRouter([
   {
-    element: <Question />,
+    element: <Root />,
     children: [
       {
-        path: '/',
-        element: <QuestionItem />,
+        element: <Question />,
+        children: [
+          {
+            path: '/',
+            element: <QuestionItem />,
+          },
+          {
+            path: '/:username/question/:questionId',
+            element: <QuestionDetail />,
+            children: [
+              // {
+              //   element: <AnswerItem />,
+              // },
+              // {
+              //   element: <AnswerForm />,
+              // },
+            ],
+          },
+        ],
       },
       {
-        path: '/question/:username/:question_id',
-        element: <QuestionDetail />,
-      },
-      {
-        path: '/question/ask',
-        element: <QuestionAsk />,
-      },
-      {
-        path: '/dashboard/',
         element: <Dashboard />,
         children: [
           {

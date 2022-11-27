@@ -3,9 +3,9 @@ import axios from 'axios'
 import { UserIdType } from '../../types/types'
 import { useNavigate } from 'react-router-dom'
 
-export const useQueryUserId = () => {
+export const useQueryUserIdAndUsername = () => {
   const navigate = useNavigate()
-  const getCurrentUserId = async () => {
+  const fetchCurrentUserIdAndUsername = async () => {
     const { data } = await axios.get<UserIdType>(`${import.meta.env.VITE_API_URL}/user`, {
       withCredentials: true,
     })
@@ -13,7 +13,7 @@ export const useQueryUserId = () => {
   }
   return useQuery<UserIdType, Error>({
     queryKey: ['user'],
-    queryFn: getCurrentUserId,
+    queryFn: fetchCurrentUserIdAndUsername,
     staleTime: Infinity,
     onError: () => navigate('/'),
   })

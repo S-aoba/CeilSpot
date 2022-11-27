@@ -63,3 +63,9 @@ class AuthJwtCsrf:
         subject = self.verify_jwt(request)
         new_token = self.encode_jwt(subject["user_id"], subject["user_name"])
         return new_token
+
+    def is_authenticated(self, request) -> bool:
+        token = request.cookies.get("access_token")
+        if not token:
+            return False
+        return True

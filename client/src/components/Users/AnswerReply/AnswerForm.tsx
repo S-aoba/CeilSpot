@@ -4,7 +4,7 @@ import { useAppSelector, useAppDispatch } from '../../../app/hooks'
 import { selectAnswer, setEditedAnswer } from '../../../slices/appSlice'
 import { Button as SubmitBtn } from '../../shared/elements/Button'
 import { useProcessAnswer } from '../../../functional/hooks/useProcessAnswer'
-import { useQueryUserId } from '../../../functional/UseQuery/useQueryUser'
+import { useQueryUserIdAndUsername } from '../../../functional/UseQuery/useQueryUserIdAndUsername'
 
 type Props = {
   question_id: string
@@ -13,7 +13,7 @@ type Props = {
 export const AnswerForm: React.FC<Props> = ({ question_id }) => {
   const editedAnswer = useAppSelector(selectAnswer)
   const dispatch = useAppDispatch()
-  const { data: dataUser } = useQueryUserId()
+  const { data: dataUser } = useQueryUserIdAndUsername()
   const { processAnswer } = useProcessAnswer()
 
   return (

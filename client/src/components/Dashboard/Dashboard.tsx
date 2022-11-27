@@ -1,12 +1,12 @@
 import { Outlet } from 'react-router-dom'
-import { useQueryUserId } from '../../functional/UseQuery/useQueryUser'
+import { useQueryUserIdAndUsername } from '../../functional/UseQuery/useQueryUserIdAndUsername'
 import { useQueryUserInfo } from '../../functional/UseQuery/useQueryUserInfo'
 import { Error } from '../Error/Error'
 import { Loading } from '../Loading/Loading'
 import { Menu } from './DashboardMenu/Menu'
 
 export const Dashboard = () => {
-  const { data: dataUserId, isLoading: isDataUserNameLoading, error: dataUserNameError } = useQueryUserId()
+  const { data: dataUserId, isLoading: isDataUserNameLoading, error: dataUserNameError } = useQueryUserIdAndUsername()
   const {
     data: dataUserInfo,
     isLoading: isUserInfoLoading,

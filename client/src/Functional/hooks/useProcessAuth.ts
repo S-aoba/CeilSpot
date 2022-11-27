@@ -57,14 +57,16 @@ export const useProcessAuth = () => {
   }
   const logout = async () => {
     await logoutMutation.mutateAsync()
-    toastInfo('ログアウトしました。')
-    // queryClient.removeQueries('questions')
+    queryClient.invalidateQueries(['auth'])
     queryClient.removeQueries('user')
-    queryClient.invalidateQueries(['user'])
-    // queryClient.removeQueries('userQuestions')
-    // queryClient.removeQueries('singleQuestion')
-    // queryClient.removeQueries('singleAnswer')
+    queryClient.removeQueries('questions')
+    queryClient.removeQueries('singleQuestion')
+    queryClient.removeQueries('answers')
+    queryClient.removeQueries('singleAnswer')
+    queryClient.removeQueries('userInfo')
+    queryClient.removeQueries('auth')
     navigate('/')
+    toastInfo('ログアウトしました。')
   }
   return {
     userName,
