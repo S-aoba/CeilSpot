@@ -14,7 +14,7 @@ export const DashboardQuestion = () => {
 
   return (
     <div id='userQuestions' className=' col-span-9 animate-fade-in-fwd overflow-y-auto'>
-      <div className='grid w-11/12 grid-cols-1 gap-y-5 lg:grid lg:grid-cols-2 lg:gap-x-3 lg:gap-y-10 xl:w-10/12'>
+      <div className='grid w-11/12 grid-cols-1 gap-y-5 xl:w-10/12'>
         {dataUserQuestions &&
           dataUserQuestions?.map((question) => (
             <QuestionCard

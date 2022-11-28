@@ -13,7 +13,7 @@ export const QuestionItem = () => {
 
   return (
     <RootBase id='questionItem'>
-      <div className=' grid w-11/12 grid-cols-1 gap-y-5 lg:grid lg:grid-cols-2 lg:gap-x-3 lg:gap-y-8 xl:w-10/12'>
+      <div className=' grid w-11/12 grid-cols-1 gap-y-5 xl:w-8/12'>
         {dataQuestions &&
           dataQuestions.map((question: QuestionType) => (
             <QuestionCard
