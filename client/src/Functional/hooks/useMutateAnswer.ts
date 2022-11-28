@@ -3,7 +3,7 @@ import { useAppDispatch } from '../../app/hooks'
 import { useMutation, useQueryClient } from 'react-query'
 import { useNavigate, useParams } from 'react-router-dom'
 import { resetEditedAnswer, resetEditedQuestion, toggleCsrfState } from '../../slices/appSlice'
-import { AnswerType } from '../../types/types'
+import { AnswerType, QuestionType } from '../../types/types'
 import { useToastify } from './useToastify'
 
 export const useMutateAnswer = () => {
@@ -15,16 +15,27 @@ export const useMutateAnswer = () => {
 
   const createAnswerMutation = useMutation(
     (answer: Omit<AnswerType, 'id'>) =>
-      axios.post<AnswerType>(`${import.meta.env.VITE_API_URL}/answer`, answer, {
+      axios.post<QuestionType>(`${import.meta.env.VITE_API_URL}/answer`, answer, {
         withCredentials: true,
       }),
     {
-      onSuccess: () => {
+      onSuccess: (res, variables) => {
         dispatch(resetEditedAnswer())
         queryClient.invalidateQueries(['questions'])
         queryClient.invalidateQueries(['singleQuestion'])
         queryClient.invalidateQueries(['singleAnswer'])
         queryClient.invalidateQueries(['userAnswers'])
+        navigate(``, {
+          state: {
+            id: res.data.id,
+            title: res.data.title,
+            body: res.data.body,
+            post_username: res.data.post_username,
+            answer_list: res.data.answer_list,
+            tags: res.data.tags,
+            isDashboard: false,
+          },
+        })
         toastInfo('回答しました！ナイス回答！')
       },
       onError: (err: any) => {
@@ -93,13 +104,13 @@ export const useMutateAnswer = () => {
         withCredentials: true,
       }),
     {
-      onSuccess: () => {
+      onSuccess: (res) => {
         dispatch(resetEditedAnswer())
         queryClient.invalidateQueries(['questions'])
         queryClient.invalidateQueries(['singleQuestion'])
         queryClient.invalidateQueries(['singleAnswer'])
         queryClient.invalidateQueries(['userAnswers'])
-        navigate('/dashboard/answer')
+        navigate('/dashboard/answer', { state: res.data })
         toastInfo('削除しました')
       },
       onError: (err: any) => {

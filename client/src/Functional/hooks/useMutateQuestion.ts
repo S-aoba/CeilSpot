@@ -121,7 +121,7 @@ export const useMutateQuestion = () => {
         dispatch(resetEditedQuestion())
         queryClient.invalidateQueries(['userQuestions'])
         queryClient.invalidateQueries(['userAnswers'])
-        navigate('/dashboard/question')
+        navigate('/dashboard/question', { state: res.data })
         toastInfo('削除しました')
       },
       onError: (err: any) => {
