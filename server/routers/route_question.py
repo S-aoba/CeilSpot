@@ -43,9 +43,7 @@ async def get_questions(request: Request):
 
 @router.get("/api/question/{id}", response_model=ResQuestion)
 async def get_single_question(request: Request, response: Response, id: str):
-    new_token, _ = auth.verify_update_jwt(request)
     res = await db_get_single_question(id)
-    response.set_cookie(key="access_token", value=f"Bearer {new_token}", httponly=True, samesite="none", secure=True)
     if res:
         return res
     raise HTTPException(status_code=404, detail=f"question of ID: {id} doesn't exist")
