@@ -19,7 +19,7 @@ export const QuestionDetail = () => {
   return (
     <RootBase id='questionDetail'>
       <DetailTitle>{title}</DetailTitle>
-      <div className='flex w-full flex-col gap-y-5 xl:grid xl:grid-cols-12'>
+      <div className='mb-3 flex w-full flex-col gap-y-5 xl:grid xl:grid-cols-12'>
         <DetailCard
           id={id}
           title={title}
@@ -31,9 +31,7 @@ export const QuestionDetail = () => {
         />
         <DetailProfileCard tag={tags[0]} username={post_username} />
       </div>
-      {answer_list.map((answer: string) => (
-        <AnswerItem key={answer} answer_id={answer} />
-      ))}
+      <AnswerItem answer_list={answer_list} />
       {isAuth ? (
         <AnswerForm question_id={id} />
       ) : (
@@ -41,7 +39,7 @@ export const QuestionDetail = () => {
           <hr className=' mb-5 w-9/12 border-gray-600' />
           <div className='flex w-9/12 justify-between gap-3'>
             <p className=' text-gray-400'>
-              ログインするとコメントできます。
+              ログインすると質問やコメントが可能になります。
               <br />
               アカウント作成がまだの方は右上のSighUpでアカウントを無料新規作成してからログインをお願いします。
             </p>
