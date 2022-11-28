@@ -74,7 +74,7 @@ export const useMutateQuestion = () => {
         dispatch(resetEditedQuestion())
         queryClient.invalidateQueries(['userQuestions'])
         // 更新後のデータを画面遷移時に渡す
-        navigate(`/question/${variables.post_username}/${variables.id}`, {
+        navigate(`/${variables.post_username}/question/${variables.id}`, {
           state: {
             id: variables.id,
             title: variables.title,
@@ -120,6 +120,7 @@ export const useMutateQuestion = () => {
         }
         dispatch(resetEditedQuestion())
         queryClient.invalidateQueries(['userQuestions'])
+        queryClient.invalidateQueries(['singleQuestion'])
         queryClient.invalidateQueries(['userAnswers'])
         navigate('/dashboard/question', { state: res.data })
         toastInfo('削除しました')

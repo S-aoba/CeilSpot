@@ -109,6 +109,7 @@ export const useMutateAnswer = () => {
         queryClient.invalidateQueries(['questions'])
         queryClient.invalidateQueries(['singleQuestion'])
         queryClient.invalidateQueries(['singleAnswer'])
+        queryClient.invalidateQueries(['userQuestions'])
         queryClient.invalidateQueries(['userAnswers'])
         navigate('/dashboard/answer', { state: res.data })
         toastInfo('削除しました')
