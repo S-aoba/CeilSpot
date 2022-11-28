@@ -6,7 +6,6 @@ import { CsrfToken } from './types/types'
 import { QuestionDetail } from './components/Users/QuestionDetail/QuestionDetail'
 import { QuestionItem } from './components/Users/QuestionItem/QuestionItem'
 import { QuestionAsk } from './components/Users/QuestionAsk/QuestionAsk'
-import { Question } from './pages/Question'
 import { selectCsrfState } from './slices/appSlice'
 import { Dashboard } from './components/Dashboard/Dashboard'
 import { DashboardQuestion } from './components/Dashboard/DashboardQuestion/DashboardQuestion'
@@ -19,36 +18,31 @@ const router = createBrowserRouter([
     element: <Root />,
     children: [
       {
-        element: <Question />,
+        path: '/',
+        element: <QuestionItem />,
+      },
+      {
+        path: '/:username/question/:questionId',
+        element: <QuestionDetail />,
+      },
+      {
+        path: '/question/ask',
+        element: <QuestionAsk />,
+      },
+      {
+        element: <Dashboard />,
         children: [
           {
-            path: '/',
-            element: <QuestionItem />,
+            path: '/dashboard/question',
+            element: <DashboardQuestion />,
           },
           {
-            path: '/:username/question/:questionId',
-            element: <QuestionDetail />,
+            path: '/dashboard/answer',
+            element: <DashboardAnswer />,
           },
           {
-            path: '/question/ask',
-            element: <QuestionAsk />,
-          },
-          {
-            element: <Dashboard />,
-            children: [
-              {
-                path: '/dashboard/question',
-                element: <DashboardQuestion />,
-              },
-              {
-                path: '/dashboard/answer',
-                element: <DashboardAnswer />,
-              },
-              {
-                path: '/dashboard/profile',
-                element: <DashboardProfile />,
-              },
-            ],
+            path: '/dashboard/profile',
+            element: <DashboardProfile />,
           },
         ],
       },
