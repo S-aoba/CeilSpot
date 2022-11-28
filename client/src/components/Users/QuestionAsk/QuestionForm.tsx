@@ -12,8 +12,8 @@ import { useTag } from './hooks/useTag'
 import { useChangeTitle } from './hooks/useChangeTitle'
 import { useEffect } from 'react'
 import { usePageTransition } from '../../../functional/hooks/usePageTransition'
-import { Loading } from '../../Loading/Loading'
-import { Error } from '../../Error/Error'
+import { Loading } from '../../shared/elements/Loading/Loading'
+import { Error } from '../../shared/elements/Error/Error'
 export const QuestionForm = () => {
   const { tagOptions, tagColorStyles } = TagStyle()
   const { processQuestion } = useProcessQuestion()

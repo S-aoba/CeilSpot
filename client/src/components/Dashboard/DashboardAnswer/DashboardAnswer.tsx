@@ -4,8 +4,8 @@ import { useAppDispatch } from '../../../app/hooks'
 import { useQueryUserAnswer } from '../../../functional/UseQuery/useQueryUserAnswer'
 import { changeMenubarTab } from '../../../slices/appSlice'
 import { UserInfo } from '../../../types/types'
-import { Error } from '../../Error/Error'
-import { Loading } from '../../Loading/Loading'
+import { Error } from '../../shared/elements/Error/Error'
+import { Loading } from '../../shared/elements/Loading/Loading'
 import { DashBoardAnswerCard } from './DashBoardAnswerCard'
 
 export const DashboardAnswer = () => {

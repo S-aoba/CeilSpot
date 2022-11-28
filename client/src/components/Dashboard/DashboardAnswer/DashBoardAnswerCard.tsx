@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom'
 import { useMutateAnswer } from '../../../functional/hooks/useMutateAnswer'
 import { useQuerySingleQuestion } from '../../../functional/UseQuery/useQuerySingleQuestion'
 import { AnswerType } from '../../../types/types'
-import { Error } from '../../Error/Error'
-import { Loading } from '../../Loading/Loading'
+import { Error } from '../../shared/elements/Error/Error'
+import { Loading } from '../../shared/elements/Loading/Loading'
 import { ModalBtn as DeleteBtn } from '../../shared/elements/ModalBtn'
 
 export const DashBoardAnswerCard: React.FC<AnswerType> = ({ id, body, question_id }) => {

@@ -5,8 +5,8 @@ import { selectAnswer, setEditedAnswer } from '../../../slices/appSlice'
 import { Button as SubmitBtn } from '../../shared/elements/Button'
 import { useProcessAnswer } from '../../../functional/hooks/useProcessAnswer'
 import { useQueryUserIdAndUsername } from '../../../functional/UseQuery/useQueryUserIdAndUsername'
-import { Error } from '../../Error/Error'
-import { Loading } from '../../Loading/Loading'
+import { Error } from '../../shared/elements/Error/Error'
+import { Loading } from '../../shared/elements/Loading/Loading'
 
 type Props = {
   question_id: string

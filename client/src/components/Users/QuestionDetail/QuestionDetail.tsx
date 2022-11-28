@@ -7,8 +7,8 @@ import { DetailTitle } from './DetailTitle'
 import { AnswerForm } from '../AnswerReply/AnswerForm'
 import { QuestionType } from '../../../types/types'
 import { useQuerySingleQuestion } from '../../../functional/UseQuery/useQuerySingleQuestion'
-import { Error } from '../../Error/Error'
-import { Loading } from '../../Loading/Loading'
+import { Error } from '../../shared/elements/Error/Error'
+import { Loading } from '../../shared/elements/Loading/Loading'
 
 type State = {
   isDashboard: boolean

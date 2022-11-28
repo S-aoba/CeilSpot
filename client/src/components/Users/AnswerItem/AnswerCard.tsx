@@ -1,8 +1,8 @@
 import MDEditor from '@uiw/react-md-editor'
 import { useQuerySingleAnswer } from '../../../functional/UseQuery/useQuerySingleAnswer'
 import defaultIcon from '../../../assets/defaultUserIcon.png'
-import { Loading } from '../../Loading/Loading'
-import { Error } from '../../Error/Error'
+import { Loading } from '../../shared/elements/Loading/Loading'
+import { Error } from '../../shared/elements/Error/Error'
 
 type Props = {
   answer_id: string
@@ -13,7 +13,7 @@ export const AnswerCard: React.FC<Props> = ({ answer_id }) => {
   if (error) return <Error />
 
   return (
-    <div className=' w-11/12 xl:w-9/12 rounded-3xl'>
+    <div className=' w-11/12 rounded-3xl xl:w-9/12'>
       <div className=' mb-5 flex flex-col items-center justify-center rounded-2xl bg-white py-5 px-3'>
         <div className='w-11/12'>
           <hr className=' my-6 border-gray-300' />

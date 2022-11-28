@@ -7,7 +7,7 @@ import { useProcessAuth } from '../../../functional/hooks/useProcessAuth'
 import { useAppDispatch } from '../../../app/hooks'
 import { changeMenubarTab } from '../../../slices/appSlice'
 import { useQueryUserIdAndUsername } from '../../../functional/UseQuery/useQueryUserIdAndUsername'
-import { Loading } from '../../Loading/Loading'
+import { Loading } from '../../shared/elements/Loading/Loading'
 import { QuestionItem } from '../../Users/QuestionItem/QuestionItem'
 
 export const IconMenu: React.FC = () => {
