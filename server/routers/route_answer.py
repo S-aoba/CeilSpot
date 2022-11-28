@@ -3,7 +3,7 @@ from fastapi.encoders import jsonable_encoder
 from auth_utils import AuthJwtCsrf
 from fastapi_csrf_protect import CsrfProtect
 from starlette.status import HTTP_201_CREATED
-from schemas import ResAnswer, DbAnswer, SuccessMsg
+from schemas import ResQuestion, DbAnswer, ResAnswer
 from database import db_create_answer, db_update_answer, db_delete_answer, db_get_single_answer, db_get_user_answers
 from typing import List
 
@@ -12,7 +12,7 @@ router = APIRouter()
 auth = AuthJwtCsrf()
 
 # 回答の作成
-@router.post("/api/answer", response_model=ResAnswer)
+@router.post("/api/answer", response_model=ResQuestion)
 async def create_answer(request: Request, response: Response, data: DbAnswer, csrf_protect: CsrfProtect = Depends()):
     new_token = auth.verify_csrf_update_jwt(request, csrf_protect, request.headers)
     answer = jsonable_encoder(data)
@@ -59,11 +59,11 @@ async def update_answer(request: Request, response: Response, answer_id: str, da
 
 
 # 回答の削除
-@router.delete("/api/answer/{question_id}", response_model=SuccessMsg)
+@router.delete("/api/answer/{question_id}", response_model=str)
 async def delete_answer(request: Request, response: Response, question_id: str, csrf_protect: CsrfProtect = Depends()):
     new_token = auth.verify_csrf_update_jwt(request, csrf_protect, request.headers)
     res = await db_delete_answer(question_id)
     response.set_cookie(key="access_token", value=f"Bearer {new_token}", httponly=True, samesite="none", secure=True)
     if res:
-        return {"message": "Successfully deleted"}
+        return res
     raise HTTPException(status_code=404, detail="delete answer failed")

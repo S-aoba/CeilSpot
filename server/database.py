@@ -145,13 +145,14 @@ async def db_update_question(id: str, data: dict) -> Union[dict, bool]:
 
 
 # questionの削除
-async def db_delete_question(id: str) -> bool:
+async def db_delete_question(id: str) -> Union[str, bool]:
     question = await collection_question.find_one({"_id": ObjectId(id)})
     if question:
         deleted_question = await collection_question.delete_one({"_id": ObjectId(id)})
         if deleted_question.deleted_count > 0:
             rm_question_id_from_answer = await collection_answer.delete_many({"question_id": id})
-            return True
+            target_user_id = await collection_user.find_one({"username": question["post_username"]})
+            return str(target_user_id["_id"])
     return False
 
 
@@ -188,7 +189,9 @@ async def db_create_answer(data: dict) -> Union[dict, bool]:
         if target_question_to_be_stored:
             update_question = await collection_question.update_one({"_id": target_question_to_be_stored["_id"]}, {"$set": {"answer_list": [*target_question_to_be_stored["answer_list"], str(new_answer["_id"])]}})
             if update_question.modified_count > 0:
-                return answer_serializer(new_answer)
+                # フロントエンド側で描画するため
+                new_question = await collection_question.find_one({"_id": target_question_to_be_stored["_id"]})
+                return question_serializer(new_question)
     return False
 
 
@@ -205,7 +208,7 @@ async def db_update_answer(answer_id: str, data: dict) -> Union[dict, bool]:
 
 
 # answerの削除
-async def db_delete_answer(target_answer_id: str) -> bool:
+async def db_delete_answer(target_answer_id: str) -> Union[str, bool]:
     answer = await collection_answer.find_one({"_id": ObjectId(target_answer_id)})
     # 該当のanswerを正常に削除
     if answer:
@@ -222,5 +225,6 @@ async def db_delete_answer(target_answer_id: str) -> bool:
                     new_answer_list.append(answer_id)
             update_answer_list_in_target_question = await collection_question.update_one({"_id": question["_id"]}, {"$set": {"answer_list": new_answer_list}})
             if update_answer_list_in_target_question.modified_count > 0:
-                return True
+                target_user_id = await collection_user.find_one({"username": answer["respondent_username"]})
+                return str(target_user_id["_id"])
     return False

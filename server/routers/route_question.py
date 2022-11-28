@@ -5,7 +5,7 @@ from fastapi_csrf_protect import CsrfProtect
 from starlette.status import HTTP_201_CREATED
 from typing import List
 from database import db_create_question, db_get_questions, db_get_single_question, db_update_question, db_delete_question, db_get_user_questions
-from schemas import ResQuestion, DbQuestion, SuccessMsg
+from schemas import ResQuestion, DbQuestion
 
 
 router = APIRouter()
@@ -62,11 +62,11 @@ async def update_question(request: Request, response: Response, id: str, data: D
     raise HTTPException(status_code=404, detail="Update question failed")
 
 
-@router.delete("/api/question/{id}", response_model=SuccessMsg)
+@router.delete("/api/question/{id}", response_model=str)
 async def delete_question(request: Request, response: Response, id: str, csrf_protect: CsrfProtect = Depends()):
     new_token = auth.verify_csrf_update_jwt(request, csrf_protect, request.headers)
     res = await db_delete_question(id)
     response.set_cookie(key="access_token", value=f"Bearer {new_token}", httponly=True, samesite="none", secure=True)
     if res:
-        return {"message": "Successfully deleted"}
+        return res
     raise HTTPException(status_code=404, detail="delete question failed")
