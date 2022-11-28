@@ -3,7 +3,6 @@ import { useQueryUserQuestion } from '../../../functional/UseQuery/useQueryUserQ
 import { UserInfo } from '../../../types/types'
 import { Error } from '../../Error/Error'
 import { Loading } from '../../Loading/Loading'
-import { Base } from '../../shared/layout/Base'
 import { QuestionCard } from '../../Users/QuestionItem/QuestionCard'
 
 export const DashboardQuestion = () => {
@@ -14,7 +13,7 @@ export const DashboardQuestion = () => {
   if (isUserQuestionsLoading) return <Loading />
 
   return (
-    <Base id='userQuestions'>
+    <div id='userQuestions' className=' col-span-9 overflow-y-auto animate-fade-in-fwd'>
       <div className='grid w-11/12 grid-cols-1 gap-y-5 lg:grid lg:grid-cols-2 lg:gap-x-3 lg:gap-y-10 xl:w-10/12'>
         {dataUserQuestions &&
           dataUserQuestions?.map((question) => (
@@ -31,6 +30,6 @@ export const DashboardQuestion = () => {
             />
           ))}
       </div>
-    </Base>
+    </div>
   )
 }

@@ -1,6 +1,6 @@
 import { QuestionCard } from './QuestionCard'
 import { useQueryQuestions } from '../../../functional/UseQuery/useQueryQuestions'
-import { Base } from '../../shared/layout/Base'
+import { RootBase } from '../../shared/layout/RootBase'
 import { Error } from '../../Error/Error'
 import { QuestionType } from '../../../types/types'
 import { Loading } from '../../Loading/Loading'
@@ -12,8 +12,8 @@ export const QuestionItem = () => {
   if (isLoadingQuestions) return <Loading />
 
   return (
-    <Base id='questionItemList'>
-      <div className=' grid w-11/12 grid-cols-1 gap-y-8 lg:grid lg:grid-cols-2 lg:gap-x-3 lg:gap-y-8 xl:w-10/12'>
+    <RootBase id='questionItem'>
+      <div className=' grid w-11/12 grid-cols-1 gap-y-5 lg:grid lg:grid-cols-2 lg:gap-x-3 lg:gap-y-8 xl:w-10/12'>
         {dataQuestions &&
           dataQuestions.map((question: QuestionType) => (
             <QuestionCard
@@ -29,6 +29,6 @@ export const QuestionItem = () => {
             />
           ))}
       </div>
-    </Base>
+    </RootBase>
   )
 }

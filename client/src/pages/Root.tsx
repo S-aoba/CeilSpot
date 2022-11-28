@@ -11,7 +11,7 @@ export const Root = () => {
   if (isLoading) return <Loading />
 
   return (
-    <div className=' min-h-screen bg-slate-200'>
+    <div className=' h-fit min-h-screen bg-slate-200 pt-20'>
       <Header isAuth={isAuth!} />
       <Outlet context={isAuth!} />
     </div>

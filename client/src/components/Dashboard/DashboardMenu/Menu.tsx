@@ -13,9 +13,9 @@ export const Menu: React.FC<Props> = ({ userId }) => {
   const { questionsStyle, answerStyle, profileStyle } = MenuTabStyle()
   const dispatch = useAppDispatch()
   return (
-    <nav className='flex h-10 w-11/12 justify-center rounded-3xl bg-white'>
-      <ul className=' flex h-full w-full list-none items-center justify-center'>
-        <li className=' flex h-full items-center'>
+    <nav className='col-span-3 mr-5 border-r border-gray-300'>
+      <ul className=' flex h-full list-none flex-col items-center gap-10 pt-10 text-2xl'>
+        <li className=''>
           <QuestionTab
             userId={userId}
             path={`/dashboard/question`}
@@ -25,7 +25,7 @@ export const Menu: React.FC<Props> = ({ userId }) => {
             onClick={() => dispatch(changeMenubarTab('question'))}
           />
         </li>
-        <li className=' flex h-full items-center'>
+        <li className=''>
           <AnswerTab
             userId={userId}
             path={`/dashboard/answer`}
@@ -35,7 +35,7 @@ export const Menu: React.FC<Props> = ({ userId }) => {
             onClick={() => dispatch(changeMenubarTab('answer'))}
           />
         </li>
-        <li className=' flex h-full items-center'>
+        <li className=''>
           <ProfileTab
             userId={userId}
             path={`/dashboard/profile`}

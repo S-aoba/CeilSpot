@@ -1,11 +1,12 @@
-import { Outlet, useLocation, useOutletContext } from 'react-router-dom'
+import { Outlet, useLocation } from 'react-router-dom'
 import { useQueryUserInfo } from '../../functional/UseQuery/useQueryUserInfo'
 import { Error } from '../Error/Error'
 import { Loading } from '../Loading/Loading'
+import { DashboardBase } from '../shared/layout/DashboardBase'
+import { RootBase } from '../shared/layout/RootBase'
 import { Menu } from './DashboardMenu/Menu'
 
 export const Dashboard = () => {
-  // const userIDAndUsername = useOutletContext<UserIdAndUsernameType>()
   const location = useLocation()
   const userId = location.state
   const { data: dataUserInfo, isLoading: isUserInfoLoading, error: dataUserInfoError } = useQueryUserInfo(userId)
@@ -16,10 +17,11 @@ export const Dashboard = () => {
   return (
     <>
       {dataUserInfo && (
-        <div className=' flex h-fit min-h-screen flex-col items-center justify-start gap-5 pt-5 lg:container lg:mx-auto'>
+        <DashboardBase>
           <Menu userId={dataUserInfo.id!} />
           <Outlet
             context={{
+              userID: userId,
               id: dataUserInfo.id,
               username: dataUserInfo.username,
               self_introduction: dataUserInfo.self_introduction,
@@ -28,7 +30,7 @@ export const Dashboard = () => {
               website: dataUserInfo.website,
             }}
           />
-        </div>
+        </DashboardBase>
       )}
     </>
   )
