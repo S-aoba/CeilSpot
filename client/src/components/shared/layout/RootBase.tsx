@@ -6,7 +6,7 @@ type BaseProps = {
 }
 
 export const RootBase: React.FC<BaseProps> = ({ id, children }) => {
-  const displayHandler = () => {
+  const displayRootBase = () => {
     if (id === 'questionAsk' || id === 'dashboard') {
       return (
         <div id={`${id}`} className='h-full max-h-screen'>
@@ -24,5 +24,5 @@ export const RootBase: React.FC<BaseProps> = ({ id, children }) => {
       </div>
     )
   }
-  return <>{displayHandler()}</>
+  return <>{displayRootBase()}</>
 }

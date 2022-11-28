@@ -3,7 +3,6 @@ import { useQueryUserInfo } from '../../functional/UseQuery/useQueryUserInfo'
 import { Error } from '../shared/elements/Error/Error'
 import { Loading } from '../shared/elements/Loading/Loading'
 import { DashboardBase } from '../shared/layout/DashboardBase'
-import { RootBase } from '../shared/layout/RootBase'
 import { Menu } from './DashboardMenu/Menu'
 
 export const Dashboard = () => {
