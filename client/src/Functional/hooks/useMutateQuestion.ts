@@ -123,9 +123,9 @@ export const useMutateQuestion = () => {
         queryClient.invalidateQueries(['userQuestions'])
         queryClient.invalidateQueries(['singleQuestion'])
         queryClient.invalidateQueries(['userAnswers'])
-        console.log(res.data);
-
-        navigate('/dashboard/question', { state: res.data })
+        queryClient.invalidateQueries(['singleAnswer'])
+        const userId = res.data
+        navigate('/dashboard/question', { state: userId })
         toastInfo('削除しました')
       },
       onError: (err: any) => {
