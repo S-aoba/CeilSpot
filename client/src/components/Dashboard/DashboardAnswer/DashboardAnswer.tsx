@@ -22,9 +22,9 @@ export const DashboardAnswer = () => {
   if (isUserAnswerLoading) return <Loading />
 
   return (
-    <div className=' col-span-9 animate-fade-in-fwd overflow-y-auto'>
-      <div className='grid w-11/12 grid-cols-1 gap-y-5 lg:grid lg:grid-cols-2 lg:gap-x-3 lg:gap-y-10 xl:w-10/12'>
-        {dataUserAnswers &&
+    <div className=' col-span-9 animate-fade-in-fwd'>
+      <div className='grid w-10/12 grid-cols-1 gap-y-5'>
+        {dataUserAnswers?.length! >= 1 ? (
           dataUserAnswers?.map((answer) => (
             <DashBoardAnswerCard
               key={answer.id}
@@ -33,7 +33,10 @@ export const DashboardAnswer = () => {
               question_id={answer.question_id}
               respondent_username={answer.respondent_username}
             />
-          ))}
+          ))
+        ) : (
+          <p>まだ回答はありません</p>
+        )}
       </div>
     </div>
   )

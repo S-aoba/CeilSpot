@@ -46,12 +46,12 @@ export const QuestionForm = () => {
   return (
     <>
       {dataUserIdAndUsername && (
-        <form onSubmit={processQuestion} className='flex w-full flex-col items-center justify-center gap-5'>
+        <form onSubmit={processQuestion} className='flex w-full flex-col items-center justify-center gap-2'>
           <div className=' flex w-full'>
             <TitleInput
               type=' text'
               autoFocus
-              className=' w-full border-gray-300 bg-slate-200 px-3 py-5 text-4xl outline-none'
+              className=' w-full border-gray-300 bg-slate-50 px-3 py-5 text-2xl outline-none'
               value={editedQuestion.title}
               onChange={setTitleHandler}
               placeholder='質問のタイトル'

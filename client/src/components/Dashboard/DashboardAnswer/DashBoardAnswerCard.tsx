@@ -23,14 +23,9 @@ export const DashBoardAnswerCard: React.FC<AnswerType> = ({ id, body, question_i
                 to={`/${dataQuestion.post_username}/question/${dataQuestion.id}`}
                 state={{
                   id: dataQuestion.id,
-                  title: dataQuestion.title,
-                  body: dataQuestion.body,
-                  post_username: dataQuestion.post_username,
-                  answer_list: dataQuestion.answer_list,
-                  tags: dataQuestion.tags,
                   isDashboard: true,
                 }}>
-                <p className=' hover:text-sky-400'>{body}</p>
+                <p className=' line-clamp-1 hover:text-sky-400'>{body}</p>
               </Link>
             </div>
             <div className=' flex gap-3'>

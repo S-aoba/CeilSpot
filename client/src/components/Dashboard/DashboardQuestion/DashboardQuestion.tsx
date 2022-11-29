@@ -13,9 +13,9 @@ export const DashboardQuestion = () => {
   if (isUserQuestionsLoading) return <Loading />
 
   return (
-    <div id='userQuestions' className=' col-span-9 animate-fade-in-fwd overflow-y-auto'>
+    <div id='userQuestions' className=' col-span-9 animate-fade-in-fwd'>
       <div className='grid w-11/12 grid-cols-1 gap-y-5 xl:w-8/12'>
-        {dataUserQuestions &&
+        {dataUserQuestions?.length! >= 1 ? (
           dataUserQuestions?.map((question) => (
             <QuestionCard
               path={`/${question.post_username}/question/${question.id}`}
@@ -28,7 +28,10 @@ export const DashboardQuestion = () => {
               tags={question.tags}
               isDashboard
             />
-          ))}
+          ))
+        ) : (
+          <p>まだ質問はありません</p>
+        )}
       </div>
     </div>
   )
