@@ -29,12 +29,12 @@ export const DashboardProfile = () => {
 
   return (
     <div className=' col-span-9 grid h-fit w-11/12 animate-fade-in-fwd grid-cols-12 rounded-3xl bg-white py-5'>
-      <div className='col-span-4 flex items-center justify-center'>
+      <div className='col-span-3 flex items-center justify-center'>
         <div>
           <img src={defaultUserIcon} alt='userIcon' className=' h-40 w-40 rounded-full' />
         </div>
       </div>
-      <div className='col-span-8 grid grid-rows-6'>
+      <div className='col-span-9 grid grid-rows-6'>
         <div className=' row-span-5'>
           <form onSubmit={processUserInfo}>
             <div className=' col-span-9 flex flex-col gap-3 pr-5'>

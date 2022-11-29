@@ -6,23 +6,11 @@ type BaseProps = {
 }
 
 export const RootBase: React.FC<BaseProps> = ({ id, children }) => {
-  const displayRootBase = () => {
-    if (id === 'questionAsk' || id === 'dashboard') {
-      return (
-        <div id={`${id}`} className='h-full max-h-screen'>
-          <div className=' flex h-full max-h-screen animate-fade-in-fwd flex-col items-center pb-5 lg:container lg:mx-auto '>
-            {children}
-          </div>
-        </div>
-      )
-    }
-    return (
-      <div id={`${id}`} className='h-fit min-h-screen'>
-        <div className=' flex h-fit min-h-screen animate-fade-in-fwd flex-col items-center pb-5 lg:container lg:mx-auto '>
-          {children}
-        </div>
+  return (
+    <div id={`${id}`} className='h-fit max-h-fit'>
+      <div className=' flex h-fit max-h-fit animate-fade-in-fwd flex-col items-center pb-5 lg:container lg:mx-auto '>
+        {children}
       </div>
-    )
-  }
-  return <>{displayRootBase()}</>
+    </div>
+  )
 }
