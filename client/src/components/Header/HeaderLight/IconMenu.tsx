@@ -68,13 +68,11 @@ export const IconMenu: React.FC = () => {
               </Link>
             </li>
             <li>
-              <div className='flex hover:bg-amber-300 hover:text-white'>
+              <div className='flex hover:bg-amber-300 hover:text-white' onClick={logout}>
                 <span>
                   <BiLogOut />
                 </span>
-                <button className=' hover:cursor-pointer' onClick={logout}>
-                  ログアウト
-                </button>
+                <button className=' hover:cursor-pointer'>ログアウト</button>
               </div>
             </li>
           </ul>
