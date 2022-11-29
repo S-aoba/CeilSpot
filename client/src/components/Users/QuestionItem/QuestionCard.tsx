@@ -21,8 +21,8 @@ export const QuestionCard: React.FC<LinkPathProps & QuestionType> = ({
   const { selectQuestionIcon } = useSelectQuestionIcon()
 
   return (
-    <div className=' col-span-1 flex h-32'>
-      <div className=' flex w-36 items-center justify-center rounded-xl border bg-white py-2 px-2'>
+    <div className=' col-span-1 flex h-24'>
+      <div className=' flex w-32 items-center justify-center rounded-xl border bg-white py-2 px-2'>
         <img src={selectQuestionIcon(tags[0])} alt='languageIcon' className=' h-16 w-16 rounded-lg' />
       </div>
       <div className=' grid w-full grid-rows-6 py-2 px-2'>
@@ -32,7 +32,7 @@ export const QuestionCard: React.FC<LinkPathProps & QuestionType> = ({
             relative='path'
             className=' hover:text-sky-400'
             state={{ id, title, body, post_username, answer_list, tags, isDashboard }}>
-            <p className=' text-lg font-semibold line-clamp-2 lg:line-clamp-3'>{title}</p>
+            <p className=' text-base font-semibold line-clamp-2 lg:line-clamp-2'>{title}</p>
           </Link>
         </div>
         <div className=' row-span-2 flex items-center justify-start gap-4'>

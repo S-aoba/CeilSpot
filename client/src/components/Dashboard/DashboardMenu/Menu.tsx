@@ -14,7 +14,7 @@ export const Menu: React.FC<Props> = ({ userId }) => {
   const dispatch = useAppDispatch()
   return (
     <nav className='sticky col-span-3 mr-5 border-r border-gray-300'>
-      <ul className=' flex h-full list-none flex-col items-center gap-10 pt-10 text-2xl'>
+      <ul className=' flex h-full list-none flex-col items-end w-11/12 gap-10 pt-10 text-2xl'>
         <li className=''>
           <QuestionTab
             userId={userId}
