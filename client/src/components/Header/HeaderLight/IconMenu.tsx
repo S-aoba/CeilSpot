@@ -25,7 +25,7 @@ export const IconMenu: React.FC = () => {
             tabIndex={0}
             src={DefaultUserIcon}
             alt='userIcon'
-            className=' h-12 w-12 rounded-full hover:cursor-pointer'
+            className=' h-9 w-9 rounded-full hover:cursor-pointer'
           />
           <ul tabIndex={0} className='dropdown-content menu rounded-box w-52 gap-3 bg-base-100 p-2 shadow'>
             <li>
