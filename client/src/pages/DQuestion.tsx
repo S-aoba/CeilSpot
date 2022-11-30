@@ -1,9 +1,9 @@
 import { useOutletContext } from 'react-router-dom'
-import { useQueryUserQuestion } from '../../../functional/UseQuery/useQueryUserQuestion'
-import { UserInfo } from '../../../types/types'
-import { Error } from '../../shared/elements/Error/Error'
-import { Loading } from '../../shared/elements/Loading/Loading'
-import { QuestionItem } from '../../QuestionList/QuestionItem'
+import { useQueryUserQuestion } from '../functional/UseQuery/useQueryUserQuestion'
+import { UserInfo } from '../types/types'
+import { Error } from '../components/shared/elements/Error/Error'
+import { Loading } from '../components/shared/elements/Loading/Loading'
+import { QuestionItem } from '../components/QList/QItem'
 
 export const DashboardQuestion = () => {
   const { username } = useOutletContext<UserInfo>()

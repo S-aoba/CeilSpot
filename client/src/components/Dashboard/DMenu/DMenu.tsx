@@ -2,8 +2,8 @@ import { BsQuestionSquare, BsPatchExclamation } from 'react-icons/bs'
 import { CgProfile } from 'react-icons/cg'
 import { useAppDispatch } from '../../../app/hooks'
 import { changeMenubarTab } from '../../../slices/appSlice'
-import { MenuLinkTab as ProfileTab, MenuLinkTab as AnswerTab, MenuLinkTab as QuestionTab } from './MenuLinkTab'
-import { MenuTabStyle } from './MenuTabStyle'
+import { MenuLinkTab as ProfileTab, MenuLinkTab as AnswerTab, MenuLinkTab as QuestionTab } from './DMenuLinkTab'
+import { MenuTabStyle } from './DMenuTabStyle'
 
 type Props = {
   userId: string

@@ -14,7 +14,7 @@ import { useEffect, useState } from 'react'
 import { usePageTransition } from '../../functional/hooks/usePageTransition'
 import { Loading } from '../shared/elements/Loading/Loading'
 import { Error } from '../shared/elements/Error/Error'
-import { QuestionFormTitle } from './QuestionFormTitle'
+import { QuestionFormTitle } from './QFormTitle'
 
 export const QuestionForm = () => {
   const [isEdited, setIsEdited] = useState<boolean>(false)

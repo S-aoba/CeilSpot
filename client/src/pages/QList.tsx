@@ -1,4 +1,4 @@
-import { QuestionItem } from '../components/QuestionList/QuestionItem'
+import { QuestionItem } from '../components/QList/QItem'
 import { useQueryQuestions } from '../functional/UseQuery/useQueryQuestions'
 import { RootBase } from '../components/shared/layout/RootBase'
 import { Error } from '../components/shared/elements/Error/Error'

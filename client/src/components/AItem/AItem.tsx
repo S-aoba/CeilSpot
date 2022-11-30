@@ -1,4 +1,4 @@
-import { AnswerCard } from './AnswerCard'
+import { AnswerCard } from './ACard'
 
 type Props = {
   answer_list: string[]
