@@ -2,13 +2,12 @@ import React from 'react'
 import MDEditor from '@uiw/react-md-editor'
 import { FiEdit } from 'react-icons/fi'
 import { MdDeleteOutline } from 'react-icons/md'
-
-import { LinkBtn as UpdateBtn } from '../../shared/elements/LinkBtn'
-import { useAppDispatch } from '../../../app/hooks'
-import { setEditedQuestion, toggleEditMode } from '../../../slices/appSlice'
-import { useMutateQuestion } from '../../../functional/hooks/useMutateQuestion'
-import { ModalBtn as DeleteBtn } from '../../shared/elements/ModalBtn'
-import { QuestionType } from '../../../types/types'
+import { LinkBtn as UpdateBtn } from '../shared/elements/LinkBtn'
+import { useAppDispatch } from '../../app/hooks'
+import { setEditedQuestion, toggleEditMode } from '../../slices/appSlice'
+import { useMutateQuestion } from '../../functional/hooks/useMutateQuestion'
+import { ModalBtn as DeleteBtn } from '../shared/elements/ModalBtn'
+import { QuestionType } from '../../types/types'
 
 export const DetailCard: React.FC<QuestionType & { isDashboard: boolean }> = ({
   id,

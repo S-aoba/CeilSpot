@@ -1,5 +1,5 @@
-import defaultUserIcon from '../../../assets/defaultUserIcon.png'
-import { useSelectQuestionIcon } from '../../../functional/hooks/useSelectQuestionIcon'
+import defaultUserIcon from '../../assets/defaultUserIcon.png'
+import { useSelectQuestionIcon } from '../../functional/hooks/useSelectQuestionIcon'
 
 type DetailProfileCardProps = {
   tag: string

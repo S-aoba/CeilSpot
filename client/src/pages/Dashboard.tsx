@@ -1,9 +1,9 @@
 import { Outlet, useLocation } from 'react-router-dom'
-import { useQueryUserInfo } from '../../functional/UseQuery/useQueryUserInfo'
-import { Error } from '../shared/elements/Error/Error'
-import { Loading } from '../shared/elements/Loading/Loading'
-import { DashboardBase } from '../shared/layout/DashboardBase'
-import { Menu } from './DashboardMenu/Menu'
+import { useQueryUserInfo } from '../functional/UseQuery/useQueryUserInfo'
+import { Error } from '../components/shared/elements/Error/Error'
+import { Loading } from '../components/shared/elements/Loading/Loading'
+import { DashboardBase } from '../components/shared/layout/DashboardBase'
+import { Menu } from '../components/Dashboard/DashboardMenu/Menu'
 
 export const Dashboard = () => {
   const location = useLocation()

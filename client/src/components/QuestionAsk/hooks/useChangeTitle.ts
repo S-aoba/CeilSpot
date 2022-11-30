@@ -1,6 +1,6 @@
 import { ChangeEvent } from 'react'
-import { useAppDispatch, useAppSelector } from '../../../../app/hooks'
-import { selectQuestion, setEditedQuestion, toggleEditMode } from '../../../../slices/appSlice'
+import { useAppDispatch, useAppSelector } from '../../../app/hooks'
+import { selectQuestion, setEditedQuestion, toggleEditMode } from '../../../slices/appSlice'
 
 export const useChangeTitle = () => {
   const dispatch = useAppDispatch()

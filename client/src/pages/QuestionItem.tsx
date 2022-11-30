@@ -1,9 +1,9 @@
-import { QuestionCard } from './QuestionCard'
-import { useQueryQuestions } from '../../../functional/UseQuery/useQueryQuestions'
-import { RootBase } from '../../shared/layout/RootBase'
-import { Error } from '../../shared/elements/Error/Error'
-import { QuestionType } from '../../../types/types'
-import { Loading } from '../../shared/elements/Loading/Loading'
+import { QuestionCard } from '../components/QuestionItem/QuestionCard'
+import { useQueryQuestions } from '../functional/UseQuery/useQueryQuestions'
+import { RootBase } from '../components/shared/layout/RootBase'
+import { Error } from '../components/shared/elements/Error/Error'
+import { QuestionType } from '../types/types'
+import { Loading } from '../components/shared/elements/Loading/Loading'
 
 export const QuestionItem = () => {
   const { data: dataQuestions, isLoading: isLoadingQuestions, error } = useQueryQuestions()

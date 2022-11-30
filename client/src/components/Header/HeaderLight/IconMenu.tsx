@@ -8,7 +8,7 @@ import { useAppDispatch } from '../../../app/hooks'
 import { changeMenubarTab } from '../../../slices/appSlice'
 import { useQueryUserIdAndUsername } from '../../../functional/UseQuery/useQueryUserIdAndUsername'
 import { Loading } from '../../shared/elements/Loading/Loading'
-import { QuestionItem } from '../../Users/QuestionItem/QuestionItem'
+import { QuestionItem } from '../../../pages/QuestionItem'
 
 export const IconMenu: React.FC = () => {
   const { logout } = useProcessAuth()
