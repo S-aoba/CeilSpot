@@ -121,7 +121,6 @@ export const useMutateQuestion = () => {
         }
         dispatch(resetEditedQuestion())
         queryClient.invalidateQueries(['userQuestions'])
-        queryClient.invalidateQueries(['singleQuestion'])
         queryClient.invalidateQueries(['userAnswers'])
         queryClient.invalidateQueries(['singleAnswer'])
         const userId = res.data
