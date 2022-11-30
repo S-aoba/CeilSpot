@@ -10,11 +10,13 @@ import { useQueryUserIdAndUsername } from '../../functional/UseQuery/useQueryUse
 import { useAppDispatch, useAppSelector } from '../../app/hooks'
 import { useTag } from './hooks/useTag'
 import { useChangeTitle } from './hooks/useChangeTitle'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { usePageTransition } from '../../functional/hooks/usePageTransition'
 import { Loading } from '../shared/elements/Loading/Loading'
 import { Error } from '../shared/elements/Error/Error'
+
 export const QuestionForm = () => {
+  const [isEdited, setIsEdited] = useState<boolean>(false)
   const { tagOptions, tagColorStyles } = TagStyle()
   const { processQuestion } = useProcessQuestion()
   const editedQuestion = useAppSelector(selectQuestion)
@@ -103,7 +105,7 @@ export const QuestionForm = () => {
                   )
                 }}
                 className=' btn-info btn text-white hover:opacity-75'
-                disabled={!editedQuestion.title || !editedQuestion.body}>
+                disabled={!isEdited}>
                 {editedQuestion.id === '' ? '送信する' : '更新する'}
               </SubmitBtn>
             </div>
