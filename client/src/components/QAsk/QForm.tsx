@@ -10,18 +10,20 @@ import { useQueryUserIdAndUsername } from '../../functional/UseQuery/useQueryUse
 import { useAppDispatch, useAppSelector } from '../../app/hooks'
 import { useTag } from './hooks/useTag'
 import { useChangeTitle } from './hooks/useChangeTitle'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { usePageTransition } from '../../functional/hooks/usePageTransition'
 import { Loading } from '../shared/elements/Loading/Loading'
 import { Error } from '../shared/elements/Error/Error'
+import { QuestionFormTitle } from './QFormTitle'
+
 export const QuestionForm = () => {
+  const [isEdited, setIsEdited] = useState<boolean>(false)
   const { tagOptions, tagColorStyles } = TagStyle()
   const { processQuestion } = useProcessQuestion()
   const editedQuestion = useAppSelector(selectQuestion)
   const editMode = useAppSelector(selectEditMode)
   const dispatch = useAppDispatch()
   const { convertToTagType, multiValue, setMultiValue, displayTagsWhenUpdate } = useTag()
-  const { setTitleHandler } = useChangeTitle()
   const { formScreenRefresh, formScreenBrowserBack } = usePageTransition()
   const { data: dataUserIdAndUsername, isLoading, error } = useQueryUserIdAndUsername()
 
@@ -48,16 +50,7 @@ export const QuestionForm = () => {
       {dataUserIdAndUsername && (
         <form onSubmit={processQuestion} className='flex w-full flex-col items-center justify-center gap-2'>
           <div className=' flex w-full'>
-            <TitleInput
-              type=' text'
-              autoFocus
-              className=' w-full border-gray-300 bg-slate-50 px-3 py-5 text-2xl outline-none'
-              value={editedQuestion.title}
-              onChange={setTitleHandler}
-              placeholder='質問のタイトル'
-              maxLength={77}
-              height='55px'
-            />
+            <QuestionFormTitle editedTitle={editedQuestion.title} />
           </div>
           <div className=' flex w-8/12 flex-col items-center justify-center gap-5 rounded-xl bg-white py-3'>
             <Select
@@ -103,7 +96,7 @@ export const QuestionForm = () => {
                   )
                 }}
                 className=' btn-info btn text-white hover:opacity-75'
-                disabled={!editedQuestion.title || !editedQuestion.body}>
+                disabled={!isEdited}>
                 {editedQuestion.id === '' ? '送信する' : '更新する'}
               </SubmitBtn>
             </div>

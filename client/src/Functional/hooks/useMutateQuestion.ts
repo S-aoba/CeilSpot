@@ -72,8 +72,10 @@ export const useMutateQuestion = () => {
           )
         }
         dispatch(resetEditedQuestion())
+        queryClient.invalidateQueries(['questions'])
         queryClient.invalidateQueries(['userQuestions'])
         queryClient.invalidateQueries(['singleQuestion'])
+
         // 更新後のデータを画面遷移時に渡す
         navigate(`/${variables.post_username}/question/${variables.id}`, {
           state: {
@@ -121,7 +123,6 @@ export const useMutateQuestion = () => {
         }
         dispatch(resetEditedQuestion())
         queryClient.invalidateQueries(['userQuestions'])
-        queryClient.invalidateQueries(['singleQuestion'])
         queryClient.invalidateQueries(['userAnswers'])
         queryClient.invalidateQueries(['singleAnswer'])
         const userId = res.data

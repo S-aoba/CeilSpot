@@ -3,7 +3,7 @@ import { useQueryUserInfo } from '../functional/UseQuery/useQueryUserInfo'
 import { Error } from '../components/shared/elements/Error/Error'
 import { Loading } from '../components/shared/elements/Loading/Loading'
 import { DashboardBase } from '../components/shared/layout/DashboardBase'
-import { Menu } from '../components/Dashboard/DashboardMenu/Menu'
+import { Menu } from '../components/Dashboard/DMenu/DMenu'
 
 export const Dashboard = () => {
   const location = useLocation()
