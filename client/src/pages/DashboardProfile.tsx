@@ -1,4 +1,4 @@
-import defaultUserIcon from '../../../assets/defaultUserIcon.png'
+import defaultUserIcon from '../assets/defaultUserIcon.png'
 import { UserName } from '../components/Dashboard/DProfile/UserName'
 import { SelfIntroduction } from '../components/Dashboard/DProfile/SelfIntroduction'
 import { Twitter } from '../components/Dashboard/DProfile/Twitter'
