@@ -1,15 +1,15 @@
 import { useLocation, useOutletContext } from 'react-router-dom'
-import { DetailCard } from '../components/QuestionDetail/DetailCard'
+import { DetailCard } from '../components/QDetail/DetailCard'
 import { AnswerItem } from '../components/AItem/AItem'
 import { RootBase } from '../components/shared/layout/RootBase'
-import { DetailProfileCard } from '../components/QuestionDetail/DetailProfileCard'
-import { DetailTitle } from '../components/QuestionDetail/DetailTitle'
+import { DetailProfileCard } from '../components/QDetail/DetailProfileCard'
+import { DetailTitle } from '../components/QDetail/DetailTitle'
 import { AnswerForm } from '../components/AReply/AForm'
 import { QuestionType } from '../types/types'
 import { useQuerySingleQuestion } from '../functional/UseQuery/useQuerySingleQuestion'
 import { Error } from '../components/shared/elements/Error/Error'
 import { Loading } from '../components/shared/elements/Loading/Loading'
-import { LogoutAnswerForm } from '../components/QuestionDetail/LogoutAnswerForm'
+import { LogoutAnswerForm } from '../components/QDetail/LogoutAnswerForm'
 
 type State = {
   isDashboard: boolean
