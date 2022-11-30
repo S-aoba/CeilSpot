@@ -9,6 +9,7 @@ import { QuestionType } from '../types/types'
 import { useQuerySingleQuestion } from '../functional/UseQuery/useQuerySingleQuestion'
 import { Error } from '../components/shared/elements/Error/Error'
 import { Loading } from '../components/shared/elements/Loading/Loading'
+import { LogoutAnswerForm } from '../components/QuestionDetail/LogoutAnswerForm'
 
 type State = {
   isDashboard: boolean
@@ -41,20 +42,7 @@ export const QuestionDetail = () => {
             <DetailProfileCard tag={data.tags[0]} username={data.post_username} />
           </div>
           <AnswerItem answer_list={data.answer_list} />
-          {isAuth ? (
-            <AnswerForm question_id={data.id} />
-          ) : (
-            <div className=' w-full'>
-              <hr className=' mb-5 w-9/12 border-gray-600' />
-              <div className='flex w-9/12 justify-between gap-3'>
-                <p className=' text-gray-400'>
-                  ログインすると質問やコメントが可能になります。
-                  <br />
-                  アカウント作成がまだの方は右上のSighUpでアカウントを無料新規作成してからログインをお願いします。
-                </p>
-              </div>
-            </div>
-          )}
+          {isAuth ? <AnswerForm question_id={data.id} /> : <LogoutAnswerForm />}
         </RootBase>
       )}
     </>
