@@ -1,4 +1,4 @@
-import { QuestionCard } from '../components/QuestionList/QuestionCard'
+import { QuestionCard } from '../components/QuestionList/QuestionItem'
 import { useQueryQuestions } from '../functional/UseQuery/useQueryQuestions'
 import { RootBase } from '../components/shared/layout/RootBase'
 import { Error } from '../components/shared/elements/Error/Error'

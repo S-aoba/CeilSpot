@@ -3,7 +3,7 @@ import { useQueryUserQuestion } from '../../../functional/UseQuery/useQueryUserQ
 import { UserInfo } from '../../../types/types'
 import { Error } from '../../shared/elements/Error/Error'
 import { Loading } from '../../shared/elements/Loading/Loading'
-import { QuestionCard } from '../../QuestionList/QuestionCard'
+import { QuestionItem } from '../../QuestionList/QuestionItem'
 
 export const DashboardQuestion = () => {
   const { username } = useOutletContext<UserInfo>()
@@ -17,7 +17,7 @@ export const DashboardQuestion = () => {
       <div className='grid w-11/12 grid-cols-1 gap-y-5 xl:w-8/12'>
         {dataUserQuestions?.length! >= 1 ? (
           dataUserQuestions?.map((question) => (
-            <QuestionCard
+            <QuestionItem
               path={`/${question.post_username}/question/${question.id}`}
               key={question.id}
               id={question.id}

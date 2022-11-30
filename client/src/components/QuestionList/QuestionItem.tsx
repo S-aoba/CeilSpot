@@ -8,7 +8,7 @@ type LinkPathProps = {
   isDashboard: boolean
 } & QuestionType
 
-export const QuestionCard: React.FC<LinkPathProps & QuestionType> = ({
+export const QuestionItem: React.FC<LinkPathProps & QuestionType> = ({
   path,
   id,
   title,
