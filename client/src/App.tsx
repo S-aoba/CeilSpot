@@ -4,7 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { useAppSelector } from './app/hooks'
 import { CsrfToken } from './types/types'
 import { QuestionDetail } from './pages/QuestionDetail'
-import { QuestionItem } from './pages/QuestionItem'
+import { QuestionList } from './pages/QuestionList'
 import { QuestionAsk } from './pages/QuestionAsk'
 import { selectCsrfState } from './slices/appSlice'
 import { Dashboard } from './pages/Dashboard'
@@ -19,7 +19,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <QuestionItem />,
+        element: <QuestionList />,
       },
       {
         path: '/:username/question/:questionId',

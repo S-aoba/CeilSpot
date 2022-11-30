@@ -8,14 +8,14 @@ import { useAppDispatch } from '../../../app/hooks'
 import { changeMenubarTab } from '../../../slices/appSlice'
 import { useQueryUserIdAndUsername } from '../../../functional/UseQuery/useQueryUserIdAndUsername'
 import { Loading } from '../../shared/elements/Loading/Loading'
-import { QuestionItem } from '../../../pages/QuestionItem'
+import { QuestionList } from '../../../pages/QuestionList'
 
 export const IconMenu: React.FC = () => {
   const { logout } = useProcessAuth()
   const dispatch = useAppDispatch()
   const { data: userIdAndUsername, isLoading, error } = useQueryUserIdAndUsername()
 
-  if (error) return <QuestionItem />
+  if (error) return <QuestionList />
   if (isLoading) return <Loading />
   return (
     <>

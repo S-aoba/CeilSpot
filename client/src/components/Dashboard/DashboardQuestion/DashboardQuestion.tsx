@@ -3,7 +3,7 @@ import { useQueryUserQuestion } from '../../../functional/UseQuery/useQueryUserQ
 import { UserInfo } from '../../../types/types'
 import { Error } from '../../shared/elements/Error/Error'
 import { Loading } from '../../shared/elements/Loading/Loading'
-import { QuestionCard } from '../../QuestionItem/QuestionCard'
+import { QuestionCard } from '../../QuestionList/QuestionCard'
 
 export const DashboardQuestion = () => {
   const { username } = useOutletContext<UserInfo>()

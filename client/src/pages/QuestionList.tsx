@@ -1,11 +1,11 @@
-import { QuestionCard } from '../components/QuestionItem/QuestionCard'
+import { QuestionCard } from '../components/QuestionList/QuestionCard'
 import { useQueryQuestions } from '../functional/UseQuery/useQueryQuestions'
 import { RootBase } from '../components/shared/layout/RootBase'
 import { Error } from '../components/shared/elements/Error/Error'
 import { QuestionType } from '../types/types'
 import { Loading } from '../components/shared/elements/Loading/Loading'
 
-export const QuestionItem = () => {
+export const QuestionList = () => {
   const { data: dataQuestions, isLoading: isLoadingQuestions, error } = useQueryQuestions()
 
   if (error) return <Error />
