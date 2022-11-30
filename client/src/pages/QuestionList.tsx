@@ -1,4 +1,4 @@
-import { QuestionCard } from '../components/QuestionList/QuestionItem'
+import { QuestionItem } from '../components/QuestionList/QuestionItem'
 import { useQueryQuestions } from '../functional/UseQuery/useQueryQuestions'
 import { RootBase } from '../components/shared/layout/RootBase'
 import { Error } from '../components/shared/elements/Error/Error'
@@ -16,7 +16,7 @@ export const QuestionList = () => {
       <div className=' grid w-9/12 grid-cols-1 gap-y-5 xl:w-8/12 xl:grid-cols-2'>
         {dataQuestions &&
           dataQuestions.map((question: QuestionType) => (
-            <QuestionCard
+            <QuestionItem
               path={`/${question.post_username}/question/${question.id}`}
               key={question.id}
               id={question.id}
