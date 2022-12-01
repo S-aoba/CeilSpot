@@ -96,7 +96,8 @@ export const QuestionForm = () => {
                   )
                 }}
                 className=' btn-info btn text-white hover:opacity-75'
-                disabled={!isEdited}>
+                // disabled={!isEdited}
+              >
                 {editedQuestion.id === '' ? '送信する' : '更新する'}
               </SubmitBtn>
             </div>

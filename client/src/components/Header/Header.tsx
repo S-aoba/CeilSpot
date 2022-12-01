@@ -1,5 +1,6 @@
 import { HeaderLeft } from './HeaderLeft/HeaderLeft'
 import { HeaderLight } from './HeaderLight/HeaderLight'
+
 type Props = {
   isAuth: boolean
 }
