@@ -19,30 +19,30 @@ export const QuestionDetail = () => {
   const location = useLocation()
   const isAuth = useOutletContext() as boolean
   const { id, isDashboard } = location.state as State
-  const { data, isLoading, error } = useQuerySingleQuestion(id)
+  const { data: singleQuestion, isLoading, error } = useQuerySingleQuestion(id)
 
   if (error) return <Error />
   if (isLoading) return <Loading />
 
   return (
     <>
-      {data && (
+      {singleQuestion && (
         <RootBase>
-          <DetailTitle>{data.title}</DetailTitle>
-          <div className='mb-3 flex w-full flex-col bg-red-50 xl:grid xl:grid-cols-12'>
+          <DetailTitle>{singleQuestion.title}</DetailTitle>
+          <div className='mb-3 flex w-full flex-col xl:grid xl:grid-cols-12'>
             <DetailCard
-              id={data.id}
-              title={data.title}
-              body={data.body}
-              post_username={data.post_username}
-              answer_list={data.answer_list}
-              tags={data.tags}
+              id={singleQuestion.id}
+              title={singleQuestion.title}
+              body={singleQuestion.body}
+              post_username={singleQuestion.post_username}
+              answer_list={singleQuestion.answer_list}
+              tags={singleQuestion.tags}
               isDashboard={isDashboard}
             />
-            {/* <DetailProfileCard tag={data.tags[0]} username={data.post_username} /> */}
+            <DetailProfileCard username={singleQuestion.post_username} />
           </div>
-          {/* <AnswerItem answer_list={data.answer_list} /> */}
-          {/* {isAuth ? <AnswerForm question_id={data.id} /> : <LogoutAnswerForm />} */}
+          <AnswerItem answer_list={singleQuestion.answer_list} />
+          {isAuth ? <AnswerForm question_id={singleQuestion.id} /> : <LogoutAnswerForm />}
         </RootBase>
       )}
     </>

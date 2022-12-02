@@ -1,33 +1,40 @@
+import { AiOutlineUser } from 'react-icons/ai'
+import { SlCalender } from 'react-icons/sl'
 import defaultUserIcon from '../../assets/defaultUserIcon.png'
-import { useSelectQuestionIcon } from '../../functional/hooks/useSelectQuestionIcon'
 
 type DetailProfileCardProps = {
-  tag: string
   username: string
 }
 
-export const DetailProfileCard: React.FC<DetailProfileCardProps> = ({ tag, username }) => {
-  const { selectQuestionIcon } = useSelectQuestionIcon()
-
+export const DetailProfileCard: React.FC<DetailProfileCardProps> = ({ username }) => {
   return (
-    <div className='flex justify-center pl-5 xl:col-span-3'>
-      <div className='  flex h-96 w-80 flex-col gap-10 rounded-3xl bg-white px-5 pt-5 text-base'>
-        <div className=' flex justify-center'>
-          <img src={selectQuestionIcon(tag)} alt='languageIcon' className=' h-24 w-24 rounded-xl' />
-        </div>
-        <div className=' flex items-center justify-between'>
-          <span>質問者: </span>
-          <div className=' flex items-center'>
-            <img src={defaultUserIcon} alt='userIcon' className=' mr-2 h-10 w-10 rounded-full' />
-            <p>{username}</p>
+    <div className='flex justify-center xl:col-span-3'>
+      <div className='  h-fit max-h-fit w-10/12 rounded-2xl bg-white'>
+        {/* <div className=' flex w-full justify-center'>
+          <img src={selectQuestionIcon(tag)} alt='languageIcon' className=' h-11 w-11 rounded-xl' />
+        </div> */}
+        <div className=' flex w-full items-center justify-center py-5'>
+          <div className=' flex w-9/12 items-center justify-between'>
+            <AiOutlineUser className=' h-8 w-7 text-gray-400' />
+            <span>質問者: </span>
+            <div className=' flex items-center'>
+              <img src={defaultUserIcon} alt='userIcon' className=' mr-2 h-8 w-8 rounded-full' />
+              <p>{username}</p>
+            </div>
           </div>
         </div>
-        <hr className=' -mt-8' />
-        <div className=' flex items-center justify-between'>
-          <span>公開日: </span>
-          <p className=' tracking-wide'>2022 / 11 / 22</p>
+        <div className=' flex w-full justify-center'>
+          <hr className=' m-1 w-10/12 border-gray-300' />
         </div>
-        <hr className=' -mt-8' />
+        <div className=' flex w-full items-center justify-center py-5'>
+          <div className=' flex w-9/12 items-center justify-between'>
+            <SlCalender className=' h-8 w-7 text-gray-400' />
+            <span>公開日: </span>
+            <div className=' flex items-center'>
+              <p className=' tracking-wide'>2022/12/22</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )
