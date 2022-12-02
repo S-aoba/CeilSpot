@@ -21,7 +21,7 @@ export const QuestionItem: React.FC<LinkPathProps & QuestionType> = ({
   const { selectQuestionIcon } = useSelectQuestionIcon()
 
   return (
-    <div className=' col-span-1 flex h-24 w-11/12 rounded-3xl border-[3px] bg-white hover:animate-shadow-pop-bl'>
+    <div className=' col-span-1 flex h-24 w-11/12 rounded-3xl border-[3px] bg-white duration-500 hover:relative hover:translate-x-2 hover:-translate-y-2 hover:shadow-[-8px_8px_0px_0px_#171717]'>
       <div className=' flex w-32 items-center justify-center py-2 px-2'>
         <img src={selectQuestionIcon(tags[0])} alt='languageIcon' className=' h-16 w-16 rounded-lg' />
       </div>
