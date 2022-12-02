@@ -1,7 +1,6 @@
 import React from 'react'
 import { QuestionType } from '../../types/types'
 import { DetailMenu } from './DetailMenu'
-import { DetailTags } from './DetailTags'
 import { DetailBody } from './DetailBody'
 
 export const DetailCard: React.FC<QuestionType & { isDashboard: boolean }> = ({
@@ -26,7 +25,6 @@ export const DetailCard: React.FC<QuestionType & { isDashboard: boolean }> = ({
             tags={tags}
           />
         )}
-        <DetailTags tags={tags} />
         <DetailBody body={body} />
       </div>
     </div>
