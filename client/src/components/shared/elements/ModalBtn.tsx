@@ -16,7 +16,7 @@ export const ModalBtn: React.FC<Props> = ({
   onClick,
 }) => {
   return (
-    <>
+    <div>
       <label htmlFor={`${modalName}`} className={className}>
         {children}
       </label>
@@ -44,7 +44,7 @@ export const ModalBtn: React.FC<Props> = ({
           </div>
         </label>
       </label>
-    </>
+    </div>
   )
 }
 
