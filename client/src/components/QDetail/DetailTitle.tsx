@@ -5,5 +5,9 @@ type DetailTitleProps = {
 }
 
 export const DetailTitle: React.FC<DetailTitleProps> = ({ children }) => {
-  return <div className=' py-5 text-center text-3xl w-8/12'>{children}</div>
+  return (
+    <div className=' w-fit max-w-fit bg-blue-300 py-5 font-mono text-2xl font-bold'>
+      <p>{children}</p>
+    </div>
+  )
 }

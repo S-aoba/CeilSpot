@@ -27,9 +27,9 @@ export const QuestionDetail = () => {
   return (
     <>
       {data && (
-        <RootBase id='questionDetail'>
+        <RootBase>
           <DetailTitle>{data.title}</DetailTitle>
-          <div className='mb-3 flex w-full flex-col gap-y-5 xl:grid xl:grid-cols-12'>
+          {/* <div className='mb-3 flex w-full flex-col bg-red-50 xl:grid xl:grid-cols-12'>
             <DetailCard
               id={data.id}
               title={data.title}
@@ -42,7 +42,7 @@ export const QuestionDetail = () => {
             <DetailProfileCard tag={data.tags[0]} username={data.post_username} />
           </div>
           <AnswerItem answer_list={data.answer_list} />
-          {isAuth ? <AnswerForm question_id={data.id} /> : <LogoutAnswerForm />}
+          {isAuth ? <AnswerForm question_id={data.id} /> : <LogoutAnswerForm />} */}
         </RootBase>
       )}
     </>

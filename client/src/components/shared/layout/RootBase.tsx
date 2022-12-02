@@ -1,13 +1,12 @@
 import { ReactNode } from 'react'
 
 type BaseProps = {
-  id: 'questionItem' | 'questionDetail' | 'questionAsk' | 'dashboard'
   children: ReactNode
 }
 
-export const RootBase: React.FC<BaseProps> = ({ id, children }) => {
+export const RootBase: React.FC<BaseProps> = ({ children }) => {
   return (
-    <div  className=' flex h-fit min-h-screen animate-fade-in-fwd flex-col items-center pb-5 pt-20 lg:container lg:mx-auto '>
+    <div className=' flex h-fit min-h-screen animate-fade-in-fwd flex-col items-center bg-green-400 pb-5 pt-20 lg:container lg:mx-auto'>
       {children}
     </div>
   )

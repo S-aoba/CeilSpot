@@ -12,7 +12,7 @@ export const QuestionList = () => {
   if (isLoadingQuestions) return <Loading />
 
   return (
-    <RootBase id='questionItem'>
+    <RootBase>
       <div className=' grid w-9/12 grid-cols-1 gap-y-5 xl:w-10/12 xl:grid-cols-2 xl:gap-x-5'>
         {dataQuestions &&
           dataQuestions.map((question: QuestionType) => (

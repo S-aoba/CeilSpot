@@ -3,7 +3,7 @@ import { QuestionForm } from '../components/QAsk/QForm'
 
 export const QuestionAsk = () => {
   return (
-    <RootBase id='questionAsk'>
+    <RootBase>
       <QuestionForm />
     </RootBase>
   )

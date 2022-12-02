@@ -8,6 +8,7 @@ import { setEditedQuestion, toggleEditMode } from '../../slices/appSlice'
 import { useMutateQuestion } from '../../functional/hooks/useMutateQuestion'
 import { ModalBtn as DeleteBtn } from '../shared/elements/ModalBtn'
 import { QuestionType } from '../../types/types'
+import { useSelectQuestionIcon } from '../../functional/hooks/useSelectQuestionIcon'
 
 export const DetailCard: React.FC<QuestionType & { isDashboard: boolean }> = ({
   id,
@@ -20,14 +21,15 @@ export const DetailCard: React.FC<QuestionType & { isDashboard: boolean }> = ({
 }) => {
   const dispatch = useAppDispatch()
   const { deleteQuestionMutation } = useMutateQuestion()
+  const { selectQuestionIcon } = useSelectQuestionIcon()
 
   return (
     <div className='flex justify-center xl:col-span-9'>
-      <div className=' flex w-6/12 flex-col items-center justify-center rounded-xl bg-white py-5 md:w-11/12 xl:w-full'>
+      <div className=' flex h-fit w-6/12 flex-col items-center rounded-xl bg-white py-5 md:w-11/12 xl:w-full'>
         <div className=' flex w-11/12 flex-wrap items-center justify-start gap-4 py-5'>
-          <p className=' font-bold'>タグ : </p>
           {tags.map((tag) => (
-            <div className=' rounded-3xl border border-sky-400 py-1 px-3 text-sky-400' key={tag}>
+            <div className=' flex justify-center gap-2 rounded-3xl border border-gray-300 py-1 px-3' key={tag}>
+              <img src={selectQuestionIcon(tag)} alt='QuestionIcon' className=' h-6 w-6' />
               <p>{tag}</p>
             </div>
           ))}
