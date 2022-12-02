@@ -29,7 +29,7 @@ export const QuestionDetail = () => {
       {data && (
         <RootBase>
           <DetailTitle>{data.title}</DetailTitle>
-          {/* <div className='mb-3 flex w-full flex-col bg-red-50 xl:grid xl:grid-cols-12'>
+          <div className='mb-3 flex w-full flex-col bg-red-50 xl:grid xl:grid-cols-12'>
             <DetailCard
               id={data.id}
               title={data.title}
@@ -39,10 +39,10 @@ export const QuestionDetail = () => {
               tags={data.tags}
               isDashboard={isDashboard}
             />
-            <DetailProfileCard tag={data.tags[0]} username={data.post_username} />
+            {/* <DetailProfileCard tag={data.tags[0]} username={data.post_username} /> */}
           </div>
-          <AnswerItem answer_list={data.answer_list} />
-          {isAuth ? <AnswerForm question_id={data.id} /> : <LogoutAnswerForm />} */}
+          {/* <AnswerItem answer_list={data.answer_list} /> */}
+          {/* {isAuth ? <AnswerForm question_id={data.id} /> : <LogoutAnswerForm />} */}
         </RootBase>
       )}
     </>
