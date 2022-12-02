@@ -26,7 +26,7 @@ export const AnswerForm: React.FC<Props> = ({ question_id }) => {
       {dataUserIdAndUsername && (
         <form className=' flex w-full flex-col items-center justify-center xl:items-start' onSubmit={processAnswer}>
           <MDEditor
-            className=' w-11/12 xl:w-9/12'
+            className=' w-11/12 xl:w-8/12'
             value={editedAnswer.body}
             onChange={(e) => dispatch(setEditedAnswer({ ...editedAnswer, body: e! }))}
             height={500}

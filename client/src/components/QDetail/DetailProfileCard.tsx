@@ -8,17 +8,17 @@ type DetailProfileCardProps = {
 
 export const DetailProfileCard: React.FC<DetailProfileCardProps> = ({ username }) => {
   return (
-    <div className='flex justify-center  xl:col-span-3'>
-      <div className='  h-fit max-h-fit w-11/12 rounded-2xl bg-white'>
+    <div className='flex justify-center  xl:col-span-4'>
+      <div className=' h-fit max-h-fit w-11/12 rounded-2xl bg-white'>
         <div className=' flex w-full items-center justify-center py-5'>
           <div className=' flex w-9/12 items-center justify-between'>
             <div className='flex items-center gap-2'>
               <AiOutlineUser className=' h-5 w-5 text-gray-400' />
-              <span>質問者 : </span>
+              <span className=' text-sm'>質問者 : </span>
             </div>
-            <div className=' flex max-h-fit w-fit items-center'>
+            <div className=' flex h-fit max-h-fit w-32 items-center justify-end'>
               <img src={defaultUserIcon} alt='userIcon' className=' mr-2 h-8 w-8 rounded-full' />
-              <p>{username}</p>
+              <p className=' break-words text-sm line-clamp-1'>{username}</p>
             </div>
           </div>
         </div>
@@ -29,10 +29,10 @@ export const DetailProfileCard: React.FC<DetailProfileCardProps> = ({ username }
           <div className=' flex w-9/12 items-center justify-between'>
             <div className='flex items-center gap-2'>
               <SlCalender className=' h-5 w-5 text-gray-400' />
-              <span>公開日 : </span>
+              <span className=' text-sm'>公開日 : </span>
             </div>
             <div className=' flex items-center'>
-              <p className=' tracking-wide'>2022/12/22</p>
+              <p className=' text-sm tracking-wide'>2022/12/22</p>
             </div>
           </div>
         </div>
