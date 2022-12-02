@@ -8,7 +8,7 @@ export const DetailMenu = ({ id, title, body, post_username, answer_list, tags }
   return (
     <div className=' flex w-11/12 items-center justify-between'>
       <DetailTags tags={tags} />
-      <div className='dropdown-end dropdown'>
+      <div className=' dropdown-end dropdown dropdown-bottom dropdown-hover'>
         <label tabIndex={0}>
           <HiOutlineMenu className=' h-10 w-6 hover:cursor-pointer' />
         </label>
