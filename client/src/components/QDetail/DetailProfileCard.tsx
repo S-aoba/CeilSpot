@@ -10,9 +10,6 @@ export const DetailProfileCard: React.FC<DetailProfileCardProps> = ({ username }
   return (
     <div className='flex justify-center xl:col-span-3'>
       <div className='  h-fit max-h-fit w-10/12 rounded-2xl bg-white'>
-        {/* <div className=' flex w-full justify-center'>
-          <img src={selectQuestionIcon(tag)} alt='languageIcon' className=' h-11 w-11 rounded-xl' />
-        </div> */}
         <div className=' flex w-full items-center justify-center py-5'>
           <div className=' flex w-9/12 items-center justify-between'>
             <AiOutlineUser className=' h-8 w-7 text-gray-400' />
