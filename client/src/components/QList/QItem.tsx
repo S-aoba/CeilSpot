@@ -32,7 +32,7 @@ export const QuestionItem: React.FC<LinkPathProps & QuestionType> = ({
           tags={tags}
           isDashboard={isDashboard}
         />
-        <QItemUserInfo post_username={post_username} />
+        <QItemUserInfo post_username={post_username} answer_list={answer_list} />
       </div>
     </div>
   )
