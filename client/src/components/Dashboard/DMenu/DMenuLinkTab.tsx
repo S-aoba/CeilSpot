@@ -6,7 +6,7 @@ type Props = {
   path: string
   className: string
   icon: ReactNode
-  tabWord: 'Question' | 'Answer' | 'Profile'
+  tabWord: string
   onClick: () => void
 }
 export const MenuLinkTab: React.FC<Props> = ({ userId, path, className, icon, tabWord, onClick }) => {
