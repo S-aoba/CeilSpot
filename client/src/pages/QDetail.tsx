@@ -12,6 +12,7 @@ import { Loading } from '../components/shared/elements/Loading/Loading'
 import { LogoutAnswerForm } from '../components/QDetail/LogoutAnswerForm'
 import { useScreen } from '../functional/hooks/useScreen'
 import { useLayoutEffect } from 'react'
+import { AnswerReply } from '../components/AReply/AReply'
 
 type State = {
   isDashboard: boolean
@@ -35,7 +36,7 @@ export const QuestionDetail = () => {
       {singleQuestion && (
         <RootBase>
           <DetailTitle>{singleQuestion.title}</DetailTitle>
-          <div className=' mb-8 flex w-full flex-col xl:grid xl:grid-cols-12'>
+          <div className=' mb-8 flex w-11/12 flex-col lg:grid lg:w-full lg:grid-cols-12'>
             <DetailCard
               id={singleQuestion.id}
               title={singleQuestion.title}
@@ -45,10 +46,10 @@ export const QuestionDetail = () => {
               tags={singleQuestion.tags}
               isDashboard={isDashboard}
             />
-            {screenWidth >= 992 && <DetailProfileCard username={singleQuestion.post_username} />}
+            {screenWidth >= 994 && <DetailProfileCard username={singleQuestion.post_username} />}
           </div>
           <AnswerItem answer_list={singleQuestion.answer_list} />
-          {isAuth ? <AnswerForm question_id={singleQuestion.id} /> : <LogoutAnswerForm />}
+          {isAuth ? <AnswerReply question_id={singleQuestion.id} /> : <LogoutAnswerForm />}
         </RootBase>
       )}
     </>
