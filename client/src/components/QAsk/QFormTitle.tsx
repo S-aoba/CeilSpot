@@ -11,7 +11,7 @@ export const QuestionFormTitle: React.FC<QuestionFormTitleProps> = ({ editedTitl
     <input
       type=' text'
       autoFocus
-      className=' w-full border-gray-300 bg-slate-50 px-3 py-5 text-2xl outline-none'
+      className=' w-full border-gray-300 bg-slate-100 px-3 py-5 text-2xl outline-none'
       value={editedTitle}
       onChange={setTitleHandler}
       placeholder='質問のタイトル'

@@ -24,20 +24,20 @@ export const QuestionForm = () => {
   const { formScreenRefresh, formScreenBrowserBack } = useScreen()
   const { data: dataUserIdAndUsername, isLoading, error } = useQueryUserIdAndUsername()
 
-  useEffect(() => {
-    // formの入力有無でブラウザバック及び画面リフレッシュの挙動を変える
-    // 入力有: confirmを出して入力内容を破棄しても良いかを尋ねる
-    // 入力無: そのままブラウザバック及び画面リフレッシュする
-    if (editMode) {
-      history.pushState(null, '', null)
-      window.addEventListener('popstate', formScreenBrowserBack, false)
-      window.addEventListener('beforeunload', formScreenRefresh, false)
-    }
-    return () => {
-      window.removeEventListener('beforeunload', formScreenRefresh, false)
-      window.removeEventListener('popstate', formScreenBrowserBack, false)
-    }
-  }, [editMode])
+  // useEffect(() => {
+  //   // formの入力有無でブラウザバック及び画面リフレッシュの挙動を変える
+  //   // 入力有: confirmを出して入力内容を破棄しても良いかを尋ねる
+  //   // 入力無: そのままブラウザバック及び画面リフレッシュする
+  //   if (editMode) {
+  //     history.pushState(null, '', null)
+  //     window.addEventListener('popstate', formScreenBrowserBack, false)
+  //     window.addEventListener('beforeunload', formScreenRefresh, false)
+  //   }
+  //   return () => {
+  //     window.removeEventListener('beforeunload', formScreenRefresh, false)
+  //     window.removeEventListener('popstate', formScreenBrowserBack, false)
+  //   }
+  // }, [editMode])
 
   if (error) return <Error />
   if (isLoading) return <Loading />
@@ -45,11 +45,13 @@ export const QuestionForm = () => {
   return (
     <>
       {dataUserIdAndUsername && (
-        <form onSubmit={processQuestion} className='flex w-full flex-col items-center justify-center gap-2'>
-          <div className=' flex w-full'>
+        <form
+          onSubmit={processQuestion}
+          className='flex w-full flex-col items-center justify-center gap-2'>
+          <div className=' flex w-10/12'>
             <QuestionFormTitle editedTitle={editedQuestion.title} />
           </div>
-          <div className=' flex w-8/12 flex-col items-center justify-center gap-5 rounded-xl bg-white py-3'>
+          <div className=' flex w-10/12 flex-col items-center justify-center gap-5 rounded-xl bg-white py-3'>
             <Select
               name='Tags'
               className=' w-11/12'
