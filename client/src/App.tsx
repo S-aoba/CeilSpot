@@ -10,7 +10,7 @@ import { selectCsrfState } from './slices/appSlice'
 import { Dashboard } from './pages/Dashboard'
 import { DashboardQuestion } from './pages/DQuestion'
 import { DashboardAnswer } from './pages/DAnswer'
-import { DashboardProfile } from './pages/DashboardProfile'
+import { DashboardProfile } from './pages/DProfile'
 import { Root } from './pages/Root'
 
 const router = createBrowserRouter([

@@ -4,6 +4,8 @@ import { Error } from '../components/shared/elements/Error/Error'
 import { Loading } from '../components/shared/elements/Loading/Loading'
 import { DashboardBase } from '../components/shared/layout/DashboardBase'
 import { Menu } from '../components/Dashboard/DMenu/DMenu'
+import defaultUserIcon from '../assets/defaultUserIcon.png'
+import { DashboardTitle } from '../components/Dashboard/DTitle'
 
 export const Dashboard = () => {
   const location = useLocation()
@@ -17,6 +19,7 @@ export const Dashboard = () => {
     <>
       {dataUserInfo && (
         <DashboardBase>
+          <DashboardTitle />
           <Menu userId={dataUserInfo.id!} />
           <Outlet
             context={{
