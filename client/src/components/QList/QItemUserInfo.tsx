@@ -12,12 +12,8 @@ export const QItemUserInfo: React.FC<QItemUserInfoProps> = ({ post_username, ans
       <img src={DefaultUserIcon} alt='userIcon' className=' h-8 w-8 rounded-full' />
       <p className=' truncate text-sm'>{post_username}</p>
       <p className=' text-sm text-gray-400'>29日前</p>
-      {answer_list.length >= 1 && (
-        <>
-          <AiOutlineComment />
-          <p className=' -ml-3 text-sm'>{answer_list.length}</p>
-        </>
-      )}
+      <AiOutlineComment />
+      <p className=' -ml-3 text-sm'>{answer_list.length}</p>
     </div>
   )
 }
