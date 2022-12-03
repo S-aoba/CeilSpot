@@ -45,13 +45,11 @@ export const QuestionForm = () => {
   return (
     <>
       {dataUserIdAndUsername && (
-        <form
-          onSubmit={processQuestion}
-          className='flex w-full flex-col items-center justify-center gap-2'>
+        <form onSubmit={processQuestion} className='flex w-full flex-col items-center justify-center gap-2'>
           <div className=' flex w-10/12'>
             <QuestionFormTitle editedTitle={editedQuestion.title} />
           </div>
-          <div className=' flex w-10/12 flex-col items-center justify-center gap-5 rounded-xl bg-white py-3'>
+          <div className=' flex w-10/12 flex-col items-center justify-center gap-5 rounded-xl bg-white py-5'>
             <Select
               name='Tags'
               className=' w-11/12'
@@ -95,8 +93,7 @@ export const QuestionForm = () => {
                   )
                 }}
                 className=' btn-info btn text-white hover:opacity-75'
-                // disabled={!isEdited}
-              >
+                disabled={true}>
                 {editedQuestion.id === '' ? '送信する' : '更新する'}
               </SubmitBtn>
             </div>

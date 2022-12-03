@@ -5,7 +5,7 @@ import { selectQuestion, setEditedQuestion, toggleEditMode } from '../../../slic
 export const useChangeTitle = () => {
   const dispatch = useAppDispatch()
   const editedQuestion = useAppSelector(selectQuestion)
-  const setTitleHandler = (e: ChangeEvent<HTMLInputElement>) => {
+  const setTitleHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
     dispatch(setEditedQuestion({ ...editedQuestion, title: e.target.value }))
     dispatch(toggleEditMode(true))
   }
