@@ -29,7 +29,7 @@ export const DetailProfileCard: React.FC<DetailProfileCardProps> = ({ username }
           <div className=' flex w-9/12 items-center justify-between'>
             <div className='flex items-center gap-2'>
               <SlCalender className=' h-5 w-5 text-gray-400' />
-              <span className=' text-sm'>公開日 : </span>
+              <span className=' text-sm'>質問日 : </span>
             </div>
             <div className=' flex items-center'>
               <p className=' text-sm tracking-wide'>2022/12/22</p>

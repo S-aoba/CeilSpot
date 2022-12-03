@@ -6,7 +6,19 @@ type Props = {
 
 export const AnswerItem: React.FC<Props> = ({ answer_list }) => {
   return (
-    <div className=' mb-3 flex w-full flex-col items-center justify-center xl:items-start xl:justify-start'>
+    <div className=' flex w-full flex-col items-center justify-center xl:items-start xl:justify-start'>
+      {answer_list.length > 0 ? (
+        <div className=' mb-8 w-full font-mono text-3xl tracking-widest'>
+          <p>
+            <span className=' text-sky-400'>{answer_list.length}</span>
+            件の回答
+          </p>
+        </div>
+      ) : (
+        <div className=' mb-8 w-full font-mono text-xl tracking-widest'>
+          <p>まだ回答はありません</p>
+        </div>
+      )}
       {answer_list.map((answer_id: string) => (
         <AnswerCard key={answer_id} answer_id={answer_id} />
       ))}

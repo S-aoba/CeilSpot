@@ -13,8 +13,8 @@ export const AnswerCard: React.FC<Props> = ({ answer_id }) => {
   if (error) return <Error />
 
   return (
-    <div className=' w-11/12 rounded-3xl xl:w-8/12'>
-      <div className=' mb-5 flex flex-col items-center justify-center rounded-2xl bg-white py-5 px-3'>
+    <div className=' w-11/12 xl:w-8/12 pb-8'>
+      <div className=' flex flex-col items-center justify-center rounded-2xl bg-white py-5 px-3'>
         <div className='w-11/12'>
           <hr className=' my-6 border-gray-300' />
           <MDEditor.Markdown source={dataAnswer?.body} style={{ whiteSpace: 'pre-wrap' }} className=' tracking-wide' />
