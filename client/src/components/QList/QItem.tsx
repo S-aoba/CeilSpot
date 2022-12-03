@@ -1,7 +1,7 @@
-import DefaultUserIcon from '../../assets/defaultUserIcon.png'
-import { Link } from 'react-router-dom'
 import { QuestionType } from '../../types/types'
-import { useSelectQuestionIcon } from '../../functional/hooks/useSelectQuestionIcon'
+import { QItemLanguageIcon } from './QItemLanguageIcon'
+import { QItemTitle } from './QItemTitle'
+import { QItemUserInfo } from './QItemUserInfo'
 
 type LinkPathProps = {
   path: string
@@ -18,28 +18,21 @@ export const QuestionItem: React.FC<LinkPathProps & QuestionType> = ({
   tags,
   isDashboard,
 }) => {
-  const { selectQuestionIcon } = useSelectQuestionIcon()
-
   return (
     <div className=' col-span-1 flex h-24 w-11/12 rounded-3xl border-[3px] bg-white duration-500 hover:relative hover:translate-x-2 hover:-translate-y-2 hover:shadow-[-8px_8px_0px_0px_#171717]'>
-      <div className=' flex w-32 items-center justify-center py-2 px-2'>
-        <img src={selectQuestionIcon(tags[0])} alt='languageIcon' className=' h-16 w-16 rounded-lg' />
-      </div>
+      <QItemLanguageIcon firstTag={tags[0]} />
       <div className=' grid w-full grid-rows-6 py-2 px-2'>
-        <div className=' row-span-4 flex items-center'>
-          <Link
-            to={path}
-            relative='path'
-            className=' hover:text-sky-400'
-            state={{ id, title, body, post_username, answer_list, tags, isDashboard }}>
-            <p className=' text-sm font-semibold line-clamp-2 lg:line-clamp-2'>{title}</p>
-          </Link>
-        </div>
-        <div className=' row-span-2 flex items-center justify-start gap-4'>
-          <img src={DefaultUserIcon} alt='userIcon' className=' h-8 w-8 rounded-full' />
-          <p className=' truncate text-sm'>{post_username}</p>
-          <p className=' text-sm text-gray-400'>29日前</p>
-        </div>
+        <QItemTitle
+          path={path}
+          id={id}
+          title={title}
+          body={body}
+          post_username={post_username}
+          answer_list={answer_list}
+          tags={tags}
+          isDashboard={isDashboard}
+        />
+        <QItemUserInfo post_username={post_username} />
       </div>
     </div>
   )
