@@ -8,14 +8,14 @@ export const AnswerItem: React.FC<Props> = ({ answer_list }) => {
   return (
     <div className=' flex w-full flex-col items-center justify-center xl:items-start xl:justify-start'>
       {answer_list.length > 0 ? (
-        <div className=' mb-8 w-11/12 font-mono text-3xl tracking-widest lg:w-full'>
+        <div className=' mb-8 w-11/12 font-mono text-3xl tracking-widest'>
           <p>
             <span className=' text-sky-400'>{answer_list.length}</span>
             件の回答
           </p>
         </div>
       ) : (
-        <div className=' mb-8 w-11/12 font-mono text-xl tracking-widest lg:w-full'>
+        <div className=' mb-8 w-11/12 font-mono text-xl tracking-widest'>
           <p>まだ回答はありません</p>
         </div>
       )}
