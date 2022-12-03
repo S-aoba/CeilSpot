@@ -1,6 +1,7 @@
-import { BsPatchExclamation, BsQuestionSquare } from 'react-icons/bs'
+import { BsQuestionSquare } from 'react-icons/bs'
 import { BiLogOut } from 'react-icons/bi'
 import { CgProfile } from 'react-icons/cg'
+import { AiOutlineComment } from 'react-icons/ai'
 import { Link } from 'react-router-dom'
 import DefaultUserIcon from '../../../assets/defaultUserIcon.png'
 import { useAppDispatch } from '../../../app/hooks'
@@ -49,7 +50,7 @@ export const IconMenu: React.FC = () => {
                 state={userIdAndUsername.userId}
                 onClick={() => dispatch(changeMenubarTab('answer'))}>
                 <span>
-                  <BsPatchExclamation />
+                  <AiOutlineComment />
                 </span>
                 <p>My Answer</p>
               </Link>

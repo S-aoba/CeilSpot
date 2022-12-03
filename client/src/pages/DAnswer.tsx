@@ -6,7 +6,7 @@ import { changeMenubarTab } from '../slices/appSlice'
 import { UserInfo } from '../types/types'
 import { Error } from '../components/shared/elements/Error/Error'
 import { Loading } from '../components/shared/elements/Loading/Loading'
-import { DashBoardAnswerCard } from '../components/Dashboard/DAnswer/DAnswerCard'
+import { QuestionItem } from '../components/QList/QItem'
 
 export const DashboardAnswer = () => {
   const dispatch = useAppDispatch()
@@ -22,16 +22,20 @@ export const DashboardAnswer = () => {
   if (isUserAnswerLoading) return <Loading />
 
   return (
-    <div className=' col-span-9 animate-fade-in-fwd'>
-      <div className='grid w-10/12 grid-cols-1 gap-y-5'>
+    <div className=' flex justify-center'>
+      <div className='grid w-9/12 grid-cols-1 gap-y-5 pb-5 xl:grid-cols-2'>
         {dataUserAnswers?.length! >= 1 ? (
-          dataUserAnswers?.map((answer) => (
-            <DashBoardAnswerCard
-              key={answer.id}
-              id={answer.id}
-              body={answer.body}
-              question_id={answer.question_id}
-              respondent_username={answer.respondent_username}
+          dataUserAnswers?.map((question) => (
+            <QuestionItem
+              path={`/${question.post_username}/question/${question.id}`}
+              key={question.id}
+              id={question.id}
+              title={question.title}
+              body={question.body}
+              post_username={question.post_username}
+              answer_list={question.answer_list}
+              tags={question.tags}
+              isDashboard
             />
           ))
         ) : (

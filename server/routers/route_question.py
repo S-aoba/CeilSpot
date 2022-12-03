@@ -29,7 +29,7 @@ async def get_user_questions(request: Request, response: Response, username: str
     new_token, _ = auth.verify_update_jwt(request)
     res = await db_get_user_questions(username)
     response.set_cookie(key="access_token", value=f"Bearer {new_token}", httponly=True, samesite="none", secure=True)
-    if res or len(res) == 0:
+    if res:
         return res
     raise HTTPException(status_code=404, detail=f"post_username: {username} doesn't exist")
 

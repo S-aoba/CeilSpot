@@ -3,18 +3,18 @@ import { useQuery } from 'react-query'
 import { useNavigate } from 'react-router-dom'
 import { useAppDispatch } from '../../app/hooks'
 import { toggleCsrfState } from '../../slices/appSlice'
-import { AnswerType } from '../../types/types'
+import { QuestionType } from '../../types/types'
 
 export const useQueryUserAnswer = (username: string) => {
   const navigate = useNavigate()
   const dispatch = useAppDispatch()
   const getUserQuestions = async (username: string) => {
-    const { data } = await axios.get<AnswerType[]>(`${import.meta.env.VITE_API_URL}/${username}/answer`, {
+    const { data } = await axios.get<QuestionType[]>(`${import.meta.env.VITE_API_URL}/${username}/answer`, {
       withCredentials: true,
     })
     return data
   }
-  return useQuery<AnswerType[], Error>({
+  return useQuery<QuestionType[], Error>({
     queryKey: ['userAnswers', username],
     queryFn: () => getUserQuestions(username),
     enabled: !!username,

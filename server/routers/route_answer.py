@@ -3,7 +3,7 @@ from fastapi.encoders import jsonable_encoder
 from auth_utils import AuthJwtCsrf
 from fastapi_csrf_protect import CsrfProtect
 from starlette.status import HTTP_201_CREATED
-from schemas import ResQuestion, DbAnswer, ResAnswer
+from schemas import ResQuestion, DbAnswer, ResAnswer, ResQuestion
 from database import db_create_answer, db_update_answer, db_delete_answer, db_get_single_answer, db_get_user_answers
 from typing import List
 
@@ -24,13 +24,13 @@ async def create_answer(request: Request, response: Response, data: DbAnswer, cs
     raise HTTPException(status_code=404, detail="Create answer failed")
 
 
-# userごとの回答の全件取得
-@router.get("/api/{username}/answer", response_model=List[ResAnswer])
+# 回答した質問の全件取得(100件まで)
+@router.get("/api/{username}/answer", response_model=List[ResQuestion])
 async def get_user_answers(request: Request, response: Response, username: str):
     new_token, _ = auth.verify_update_jwt(request)
     res = await db_get_user_answers(username)
     response.set_cookie(key="access_token", value=f"Bearer {new_token}", httponly=True, samesite="none", secure=True)
-    if res or len(res) == 0:
+    if res:
         return res
     raise HTTPException(status_code=404, detail=f"respondent_username: {username} doesn't exist")
 
