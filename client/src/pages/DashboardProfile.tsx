@@ -3,7 +3,6 @@ import { UserName } from '../components/Dashboard/DProfile/UserName'
 import { SelfIntroduction } from '../components/Dashboard/DProfile/SelfIntroduction'
 import { Twitter } from '../components/Dashboard/DProfile/Twitter'
 import { GitHub } from '../components/Dashboard/DProfile/GitHub'
-import { useProcessUserInfo } from '../functional/hooks/useProcessUserInfo'
 import { useOutletContext } from 'react-router-dom'
 import { WebSite } from '../components/Dashboard/DProfile/WebSite'
 import { UserInfo } from '../types/types'
@@ -11,6 +10,7 @@ import { useEffect } from 'react'
 import { SetRegisteredUserInfo } from '../components/Dashboard/DProfile/Function/SetRegisteredUserInfo'
 import { useAppDispatch, useAppSelector } from '../app/hooks'
 import { changeMenubarTab, selectUserInfo } from '../slices/appSlice'
+import { useProcessUserInfo } from '../functional/hooks/UserProcess/useProcessUserInfo'
 
 export const DashboardProfile = () => {
   const { id, username, self_introduction, twitter, github, website } = useOutletContext<UserInfo>()

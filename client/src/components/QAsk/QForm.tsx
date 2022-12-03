@@ -2,22 +2,19 @@ import { selectEditMode, selectQuestion, setEditedQuestion, toggleEditMode } fro
 import MDEditor from '@uiw/react-md-editor'
 import rehypeSanitize from 'rehype-sanitize'
 import Select from 'react-select'
-import { Input as TitleInput } from '../shared/elements/Input'
 import { Button as SubmitBtn } from '../shared/elements/Button'
 import { TagStyle } from './styles/TagStyle'
-import { useProcessQuestion } from '../../functional/hooks/useProcessQuestion'
 import { useQueryUserIdAndUsername } from '../../functional/UseQuery/useQueryUserIdAndUsername'
 import { useAppDispatch, useAppSelector } from '../../app/hooks'
 import { useTag } from './hooks/useTag'
-import { useChangeTitle } from './hooks/useChangeTitle'
-import { useEffect, useState } from 'react'
-import { usePageTransition } from '../../functional/hooks/usePageTransition'
+import { useEffect } from 'react'
+import { usePageTransition } from '../../functional/hooks/UserProcess/usePageTransition'
 import { Loading } from '../shared/elements/Loading/Loading'
 import { Error } from '../shared/elements/Error/Error'
 import { QuestionFormTitle } from './QFormTitle'
+import { useProcessQuestion } from '../../functional/hooks/UserProcess/useProcessQuestion'
 
 export const QuestionForm = () => {
-  const [isEdited, setIsEdited] = useState<boolean>(false)
   const { tagOptions, tagColorStyles } = TagStyle()
   const { processQuestion } = useProcessQuestion()
   const editedQuestion = useAppSelector(selectQuestion)

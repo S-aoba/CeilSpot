@@ -1,8 +1,8 @@
 import { FormEvent, useState } from 'react'
 import { useQueryClient } from 'react-query'
 import { useNavigate } from 'react-router-dom'
-import { useMutateAuth } from './useMutateAuth'
-import { useToastify } from './useToastify'
+import { useMutateAuth } from '../UseMutate/useMutateAuth'
+import { useToastify } from '../useToastify'
 
 export const useProcessAuth = () => {
   const [isLogin, setIsLogin] = useState(true)

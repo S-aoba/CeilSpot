@@ -1,8 +1,6 @@
-import { ReactNode, ComponentPropsWithoutRef, useState } from 'react'
-import { Input } from '../../shared/elements/Input'
+import { ReactNode, ComponentPropsWithoutRef } from 'react'
 import { Button } from '../../shared/elements/Button'
-import { useProcessAuth } from '../../../functional/hooks/useProcessAuth'
-import { useAppDispatch } from '../../../app/hooks'
+import { useProcessAuth } from '../../../functional/hooks/UserProcess/useProcessAuth'
 
 type Props = {
   children: ReactNode

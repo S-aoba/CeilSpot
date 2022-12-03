@@ -1,6 +1,6 @@
 import { MdDeleteOutline } from 'react-icons/md'
 import { Link } from 'react-router-dom'
-import { useMutateAnswer } from '../../../functional/hooks/useMutateAnswer'
+import { useMutateAnswer } from '../../../functional/hooks/UseMutate/useMutateAnswer'
 import { useQuerySingleQuestion } from '../../../functional/UseQuery/useQuerySingleQuestion'
 import { AnswerType } from '../../../types/types'
 import { Error } from '../../shared/elements/Error/Error'

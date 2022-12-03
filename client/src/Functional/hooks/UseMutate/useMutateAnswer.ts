@@ -1,10 +1,10 @@
 import axios from 'axios'
-import { useAppDispatch } from '../../app/hooks'
 import { useMutation, useQueryClient } from 'react-query'
 import { useNavigate, useParams } from 'react-router-dom'
-import { resetEditedAnswer, resetEditedQuestion, toggleCsrfState } from '../../slices/appSlice'
-import { AnswerType, QuestionType } from '../../types/types'
-import { useToastify } from './useToastify'
+import { useAppDispatch } from '../../../app/hooks'
+import { resetEditedAnswer, toggleCsrfState, resetEditedQuestion } from '../../../slices/appSlice'
+import { AnswerType, QuestionType } from '../../../types/types'
+import { useToastify } from '../useToastify'
 
 export const useMutateAnswer = () => {
   const params = useParams()

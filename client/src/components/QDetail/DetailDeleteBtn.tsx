@@ -1,5 +1,5 @@
 import { FiDelete } from 'react-icons/fi'
-import { useMutateQuestion } from '../../functional/hooks/useMutateQuestion'
+import { useMutateQuestion } from '../../functional/hooks/UseMutate/useMutateQuestion'
 
 type DetailDeleteBtnProps = {
   questionId: string
