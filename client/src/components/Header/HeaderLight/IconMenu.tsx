@@ -39,7 +39,7 @@ export const IconMenu: React.FC = () => {
                 <span>
                   <BsQuestionSquare />
                 </span>
-                <p>My Question</p>
+                <p>投稿した質問</p>
               </Link>
             </li>
             <li>
@@ -52,7 +52,7 @@ export const IconMenu: React.FC = () => {
                 <span>
                   <AiOutlineComment />
                 </span>
-                <p>My Answer</p>
+                <p>回答した質問</p>
               </Link>
             </li>
             <li>
@@ -65,7 +65,7 @@ export const IconMenu: React.FC = () => {
                 <span>
                   <CgProfile />
                 </span>
-                <p>My Profile</p>
+                <p>プロフィール</p>
               </Link>
             </li>
             <li>
