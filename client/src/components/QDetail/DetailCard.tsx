@@ -13,7 +13,7 @@ export const DetailCard: React.FC<QuestionType & { isDashboard: boolean }> = ({
   isDashboard,
 }) => {
   return (
-    <div className='my-8 flex lg:col-span-8 justify-center'>
+    <div className='my-8 flex justify-center'>
       <div className=' flex h-fit w-11/12 flex-col items-center rounded-xl bg-white py-5 lg:w-full'>
         <DetailMenu
           id={id}

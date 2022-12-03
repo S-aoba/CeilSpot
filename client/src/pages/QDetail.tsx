@@ -37,19 +37,21 @@ export const QuestionDetail = () => {
         <RootBase>
           <DetailTitle>{singleQuestion.title}</DetailTitle>
           <div className=' mb-8 flex w-11/12 flex-col lg:grid lg:w-full lg:grid-cols-12'>
-            <DetailCard
-              id={singleQuestion.id}
-              title={singleQuestion.title}
-              body={singleQuestion.body}
-              post_username={singleQuestion.post_username}
-              answer_list={singleQuestion.answer_list}
-              tags={singleQuestion.tags}
-              isDashboard={isDashboard}
-            />
+            <div className=' col-span-8'>
+              <DetailCard
+                id={singleQuestion.id}
+                title={singleQuestion.title}
+                body={singleQuestion.body}
+                post_username={singleQuestion.post_username}
+                answer_list={singleQuestion.answer_list}
+                tags={singleQuestion.tags}
+                isDashboard={isDashboard}
+              />
+              <AnswerItem answer_list={singleQuestion.answer_list} />
+              {isAuth ? <AnswerReply question_id={singleQuestion.id} /> : <LogoutAnswerForm />}
+            </div>
             {screenWidth >= 994 && <DetailProfileCard username={singleQuestion.post_username} />}
           </div>
-          <AnswerItem answer_list={singleQuestion.answer_list} />
-          {isAuth ? <AnswerReply question_id={singleQuestion.id} /> : <LogoutAnswerForm />}
         </RootBase>
       )}
     </>

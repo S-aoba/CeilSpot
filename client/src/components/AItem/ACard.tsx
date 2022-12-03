@@ -13,7 +13,7 @@ export const AnswerCard: React.FC<Props> = ({ answer_id }) => {
   if (error) return <Error />
 
   return (
-    <div className=' flex w-11/12 flex-col pb-8 lg:w-8/12'>
+    <div className=' flex w-11/12 flex-col pb-8 lg:w-full'>
       <div className=' flex flex-col items-center justify-center rounded-2xl bg-white py-5 px-3'>
         <div className='w-11/12'>
           <hr className=' my-6 border-gray-300' />

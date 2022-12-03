@@ -9,7 +9,7 @@ type DetailProfileCardProps = {
 export const DetailProfileCard: React.FC<DetailProfileCardProps> = ({ username }) => {
   return (
     <div className='flex justify-center  lg:col-span-4'>
-      <div className=' h-fit max-h-fit w-11/12 rounded-2xl bg-white my-8'>
+      <div className=' my-8 h-fit max-h-fit w-11/12 rounded-2xl bg-white'>
         <div className=' flex w-full items-center justify-center py-5'>
           <div className=' flex w-9/12 items-center justify-between'>
             <div className='flex items-center gap-2'>
