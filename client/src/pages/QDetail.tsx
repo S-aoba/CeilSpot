@@ -29,7 +29,7 @@ export const QuestionDetail = () => {
       {singleQuestion && (
         <RootBase>
           <DetailTitle>{singleQuestion.title}</DetailTitle>
-          <div className=' flex w-full flex-col xl:grid xl:grid-cols-12'>
+          <div className=' flex w-full flex-col mb-8 xl:grid xl:grid-cols-12'>
             <DetailCard
               id={singleQuestion.id}
               title={singleQuestion.title}
