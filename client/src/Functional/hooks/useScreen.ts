@@ -1,8 +1,10 @@
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useAppDispatch } from '../../../app/hooks'
-import { resetEditedQuestion, toggleEditMode } from '../../../slices/appSlice'
+import { useAppDispatch } from '../../app/hooks'
+import { resetEditedQuestion, toggleEditMode } from '../../slices/appSlice'
 
-export const usePageTransition = () => {
+export const useScreen = () => {
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth)
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
   const formScreenRefresh = (e: BeforeUnloadEvent) => {
@@ -19,5 +21,9 @@ export const usePageTransition = () => {
       history.pushState(null, '', null)
     }
   }
-  return { formScreenRefresh, formScreenBrowserBack }
+
+  const screenWidthMonitoring = () => {
+    setScreenWidth(window.innerWidth)
+  }
+  return { formScreenRefresh, formScreenBrowserBack, screenWidthMonitoring, screenWidth }
 }

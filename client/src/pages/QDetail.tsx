@@ -10,6 +10,8 @@ import { useQuerySingleQuestion } from '../functional/UseQuery/useQuerySingleQue
 import { Error } from '../components/shared/elements/Error/Error'
 import { Loading } from '../components/shared/elements/Loading/Loading'
 import { LogoutAnswerForm } from '../components/QDetail/LogoutAnswerForm'
+import { useScreen } from '../functional/hooks/useScreen'
+import { useLayoutEffect } from 'react'
 
 type State = {
   isDashboard: boolean
@@ -20,6 +22,10 @@ export const QuestionDetail = () => {
   const isAuth = useOutletContext() as boolean
   const { id, isDashboard } = location.state as State
   const { data: singleQuestion, isLoading, error } = useQuerySingleQuestion(id)
+  const { screenWidthMonitoring, screenWidth } = useScreen()
+  useLayoutEffect(() => {
+    window.addEventListener('resize', screenWidthMonitoring)
+  }, [screenWidth])
 
   if (error) return <Error />
   if (isLoading) return <Loading />
@@ -29,7 +35,7 @@ export const QuestionDetail = () => {
       {singleQuestion && (
         <RootBase>
           <DetailTitle>{singleQuestion.title}</DetailTitle>
-          <div className=' flex w-full flex-col mb-8 xl:grid xl:grid-cols-12'>
+          <div className=' mb-8 flex w-full flex-col xl:grid xl:grid-cols-12'>
             <DetailCard
               id={singleQuestion.id}
               title={singleQuestion.title}
@@ -39,7 +45,7 @@ export const QuestionDetail = () => {
               tags={singleQuestion.tags}
               isDashboard={isDashboard}
             />
-            <DetailProfileCard username={singleQuestion.post_username} />
+            {screenWidth >= 992 && <DetailProfileCard username={singleQuestion.post_username} />}
           </div>
           <AnswerItem answer_list={singleQuestion.answer_list} />
           {isAuth ? <AnswerForm question_id={singleQuestion.id} /> : <LogoutAnswerForm />}

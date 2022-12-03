@@ -8,7 +8,7 @@ import { useQueryUserIdAndUsername } from '../../functional/UseQuery/useQueryUse
 import { useAppDispatch, useAppSelector } from '../../app/hooks'
 import { useTag } from './hooks/useTag'
 import { useEffect } from 'react'
-import { usePageTransition } from '../../functional/hooks/UserProcess/usePageTransition'
+import { useScreen } from '../../functional/hooks/useScreen'
 import { Loading } from '../shared/elements/Loading/Loading'
 import { Error } from '../shared/elements/Error/Error'
 import { QuestionFormTitle } from './QFormTitle'
@@ -21,7 +21,7 @@ export const QuestionForm = () => {
   const editMode = useAppSelector(selectEditMode)
   const dispatch = useAppDispatch()
   const { convertToTagType, multiValue, setMultiValue, displayTagsWhenUpdate } = useTag()
-  const { formScreenRefresh, formScreenBrowserBack } = usePageTransition()
+  const { formScreenRefresh, formScreenBrowserBack } = useScreen()
   const { data: dataUserIdAndUsername, isLoading, error } = useQueryUserIdAndUsername()
 
   useEffect(() => {
