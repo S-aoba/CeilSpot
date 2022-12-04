@@ -28,12 +28,14 @@ export const IconMenu: React.FC = () => {
             alt='userIcon'
             className=' h-9 w-9 rounded-full hover:cursor-pointer'
           />
-          <ul tabIndex={0} className='dropdown-content menu rounded-box w-52 gap-3 bg-base-100 p-2 shadow'>
+          <ul
+            tabIndex={0}
+            className='dropdown-content menu rounded-box w-52 gap-3 bg-base-100 p-2 text-gray-400 shadow'>
             <li>
               <Link
                 to={`/dashboard/question`}
                 relative='path'
-                className=' hover:bg-sky-400 hover:text-white'
+                className='text-base hover:text-black'
                 state={userIdAndUsername.userId}
                 onClick={() => dispatch(changeMenubarTab('question'))}>
                 <span>
@@ -46,7 +48,7 @@ export const IconMenu: React.FC = () => {
               <Link
                 to={`/dashboard/answer`}
                 relative='path'
-                className=' hover:bg-sky-400 hover:text-white'
+                className=' text-base hover:text-black'
                 state={userIdAndUsername.userId}
                 onClick={() => dispatch(changeMenubarTab('answer'))}>
                 <span>
@@ -59,7 +61,7 @@ export const IconMenu: React.FC = () => {
               <Link
                 to={`/dashboard/profile`}
                 relative='path'
-                className=' hover:bg-sky-400 hover:text-white'
+                className=' text-base hover:text-black'
                 state={userIdAndUsername.userId}
                 onClick={() => dispatch(changeMenubarTab('profile'))}>
                 <span>
@@ -69,7 +71,7 @@ export const IconMenu: React.FC = () => {
               </Link>
             </li>
             <li>
-              <div className='flex hover:bg-amber-300 hover:text-white' onClick={logout}>
+              <div className='flex text-base hover:text-black' onClick={logout}>
                 <span>
                   <BiLogOut />
                 </span>
