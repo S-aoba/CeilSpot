@@ -36,7 +36,6 @@ async def get_user_questions(request: Request, response: Response, username: str
 
 @router.get("/api/question", response_model=List[ResQuestion])
 async def get_questions(request: Request):
-    # auth.verify_jwt(request)
     res = await db_get_questions()
     return res
 
