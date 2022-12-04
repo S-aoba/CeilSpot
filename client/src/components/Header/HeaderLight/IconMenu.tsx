@@ -35,7 +35,7 @@ export const IconMenu: React.FC = () => {
               <Link
                 to={`/dashboard/question`}
                 relative='path'
-                className='text-base hover:text-black'
+                className='text-base hover:bg-gray-100 hover:text-black focus:bg-white active:bg-gray-100'
                 state={userIdAndUsername.userId}
                 onClick={() => dispatch(changeMenubarTab('question'))}>
                 <span>
@@ -48,7 +48,7 @@ export const IconMenu: React.FC = () => {
               <Link
                 to={`/dashboard/answer`}
                 relative='path'
-                className=' text-base hover:text-black'
+                className=' text-base hover:bg-gray-100 hover:text-black focus:bg-white active:bg-gray-100'
                 state={userIdAndUsername.userId}
                 onClick={() => dispatch(changeMenubarTab('answer'))}>
                 <span>
@@ -61,7 +61,7 @@ export const IconMenu: React.FC = () => {
               <Link
                 to={`/dashboard/profile`}
                 relative='path'
-                className=' text-base hover:text-black'
+                className=' text-base hover:bg-gray-100 hover:text-black focus:bg-white active:bg-gray-100'
                 state={userIdAndUsername.userId}
                 onClick={() => dispatch(changeMenubarTab('profile'))}>
                 <span>
