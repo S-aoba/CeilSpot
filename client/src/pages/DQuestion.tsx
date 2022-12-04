@@ -13,8 +13,8 @@ export const DashboardQuestion = () => {
   if (isUserQuestionsLoading) return <Loading />
 
   return (
-    <div className=' flex justify-center'>
-      <div className='grid w-9/12 grid-cols-1 gap-y-5 xl:grid-cols-2 pb-5'>
+    <div className=' flex w-full justify-center'>
+      <div className='grid w-9/12 grid-cols-1 gap-y-5 pb-5 xl:grid-cols-2'>
         {dataUserQuestions?.length! >= 1 ? (
           dataUserQuestions?.map((question) => (
             <QuestionItem

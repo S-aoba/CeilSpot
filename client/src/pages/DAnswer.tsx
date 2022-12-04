@@ -22,7 +22,7 @@ export const DashboardAnswer = () => {
   if (isUserAnswerLoading) return <Loading />
 
   return (
-    <div className=' flex justify-center'>
+    <div className=' flex w-full justify-center'>
       <div className='grid w-9/12 grid-cols-1 gap-y-5 pb-5 xl:grid-cols-2'>
         {dataUserAnswers?.length! >= 1 ? (
           dataUserAnswers?.map((question) => (
