@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException, Response, Request, Depends
 from fastapi.encoders import jsonable_encoder
 from fastapi_csrf_protect import CsrfProtect
-from schemas import DbUpdateUser, ResUpdateUser, ResUser
+from schemas.schemas_user import DbUpdateUser, ResUpdateUser, ResUser
 from database import db_update_userInfo, db_get_userInfo, db_change_username
 from auth_utils import AuthJwtCsrf
 

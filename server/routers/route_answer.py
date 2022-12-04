@@ -1,11 +1,12 @@
+from typing import List
+from starlette.status import HTTP_201_CREATED
 from fastapi import APIRouter, HTTPException, Response, Request, Depends
 from fastapi.encoders import jsonable_encoder
-from auth_utils import AuthJwtCsrf
 from fastapi_csrf_protect import CsrfProtect
-from starlette.status import HTTP_201_CREATED
-from schemas import ResQuestion, DbAnswer, ResAnswer, ResQuestion
+from schemas.schema_question import ResQuestion, ResQuestion
+from schemas.schema_answer import DbAnswer, ResAnswer
 from database import db_create_answer, db_update_answer, db_delete_answer, db_get_single_answer, db_get_user_answers
-from typing import List
+from auth_utils import AuthJwtCsrf
 
 
 router = APIRouter()

@@ -1,10 +1,10 @@
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
-from schemas import SuccessMsg, CsrfSettings
-from routers import route_question, route_answer, route_auth, route_user
 from fastapi_csrf_protect import CsrfProtect
 from fastapi_csrf_protect.exceptions import CsrfProtectError
+from schemas.schema_csrf import SuccessMsg, CsrfSettings
+from routers import route_question, route_answer, route_auth, route_user
 
 
 app = FastAPI()
