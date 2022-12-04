@@ -71,7 +71,9 @@ export const IconMenu: React.FC = () => {
               </Link>
             </li>
             <li>
-              <div className='flex text-base hover:text-black' onClick={logout}>
+              <div
+                className='flex text-base hover:bg-gray-100 hover:text-black focus:bg-white active:bg-gray-100'
+                onClick={logout}>
                 <span>
                   <BiLogOut />
                 </span>
