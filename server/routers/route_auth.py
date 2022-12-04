@@ -3,7 +3,7 @@ from fastapi.encoders import jsonable_encoder
 from fastapi_csrf_protect import CsrfProtect
 from schemas.schemas_user import DbUser, ResUser, UserIdAndUsername
 from schemas.schema_csrf import SuccessMsg, Csrf
-from database import db_signup, db_login
+from database.database_user import db_signup, db_login
 from auth_utils import AuthJwtCsrf
 
 

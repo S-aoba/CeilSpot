@@ -3,7 +3,7 @@ from starlette.status import HTTP_201_CREATED
 from fastapi import APIRouter, HTTPException, Response, Request, Depends
 from fastapi.encoders import jsonable_encoder
 from fastapi_csrf_protect import CsrfProtect
-from database import db_create_question, db_get_questions, db_get_single_question, db_update_question, db_delete_question, db_get_user_questions
+from database.database_question import db_create_question, db_get_questions, db_get_single_question, db_update_question, db_delete_question, db_get_user_questions
 from schemas.schema_question import ResQuestion, DbQuestion
 from auth_utils import AuthJwtCsrf
 

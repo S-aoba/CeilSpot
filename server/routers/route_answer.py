@@ -5,7 +5,7 @@ from fastapi.encoders import jsonable_encoder
 from fastapi_csrf_protect import CsrfProtect
 from schemas.schema_question import ResQuestion, ResQuestion
 from schemas.schema_answer import DbAnswer, ResAnswer
-from database import db_create_answer, db_update_answer, db_delete_answer, db_get_single_answer, db_get_user_answers
+from database.database_answer import db_create_answer, db_update_answer, db_delete_answer, db_get_single_answer, db_get_user_answers
 from auth_utils import AuthJwtCsrf
 
 
