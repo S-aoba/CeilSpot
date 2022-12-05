@@ -5,7 +5,6 @@ import { Loading } from '../components/shared/elements/Loading/Loading'
 import { useQueryAuth } from '../functional/UseQuery/useQueryAuth'
 import { Footer } from '../components/Footer/Footer'
 import { GlobalMenu } from '../components/GlobalMenu/GlobalMenu'
-import { DashboardMenu } from '../components/Dashboard/DMenu/DMenu'
 
 export const Root = () => {
   const { data: isAuth, isLoading, error } = useQueryAuth()
