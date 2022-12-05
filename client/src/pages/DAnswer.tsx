@@ -22,26 +22,24 @@ export const DashboardAnswer = () => {
   if (isUserAnswerLoading) return <Loading />
 
   return (
-    <div className=' flex w-full justify-center'>
-      <div className='grid w-9/12 grid-cols-1 gap-y-5 pb-5 xl:grid-cols-2'>
-        {dataUserAnswers?.length! >= 1 ? (
-          dataUserAnswers?.map((question) => (
-            <QuestionItem
-              path={`/${question.post_username}/question/${question.id}`}
-              key={question.id}
-              id={question.id}
-              title={question.title}
-              body={question.body}
-              post_username={question.post_username}
-              answer_list={question.answer_list}
-              tags={question.tags}
-              isDashboard
-            />
-          ))
-        ) : (
-          <p>まだ回答はありません</p>
-        )}
-      </div>
+    <div className='flex flex-wrap justify-between gap-5 px-28 py-10'>
+      {dataUserAnswers?.length! >= 1 ? (
+        dataUserAnswers?.map((question) => (
+          <QuestionItem
+            path={`/${question.post_username}/question/${question.id}`}
+            key={question.id}
+            id={question.id}
+            title={question.title}
+            body={question.body}
+            post_username={question.post_username}
+            answer_list={question.answer_list}
+            tags={question.tags}
+            isDashboard
+          />
+        ))
+      ) : (
+        <p>まだ回答はありません</p>
+      )}
     </div>
   )
 }

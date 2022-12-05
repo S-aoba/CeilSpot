@@ -4,8 +4,8 @@ import { selectMenubarTab } from '../../../slices/appSlice'
 export const MenuTabStyle = () => {
   const currentMenubarTab = useAppSelector(selectMenubarTab)
 
-  const defaultTabStyle = 'flex items-center gap-2 text-base px-2 hover:text-black'
-  const selectedStyle = 'flex items-center gap-2 text-base px-2 text-sky-400 underline underline-offset-4'
+  const defaultTabStyle = 'rounded-lg px-2 py-1'
+  const selectedStyle = 'rounded-lg bg-blue-500 px-2 py-2 text-white'
   const questionsStyle = currentMenubarTab === 'question' ? selectedStyle : defaultTabStyle
 
   const answerStyle = currentMenubarTab === 'answer' ? selectedStyle : defaultTabStyle

@@ -1,12 +1,17 @@
 import { ReactNode } from 'react'
+import { DashboardMenu } from '../../Dashboard/DMenu/DMenu'
 
 type DashboardBaseProps = {
   children: ReactNode
+  userId: string
 }
-export const DashboardBase: React.FC<DashboardBaseProps> = ({ children }) => {
+export const DashboardBase: React.FC<DashboardBaseProps> = ({ children, userId }) => {
   return (
-    <div className=' flex h-fit min-h-screen animate-fade-in-fwd flex-col items-center lg:container lg:mx-auto'>
-      {children}
-    </div>
+    <>
+      <DashboardMenu userId={userId} />
+      <div className=' flex h-fit min-h-screen animate-fade-in-fwd flex-col items-center lg:container lg:mx-auto'>
+        {children}
+      </div>
+    </>
   )
 }
