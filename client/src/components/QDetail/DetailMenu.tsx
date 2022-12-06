@@ -17,7 +17,7 @@ export const DetailMenu: React.FC<QuestionType & { isDashboard: boolean }> = ({
     <div className=' flex w-11/12 items-center justify-between'>
       <DetailTags tags={tags} />
       {isDashboard && (
-        <div className=' dropdown-end dropdown dropdown-bottom dropdown-hover'>
+        <div className=' dropdown dropdown-bottom dropdown-end dropdown-hover'>
           <label tabIndex={0}>
             <HiOutlineMenu className=' h-10 w-6 hover:cursor-pointer' />
           </label>

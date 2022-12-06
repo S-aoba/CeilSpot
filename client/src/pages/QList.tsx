@@ -13,7 +13,7 @@ export const QuestionList = () => {
 
   return (
     <RootBase>
-      <div className=' flex flex-wrap justify-between px-28 gap-5 py-10'>
+      <div className=' flex flex-wrap justify-between gap-5 px-28 py-10'>
         {dataQuestions &&
           dataQuestions.map((question: QuestionType) => (
             <QuestionItem

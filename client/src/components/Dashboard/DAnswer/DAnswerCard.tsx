@@ -24,7 +24,8 @@ export const DashBoardAnswerCard: React.FC<AnswerType> = ({ id, body, question_i
                 state={{
                   id: dataQuestion.id,
                   isDashboard: true,
-                }}>
+                }}
+              >
                 <p className=' line-clamp-1 hover:text-sky-400'>{body}</p>
               </Link>
             </div>

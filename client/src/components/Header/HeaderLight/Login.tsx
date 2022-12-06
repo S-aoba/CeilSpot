@@ -65,7 +65,8 @@ export const Login: React.FC<Props> = ({ children, ...props }) => {
                   <Button
                     disabled={!userName || !email || !pw}
                     type='submit'
-                    className=' btn-info btn text-white hover:opacity-75'>
+                    className=' btn-info btn text-white hover:opacity-75'
+                  >
                     Login
                   </Button>
                 </div>

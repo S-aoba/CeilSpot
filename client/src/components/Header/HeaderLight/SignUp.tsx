@@ -63,7 +63,8 @@ export const SignUp: React.FC<Props> = ({ children, ...props }) => {
                   <Button
                     disabled={!userName || !email || !pw}
                     type='submit'
-                    className=' btn-primary btn text-white hover:opacity-75'>
+                    className=' btn-primary btn text-white hover:opacity-75'
+                  >
                     SignUP
                   </Button>
                 </div>

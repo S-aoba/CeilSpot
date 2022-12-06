@@ -24,7 +24,8 @@ export const GlobalMenu = () => {
                 to={'/dashboard/question'}
                 relative='path'
                 state={userIdAndUsername.userId}
-                onClick={() => dispatch(changeMenubarTab('question'))}>
+                onClick={() => dispatch(changeMenubarTab('question'))}
+              >
                 <p>マイページ</p>
               </Link>
             </li>

@@ -22,9 +22,8 @@ export const SelfIntroduction: React.FC<Props> = ({ self_introduction }) => {
         className=' h-44 w-full rounded-lg border border-gray-300 bg-gray-100 py-2 px-3 outline-sky-400'
         placeholder='自己紹介を入力してください'
         defaultValue={self_introduction ? self_introduction : ''}
-        onChange={(e) =>
-          dispatch(setEditedUserInfo({ ...editedUserInfo, self_introduction: e.target.value }))
-        }></textarea>
+        onChange={(e) => dispatch(setEditedUserInfo({ ...editedUserInfo, self_introduction: e.target.value }))}
+      />
     </div>
   )
 }

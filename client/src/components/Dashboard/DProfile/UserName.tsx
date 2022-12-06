@@ -38,7 +38,8 @@ export const UserName: React.FC<Props> = ({ userId, username }) => {
           変更前のユーザーネームに関係するページに対して、リダイレクトは設定されません。
           ユーザー名を変更すると、変更前のユーザー名は誰でも利用できるようになります。
           以上の点に関して、十分に注意してください。'
-          onClick={() => renameUsernameMutation.mutate(userId)}>
+          onClick={() => renameUsernameMutation.mutate(userId)}
+        >
           変更する
         </ModalBtn>
       </div>

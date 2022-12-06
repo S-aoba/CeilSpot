@@ -24,7 +24,8 @@ export const DetailEditBtn = ({ id, title, body, post_username, answer_list, tag
           })
         )
         dispatch(toggleEditMode(true))
-      }}>
+      }}
+    >
       <FiEdit className=' h-5 w-5' />
       <p>編集する</p>
     </Link>

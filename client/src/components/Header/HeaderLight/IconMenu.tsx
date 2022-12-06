@@ -30,14 +30,16 @@ export const IconMenu: React.FC = () => {
           />
           <ul
             tabIndex={0}
-            className='dropdown-content menu rounded-box w-52 gap-3 bg-base-100 p-2 text-gray-400 shadow'>
+            className='dropdown-content menu rounded-box w-52 gap-3 bg-base-100 p-2 text-gray-400 shadow'
+          >
             <li>
               <Link
                 to={`/dashboard/question`}
                 relative='path'
                 className='text-base hover:bg-gray-100 hover:text-black focus:bg-white active:bg-gray-100'
                 state={userIdAndUsername.userId}
-                onClick={() => dispatch(changeMenubarTab('question'))}>
+                onClick={() => dispatch(changeMenubarTab('question'))}
+              >
                 <span>
                   <BsQuestionSquare />
                 </span>
@@ -50,7 +52,8 @@ export const IconMenu: React.FC = () => {
                 relative='path'
                 className=' text-base hover:bg-gray-100 hover:text-black focus:bg-white active:bg-gray-100'
                 state={userIdAndUsername.userId}
-                onClick={() => dispatch(changeMenubarTab('answer'))}>
+                onClick={() => dispatch(changeMenubarTab('answer'))}
+              >
                 <span>
                   <AiOutlineComment />
                 </span>
@@ -63,7 +66,8 @@ export const IconMenu: React.FC = () => {
                 relative='path'
                 className=' text-base hover:bg-gray-100 hover:text-black focus:bg-white active:bg-gray-100'
                 state={userIdAndUsername.userId}
-                onClick={() => dispatch(changeMenubarTab('profile'))}>
+                onClick={() => dispatch(changeMenubarTab('profile'))}
+              >
                 <span>
                   <CgProfile />
                 </span>
@@ -73,7 +77,8 @@ export const IconMenu: React.FC = () => {
             <li>
               <div
                 className='flex text-base hover:bg-gray-100 hover:text-black focus:bg-white active:bg-gray-100'
-                onClick={logout}>
+                onClick={logout}
+              >
                 <span>
                   <BiLogOut />
                 </span>

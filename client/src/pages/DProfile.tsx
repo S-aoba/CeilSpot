@@ -28,7 +28,7 @@ export const DashboardProfile = () => {
   }, [])
 
   return (
-    <div className=' grid h-fit w-11/12 animate-fade-in-fwd grid-cols-12 rounded-3xl bg-white py-10 mt-5'>
+    <div className=' mt-5 grid h-fit w-11/12 animate-fade-in-fwd grid-cols-12 rounded-3xl bg-white py-10'>
       <div className='col-span-3 flex items-center justify-center'>
         <div>
           <img src={defaultUserIcon} alt='userIcon' className=' h-40 w-40 rounded-full' />

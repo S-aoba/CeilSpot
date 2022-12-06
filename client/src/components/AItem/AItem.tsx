@@ -6,7 +6,7 @@ type Props = {
 
 export const AnswerItem: React.FC<Props> = ({ answer_list }) => {
   return (
-    <div className=' flex flex-col justify-center items-center'>
+    <div className=' flex flex-col items-center justify-center'>
       {answer_list.length > 0 ? (
         <div className=' mb-8 font-mono text-3xl tracking-widest'>
           <p>

@@ -13,7 +13,8 @@ export const DetailDeleteBtn: React.FC<DetailDeleteBtnProps> = ({ questionId }) 
       className=' w-full justify-center hover:bg-sky-400 hover:text-white'
       onClick={() => {
         deleteQuestionMutation.mutate(questionId)
-      }}>
+      }}
+    >
       <FiDelete className=' h-5 w-5' />
       <p>削除する</p>
     </div>
