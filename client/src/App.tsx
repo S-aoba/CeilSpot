@@ -6,12 +6,12 @@ import { CsrfToken } from './types/types'
 import { QuestionDetail } from './pages/QDetail'
 import { QuestionList } from './pages/QList'
 import { QuestionAsk } from './pages/QAsk'
-import { selectCsrfState } from './slices/appSlice'
 import { Dashboard } from './pages/Dashboard'
 import { DashboardQuestion } from './pages/DQuestion'
 import { DashboardAnswer } from './pages/DAnswer'
 import { DashboardProfile } from './pages/DProfile'
 import { Root } from './pages/Root'
+import { selectCsrfState } from './slices/csrfSlice'
 
 const router = createBrowserRouter([
   {

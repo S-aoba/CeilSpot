@@ -1,21 +1,22 @@
 import { useEffect } from 'react'
 import { useOutletContext } from 'react-router-dom'
-import { useAppDispatch } from '../app/hooks'
+import { useAppDispatch, useAppSelector } from '../app/hooks'
 import { useQueryUserAnswer } from '../functional/UseQuery/useQueryUserAnswer'
-import { changeMenubarTab } from '../slices/appSlice'
 import { UserInfo } from '../types/types'
 import { Error } from '../components/shared/elements/Error/Error'
 import { Loading } from '../components/shared/elements/Loading/Loading'
 import { QuestionItem } from '../components/QList/QItem'
+import { changeMenubarTab, selectMenubarTab } from '../slices/menuBarSlice'
 
 export const DashboardAnswer = () => {
   const dispatch = useAppDispatch()
   const { username } = useOutletContext<UserInfo>()
   const { data: dataUserAnswers, isLoading: isUserAnswerLoading, error } = useQueryUserAnswer(username)
+  const currentMenuBarTabType = useAppSelector(selectMenubarTab)
 
   useEffect(() => {
     // 画面更新したい際にナビゲーションタブが初期化されるので、dispatchで上書きする
-    dispatch(changeMenubarTab('answer'))
+    dispatch(changeMenubarTab({ ...currentMenuBarTabType, myPageMenu: 'myAnswer' }))
   }, [])
 
   if (error) return <Error />

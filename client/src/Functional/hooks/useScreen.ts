@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAppDispatch } from '../../app/hooks'
-import { resetEditedQuestion, toggleEditMode } from '../../slices/appSlice'
+import { resetEditedQuestion } from '../../slices/questionSlice'
 
 export const useScreen = () => {
   const [screenWidth, setScreenWidth] = useState(window.innerWidth)
@@ -15,7 +15,6 @@ export const useScreen = () => {
   const formScreenBrowserBack = (e: PopStateEvent) => {
     if (confirm('入力された内容が破棄されますがよろしいですか？')) {
       dispatch(resetEditedQuestion())
-      dispatch(toggleEditMode(false))
       navigate(-1)
     } else {
       history.pushState(null, '', null)

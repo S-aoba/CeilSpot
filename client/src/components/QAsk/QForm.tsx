@@ -1,4 +1,3 @@
-import { selectEditMode, selectQuestion, setEditedQuestion, toggleEditMode } from '../../slices/appSlice'
 import MDEditor from '@uiw/react-md-editor'
 import rehypeSanitize from 'rehype-sanitize'
 import Select from 'react-select'
@@ -7,18 +6,17 @@ import { TagStyle } from './styles/TagStyle'
 import { useQueryUserIdAndUsername } from '../../functional/UseQuery/useQueryUserIdAndUsername'
 import { useAppDispatch, useAppSelector } from '../../app/hooks'
 import { useTag } from './hooks/useTag'
-import { useEffect } from 'react'
 import { useScreen } from '../../functional/hooks/useScreen'
 import { Loading } from '../shared/elements/Loading/Loading'
 import { Error } from '../shared/elements/Error/Error'
 import { QuestionFormTitle } from './QFormTitle'
 import { useProcessQuestion } from '../../functional/hooks/UserProcess/useProcessQuestion'
+import { selectQuestion, setEditedQuestion } from '../../slices/questionSlice'
 
 export const QuestionForm = () => {
   const { tagOptions, tagColorStyles } = TagStyle()
   const { processQuestion } = useProcessQuestion()
   const editedQuestion = useAppSelector(selectQuestion)
-  const editMode = useAppSelector(selectEditMode)
   const dispatch = useAppDispatch()
   const { convertToTagType, multiValue, setMultiValue, displayTagsWhenUpdate } = useTag()
   const { formScreenRefresh, formScreenBrowserBack } = useScreen()
@@ -56,7 +54,6 @@ export const QuestionForm = () => {
               isOptionDisabled={() => multiValue?.length! >= 5}
               onChange={(val) => {
                 setMultiValue(val)
-                dispatch(toggleEditMode(true))
               }}
               closeMenuOnSelect={false}
               options={tagOptions}
@@ -73,7 +70,6 @@ export const QuestionForm = () => {
               value={editedQuestion.body}
               onChange={(e) => {
                 dispatch(setEditedQuestion({ ...editedQuestion, body: e! }))
-                dispatch(toggleEditMode(true))
               }}
               height={500}
               preview='edit'

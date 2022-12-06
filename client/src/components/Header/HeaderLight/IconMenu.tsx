@@ -4,17 +4,18 @@ import { CgProfile } from 'react-icons/cg'
 import { AiOutlineComment } from 'react-icons/ai'
 import { Link } from 'react-router-dom'
 import DefaultUserIcon from '../../../assets/defaultUserIcon.png'
-import { useAppDispatch } from '../../../app/hooks'
-import { changeMenubarTab } from '../../../slices/appSlice'
+import { useAppDispatch, useAppSelector } from '../../../app/hooks'
 import { useQueryUserIdAndUsername } from '../../../functional/UseQuery/useQueryUserIdAndUsername'
 import { Loading } from '../../shared/elements/Loading/Loading'
 import { QuestionList } from '../../../pages/QList'
 import { useProcessAuth } from '../../../functional/hooks/UserProcess/useProcessAuth'
+import { changeMenubarTab, selectMenubarTab } from '../../../slices/menuBarSlice'
 
 export const IconMenu: React.FC = () => {
   const { logout } = useProcessAuth()
   const dispatch = useAppDispatch()
   const { data: userIdAndUsername, isLoading, error } = useQueryUserIdAndUsername()
+  const currentMenuBarTabType = useAppSelector(selectMenubarTab)
 
   if (error) return <QuestionList />
   if (isLoading) return <Loading />
@@ -38,7 +39,7 @@ export const IconMenu: React.FC = () => {
                 relative='path'
                 className='text-base hover:bg-gray-100 hover:text-black focus:bg-white active:bg-gray-100'
                 state={userIdAndUsername.userId}
-                onClick={() => dispatch(changeMenubarTab('question'))}
+                onClick={() => dispatch(changeMenubarTab({ ...currentMenuBarTabType, myPageMenu: 'myQuestion' }))}
               >
                 <span>
                   <BsQuestionSquare />
@@ -52,7 +53,7 @@ export const IconMenu: React.FC = () => {
                 relative='path'
                 className=' text-base hover:bg-gray-100 hover:text-black focus:bg-white active:bg-gray-100'
                 state={userIdAndUsername.userId}
-                onClick={() => dispatch(changeMenubarTab('answer'))}
+                onClick={() => dispatch(changeMenubarTab({ ...currentMenuBarTabType, myPageMenu: 'myAnswer' }))}
               >
                 <span>
                   <AiOutlineComment />
@@ -66,7 +67,7 @@ export const IconMenu: React.FC = () => {
                 relative='path'
                 className=' text-base hover:bg-gray-100 hover:text-black focus:bg-white active:bg-gray-100'
                 state={userIdAndUsername.userId}
-                onClick={() => dispatch(changeMenubarTab('profile'))}
+                onClick={() => dispatch(changeMenubarTab({ ...currentMenuBarTabType, myPageMenu: 'myProfile' }))}
               >
                 <span>
                   <CgProfile />

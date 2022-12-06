@@ -1,7 +1,7 @@
 import { FiEdit } from 'react-icons/fi'
 import { Link } from 'react-router-dom'
 import { useAppDispatch } from '../../app/hooks'
-import { setEditedQuestion, toggleEditMode } from '../../slices/appSlice'
+import { setEditedQuestion } from '../../slices/questionSlice'
 import { QuestionType } from '../../types/types'
 
 export const DetailEditBtn = ({ id, title, body, post_username, answer_list, tags }: QuestionType) => {
@@ -23,7 +23,6 @@ export const DetailEditBtn = ({ id, title, body, post_username, answer_list, tag
             tags,
           })
         )
-        dispatch(toggleEditMode(true))
       }}
     >
       <FiEdit className=' h-5 w-5' />

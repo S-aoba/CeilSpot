@@ -9,14 +9,16 @@ import { UserInfo } from '../types/types'
 import { useEffect } from 'react'
 import { SetRegisteredUserInfo } from '../components/Dashboard/DProfile/Function/SetRegisteredUserInfo'
 import { useAppDispatch, useAppSelector } from '../app/hooks'
-import { changeMenubarTab, selectUserInfo } from '../slices/appSlice'
 import { useProcessUserInfo } from '../functional/hooks/UserProcess/useProcessUserInfo'
+import { changeMenubarTab, selectMenubarTab } from '../slices/menuBarSlice'
+import { selectUserInfo } from '../slices/userInfoSlice'
 
 export const DashboardProfile = () => {
   const { id, username, self_introduction, twitter, github, website } = useOutletContext<UserInfo>()
   const dispatch = useAppDispatch()
   const editedUserInfo = useAppSelector(selectUserInfo)
   const { processUserInfo } = useProcessUserInfo()
+  const currentMenuBarTabType = useAppSelector(selectMenubarTab)
 
   useEffect(() => {
     SetRegisteredUserInfo(id!, username, self_introduction!, twitter!, github!, website!, dispatch, editedUserInfo)
@@ -24,7 +26,7 @@ export const DashboardProfile = () => {
 
   useEffect(() => {
     // 画面更新したい際にナビゲーションタブが初期化されるので、dispatchで上書きする
-    dispatch(changeMenubarTab('profile'))
+    dispatch(changeMenubarTab({ ...currentMenuBarTabType, myPageMenu: 'myProfile' }))
   }, [])
 
   return (

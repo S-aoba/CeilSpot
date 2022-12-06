@@ -1,5 +1,5 @@
-import { useAppDispatch } from '../../../app/hooks'
-import { changeMenubarTab } from '../../../slices/appSlice'
+import { useAppDispatch, useAppSelector } from '../../../app/hooks'
+import { changeMenubarTab, selectMenubarTab } from '../../../slices/menuBarSlice'
 import { MenuLinkTab as ProfileTab, MenuLinkTab as AnswerTab, MenuLinkTab as QuestionTab } from './DMenuLinkTab'
 import { MenuTabStyle } from './DMenuTabStyle'
 
@@ -10,6 +10,8 @@ type Props = {
 export const DashboardMenu: React.FC<Props> = ({ userId }) => {
   const { questionsStyle, answerStyle, profileStyle } = MenuTabStyle()
   const dispatch = useAppDispatch()
+  const currentMenuBarTabType = useAppSelector(selectMenubarTab)
+
   return (
     <div className=' flex w-full justify-center bg-white py-4'>
       <nav className=' container mx-auto'>
@@ -20,7 +22,7 @@ export const DashboardMenu: React.FC<Props> = ({ userId }) => {
               path={`/dashboard/question`}
               className={questionsStyle}
               tabWord='投稿した質問'
-              onClick={() => dispatch(changeMenubarTab('question'))}
+              onClick={() => dispatch(changeMenubarTab({ ...currentMenuBarTabType, myPageMenu: 'myQuestion' }))}
             />
           </li>
           <li>
@@ -29,7 +31,7 @@ export const DashboardMenu: React.FC<Props> = ({ userId }) => {
               path={`/dashboard/answer`}
               className={answerStyle}
               tabWord='回答した質問'
-              onClick={() => dispatch(changeMenubarTab('answer'))}
+              onClick={() => dispatch(changeMenubarTab({ ...currentMenuBarTabType, myPageMenu: 'myAnswer' }))}
             />
           </li>
           <li>
@@ -38,7 +40,7 @@ export const DashboardMenu: React.FC<Props> = ({ userId }) => {
               path={`/dashboard/profile`}
               className={profileStyle}
               tabWord='プロフィール'
-              onClick={() => dispatch(changeMenubarTab('profile'))}
+              onClick={() => dispatch(changeMenubarTab({ ...currentMenuBarTabType, myPageMenu: 'myProfile' }))}
             />
           </li>
         </ul>

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { MultiValue } from 'react-select'
 import { useAppSelector } from '../../../app/hooks'
-import { selectQuestion } from '../../../slices/appSlice'
+import { selectQuestion } from '../../../slices/questionSlice'
 
 export const useTag = () => {
   const editedQuestion = useAppSelector(selectQuestion)
@@ -11,7 +11,11 @@ export const useTag = () => {
       label: string
       color: string
     }>
-    >(editedQuestion.tags.length > 0 ? [{ value: editedQuestion.tags[0], label: editedQuestion.tags[0], color: '#e0f2fe' }] : [])
+  >(
+    editedQuestion.tags.length > 0
+      ? [{ value: editedQuestion.tags[0], label: editedQuestion.tags[0], color: '#e0f2fe' }]
+      : []
+  )
 
   const convertToTagType = (
     tags: MultiValue<{

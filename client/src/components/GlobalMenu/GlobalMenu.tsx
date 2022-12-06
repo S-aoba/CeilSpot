@@ -1,13 +1,14 @@
 import { Link } from 'react-router-dom'
-import { useAppDispatch } from '../../app/hooks'
+import { useAppDispatch, useAppSelector } from '../../app/hooks'
 import { useQueryUserIdAndUsername } from '../../functional/UseQuery/useQueryUserIdAndUsername'
 import { QuestionList } from '../../pages/QList'
-import { changeMenubarTab } from '../../slices/appSlice'
+import { changeMenubarTab, selectMenubarTab } from '../../slices/menuBarSlice'
 import { Loading } from '../shared/elements/Loading/Loading'
 
 export const GlobalMenu = () => {
   const dispatch = useAppDispatch()
   const { data: userIdAndUsername, isLoading, error } = useQueryUserIdAndUsername()
+  const currentMenuBarTabType = useAppSelector(selectMenubarTab)
 
   if (error) return <QuestionList />
   if (isLoading) return <Loading />
@@ -24,7 +25,7 @@ export const GlobalMenu = () => {
                 to={'/dashboard/question'}
                 relative='path'
                 state={userIdAndUsername.userId}
-                onClick={() => dispatch(changeMenubarTab('question'))}
+                onClick={() => dispatch(changeMenubarTab({ ...currentMenuBarTabType, myPageMenu: 'myQuestion' }))}
               >
                 <p>マイページ</p>
               </Link>

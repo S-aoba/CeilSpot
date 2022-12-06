@@ -1,6 +1,6 @@
 import { GrDocumentUser } from 'react-icons/gr'
 import { useAppDispatch, useAppSelector } from '../../../app/hooks'
-import { selectUserInfo, setEditedUserInfo } from '../../../slices/appSlice'
+import { selectUserInfo, setEditedUserInfo } from '../../../slices/userInfoSlice'
 
 type Props = {
   self_introduction: string

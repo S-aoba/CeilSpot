@@ -42,4 +42,7 @@ export type CsrfToken = {
   csrf_token: string
 }
 
-export type MenubarTabType = 'question' | 'answer' | 'profile'
+export type MenubarTabType = {
+  globalMenu: 'questions' | 'event' | 'infomation' | 'myPage'
+  myPageMenu: 'myQuestion' | 'myAnswer' | 'myProfile'
+}

@@ -1,6 +1,6 @@
 import { CgWebsite } from 'react-icons/cg'
 import { useAppDispatch, useAppSelector } from '../../../app/hooks'
-import { selectUserInfo, setEditedUserInfo } from '../../../slices/appSlice'
+import { selectUserInfo, setEditedUserInfo } from '../../../slices/userInfoSlice'
 type Props = {
   websiteURL: string
 }
