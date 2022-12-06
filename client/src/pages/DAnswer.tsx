@@ -16,14 +16,14 @@ export const DashboardAnswer = () => {
 
   useEffect(() => {
     // 画面更新したい際にナビゲーションタブが初期化されるので、dispatchで上書きする
-    dispatch(changeMenubarTab({ ...currentMenuBarTabType, myPageMenu: 'myAnswer' }))
+    dispatch(changeMenubarTab({ ...currentMenuBarTabType, globalMenu: 'myPage', myPageMenu: 'myAnswer' }))
   }, [])
 
   if (error) return <Error />
   if (isUserAnswerLoading) return <Loading />
 
   return (
-    <div className='flex flex-wrap justify-center lg:justify-between gap-5 px-28 py-10'>
+    <div className='flex flex-wrap justify-center gap-5 px-28 py-10 lg:justify-between'>
       {dataUserAnswers?.length! >= 1 ? (
         dataUserAnswers?.map((question) => (
           <QuestionItem

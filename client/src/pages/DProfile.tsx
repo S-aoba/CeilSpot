@@ -26,7 +26,7 @@ export const DashboardProfile = () => {
 
   useEffect(() => {
     // 画面更新したい際にナビゲーションタブが初期化されるので、dispatchで上書きする
-    dispatch(changeMenubarTab({ ...currentMenuBarTabType, myPageMenu: 'myProfile' }))
+    dispatch(changeMenubarTab({ ...currentMenuBarTabType, globalMenu: 'myPage', myPageMenu: 'myProfile' }))
   }, [])
 
   return (
