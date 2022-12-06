@@ -13,7 +13,7 @@ export const DashboardQuestion = () => {
   if (isUserQuestionsLoading) return <Loading />
 
   return (
-    <div className='flex flex-wrap justify-between gap-5 px-28 py-10'>
+    <div className='flex flex-wrap justify-center gap-5 px-28 py-10 lg:justify-between'>
       {dataUserQuestions?.length! >= 1 ? (
         dataUserQuestions?.map((question) => (
           <QuestionItem

@@ -23,7 +23,7 @@ export const DashboardAnswer = () => {
   if (isUserAnswerLoading) return <Loading />
 
   return (
-    <div className='flex flex-wrap justify-between gap-5 px-28 py-10'>
+    <div className='flex flex-wrap justify-center lg:justify-between gap-5 px-28 py-10'>
       {dataUserAnswers?.length! >= 1 ? (
         dataUserAnswers?.map((question) => (
           <QuestionItem
