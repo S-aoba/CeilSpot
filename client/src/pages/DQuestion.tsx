@@ -13,7 +13,6 @@ export const DashboardQuestion = () => {
   const { data: dataUserQuestions, isLoading: isUserQuestionsLoading, error } = useQueryUserQuestion(username)
   const dispatch = useAppDispatch()
   const currentMenuBarTabType = useAppSelector(selectMenubarTab)
-  console.log(currentMenuBarTabType)
 
   useEffect(() => {
     // 画面更新したい際にナビゲーションタブが初期化されるので、dispatchで上書きする
