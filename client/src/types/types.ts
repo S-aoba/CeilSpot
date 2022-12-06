@@ -43,6 +43,6 @@ export type CsrfToken = {
 }
 
 export type MenubarTabType = {
-  globalMenu: 'questions' | 'event' | 'infomation' | 'myPage'
+  globalMenu: 'questions' | 'event' | 'information' | 'myPage'
   myPageMenu: 'myQuestion' | 'myAnswer' | 'myProfile'
 }
