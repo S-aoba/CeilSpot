@@ -9,7 +9,7 @@ export const QItemLanguageIcon: React.FC<QItemLanguageIconProps> = ({ firstTag }
 
   return (
     <div className=' flex w-32 items-center justify-center py-2 px-2'>
-      <img src={selectQuestionIcon(firstTag)} alt='languageIcon' className=' h-16 w-16 rounded-lg' />
+      <img src={selectQuestionIcon(firstTag)} alt='languageIcon' className=' h-16 w-16 rounded-full' />
     </div>
   )
 }

@@ -14,17 +14,17 @@ export const UserName: React.FC<Props> = ({ userId, username }) => {
   const editedUserInfo = useAppSelector(selectUserInfo)
   const { renameUsernameMutation } = useMutateUserInfo()
   return (
-    <div className='w-full pr-3'>
+    <div className='w-full py-2'>
       <div className=' mb-2 flex items-center gap-2'>
         <span>
           <ImUser />
         </span>
         <p>ユーザー名</p>
       </div>
-      <div className=' flex gap-3'>
+      <div className=' flex gap-x-5'>
         <input
           type='text'
-          className=' w-full rounded-lg border border-gray-300 bg-gray-100 py-2 px-3 outline-sky-400'
+          className=' w-5/12 rounded-lg border border-gray-300 bg-gray-100 py-2 px-3 outline-sky-400'
           defaultValue={`${username}`}
           onChange={(e) => dispatch(setEditedUserInfo({ ...editedUserInfo, username: e.target.value }))}
         />

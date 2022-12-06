@@ -30,33 +30,24 @@ export const DashboardProfile = () => {
   }, [])
 
   return (
-    <div className=' mt-5 grid h-fit w-11/12 animate-fade-in-fwd grid-cols-12 rounded-3xl bg-white py-10'>
-      <div className='col-span-3 flex items-center justify-center'>
-        <div>
-          <img src={defaultUserIcon} alt='userIcon' className=' h-40 w-40 rounded-full' />
-        </div>
+    <div className=' flex w-full justify-center py-3'>
+      <div className=' flex items-center justify-center gap-5 rounded-l-lg bg-gray-700 py-5 px-10'>
+        <img src={defaultUserIcon} alt='userIcon' className=' h-20 w-20 rounded-full' />
       </div>
-      <div className='col-span-9 grid grid-rows-6'>
-        <div className=' row-span-5'>
-          <form onSubmit={processUserInfo}>
-            <div className=' col-span-9 flex flex-col gap-3 pr-5'>
-              <SelfIntroduction self_introduction={self_introduction!} />
-              <div className=' flex w-full flex-wrap gap-5'>
-                <div className=' flex w-full justify-between gap-4'>
-                  <Twitter twitterURL={twitter!} />
-                  <GitHub githubURL={github!} />
-                </div>
-                <WebSite websiteURL={website!} />
-              </div>
-              <div className=' flex justify-end'>
-                <button className=' btn-info btn text-white hover:opacity-75'>更新する</button>
-              </div>
-            </div>
-          </form>
-        </div>
-        <div className=' row-span-1 flex w-full justify-center pt-3'>
-          <UserName userId={id!} username={username} />
-        </div>
+      <div className=' w-9/12 rounded-r-lg bg-white py-10 px-10 shadow-lg'>
+        <form onSubmit={processUserInfo}>
+          <SelfIntroduction self_introduction={self_introduction!} />
+          <div className=' flex justify-between py-2'>
+            <Twitter twitterURL={twitter!} />
+            <GitHub githubURL={github!} />
+          </div>
+          <WebSite websiteURL={website!} />
+          <div className=' flex justify-center py-2'>
+            <button className=' btn-info btn text-white hover:opacity-75'>更新する</button>
+          </div>
+        </form>
+        <hr className=' my-4' />
+        <UserName userId={id!} username={username} />
       </div>
     </div>
   )

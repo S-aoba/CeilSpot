@@ -9,7 +9,7 @@ export const WebSite: React.FC<Props> = ({ websiteURL }) => {
   const dispatch = useAppDispatch()
   const editedUserInfo = useAppSelector(selectUserInfo)
   return (
-    <div className='w-full'>
+    <div className='w-full py-2'>
       <div className=' mb-2 flex items-center gap-2'>
         <CgWebsite className=' text-green-500' />
         <p>Website</p>
