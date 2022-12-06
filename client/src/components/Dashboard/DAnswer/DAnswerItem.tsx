@@ -25,7 +25,7 @@ export const DashBoardAnswerItem: React.FC<AnswerType> = ({ id, body, question_i
                   isDashboard: true,
                 }}
               >
-                <p className=' line-clamp-1 hover:text-sky-400'>{body}</p>
+                <p className=' text-lg font-semibold line-clamp-2 hover:text-sky-400'>{body}</p>
               </Link>
             </div>
             <div className=' row-span-2 flex items-center justify-start gap-4'>
