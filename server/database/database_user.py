@@ -10,6 +10,8 @@ MONGO_API_KEY = config("MONGO_API_KEY")
 
 client = motor.motor_asyncio.AsyncIOMotorClient(MONGO_API_KEY)
 database = client.CeilSpot
+collection_answer = database.answer
+collection_question = database.question
 collection_user = database.user
 
 auth = AuthJwtCsrf()
