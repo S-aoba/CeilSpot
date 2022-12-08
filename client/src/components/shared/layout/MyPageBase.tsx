@@ -1,11 +1,11 @@
 import { ReactNode } from 'react'
 import { DashboardMenu } from '../../MyPage/DMenu/DMenu'
 
-type DashboardBaseProps = {
+type MyPageBaseProps = {
   children: ReactNode
   userId: string
 }
-export const DashboardBase: React.FC<DashboardBaseProps> = ({ children, userId }) => {
+export const MyPageBase: React.FC<MyPageBaseProps> = ({ children, userId }) => {
   return (
     <>
       <DashboardMenu userId={userId} />

@@ -2,7 +2,7 @@ import { Outlet, useLocation } from 'react-router-dom'
 import { useQueryUserInfo } from '../functional/UseQuery/useQueryUserInfo'
 import { Error } from '../components/shared/elements/Error/Error'
 import { Loading } from '../components/shared/elements/Loading/Loading'
-import { DashboardBase } from '../components/shared/layout/DashboardBase'
+import { MyPageBase } from '../components/shared/layout/MyPageBase'
 
 export const MyPage = () => {
   const location = useLocation()
@@ -14,7 +14,7 @@ export const MyPage = () => {
   return (
     <>
       {dataUserInfo && (
-        <DashboardBase userId={userId}>
+        <MyPageBase userId={userId}>
           <Outlet
             context={{
               userID: userId,
@@ -26,7 +26,7 @@ export const MyPage = () => {
               website: dataUserInfo.website,
             }}
           />
-        </DashboardBase>
+        </MyPageBase>
       )}
     </>
   )
