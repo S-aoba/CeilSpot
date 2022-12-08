@@ -30,14 +30,14 @@ export const MyPageProfile = () => {
   }, [])
 
   return (
-    <div className=' flex w-full justify-center py-3'>
-      <div className=' flex items-center justify-center gap-5 rounded-l-lg bg-gray-700 py-5 px-10'>
+    <div className=' flex w-full flex-col items-center justify-center py-3 lg:flex-row lg:items-stretch'>
+      <div className=' flex w-8/12 items-center justify-center gap-5 rounded-t-lg lg:rounded-tr-none bg-gray-700 py-5 px-4 lg:w-fit lg:rounded-l-lg lg:px-10'>
         <img src={defaultUserIcon} alt='userIcon' className=' h-20 w-20 rounded-full' />
       </div>
-      <div className=' w-9/12 rounded-r-lg bg-white py-10 px-10 shadow-lg'>
+      <div className=' w-8/12 rounded-b-lg bg-white py-10 px-10 shadow-lg lg:rounded-bl-none lg:w-9/12 lg:rounded-r-lg'>
         <form onSubmit={processUserInfo}>
           <SelfIntroduction self_introduction={self_introduction!} />
-          <div className=' flex justify-between py-2'>
+          <div className=' mb-5 grid grid-cols-1 gap-y-5 lg:mb-0 lg:grid-cols-2 lg:gap-x-5'>
             <Twitter twitterURL={twitter!} />
             <GitHub githubURL={github!} />
           </div>
