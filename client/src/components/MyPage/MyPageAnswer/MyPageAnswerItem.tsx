@@ -1,13 +1,17 @@
 import DefaultUserIcon from '../../../assets/defaultUserIcon.png'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useQuerySingleQuestion } from '../../../functional/UseQuery/useQuerySingleQuestion'
 import { AnswerType } from '../../../types/types'
 import { QItemLanguageIcon } from '../../QList/QItemLanguageIcon'
 import { Error } from '../../shared/elements/Error/Error'
 import { Loading } from '../../shared/elements/Loading/Loading'
-import { title } from '@uiw/react-md-editor'
+import { useDispatch } from 'react-redux'
+import { useAppSelector } from '../../../app/hooks'
+import { changeMenubarTab, selectMenubarTab } from '../../../slices/menuBarSlice'
 
 export const MyPageAnswerItem: React.FC<AnswerType> = ({ id, body, question_id, respondent_username }) => {
+  const dispatch = useDispatch()
+  const currentMenuBarTabType = useAppSelector(selectMenubarTab)
   const navigate = useNavigate()
   const { data: dataQuestion, isLoading: isDataQuestionLoading, error } = useQuerySingleQuestion(question_id)
   if (error) return <Error />
@@ -24,6 +28,7 @@ export const MyPageAnswerItem: React.FC<AnswerType> = ({ id, body, question_id, 
                 isDashboard: true,
               },
             })
+            dispatch(changeMenubarTab({ ...currentMenuBarTabType, globalMenu: 'default' }))
           }}
           className=' col-span-1 flex h-[6.6rem] w-[26rem] rounded-3xl border-[3px] bg-white duration-500 hover:relative hover:translate-x-2 hover:-translate-y-2 hover:cursor-pointer hover:shadow-[-8px_8px_0px_0px_#171717] lg:w-[29rem]'
         >
