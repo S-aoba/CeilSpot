@@ -1,6 +1,5 @@
 import { useLocation, useOutletContext } from 'react-router-dom'
 import { DetailCard } from '../components/QDetail/DetailCard'
-import { AnswerItem } from '../components/AItem/AItem'
 import { RootBase } from '../components/shared/layout/RootBase'
 import { DetailProfileCard } from '../components/QDetail/DetailProfileCard'
 import { DetailTitle } from '../components/QDetail/DetailTitle'
@@ -12,6 +11,7 @@ import { LogoutAnswerForm } from '../components/QDetail/LogoutAnswerForm'
 import { useScreen } from '../functional/hooks/useScreen'
 import { useLayoutEffect } from 'react'
 import { AnswerReply } from '../components/AReply/AReply'
+import { AnswerList } from '../components/AList/AList'
 
 type State = {
   isDashboard: boolean
@@ -46,7 +46,7 @@ export const QuestionDetail = () => {
                 tags={singleQuestion.tags}
                 isDashboard={isDashboard}
               />
-              <AnswerItem answer_list={singleQuestion.answer_list} />
+              <AnswerList answer_list={singleQuestion.answer_list} />
               {isAuth ? <AnswerReply question_id={singleQuestion.id} /> : <LogoutAnswerForm />}
             </div>
             {screenWidth >= 994 && <DetailProfileCard username={singleQuestion.post_username} />}

@@ -4,10 +4,10 @@ import defaultIcon from '../../assets/defaultUserIcon.png'
 import { Loading } from '../shared/elements/Loading/Loading'
 import { Error } from '../shared/elements/Error/Error'
 
-type Props = {
+type AnswerItemProps = {
   answer_id: string
 }
-export const AnswerCard: React.FC<Props> = ({ answer_id }) => {
+export const AnswerItem: React.FC<AnswerItemProps> = ({ answer_id }) => {
   const { data: dataAnswer, isLoading: isSingleAnswerLoading, error } = useQuerySingleAnswer(answer_id)
   if (isSingleAnswerLoading) return <Loading />
   if (error) return <Error />

@@ -1,12 +1,10 @@
-import { AnswerCard } from './ACard'
-
-type Props = {
+type AnswerCountResponseProps = {
   answer_list: string[]
 }
 
-export const AnswerItem: React.FC<Props> = ({ answer_list }) => {
+export const AnswerCountResponse: React.FC<AnswerCountResponseProps> = ({ answer_list }) => {
   return (
-    <div className=' flex flex-col items-center justify-center'>
+    <>
       {answer_list.length > 0 ? (
         <div className=' mb-8 font-mono text-3xl tracking-widest'>
           <p>
@@ -19,9 +17,6 @@ export const AnswerItem: React.FC<Props> = ({ answer_list }) => {
           <p>まだ回答はありません</p>
         </div>
       )}
-      {answer_list.map((answer_id: string) => (
-        <AnswerCard key={answer_id} answer_id={answer_id} />
-      ))}
-    </div>
+    </>
   )
 }
