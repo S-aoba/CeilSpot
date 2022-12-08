@@ -24,7 +24,7 @@ export const MyPageQuestion = () => {
   if (isUserQuestionsLoading) return <Loading />
 
   return (
-    <div className='flex flex-wrap justify-center gap-5 px-28 py-10 lg:justify-between'>
+    <div className=' grid grid-cols-1 gap-5 py-10 lg:grid-cols-2'>
       {dataUserQuestions?.length! >= 1 ? (
         dataUserQuestions?.map((question) => (
           <QuestionItem

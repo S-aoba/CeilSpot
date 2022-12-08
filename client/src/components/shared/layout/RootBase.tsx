@@ -6,7 +6,7 @@ type BaseProps = {
 
 export const RootBase: React.FC<BaseProps> = ({ children }) => {
   return (
-    <div className=' flex h-fit min-h-screen animate-fade-in-fwd flex-col items-center lg:container lg:mx-auto'>
+    <div className=' flex h-fit min-h-screen animate-fade-in-fwd flex-col items-center container mx-auto'>
       {children}
     </div>
   )
