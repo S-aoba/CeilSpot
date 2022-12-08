@@ -15,7 +15,7 @@ export const Root = () => {
   return (
     <div className=' h-fit min-h-fit bg-slate-100 pt-14'>
       <Header isAuth={isAuth!} />
-      <GlobalMenu />
+      {isAuth && <GlobalMenu />}
       <Outlet context={isAuth!} />
       <Footer />
     </div>
