@@ -8,7 +8,7 @@ import { useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../app/hooks'
 import { changeMenubarTab, selectMenubarTab } from '../slices/menuBarSlice'
 
-export const DashboardQuestion = () => {
+export const MyPageQuestion = () => {
   const { username } = useOutletContext<UserInfo>()
   const { data: dataUserQuestions, isLoading: isUserQuestionsLoading, error } = useQueryUserQuestion(username)
   const dispatch = useAppDispatch()

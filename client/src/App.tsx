@@ -7,9 +7,9 @@ import { QuestionDetail } from './pages/QDetail'
 import { QuestionList } from './pages/QList'
 import { QuestionAsk } from './pages/QAsk'
 import { MyPage } from './pages/MyPage'
-import { DashboardQuestion } from './pages/DQuestion'
+import { MyPageQuestion } from './pages/MyPageQuestion'
 import { MyPageAnswer } from './pages/MyPageAnswer'
-import { DashboardProfile } from './pages/DProfile'
+import { MyPageProfile } from './pages/MyPageProfile'
 import { Root } from './pages/Root'
 import { selectCsrfState } from './slices/csrfSlice'
 
@@ -34,7 +34,7 @@ const router = createBrowserRouter([
         children: [
           {
             path: '/dashboard/question',
-            element: <DashboardQuestion />,
+            element: <MyPageQuestion />,
           },
           {
             path: '/dashboard/answer',
@@ -42,7 +42,7 @@ const router = createBrowserRouter([
           },
           {
             path: '/dashboard/profile',
-            element: <DashboardProfile />,
+            element: <MyPageProfile />,
           },
         ],
       },

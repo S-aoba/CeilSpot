@@ -13,7 +13,7 @@ import { useProcessUserInfo } from '../functional/hooks/UserProcess/useProcessUs
 import { changeMenubarTab, selectMenubarTab } from '../slices/menuBarSlice'
 import { selectUserInfo } from '../slices/userInfoSlice'
 
-export const DashboardProfile = () => {
+export const MyPageProfile = () => {
   const { id, username, self_introduction, twitter, github, website } = useOutletContext<UserInfo>()
   const dispatch = useAppDispatch()
   const editedUserInfo = useAppSelector(selectUserInfo)
