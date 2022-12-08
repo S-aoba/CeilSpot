@@ -6,11 +6,8 @@ type DetailBodyProps = {
 
 export const DetailBody: React.FC<DetailBodyProps> = ({ body }) => {
   return (
-    <div className=' w-11/12'>
-      <hr className='mb-6 border-gray-300' />
-      <div>
-        <MDEditor.Markdown source={body} style={{ whiteSpace: 'pre-wrap' }} className=' tracking-wide' />
-      </div>
+    <div className=' mt-1 w-11/12'>
+      <MDEditor.Markdown source={body} style={{ whiteSpace: 'pre-wrap' }} className=' tracking-wide' />
       <hr className=' my-6 border-gray-300' />
     </div>
   )
