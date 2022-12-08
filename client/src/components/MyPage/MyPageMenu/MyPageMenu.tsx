@@ -18,7 +18,7 @@ export const MyPageMenu: React.FC<Props> = ({ userId }) => {
 
   return (
     <div className=' flex w-full justify-center bg-white py-4'>
-      <nav className=' container mx-auto'>
+      <nav className=' w-10/12 lg:container lg:mx-auto'>
         <ul className=' flex list-none gap-x-5 pl-3 font-mono text-sm tracking-wide text-stone-500 opacity-50	'>
           <li>
             <QuestionTab
