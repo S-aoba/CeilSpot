@@ -6,7 +6,7 @@ import { UserInfo } from '../types/types'
 import { Error } from '../components/shared/elements/Error/Error'
 import { Loading } from '../components/shared/elements/Loading/Loading'
 import { changeMenubarTab, selectMenubarTab } from '../slices/menuBarSlice'
-import { DashBoardAnswerItem } from '../components/MyPage/DAnswer/DAnswerItem'
+import { MyPageAnswerItem } from '../components/MyPage/MyPageAnswer/MyPageAnswerItem'
 
 export const MyPageAnswer = () => {
   const dispatch = useAppDispatch()
@@ -26,7 +26,7 @@ export const MyPageAnswer = () => {
     <div className='flex flex-wrap justify-center gap-5 px-28 py-10 lg:justify-between'>
       {dataUserAnswers?.length! >= 1 ? (
         dataUserAnswers?.map((answer) => (
-          <DashBoardAnswerItem
+          <MyPageAnswerItem
             key={answer.id}
             id={answer.id}
             body={answer.body}

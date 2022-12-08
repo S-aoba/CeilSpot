@@ -1,7 +1,7 @@
 import { useAppSelector } from '../../../app/hooks'
 import { selectMenubarTab } from '../../../slices/menuBarSlice'
 
-export const MenuTabStyle = () => {
+export const MyPageMenuTabStyle = () => {
   const currentMenubarTab = useAppSelector(selectMenubarTab)
 
   const defaultTabStyle = 'rounded-lg px-2 py-1'

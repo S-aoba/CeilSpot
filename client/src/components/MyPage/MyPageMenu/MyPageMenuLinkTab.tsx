@@ -7,7 +7,7 @@ type Props = {
   tabWord: string
   onClick: () => void
 }
-export const MenuLinkTab: React.FC<Props> = ({ userId, path, className, tabWord, onClick }) => {
+export const MyPageMenuLinkTab: React.FC<Props> = ({ userId, path, className, tabWord, onClick }) => {
   return (
     <Link to={path} relative='path' state={userId} className={className} onClick={onClick}>
       {tabWord}

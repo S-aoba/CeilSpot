@@ -1,14 +1,18 @@
 import { useAppDispatch, useAppSelector } from '../../../app/hooks'
 import { changeMenubarTab, selectMenubarTab } from '../../../slices/menuBarSlice'
-import { MenuLinkTab as ProfileTab, MenuLinkTab as AnswerTab, MenuLinkTab as QuestionTab } from './DMenuLinkTab'
-import { MenuTabStyle } from './DMenuTabStyle'
+import {
+  MyPageMenuLinkTab as ProfileTab,
+  MyPageMenuLinkTab as AnswerTab,
+  MyPageMenuLinkTab as QuestionTab,
+} from './MyPageMenuLinkTab'
+import { MyPageMenuTabStyle } from './MyPageMenuTabStyle'
 
 type Props = {
   userId: string
 }
 
-export const DashboardMenu: React.FC<Props> = ({ userId }) => {
-  const { questionsStyle, answerStyle, profileStyle } = MenuTabStyle()
+export const MyPageMenu: React.FC<Props> = ({ userId }) => {
+  const { questionsStyle, answerStyle, profileStyle } = MyPageMenuTabStyle()
   const dispatch = useAppDispatch()
   const currentMenuBarTabType = useAppSelector(selectMenubarTab)
 

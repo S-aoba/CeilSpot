@@ -6,7 +6,7 @@ import { QItemLanguageIcon } from '../../QList/QItemLanguageIcon'
 import { Error } from '../../shared/elements/Error/Error'
 import { Loading } from '../../shared/elements/Loading/Loading'
 
-export const DashBoardAnswerItem: React.FC<AnswerType> = ({ id, body, question_id, respondent_username }) => {
+export const MyPageAnswerItem: React.FC<AnswerType> = ({ id, body, question_id, respondent_username }) => {
   const { data: dataQuestion, isLoading: isDataQuestionLoading, error } = useQuerySingleQuestion(question_id)
   if (error) return <Error />
   if (isDataQuestionLoading) return <Loading />
