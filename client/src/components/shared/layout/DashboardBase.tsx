@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import { DashboardMenu } from '../../Dashboard/DMenu/DMenu'
+import { DashboardMenu } from '../../MyPage/DMenu/DMenu'
 
 type DashboardBaseProps = {
   children: ReactNode

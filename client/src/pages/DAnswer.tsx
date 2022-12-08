@@ -6,7 +6,7 @@ import { UserInfo } from '../types/types'
 import { Error } from '../components/shared/elements/Error/Error'
 import { Loading } from '../components/shared/elements/Loading/Loading'
 import { changeMenubarTab, selectMenubarTab } from '../slices/menuBarSlice'
-import { DashBoardAnswerItem } from '../components/Dashboard/DAnswer/DAnswerItem'
+import { DashBoardAnswerItem } from '../components/MyPage/DAnswer/DAnswerItem'
 
 export const DashboardAnswer = () => {
   const dispatch = useAppDispatch()
