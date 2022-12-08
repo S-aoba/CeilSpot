@@ -6,7 +6,7 @@ import { CsrfToken } from './types/types'
 import { QuestionDetail } from './pages/QDetail'
 import { QuestionList } from './pages/QList'
 import { QuestionAsk } from './pages/QAsk'
-import { Dashboard } from './pages/Dashboard'
+import { MyPage } from './pages/MyPage'
 import { DashboardQuestion } from './pages/DQuestion'
 import { DashboardAnswer } from './pages/DAnswer'
 import { DashboardProfile } from './pages/DProfile'
@@ -30,7 +30,7 @@ const router = createBrowserRouter([
         element: <QuestionAsk />,
       },
       {
-        element: <Dashboard />,
+        element: <MyPage />,
         children: [
           {
             path: '/dashboard/question',

@@ -4,7 +4,7 @@ import { Error } from '../components/shared/elements/Error/Error'
 import { Loading } from '../components/shared/elements/Loading/Loading'
 import { DashboardBase } from '../components/shared/layout/DashboardBase'
 
-export const Dashboard = () => {
+export const MyPage = () => {
   const location = useLocation()
   const userId = location.state
   const { data: dataUserInfo, isLoading: isUserInfoLoading, error: dataUserInfoError } = useQueryUserInfo(userId)
