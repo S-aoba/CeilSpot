@@ -53,7 +53,7 @@ export const GlobalMenu = () => {
           {userIdAndUsername && (
             <li className={myPageStyle}>
               <Link
-                to={'/dashboard/question'}
+                to={'/myPage/question'}
                 relative='path'
                 state={userIdAndUsername.userId}
                 onClick={() => {

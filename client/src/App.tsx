@@ -33,15 +33,15 @@ const router = createBrowserRouter([
         element: <MyPage />,
         children: [
           {
-            path: '/dashboard/question',
+            path: '/myPage/question',
             element: <MyPageQuestion />,
           },
           {
-            path: '/dashboard/answer',
+            path: '/myPage/answer',
             element: <MyPageAnswer />,
           },
           {
-            path: '/dashboard/profile',
+            path: '/myPage/profile',
             element: <MyPageProfile />,
           },
         ],
