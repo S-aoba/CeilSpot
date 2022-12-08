@@ -8,7 +8,7 @@ import { QuestionList } from './pages/QList'
 import { QuestionAsk } from './pages/QAsk'
 import { MyPage } from './pages/MyPage'
 import { DashboardQuestion } from './pages/DQuestion'
-import { DashboardAnswer } from './pages/DAnswer'
+import { MyPageAnswer } from './pages/MyPageAnswer'
 import { DashboardProfile } from './pages/DProfile'
 import { Root } from './pages/Root'
 import { selectCsrfState } from './slices/csrfSlice'
@@ -38,7 +38,7 @@ const router = createBrowserRouter([
           },
           {
             path: '/dashboard/answer',
-            element: <DashboardAnswer />,
+            element: <MyPageAnswer />,
           },
           {
             path: '/dashboard/profile',

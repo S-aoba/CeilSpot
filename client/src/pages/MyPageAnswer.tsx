@@ -8,7 +8,7 @@ import { Loading } from '../components/shared/elements/Loading/Loading'
 import { changeMenubarTab, selectMenubarTab } from '../slices/menuBarSlice'
 import { DashBoardAnswerItem } from '../components/MyPage/DAnswer/DAnswerItem'
 
-export const DashboardAnswer = () => {
+export const MyPageAnswer = () => {
   const dispatch = useAppDispatch()
   const { username } = useOutletContext<UserInfo>()
   const { data: dataUserAnswers, isLoading: isUserAnswerLoading, error } = useQueryUserAnswer(username)
