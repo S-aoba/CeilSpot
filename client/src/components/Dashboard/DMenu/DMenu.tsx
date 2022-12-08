@@ -21,7 +21,7 @@ export const DashboardMenu: React.FC<Props> = ({ userId }) => {
               userId={userId}
               path={`/dashboard/question`}
               className={questionsStyle}
-              tabWord='投稿した質問'
+              tabWord='自分の質問'
               onClick={() => dispatch(changeMenubarTab({ ...currentMenuBarTabType, myPageMenu: 'myQuestion' }))}
             />
           </li>
@@ -30,7 +30,7 @@ export const DashboardMenu: React.FC<Props> = ({ userId }) => {
               userId={userId}
               path={`/dashboard/answer`}
               className={answerStyle}
-              tabWord='回答した質問'
+              tabWord='自分の回答'
               onClick={() => dispatch(changeMenubarTab({ ...currentMenuBarTabType, myPageMenu: 'myAnswer' }))}
             />
           </li>
