@@ -1,4 +1,4 @@
-import Logo from '../../assets/logo.png'
+import Logo from '../../assets/logo.svg'
 import { About } from './About'
 import { Legal } from './Legal'
 import { Links } from './Links'
