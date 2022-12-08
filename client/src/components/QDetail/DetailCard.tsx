@@ -1,6 +1,6 @@
 import React from 'react'
 import { QuestionType } from '../../types/types'
-import { DetailMenu } from './DetailMenu'
+import { DetailMenu } from './DetailMenu/DetailMenu'
 import { DetailBody } from './DetailBody'
 
 export const DetailCard: React.FC<QuestionType & { isDashboard: boolean }> = ({

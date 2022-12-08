@@ -1,4 +1,4 @@
-import { useSelectQuestionIcon } from '../../functional/hooks/useSelectQuestionIcon'
+import { useSelectQuestionIcon } from '../../../functional/hooks/useSelectQuestionIcon'
 
 type DetailTagsProps = {
   tags: string[]

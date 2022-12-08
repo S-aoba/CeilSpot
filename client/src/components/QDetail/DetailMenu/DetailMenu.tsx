@@ -1,5 +1,5 @@
 import { HiOutlineMenu } from 'react-icons/hi'
-import { QuestionType } from '../../types/types'
+import { QuestionType } from '../../../types/types'
 import { DetailDeleteBtn } from './DetailDeleteBtn'
 import { DetailEditBtn } from './DetailEditBtn'
 import { DetailTags } from './DetailTags'
@@ -17,7 +17,7 @@ export const DetailMenu: React.FC<QuestionType & { isDashboard: boolean }> = ({
     <div className=' flex w-11/12 items-center justify-between'>
       <DetailTags tags={tags} />
       {isDashboard && (
-        <div className=' dropdown dropdown-bottom dropdown-end dropdown-hover'>
+        <div className=' dropdown-bottom dropdown-end dropdown-hover dropdown'>
           <label tabIndex={0}>
             <HiOutlineMenu className=' h-10 w-6 hover:cursor-pointer' />
           </label>
