@@ -5,7 +5,7 @@ import { selectQuestion, setEditedQuestion } from '../../../slices/questionSlice
 export const useChangeTitle = () => {
   const dispatch = useAppDispatch()
   const editedQuestion = useAppSelector(selectQuestion)
-  const setTitleHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
+  const setTitleHandler = (e: ChangeEvent<HTMLInputElement>) => {
     dispatch(setEditedQuestion({ ...editedQuestion, title: e.target.value }))
   }
   return { setTitleHandler }

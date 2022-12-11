@@ -7,11 +7,16 @@ import { LinkBtn as QuestionPostBtn } from '../../shared/elements/LinkBtn'
 import { useHeaderLight } from './useHeaderLight'
 import { IconMenu } from './IconMenu'
 import { useScreen } from '../../../functional/hooks/useScreen'
+import { useDispatch } from 'react-redux'
+import { changeMenubarTab, selectMenubarTab } from '../../../slices/menuBarSlice'
+import { useAppSelector } from '../../../app/hooks'
 
 type Props = {
   isAuth: boolean
 }
 export const HeaderLight: React.FC<Props> = ({ isAuth }) => {
+  const dispatch = useDispatch()
+  const currentMenuBarTabType = useAppSelector(selectMenubarTab)
   const { onChangeSearchValue, searchValue } = useHeaderLight()
   const { screenWidth, screenWidthMonitoring } = useScreen()
 
@@ -39,6 +44,7 @@ export const HeaderLight: React.FC<Props> = ({ isAuth }) => {
             relative='path'
             children={'質問する'}
             className=' btn-info btn-sm btn h-10 text-white hover:opacity-75 lg:w-24'
+            onClick={() => dispatch(changeMenubarTab({ ...currentMenuBarTabType, globalMenu: 'default' }))}
           />
         </>
       ) : (

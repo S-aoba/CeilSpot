@@ -43,14 +43,14 @@ export const QuestionForm = () => {
   return (
     <>
       {dataUserIdAndUsername && (
-        <form onSubmit={processQuestion} className='flex w-full flex-col items-center justify-center gap-2'>
-          <div className=' flex w-10/12'>
+        <form onSubmit={processQuestion} className='mt-5 flex w-full flex-col items-center justify-center'>
+          <div className=' flex w-full'>
             <QuestionFormTitle editedTitle={editedQuestion.title} />
           </div>
-          <div className=' flex w-10/12 flex-col items-center justify-center gap-5 rounded-xl bg-white py-5'>
+          <div className=' flex w-full flex-col items-start justify-center'>
             <Select
               name='Tags'
-              className=' w-11/12'
+              className=' my-5 w-full'
               isOptionDisabled={() => multiValue?.length! >= 5}
               onChange={(val) => {
                 setMultiValue(val)
@@ -65,19 +65,23 @@ export const QuestionForm = () => {
               noOptionsMessage={() => '一致するタグがありません'}
               defaultValue={editedQuestion.id === '' ? multiValue : displayTagsWhenUpdate(editedQuestion.tags)}
             />
+            <div className=' grid w-full grid-cols-2 rounded-t-lg bg-gray-700 py-2 text-center text-base outline outline-1 outline-gray-700'>
+              <p className=' col-span-1 inline-block text-white'>本文</p>
+              <p className=' col-span-1 inline-block text-white'>プレビュー</p>
+            </div>
             <MDEditor
-              className=' w-11/12'
+              className=' w-full rounded-none rounded-b-lg'
               value={editedQuestion.body}
               onChange={(e) => {
                 dispatch(setEditedQuestion({ ...editedQuestion, body: e! }))
               }}
               height={500}
-              preview='edit'
+              hideToolbar
               previewOptions={{
                 rehypePlugins: [[rehypeSanitize]],
               }}
             />
-            <div className=' flex w-11/12 flex-col items-center justify-center gap-3 lg:flex lg:flex-row lg:justify-start'>
+            <div className=' mt-5 flex w-11/12 flex-col items-center justify-center gap-3 lg:flex lg:flex-row lg:justify-start'>
               <SubmitBtn
                 onClick={() => {
                   dispatch(

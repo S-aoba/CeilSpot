@@ -8,9 +8,9 @@ export const QuestionFormTitle: React.FC<QuestionFormTitleProps> = ({ editedTitl
   const { setTitleHandler } = useChangeTitle()
 
   return (
-    <textarea
+    <input
       autoFocus
-      className=' h-56 w-full resize-none bg-slate-100 px-3  pt-5 text-2xl font-bold outline-none md:h-48 lg:h-36 xl:h-28'
+      className=' w-full resize-none bg-slate-100 px-3 py-3 text-2xl font-bold outline-none'
       value={editedTitle}
       onChange={setTitleHandler}
       placeholder='質問のタイトル'
