@@ -66,9 +66,13 @@ export const QuestionForm = () => {
               noOptionsMessage={() => '一致するタグがありません'}
               defaultValue={editedQuestion.id === '' ? multiValue : displayTagsWhenUpdate(editedQuestion.tags)}
             />
-            <div className=' grid w-full grid-cols-2 rounded-t-lg bg-gray-700 py-2 text-center text-base outline outline-1 outline-gray-700'>
-              <p className=' col-span-1 inline-block text-white'>本文</p>
-              <p className=' col-span-1 inline-block text-white'>プレビュー</p>
+            <div className=' grid w-full grid-cols-2 rounded-t-lg text-center text-base outline outline-1 outline-gray-700'>
+              <p className=' col-span-1 inline-block rounded-tl-lg border-r border-gray-400 bg-gray-700 py-2 text-white'>
+                本文
+              </p>
+              <p className=' col-span-1 inline-block rounded-tr-lg border-l border-gray-400 bg-gray-700 py-2 text-white'>
+                プレビュー
+              </p>
             </div>
             {/* <MDEditor
               className=' w-full rounded-none rounded-b-lg'
@@ -83,7 +87,7 @@ export const QuestionForm = () => {
               }}
             /> */}
             <MarkdownEditor />
-            <div className=' mt-5 flex w-11/12 flex-col items-center justify-center gap-3 lg:flex lg:flex-row lg:justify-start'>
+            <div className=' my-5 flex w-11/12 flex-col items-center justify-center gap-3 lg:flex lg:flex-row lg:justify-start'>
               <SubmitBtn
                 onClick={() => {
                   dispatch(

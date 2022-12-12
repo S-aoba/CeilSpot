@@ -17,7 +17,7 @@ export default defineConfig({
             'prismjs',
             {
               languages: ['javascript', 'css', 'html', 'json', 'typescript', 'python'],
-              plugins: ['line-highlight', 'line-numbers', 'show-language'],
+              plugins: ['show-language'],
               theme: 'okaidia',
               css: true,
             },
