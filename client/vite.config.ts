@@ -9,5 +9,21 @@ export default defineConfig({
     // デフォルトのポート番号の変更
     // port: 3000,
   },
-  plugins: [react()],
+  plugins: [
+    react({
+      babel: {
+        plugins: [
+          [
+            'prismjs',
+            {
+              languages: ['javascript', 'css', 'html', 'json', 'typescript', 'python'],
+              plugins: ['line-highlight', 'line-numbers', 'show-language'],
+              theme: 'okaidia',
+              css: true,
+            },
+          ],
+        ],
+      },
+    }),
+  ],
 })
