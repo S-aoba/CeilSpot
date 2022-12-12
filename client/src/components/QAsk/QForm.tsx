@@ -12,6 +12,7 @@ import { Error } from '../shared/elements/Error/Error'
 import { QuestionFormTitle } from './QFormTitle'
 import { useProcessQuestion } from '../../functional/hooks/UserProcess/useProcessQuestion'
 import { selectQuestion, setEditedQuestion } from '../../slices/questionSlice'
+import { MarkdownEditor } from './MarkdownEditor'
 
 export const QuestionForm = () => {
   const { tagOptions, tagColorStyles } = TagStyle()
@@ -69,7 +70,7 @@ export const QuestionForm = () => {
               <p className=' col-span-1 inline-block text-white'>本文</p>
               <p className=' col-span-1 inline-block text-white'>プレビュー</p>
             </div>
-            <MDEditor
+            {/* <MDEditor
               className=' w-full rounded-none rounded-b-lg'
               value={editedQuestion.body}
               onChange={(e) => {
@@ -80,7 +81,8 @@ export const QuestionForm = () => {
               previewOptions={{
                 rehypePlugins: [[rehypeSanitize]],
               }}
-            />
+            /> */}
+            <MarkdownEditor />
             <div className=' mt-5 flex w-11/12 flex-col items-center justify-center gap-3 lg:flex lg:flex-row lg:justify-start'>
               <SubmitBtn
                 onClick={() => {
