@@ -1,5 +1,3 @@
-import MDEditor from '@uiw/react-md-editor'
-import rehypeSanitize from 'rehype-sanitize'
 import Select from 'react-select'
 import { Button as SubmitBtn } from '../shared/elements/Button'
 import { TagStyle } from './styles/TagStyle'
@@ -66,26 +64,14 @@ export const QuestionForm = () => {
               noOptionsMessage={() => '一致するタグがありません'}
               defaultValue={editedQuestion.id === '' ? multiValue : displayTagsWhenUpdate(editedQuestion.tags)}
             />
-            <div className=' grid w-full grid-cols-2 rounded-t-lg text-center text-base outline outline-1 outline-gray-700'>
-              <p className=' col-span-1 inline-block rounded-tl-lg border-r border-gray-400 bg-gray-700 py-2 text-white'>
+            <div className=' grid w-full grid-cols-2 rounded-t-lg text-center text-base  outline-gray-700'>
+              <p className=' col-span-1 inline-block rounded-tl-lg bg-gray-700 py-2 text-white'>
                 本文
               </p>
-              <p className=' col-span-1 inline-block rounded-tr-lg border-l border-gray-400 bg-gray-700 py-2 text-white'>
+              <p className=' col-span-1 inline-block rounded-tr-lg bg-gray-700 py-2 text-white'>
                 プレビュー
               </p>
             </div>
-            {/* <MDEditor
-              className=' w-full rounded-none rounded-b-lg'
-              value={editedQuestion.body}
-              onChange={(e) => {
-                dispatch(setEditedQuestion({ ...editedQuestion, body: e! }))
-              }}
-              height={500}
-              hideToolbar
-              previewOptions={{
-                rehypePlugins: [[rehypeSanitize]],
-              }}
-            /> */}
             <MarkdownEditor />
             <div className=' my-5 flex w-11/12 flex-col items-center justify-center gap-3 lg:flex lg:flex-row lg:justify-start'>
               <SubmitBtn

@@ -1,4 +1,3 @@
-import MDEditor from '@uiw/react-md-editor'
 import { useQuerySingleAnswer } from '../../functional/UseQuery/useQuerySingleAnswer'
 import defaultIcon from '../../assets/defaultUserIcon.png'
 import { Loading } from '../shared/elements/Loading/Loading'
@@ -17,7 +16,6 @@ export const AnswerItem: React.FC<AnswerItemProps> = ({ answer_id }) => {
       <div className=' flex flex-col items-center justify-center rounded-2xl bg-white py-5 px-3'>
         <div className='w-11/12'>
           <hr className=' my-6 border-gray-300' />
-          <MDEditor.Markdown source={dataAnswer?.body} style={{ whiteSpace: 'pre-wrap' }} className=' tracking-wide' />
           <hr className=' mt-6 border-gray-300' />
         </div>
         <div className=' flex w-11/12 items-center justify-end pt-5'>

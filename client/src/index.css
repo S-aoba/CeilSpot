@@ -17,12 +17,19 @@ ul, ol {
 }
 }
 
+li {
+  list-style-position: inside;
+}
+
+pre {
+  letter-spacing: 0.05em;
+}
+
 h1 {
-  font-size: 3.2em;
+  font-size: 3.0rem;
   line-height: 1.1;
   border-bottom: 1px solid #5c93bb2b;
   padding-bottom: 0.75rem;
-  margin-bottom:0.75rem;
 }
 
 h2 {
@@ -50,6 +57,3 @@ h6 {
   line-height: 1.1;
 }
 
-li {
-  list-style-position: inside;
-}

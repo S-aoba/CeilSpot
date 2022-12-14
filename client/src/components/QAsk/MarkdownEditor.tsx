@@ -16,15 +16,17 @@ export const MarkdownEditor = () => {
       autofocus: true,
       spellChecker: false,
       toolbar: false,
+      status: false,
+      styles: false,
     }
   }, [])
   const onChange = useCallback((value: string) => {
-    dispatch(setEditedQuestion({ ...editedQuestion, body: value! }))
+    setMarkdownValue(value)
   }, [])
 
   useEffect(() => {
     Prism.highlightAll()
-  }, [editedQuestion.body])
+  }, [markdownValue])
 
   return (
     <div className=' grid w-full grid-cols-2'>
@@ -36,9 +38,9 @@ export const MarkdownEditor = () => {
         placeholder='質問の内容'
       />
       <div
-        className=' col-span-1 py-3 min-h-fit rounded-b-xl border bg-white pl-3 pr-4 break-words'
+        className=' col-span-1 h-fit whitespace-pre-wrap rounded-br-md rounded-bl-lg bg-white p-[15px]'
         dangerouslySetInnerHTML={{
-          __html: DOMPurify.sanitize(marked(editedQuestion.body)),
+          __html: DOMPurify.sanitize(marked(markdownValue)),
         }}
       ></div>
     </div>
