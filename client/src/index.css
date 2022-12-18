@@ -19,41 +19,35 @@ ul, ol {
 
 li {
   list-style-position: inside;
+  white-space: pre-wrap;
 }
 
 pre {
   letter-spacing: 0.05em;
 }
 
+p {
+  white-space: pre-wrap;
+}
+
 h1 {
-  font-size: 3.0rem;
-  line-height: 1.1;
-  border-bottom: 1px solid #5c93bb2b;
-  padding-bottom: 0.75rem;
+  font-size: 48px;
+  line-height: 1;
+
 }
 
 h2 {
-  font-size: 2.8rem;
-  line-height: 1.1;
+  font-size: 36px;
+  line-height: 1.333;
 }
 
 h3 {
-  font-size: 2.6rem;
-  line-height: 1.1;
+  font-size: 24px;
+  line-height: 1;
 }
 
-h4 {
-  font-size: 2.4rem;
-  line-height: 1.1;
-}
-
-h5 {
-  font-size: 2.2rem;
-  line-height: 1.1;
-}
-
-h6 {
-  font-size: 2.0rem;
-  line-height: 1.1;
+h4, h5, h6 {
+  font-size: 16px;
+  line-height: 1.5;
 }
 

@@ -17,7 +17,6 @@ export const MarkdownEditor = () => {
       spellChecker: false,
       toolbar: false,
       status: false,
-      styles: false,
     }
   }, [])
   const onChange = useCallback((value: string) => {
@@ -38,7 +37,7 @@ export const MarkdownEditor = () => {
         placeholder='質問の内容'
       />
       <div
-        className=' col-span-1 h-fit whitespace-pre-wrap rounded-br-md rounded-bl-lg bg-white p-[15px]'
+        className=' col-span-1 box-border rounded-br rounded-bl border-b-[1px] border-r-[1px] border-[#ced4da] bg-white p-[15px]'
         dangerouslySetInnerHTML={{
           __html: DOMPurify.sanitize(marked(markdownValue)),
         }}
