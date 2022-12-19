@@ -46,3 +46,7 @@ export type MenubarTabType = {
   globalMenu: 'questions' | 'event' | 'information' | 'myPage' | 'default'
   myPageMenu: 'myQuestion' | 'myAnswer' | 'myProfile'
 }
+
+export type MarkdownEditorType = {
+  markdownValue: string
+}
