@@ -4,8 +4,8 @@ import { selectMenubarTab } from '../../slices/menuBarSlice'
 export const useGlobalMenuTabStyle = () => {
   const currentMenubarTab = useAppSelector(selectMenubarTab)
 
-  const defaultGlobalMenuTabStyle = ' hover:text-black px-2 pb-1'
-  const selectedGlobalMenuTabStyle = ' border-b-2 border-zinc-900 px-2 pb-1'
+  const defaultGlobalMenuTabStyle = ' hover:text-black px-2 pb-1 hover:text-stone-900 '
+  const selectedGlobalMenuTabStyle = ' border-b-2 border-zinc-900 px-2 pb-1 text-stone-900'
 
   let questionsStyle = defaultGlobalMenuTabStyle
   let eventStyle = defaultGlobalMenuTabStyle
