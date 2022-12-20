@@ -24,12 +24,7 @@ module.exports = {
     themes: [
       {
         mytheme: {
-          primary: '#2563eb',
-          secondary: '#f6d860',
-          accent: '#37cdbe',
-          neutral: '#3d4451',
-          'base-100': '#ffffff',
-          warning: '#ef4444',
+          info:"#2563eb"
         },
       },
     ],
