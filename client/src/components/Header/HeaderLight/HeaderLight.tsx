@@ -43,7 +43,7 @@ export const HeaderLight: React.FC<Props> = ({ isAuth }) => {
             path='/question/ask'
             relative='path'
             children={'質問する'}
-            className=' btn-info btn-sm btn h-10 text-white hover:opacity-75 lg:w-24'
+            className=' btn-primary btn-sm btn h-10 text-white hover:opacity-75 lg:w-24'
             onClick={() => dispatch(changeMenubarTab({ ...currentMenuBarTabType, globalMenu: 'default' }))}
           />
         </>

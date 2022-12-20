@@ -43,7 +43,7 @@ export const MyPageProfile = () => {
           </div>
           <WebSite websiteURL={website!} />
           <div className=' flex justify-center py-2'>
-            <button className=' btn-info btn text-white hover:opacity-75'>更新する</button>
+            <button className=' btn-primary btn text-white hover:opacity-75'>更新する</button>
           </div>
         </form>
         <hr className=' my-4' />

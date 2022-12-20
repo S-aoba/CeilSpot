@@ -39,7 +39,7 @@ export const AnswerForm: React.FC<Props> = ({ question_id }) => {
                   })
                 )
               }
-              className=' btn-info btn text-white hover:opacity-75'
+              className=' btn-primary btn text-white hover:opacity-75'
               disabled={!editedAnswer.body}
             >
               送信する
