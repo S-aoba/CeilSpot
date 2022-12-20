@@ -19,12 +19,6 @@ module.exports = {
         },
       },
     },
-    screens: {
-      // レスポンシブのオーバーライド
-      md: '600px',
-      lg: '994px',
-      xl: '1280px',
-    },
   },
   daisyui: {
     themes: [

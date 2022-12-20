@@ -15,7 +15,7 @@ export const GlobalMenu = () => {
   if (error) return <QuestionList />
   if (isLoading) return <Loading />
   return (
-    <div className=' flex justify-center bg-sky-100 py-4'>
+    <div className=' flex justify-center bg-blue-100 py-4'>
       <div className=' lg:container lg:mx-auto w-10/12'>
         <ul className=' flex list-none gap-x-5 font-mono text-sm tracking-wide text-stone-500 opacity-50'>
           <li className={questionsStyle}>
