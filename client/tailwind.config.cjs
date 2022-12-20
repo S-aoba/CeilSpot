@@ -20,14 +20,5 @@ module.exports = {
       },
     },
   },
-  daisyui: {
-    themes: [
-      {
-        mytheme: {
-          info:"#2563eb"
-        },
-      },
-    ],
-  },
   plugins: [require('daisyui'), require('@tailwindcss/line-clamp')],
 }
