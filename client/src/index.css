@@ -2,14 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* スクロールバーを非表示 */
-body::-webkit-scrollbar{
-  display: none;  /* Chrome, Safari 対応 */
-}
-body {
-  -ms-overflow-style: none; /* IE, Edge 対応 */
-  scrollbar-width: none; /* Firefox 対応 */
-}
 /* QuestionFormでlistを表示する際にtailwindのデフォルトだと何も表示されないので以下のように上書きする */
 @layer base {
 ul, ol {
