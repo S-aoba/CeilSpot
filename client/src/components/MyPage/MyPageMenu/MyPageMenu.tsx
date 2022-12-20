@@ -17,9 +17,9 @@ export const MyPageMenu: React.FC<Props> = ({ userId }) => {
   const currentMenuBarTabType = useAppSelector(selectMenubarTab)
 
   return (
-    <div className=' flex w-full justify-center bg-white py-4 border-b'>
+    <div className=' flex w-full justify-center border-b bg-white py-4'>
       <nav className=' container mx-auto pl-5'>
-        <ul className=' flex list-none gap-x-5 font-mono text-sm tracking-wide font-semibold text-stone-500'>
+        <ul className=' flex list-none gap-x-5 font-mono text-sm font-semibold tracking-wide text-stone-500'>
           <li>
             <QuestionTab
               userId={userId}

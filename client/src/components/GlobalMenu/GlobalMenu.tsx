@@ -15,9 +15,9 @@ export const GlobalMenu = () => {
   if (error) return <QuestionList />
   if (isLoading) return <Loading />
   return (
-    <div className=' flex justify-center bg-blue-100 py-4 border-b'>
-      <div className=' container mx-auto pl-5'>
-        <ul className=' flex list-none gap-x-5 font-mono text-sm tracking-wide text-stone-500 font-semibold'>
+    <div className=' flex justify-center border-b bg-blue-100 py-4'>
+      <nav className=' container mx-auto pl-5'>
+        <ul className=' flex list-none gap-x-5 font-mono text-sm font-semibold tracking-wide text-stone-500'>
           <li className={questionsStyle}>
             <Link
               to={'/'}
@@ -65,7 +65,7 @@ export const GlobalMenu = () => {
             </li>
           )}
         </ul>
-      </div>
+      </nav>
     </div>
   )
 }
