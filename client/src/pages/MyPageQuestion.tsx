@@ -24,7 +24,7 @@ export const MyPageQuestion = () => {
   if (isUserQuestionsLoading) return <Loading />
 
   return (
-    <div className=' grid grid-cols-1 gap-5 py-10 lg:grid-cols-2'>
+    <div className=' grid w-11/12 grid-cols-1 gap-5 py-10 md:w-10/12 md:grid-cols-2 xl:grid-cols-3'>
       {dataUserQuestions?.length! >= 1 ? (
         dataUserQuestions?.map((question) => (
           <QuestionItem

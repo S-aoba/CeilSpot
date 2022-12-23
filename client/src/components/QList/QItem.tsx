@@ -42,13 +42,13 @@ export const QuestionItem: React.FC<LinkPathProps & QuestionType> = ({
         })
         dispatch(changeMenubarTab({ ...currentMenuBarTabType, globalMenu: 'default' }))
       }}
-      className=' col-span-1 flex h-[6.6rem] w-[26rem] rounded-3xl border-[3px] bg-white duration-500 hover:relative hover:translate-x-2 hover:-translate-y-2 hover:cursor-pointer hover:shadow-[-8px_8px_0px_0px_#171717] lg:w-[29rem]'
+      className=' col-span-1 flex h-[13.5rem] w-full flex-col rounded-3xl border-[3px] bg-white py-5 duration-500 hover:relative hover:translate-x-2 hover:-translate-y-2 hover:cursor-pointer hover:shadow-[-8px_8px_0px_0px_#171717] hover:brightness-95'
     >
-      <QItemLanguageIcon firstTag={tags[0]} />
-      <div className=' grid w-full grid-rows-6 py-2 px-2'>
-        <QItemTitle title={title} />
+      <div className=' flex px-2'>
+        <QItemLanguageIcon firstTag={tags[0]} />
         <QItemUserInfo post_username={post_username} answer_list={answer_list} />
       </div>
+      <QItemTitle title={title} />
     </div>
   )
 }
