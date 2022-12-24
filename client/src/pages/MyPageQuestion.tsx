@@ -18,7 +18,6 @@ export const MyPageQuestion = () => {
     // 画面更新したい際にナビゲーションタブが初期化されるので、dispatchで上書きする
     dispatch(changeMenubarTab({ ...currentMenuBarTabType, globalMenu: 'myPage', myPageMenu: 'myQuestion' }))
   }, [])
-  console.log(currentMenuBarTabType)
 
   if (error) return <Error />
   if (isUserQuestionsLoading) return <Loading />
