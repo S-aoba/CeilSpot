@@ -22,7 +22,7 @@ export const QuestionList = () => {
   return (
     <RootBase>
       <div className=' flex flex-col items-center md:grid md:grid-cols-3 md:items-start'>
-        <main className=' grid w-11/12 grid-cols-1 gap-5 py-10 md:col-span-2 md:w-full md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3'>
+        <main className=' grid w-11/12 px-5 grid-cols-1 gap-5 py-10 md:col-span-2 md:w-full md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3'>
           {dataQuestions &&
             dataQuestions.map((question: QuestionType) => (
               <QuestionItem

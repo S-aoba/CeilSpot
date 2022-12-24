@@ -13,7 +13,7 @@ export const QItemUserInfo: React.FC<QItemUserInfoProps> = ({ post_username, ans
         <img src={DefaultUserIcon} alt='userIcon' className=' h-6 w-6 rounded-full' />
         <p className=' truncate text-sm'>{post_username}</p>
       </div>
-      <div className=' flex w-full gap-x-3 pl-3'>
+      <div className=' flex w-full gap-x-3 pl-3 flex-wrap'>
         <p className=' text-sm text-gray-400'>投稿日: 29日前</p>
         <div className=' flex gap-x-2 items-center'>
           <AiOutlineComment />
