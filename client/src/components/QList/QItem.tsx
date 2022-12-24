@@ -7,20 +7,20 @@ import { QItemLanguageIcon } from './QItemLanguageIcon'
 import { QItemTitle } from './QItemTitle'
 import { QItemUserInfo } from './QItemUserInfo'
 
-type LinkPathProps = {
+type QuestionItemProps = {
   path: string
   isDashboard: boolean
 } & QuestionType
 
-export const QuestionItem: React.FC<LinkPathProps & QuestionType> = ({
+export const QuestionItem: React.FC<QuestionItemProps & QuestionType> = ({
   path,
+  isDashboard,
   id,
   title,
   body,
   post_username,
   answer_list,
   tags,
-  isDashboard,
 }) => {
   const dispatch = useDispatch()
   const currentMenuBarTabType = useAppSelector(selectMenubarTab)
