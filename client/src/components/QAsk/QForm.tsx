@@ -1,5 +1,4 @@
 import Select from 'react-select'
-import { Button as SubmitBtn } from '../shared/elements/Button'
 import { TagStyle } from './styles/TagStyle'
 import { useQueryUserIdAndUsername } from '../../functional/UseQuery/useQueryUserIdAndUsername'
 import { useAppDispatch, useAppSelector } from '../../app/hooks'
@@ -11,6 +10,7 @@ import { QuestionFormTitle } from './QFormTitle'
 import { useProcessQuestion } from '../../functional/hooks/UserProcess/useProcessQuestion'
 import { selectQuestion, setEditedQuestion } from '../../slices/questionSlice'
 import { MarkdownEditor } from '../shared/elements/MarkdownEditor'
+import { Button } from '../ui/Button'
 
 export const QuestionForm = () => {
   const { tagOptions, tagColorStyles } = TagStyle()
@@ -73,7 +73,8 @@ export const QuestionForm = () => {
               onChange={(e) => dispatch(setEditedQuestion({ ...editedQuestion, body: e }))}
             />
             <div className=' my-5 flex w-11/12 flex-col items-center justify-center gap-3 lg:flex lg:flex-row lg:justify-start'>
-              <SubmitBtn
+              <Button
+                type='submit'
                 onClick={() => {
                   dispatch(
                     setEditedQuestion({
@@ -83,11 +84,9 @@ export const QuestionForm = () => {
                     })
                   )
                 }}
-                className=' btn-info btn text-white hover:opacity-75'
-                disabled={false}
-              >
-                {editedQuestion.id === '' ? '送信する' : '更新する'}
-              </SubmitBtn>
+                children={editedQuestion.id === '' ? '送信する' : '更新する'}
+                disable={!editedQuestion.title || !editedQuestion.body}
+              />
             </div>
           </div>
         </form>
