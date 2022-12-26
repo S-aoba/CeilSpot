@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 type Props = {
   path: string //必須
-  relative: 'path' //必須
+  relative?: 'path' //必須
   children: ReactNode //必須
   className?: string // オプション
   onClick?: () => void // オプション

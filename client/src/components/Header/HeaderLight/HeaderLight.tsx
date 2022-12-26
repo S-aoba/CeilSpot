@@ -3,13 +3,13 @@ import { useLayoutEffect } from 'react'
 import { Input as SearchBar } from '../../shared/elements/Input'
 import { Login } from './Login'
 import { SignUp } from './SignUp'
-import { LinkBtn as QuestionPostBtn } from '../../shared/elements/LinkBtn'
 import { useHeaderLight } from './useHeaderLight'
 import { IconMenu } from './IconMenu'
 import { useScreen } from '../../../functional/hooks/useScreen'
 import { useDispatch } from 'react-redux'
 import { changeMenubarTab, selectMenubarTab } from '../../../slices/menuBarSlice'
 import { useAppSelector } from '../../../app/hooks'
+import { Button as LinkBtn } from '../../ui/Button'
 
 type Props = {
   isAuth: boolean
@@ -39,12 +39,11 @@ export const HeaderLight: React.FC<Props> = ({ isAuth }) => {
       {isAuth ? (
         <>
           <IconMenu />
-          <QuestionPostBtn
-            path='/question/ask'
-            relative='path'
-            children={'質問する'}
-            className=' btn-primary btn-sm btn h-10 text-white hover:opacity-75 lg:w-24'
+          <LinkBtn
+            type='link'
             onClick={() => dispatch(changeMenubarTab({ ...currentMenuBarTabType, globalMenu: 'default' }))}
+            children='質問する'
+            path='/question/ask'
           />
         </>
       ) : (
