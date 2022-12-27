@@ -1,10 +1,10 @@
 import { Outlet } from 'react-router-dom'
-import { Error } from '../components/shared/elements/Error/Error'
-import { Header } from '../components/Header/Header'
-import { Loading } from '../components/shared/elements/Loading/Loading'
-import { useQueryAuth } from '../functional/UseQuery/useQueryAuth'
-import { Footer } from '../components/Footer/Footer'
-import { GlobalMenu } from '../components/GlobalMenu/GlobalMenu'
+import { Error } from '../shared/elements/Error/Error'
+import { Header } from '../Header/Header'
+import { Loading } from '../shared/elements/Loading/Loading'
+import { useQueryAuth } from '../querys/useQueryAuth'
+import { Footer } from '../Footer/Footer'
+import { GlobalMenu } from '../GlobalMenu/GlobalMenu'
 
 export const Root = () => {
   const { data: isAuth, isLoading, error } = useQueryAuth()

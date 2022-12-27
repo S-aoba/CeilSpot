@@ -1,8 +1,8 @@
 import { Outlet, useLocation } from 'react-router-dom'
-import { useQueryUserInfo } from '../functional/UseQuery/useQueryUserInfo'
-import { Error } from '../components/shared/elements/Error/Error'
-import { Loading } from '../components/shared/elements/Loading/Loading'
-import { MyPageBase } from '../components/shared/layout/MyPageBase'
+import { useQueryUserInfo } from '../querys/useQueryUserInfo'
+import { Error } from '../shared/elements/Error/Error'
+import { Loading } from '../shared/elements/Loading/Loading'
+import { MyPageBase } from '../shared/layout/MyPageBase'
 
 export const MyPage = () => {
   const location = useLocation()

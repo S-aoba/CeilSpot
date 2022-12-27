@@ -1,6 +1,6 @@
 import DefaultUserIcon from '../../../assets/defaultUserIcon.png'
 import { useNavigate } from 'react-router-dom'
-import { useQuerySingleQuestion } from '../../../functional/UseQuery/useQuerySingleQuestion'
+import { useQuerySingleQuestion } from '../../querys/useQuerySingleQuestion'
 import { AnswerType } from '../../../types/types'
 import { QItemLanguageIcon } from '../../QList/QItemLanguageIcon'
 import { Error } from '../../shared/elements/Error/Error'

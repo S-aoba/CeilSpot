@@ -1,12 +1,12 @@
 import { useEffect } from 'react'
 import { useOutletContext } from 'react-router-dom'
-import { useAppDispatch, useAppSelector } from '../app/hooks'
-import { useQueryUserAnswer } from '../functional/UseQuery/useQueryUserAnswer'
-import { UserInfo } from '../types/types'
-import { Error } from '../components/shared/elements/Error/Error'
-import { Loading } from '../components/shared/elements/Loading/Loading'
-import { changeMenubarTab, selectMenubarTab } from '../slices/menuBarSlice'
-import { MyPageAnswerItem } from '../components/MyPage/MyPageAnswer/MyPageAnswerItem'
+import { useAppDispatch, useAppSelector } from '../../app/hooks'
+import { useQueryUserAnswer } from '../querys/useQueryUserAnswer'
+import { UserInfo } from '../../types/types'
+import { Error } from '../shared/elements/Error/Error'
+import { Loading } from '../shared/elements/Loading/Loading'
+import { changeMenubarTab, selectMenubarTab } from '../../slices/menuBarSlice'
+import { MyPageAnswerItem } from '../MyPage/MyPageAnswer/MyPageAnswerItem'
 
 export const MyPageAnswer = () => {
   const dispatch = useAppDispatch()

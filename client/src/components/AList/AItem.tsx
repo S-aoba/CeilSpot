@@ -1,4 +1,4 @@
-import { useQuerySingleAnswer } from '../../functional/UseQuery/useQuerySingleAnswer'
+import { useQuerySingleAnswer } from '../querys/useQuerySingleAnswer'
 import defaultIcon from '../../assets/defaultUserIcon.png'
 import { Loading } from '../shared/elements/Loading/Loading'
 import { Error } from '../shared/elements/Error/Error'

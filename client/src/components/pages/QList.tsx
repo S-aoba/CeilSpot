@@ -1,12 +1,12 @@
-import { QuestionItem } from '../components/QList/QItem'
-import { useQueryQuestions } from '../functional/UseQuery/useQueryQuestions'
-import { RootBase } from '../components/shared/layout/RootBase'
-import { Error } from '../components/shared/elements/Error/Error'
-import { QuestionType } from '../types/types'
-import { Loading } from '../components/shared/elements/Loading/Loading'
-import { SideContent } from '../components/QList/SideContent'
+import { QuestionItem } from '../QList/QItem'
+import { useQueryQuestions } from '../querys/useQueryQuestions'
+import { RootBase } from '../shared/layout/RootBase'
+import { Error } from '../shared/elements/Error/Error'
+import { QuestionType } from '../../types/types'
+import { Loading } from '../shared/elements/Loading/Loading'
+import { SideContent } from '../QList/SideContent'
 import { useLayoutEffect } from 'react'
-import { useScreen } from '../functional/hooks/useScreen'
+import { useScreen } from '../hooks/useScreen'
 
 export const QuestionList = () => {
   const { data: dataQuestions, isLoading: isLoadingQuestions, error } = useQueryQuestions()
@@ -22,7 +22,7 @@ export const QuestionList = () => {
   return (
     <RootBase>
       <div className=' flex flex-col items-center md:grid md:grid-cols-3 md:items-start'>
-        <main className=' grid w-11/12 px-5 grid-cols-1 gap-5 py-10 md:col-span-2 md:w-full md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3'>
+        <main className=' grid w-11/12 grid-cols-1 gap-5 px-5 py-10 md:col-span-2 md:w-full md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3'>
           {dataQuestions &&
             dataQuestions.map((question: QuestionType) => (
               <QuestionItem

@@ -1,12 +1,12 @@
 import { useOutletContext } from 'react-router-dom'
-import { useQueryUserQuestion } from '../functional/UseQuery/useQueryUserQuestion'
-import { UserInfo } from '../types/types'
-import { Error } from '../components/shared/elements/Error/Error'
-import { Loading } from '../components/shared/elements/Loading/Loading'
-import { QuestionItem } from '../components/QList/QItem'
+import { useQueryUserQuestion } from '../querys/useQueryUserQuestion'
+import { UserInfo } from '../../types/types'
+import { Error } from '../shared/elements/Error/Error'
+import { Loading } from '../shared/elements/Loading/Loading'
+import { QuestionItem } from '../QList/QItem'
 import { useEffect } from 'react'
-import { useAppDispatch, useAppSelector } from '../app/hooks'
-import { changeMenubarTab, selectMenubarTab } from '../slices/menuBarSlice'
+import { useAppDispatch, useAppSelector } from '../../app/hooks'
+import { changeMenubarTab, selectMenubarTab } from '../../slices/menuBarSlice'
 
 export const MyPageQuestion = () => {
   const { username } = useOutletContext<UserInfo>()

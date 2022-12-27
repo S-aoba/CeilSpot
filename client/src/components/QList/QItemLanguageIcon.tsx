@@ -1,4 +1,4 @@
-import { useSelectQuestionIcon } from '../../functional/hooks/useSelectQuestionIcon'
+import { useSelectQuestionIcon } from '../hooks/useSelectQuestionIcon'
 
 type QItemLanguageIconProps = {
   firstTag: string
