@@ -3,13 +3,12 @@ import { Link } from 'react-router-dom'
 type ButtonProps = {
   type: 'submit' | 'reset' | 'button' | 'link'
   children: string
-  onClick: () => void
+  onClick?: () => void
   path?: string
-  disabled: boolean
+  disabled?: boolean
 }
 
 export const Button: React.FC<ButtonProps> = ({ type, onClick, children, path, disabled }) => {
-
   if (type === 'link') {
     return (
       <Link
