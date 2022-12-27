@@ -1,5 +1,5 @@
 import { useAppSelector, useAppDispatch } from '../../app/hooks'
-import { useQueryUserIdAndUsername } from '../querys/useQueryUserIdAndUsername'
+import { useQueryUserIdAndUsername } from '../query/useQueryUserIdAndUsername'
 import { Error } from '../shared/elements/Error/Error'
 import { Loading } from '../shared/elements/Loading/Loading'
 import { useProcessAnswer } from '../hooks/UserProcess/useProcessAnswer'

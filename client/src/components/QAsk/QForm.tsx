@@ -1,6 +1,6 @@
 import Select from 'react-select'
 import { TagStyle } from './styles/TagStyle'
-import { useQueryUserIdAndUsername } from '../querys/useQueryUserIdAndUsername'
+import { useQueryUserIdAndUsername } from '../query/useQueryUserIdAndUsername'
 import { useAppDispatch, useAppSelector } from '../../app/hooks'
 import { useTag } from './hooks/useTag'
 import { useScreen } from '../hooks/useScreen'

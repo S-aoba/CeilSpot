@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from '../../app/hooks'
-import { useQueryUserIdAndUsername } from '../querys/useQueryUserIdAndUsername'
+import { useQueryUserIdAndUsername } from '../query/useQueryUserIdAndUsername'
 import { QuestionList } from '../pages/QList'
 import { changeMenubarTab, selectMenubarTab } from '../../slices/menuBarSlice'
 import { Loading } from '../shared/elements/Loading/Loading'
