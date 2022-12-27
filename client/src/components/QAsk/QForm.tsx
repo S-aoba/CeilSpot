@@ -85,7 +85,7 @@ export const QuestionForm = () => {
                   )
                 }}
                 children={editedQuestion.id === '' ? '送信する' : '更新する'}
-                disable={!editedQuestion.title || !editedQuestion.body}
+                disabled={!editedQuestion.title || !editedQuestion.body}
               />
             </div>
           </div>

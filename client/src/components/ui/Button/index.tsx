@@ -5,11 +5,10 @@ type ButtonProps = {
   children: string
   onClick: () => void
   path?: string
-  disable: boolean
+  disabled: boolean
 }
 
-export const Button: React.FC<ButtonProps> = ({ type, onClick, children, path, disable }) => {
-  console.log(disable)
+export const Button: React.FC<ButtonProps> = ({ type, onClick, children, path, disabled }) => {
 
   if (type === 'link') {
     return (
@@ -24,7 +23,7 @@ export const Button: React.FC<ButtonProps> = ({ type, onClick, children, path, d
   } else {
     return (
       <button
-        disabled={disable}
+        disabled={disabled}
         type={type}
         onClick={onClick}
         className=' rounded-lg bg-blue-500 py-3 px-3 text-sm text-white hover:brightness-90 disabled:opacity-40 disabled:brightness-100'
