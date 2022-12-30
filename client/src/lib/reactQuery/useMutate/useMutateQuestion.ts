@@ -1,11 +1,11 @@
 import axios from 'axios'
 import { useQueryClient, useMutation } from 'react-query'
 import { useNavigate } from 'react-router-dom'
-import { useAppDispatch } from '../../app/hooks'
-import { toggleCsrfState } from '../../slices/csrfSlice'
-import { resetEditedQuestion } from '../../slices/questionSlice'
-import { QuestionType } from '../../types/types'
-import { useToastify } from '../../components/hooks/useToastify'
+import { useAppDispatch } from '../../../app/hooks'
+import { toggleCsrfState } from '../../../slices/csrfSlice'
+import { resetEditedQuestion } from '../../../slices/questionSlice'
+import { QuestionType } from '../../../types/types'
+import { useToastify } from '../../../components/hooks/useToastify'
 
 export const useMutateQuestion = () => {
   const navigate = useNavigate()

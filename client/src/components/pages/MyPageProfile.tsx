@@ -12,7 +12,7 @@ import { useAppDispatch, useAppSelector } from '../../app/hooks'
 import { changeMenubarTab, selectMenubarTab } from '../../slices/menuBarSlice'
 import { selectUserInfo } from '../../slices/userInfoSlice'
 import { Button } from '../ui/Button'
-import { useProcessUserInfo } from '../../useQuery/userProcess/useProcessUserInfo'
+import { useProcessUserInfo } from '../../lib/reactQuery/userProcess/useProcessUserInfo'
 
 export const MyPageProfile = () => {
   const { id, username, self_introduction, twitter, github, website } = useOutletContext<UserInfo>()

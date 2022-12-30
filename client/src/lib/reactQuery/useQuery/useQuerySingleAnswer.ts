@@ -1,10 +1,10 @@
 import axios from 'axios'
 import { useQuery } from 'react-query'
 import { useNavigate } from 'react-router-dom'
-import { useAppDispatch } from '../../app/hooks'
-import { resetEditedAnswer } from '../../slices/answerSlice'
-import { toggleCsrfState } from '../../slices/csrfSlice'
-import { AnswerType } from '../../types/types'
+import { useAppDispatch } from '../../../app/hooks'
+import { resetEditedAnswer } from '../../../slices/answerSlice'
+import { toggleCsrfState } from '../../../slices/csrfSlice'
+import { AnswerType } from '../../../types/types'
 
 export const useQuerySingleAnswer = (answer_id: string) => {
   const navigate = useNavigate()

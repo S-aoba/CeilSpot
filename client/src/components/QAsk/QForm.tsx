@@ -1,6 +1,6 @@
 import Select from 'react-select'
 import { TagStyle } from './styles/TagStyle'
-import { useQueryUserIdAndUsername } from '../../useQuery/useQuery/useQueryUserIdAndUsername'
+import { useQueryUserIdAndUsername } from '../../lib/reactQuery/useQuery/useQueryUserIdAndUsername'
 import { useAppDispatch, useAppSelector } from '../../app/hooks'
 import { useTag } from './hooks/useTag'
 import { useScreen } from '../hooks/useScreen'
@@ -10,7 +10,7 @@ import { QuestionFormTitle } from './QFormTitle'
 import { selectQuestion, setEditedQuestion } from '../../slices/questionSlice'
 import { MarkdownEditor } from '../shared/elements/MarkdownEditor'
 import { Button } from '../ui/Button'
-import { useProcessQuestion } from '../../useQuery/userProcess/useProcessQuestion'
+import { useProcessQuestion } from '../../lib/reactQuery/userProcess/useProcessQuestion'
 
 export const QuestionForm = () => {
   const { tagOptions, tagColorStyles } = TagStyle()

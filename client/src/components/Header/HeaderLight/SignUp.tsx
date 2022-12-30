@@ -1,5 +1,5 @@
 import { ReactNode, ComponentPropsWithoutRef } from 'react'
-import { useProcessAuth } from '../../../useQuery/userProcess/useProcessAuth'
+import { useProcessAuth } from '../../../lib/reactQuery/userProcess/useProcessAuth'
 import { Button } from '../../shared/elements/Button'
 
 type Props = {

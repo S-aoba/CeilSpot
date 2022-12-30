@@ -1,11 +1,11 @@
 import { useAppSelector, useAppDispatch } from '../../app/hooks'
-import { useQueryUserIdAndUsername } from '../../useQuery/useQuery/useQueryUserIdAndUsername'
+import { useQueryUserIdAndUsername } from '../../lib/reactQuery/useQuery/useQueryUserIdAndUsername'
 import { Error } from '../shared/elements/Error/Error'
 import { Loading } from '../shared/elements/Loading/Loading'
 import { selectAnswer, setEditedAnswer } from '../../slices/answerSlice'
 import { MarkdownEditor } from '../shared/elements/MarkdownEditor'
 import { Button } from '../ui/Button'
-import { useProcessAnswer } from '../../useQuery/userProcess/useProcessAnswer'
+import { useProcessAnswer } from '../../lib/reactQuery/userProcess/useProcessAnswer'
 
 type Props = {
   question_id: string

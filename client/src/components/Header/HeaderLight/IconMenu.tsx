@@ -1,6 +1,6 @@
 import { BiLogOut } from 'react-icons/bi'
 import DefaultUserIcon from '../../../assets/defaultUserIcon.png'
-import { useProcessAuth } from '../../../useQuery/userProcess/useProcessAuth'
+import { useProcessAuth } from '../../../lib/reactQuery/userProcess/useProcessAuth'
 
 export const IconMenu: React.FC = () => {
   const { logout } = useProcessAuth()

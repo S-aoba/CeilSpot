@@ -1,12 +1,12 @@
 import axios from 'axios'
 import { useMutation, useQueryClient } from 'react-query'
 import { useNavigate } from 'react-router-dom'
-import { useAppSelector, useAppDispatch } from '../../app/hooks'
-import { toggleCsrfState } from '../../slices/csrfSlice'
-import { resetEditedQuestion } from '../../slices/questionSlice'
-import { resetEditedUserInfo, selectUserInfo } from '../../slices/userInfoSlice'
-import { UserInfo } from '../../types/types'
-import { useToastify } from '../../components/hooks/useToastify'
+import { useAppSelector, useAppDispatch } from '../../../app/hooks'
+import { toggleCsrfState } from '../../../slices/csrfSlice'
+import { resetEditedQuestion } from '../../../slices/questionSlice'
+import { resetEditedUserInfo, selectUserInfo } from '../../../slices/userInfoSlice'
+import { UserInfo } from '../../../types/types'
+import { useToastify } from '../../../components/hooks/useToastify'
 
 export const useMutateUserInfo = () => {
   const editedUserInfo = useAppSelector(selectUserInfo)

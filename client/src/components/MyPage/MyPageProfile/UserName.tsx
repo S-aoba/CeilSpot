@@ -1,6 +1,6 @@
 import { ImUser } from 'react-icons/im'
 import { useAppDispatch, useAppSelector } from '../../../app/hooks'
-import { useMutateUserInfo } from '../../../useQuery/useMutate/useMutateUserInfo'
+import { useMutateUserInfo } from '../../../lib/reactQuery/useMutate/useMutateUserInfo'
 import { selectUserInfo, setEditedUserInfo } from '../../../slices/userInfoSlice'
 import { ModalBtn } from '../../shared/elements/ModalBtn'
 

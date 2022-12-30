@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useOutletContext } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from '../../app/hooks'
-import { useQueryUserAnswer } from '../../useQuery/useQuery/useQueryUserAnswer'
+import { useQueryUserAnswer } from '../../lib/reactQuery/useQuery/useQueryUserAnswer'
 import { UserInfo } from '../../types/types'
 import { Error } from '../shared/elements/Error/Error'
 import { Loading } from '../shared/elements/Loading/Loading'
