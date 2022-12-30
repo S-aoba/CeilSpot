@@ -9,10 +9,10 @@ import { UserInfo } from '../../types/types'
 import { useEffect } from 'react'
 import { SetRegisteredUserInfo } from '../MyPage/MyPageProfile/Function/SetRegisteredUserInfo'
 import { useAppDispatch, useAppSelector } from '../../app/hooks'
-import { useProcessUserInfo } from '../hooks/UserProcess/useProcessUserInfo'
 import { changeMenubarTab, selectMenubarTab } from '../../slices/menuBarSlice'
 import { selectUserInfo } from '../../slices/userInfoSlice'
 import { Button } from '../ui/Button'
+import { useProcessUserInfo } from '../../useQuery/UserProcess/useProcessUserInfo'
 
 export const MyPageProfile = () => {
   const { id, username, self_introduction, twitter, github, website } = useOutletContext<UserInfo>()

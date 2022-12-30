@@ -7,10 +7,10 @@ import { useScreen } from '../hooks/useScreen'
 import { Loading } from '../shared/elements/Loading/Loading'
 import { Error } from '../shared/elements/Error/Error'
 import { QuestionFormTitle } from './QFormTitle'
-import { useProcessQuestion } from '../hooks/UserProcess/useProcessQuestion'
 import { selectQuestion, setEditedQuestion } from '../../slices/questionSlice'
 import { MarkdownEditor } from '../shared/elements/MarkdownEditor'
 import { Button } from '../ui/Button'
+import { useProcessQuestion } from '../../useQuery/UserProcess/useProcessQuestion'
 
 export const QuestionForm = () => {
   const { tagOptions, tagColorStyles } = TagStyle()
