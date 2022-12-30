@@ -1,7 +1,7 @@
 import { FormEvent, useState } from 'react'
 import { useQueryClient } from 'react-query'
 import { useNavigate } from 'react-router-dom'
-import { useToastify } from '../../../components/hooks/useToastify'
+import { useToastify } from '../../toastify/useToastify'
 import { useMutateAuth } from '../useMutate/useMutateAuth'
 
 export const useProcessAuth = () => {

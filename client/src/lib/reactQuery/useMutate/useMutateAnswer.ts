@@ -6,7 +6,7 @@ import { resetEditedAnswer } from '../../../slices/answerSlice'
 import { toggleCsrfState } from '../../../slices/csrfSlice'
 import { resetEditedQuestion } from '../../../slices/questionSlice'
 import { AnswerType, QuestionType } from '../../../types/types'
-import { useToastify } from '../../../components/hooks/useToastify'
+import { useToastify } from '../../toastify/useToastify'
 
 export const useMutateAnswer = () => {
   const params = useParams()

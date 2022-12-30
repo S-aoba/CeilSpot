@@ -5,7 +5,7 @@ import { useAppDispatch } from '../../../app/hooks'
 import { toggleCsrfState } from '../../../slices/csrfSlice'
 import { resetEditedQuestion } from '../../../slices/questionSlice'
 import { QuestionType } from '../../../types/types'
-import { useToastify } from '../../../components/hooks/useToastify'
+import { useToastify } from '../../toastify/useToastify'
 
 export const useMutateQuestion = () => {
   const navigate = useNavigate()
