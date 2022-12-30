@@ -1,5 +1,5 @@
 import { QuestionItem } from '../QList/QItem'
-import { useQueryQuestions } from '../useQuery/useQueryQuestions'
+import { useQueryQuestions } from '../../useQuery/useQueryQuestions'
 import { RootBase } from '../shared/layout/RootBase'
 import { Error } from '../shared/elements/Error/Error'
 import { QuestionType } from '../../types/types'

@@ -2,7 +2,7 @@ import { Outlet } from 'react-router-dom'
 import { Error } from '../shared/elements/Error/Error'
 import { Header } from '../Header/Header'
 import { Loading } from '../shared/elements/Loading/Loading'
-import { useQueryAuth } from '../useQuery/useQueryAuth'
+import { useQueryAuth } from '../../useQuery/useQueryAuth'
 import { Footer } from '../Footer/Footer'
 import { GlobalMenu } from '../GlobalMenu/GlobalMenu'
 
