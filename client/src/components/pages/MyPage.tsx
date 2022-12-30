@@ -1,5 +1,5 @@
 import { Outlet, useLocation } from 'react-router-dom'
-import { useQueryUserInfo } from '../../useQuery/useQueryUserInfo'
+import { useQueryUserInfo } from '../../useQuery/useQuery/useQueryUserInfo'
 import { Error } from '../shared/elements/Error/Error'
 import { Loading } from '../shared/elements/Loading/Loading'
 import { MyPageBase } from '../shared/layout/MyPageBase'

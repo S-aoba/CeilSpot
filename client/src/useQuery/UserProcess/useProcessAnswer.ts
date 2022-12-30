@@ -1,7 +1,7 @@
 import { FormEvent } from 'react'
 import { useAppSelector } from '../../app/hooks'
 import { selectAnswer } from '../../slices/answerSlice'
-import { useMutateAnswer } from '../UseMutate/useMutateAnswer'
+import { useMutateAnswer } from '../useMutate/useMutateAnswer'
 
 export const useProcessAnswer = () => {
   const editedAnswer = useAppSelector(selectAnswer)

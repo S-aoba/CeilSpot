@@ -1,7 +1,7 @@
 import { FormEvent } from 'react'
 import { useAppSelector } from '../../app/hooks'
 import { selectQuestion } from '../../slices/questionSlice'
-import { useMutateQuestion } from '../UseMutate/useMutateQuestion'
+import { useMutateQuestion } from '../useMutate/useMutateQuestion'
 
 export const useProcessQuestion = () => {
   const editedQuestion = useAppSelector(selectQuestion)
