@@ -5,7 +5,7 @@ import { useAppDispatch } from '../../../app/hooks'
 import { resetEditedAnswer } from '../../../slices/answerSlice'
 import { toggleCsrfState } from '../../../slices/csrfSlice'
 import { resetEditedQuestion } from '../../../slices/questionSlice'
-import { AnswerType, QuestionType } from '../../../types/types'
+import { AnswerType, QuestionType } from '../../../types'
 import { useToastify } from '../../toastify/useToastify'
 
 export const useMutateAnswer = () => {

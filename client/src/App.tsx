@@ -2,7 +2,7 @@ import axios, { AxiosResponse } from 'axios'
 import { useEffect } from 'react'
 import { RouterProvider } from 'react-router-dom'
 import { useAppSelector } from './app/hooks'
-import { CsrfToken } from './types/types'
+import { CsrfToken } from './types'
 import { selectCsrfState } from './slices/csrfSlice'
 import { router } from './router'
 

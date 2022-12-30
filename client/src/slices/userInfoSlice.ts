@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { RootState } from '../app/store'
-import { UserInfo } from '../types/types'
+import { UserInfo } from '../types'
 
 export interface UserInfoState {
   editedUserInfo: UserInfo
@@ -30,7 +30,7 @@ export const userInfoSlice = createSlice({
   },
 })
 
-export const { setEditedUserInfo,resetEditedUserInfo } = userInfoSlice.actions
+export const { setEditedUserInfo, resetEditedUserInfo } = userInfoSlice.actions
 
 export const selectUserInfo = (state: RootState): UserInfo => state.userInfo.editedUserInfo
 

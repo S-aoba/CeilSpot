@@ -1,5 +1,5 @@
 import React from 'react'
-import { QuestionType } from '../../types/types'
+import { QuestionType } from '../../types'
 import { DetailMenu } from './DetailMenu/DetailMenu'
 import { DetailBody } from './DetailBody'
 

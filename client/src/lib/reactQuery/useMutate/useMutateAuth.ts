@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { useAppDispatch } from '../../../app/hooks'
 import { toggleCsrfState } from '../../../slices/csrfSlice'
 import { resetEditedQuestion } from '../../../slices/questionSlice'
-import { User } from '../../../types/types'
+import { User } from '../../../types'
 import { useToastify } from '../../toastify/useToastify'
 
 export const useMutateAuth = () => {

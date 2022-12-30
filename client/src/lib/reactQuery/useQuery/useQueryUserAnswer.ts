@@ -3,7 +3,7 @@ import { useQuery } from 'react-query'
 import { useNavigate } from 'react-router-dom'
 import { useAppDispatch } from '../../../app/hooks'
 import { toggleCsrfState } from '../../../slices/csrfSlice'
-import { AnswerType } from '../../../types/types'
+import { AnswerType } from '../../../types'
 
 export const useQueryUserAnswer = (username: string) => {
   const navigate = useNavigate()

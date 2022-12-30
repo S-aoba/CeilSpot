@@ -1,5 +1,5 @@
 import { HiOutlineMenu } from 'react-icons/hi'
-import { QuestionType } from '../../../types/types'
+import { QuestionType } from '../../../types'
 import { DetailDeleteBtn } from './DetailDeleteBtn'
 import { DetailEditBtn } from './DetailEditBtn'
 import { DetailTags } from './DetailTags'

@@ -1,6 +1,6 @@
 import { useOutletContext } from 'react-router-dom'
 import { useQueryUserQuestion } from '../../lib/reactQuery/useQuery/useQueryUserQuestion'
-import { UserInfo } from '../../types/types'
+import { UserInfo } from '../../types'
 import { Error } from '../shared/elements/Error/Error'
 import { Loading } from '../shared/elements/Loading/Loading'
 import { QuestionItem } from '../QList/QItem'

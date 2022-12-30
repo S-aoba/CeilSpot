@@ -1,6 +1,6 @@
 import { useQuery } from 'react-query'
 import axios from 'axios'
-import { UserIdAndUsernameType } from '../../../types/types'
+import { UserIdAndUsernameType } from '../../../types'
 import { useNavigate } from 'react-router-dom'
 
 export const useQueryUserIdAndUsername = () => {

@@ -5,7 +5,7 @@ import { useAppSelector, useAppDispatch } from '../../../app/hooks'
 import { toggleCsrfState } from '../../../slices/csrfSlice'
 import { resetEditedQuestion } from '../../../slices/questionSlice'
 import { resetEditedUserInfo, selectUserInfo } from '../../../slices/userInfoSlice'
-import { UserInfo } from '../../../types/types'
+import { UserInfo } from '../../../types'
 import { useToastify } from '../../toastify/useToastify'
 
 export const useMutateUserInfo = () => {

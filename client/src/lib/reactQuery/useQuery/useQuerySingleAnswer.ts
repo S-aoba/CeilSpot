@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { useAppDispatch } from '../../../app/hooks'
 import { resetEditedAnswer } from '../../../slices/answerSlice'
 import { toggleCsrfState } from '../../../slices/csrfSlice'
-import { AnswerType } from '../../../types/types'
+import { AnswerType } from '../../../types'
 
 export const useQuerySingleAnswer = (answer_id: string) => {
   const navigate = useNavigate()
