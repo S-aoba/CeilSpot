@@ -4,7 +4,7 @@ import { RouterProvider } from 'react-router-dom'
 import { useAppSelector } from './app/hooks'
 import { CsrfToken } from './types/types'
 import { selectCsrfState } from './slices/csrfSlice'
-import { router } from './Router'
+import { router } from './router'
 
 const App = () => {
   const csrf = useAppSelector(selectCsrfState)
