@@ -1,7 +1,7 @@
 import { ImUser } from 'react-icons/im'
-import { useAppDispatch, useAppSelector } from '../../../app/hooks'
+import { useAppDispatch, useAppSelector } from '../../../redux/app/hooks'
 import { useMutateUserInfo } from '../../../lib/reactQuery/useMutate/useMutateUserInfo'
-import { selectUserInfo, setEditedUserInfo } from '../../../slices/userInfoSlice'
+import { selectUserInfo, setEditedUserInfo } from '../../../redux/slices/userInfoSlice'
 import { ModalBtn } from '../../shared/elements/ModalBtn'
 
 type Props = {

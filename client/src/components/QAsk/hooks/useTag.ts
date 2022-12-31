@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { MultiValue } from 'react-select'
-import { useAppSelector } from '../../../app/hooks'
-import { selectQuestion } from '../../../slices/questionSlice'
+import { useAppSelector } from '../../../redux/app/hooks'
+import { selectQuestion } from '../../../redux/slices/questionSlice'
 
 export const useTag = () => {
   const editedQuestion = useAppSelector(selectQuestion)

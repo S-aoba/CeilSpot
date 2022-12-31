@@ -1,8 +1,8 @@
 import axios from 'axios'
 import { useQuery } from 'react-query'
 import { useNavigate } from 'react-router-dom'
-import { useAppDispatch } from '../../../app/hooks'
-import { toggleCsrfState } from '../../../slices/csrfSlice'
+import { useAppDispatch } from '../../../redux/app/hooks'
+import { toggleCsrfState } from '../../../redux/slices/csrfSlice'
 import { AnswerType } from '../../../types'
 
 export const useQueryUserAnswer = (username: string) => {

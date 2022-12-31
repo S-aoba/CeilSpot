@@ -1,9 +1,9 @@
 import axios from 'axios'
 import { useQuery } from 'react-query'
 import { useNavigate } from 'react-router-dom'
-import { useAppDispatch } from '../../../app/hooks'
-import { resetEditedAnswer } from '../../../slices/answerSlice'
-import { toggleCsrfState } from '../../../slices/csrfSlice'
+import { useAppDispatch } from '../../../redux/app/hooks'
+import { resetEditedAnswer } from '../../../redux/slices/answerSlice'
+import { toggleCsrfState } from '../../../redux/slices/csrfSlice'
 import { AnswerType } from '../../../types'
 
 export const useQuerySingleAnswer = (answer_id: string) => {

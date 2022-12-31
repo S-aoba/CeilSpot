@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { RootState } from '../app/store'
-import { MenubarTabType } from '../types'
+import { MenubarTabType } from '../../types'
 
 export interface MenuBarTabState {
   selectedMenubarTab: MenubarTabType

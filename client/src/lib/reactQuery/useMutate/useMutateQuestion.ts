@@ -1,9 +1,9 @@
 import axios from 'axios'
 import { useQueryClient, useMutation } from 'react-query'
 import { useNavigate } from 'react-router-dom'
-import { useAppDispatch } from '../../../app/hooks'
-import { toggleCsrfState } from '../../../slices/csrfSlice'
-import { resetEditedQuestion } from '../../../slices/questionSlice'
+import { useAppDispatch } from '../../../redux/app/hooks'
+import { toggleCsrfState } from '../../../redux/slices/csrfSlice'
+import { resetEditedQuestion } from '../../../redux/slices/questionSlice'
 import { QuestionType } from '../../../types'
 import { useToastify } from '../../toastify/useToastify'
 

@@ -1,5 +1,5 @@
-import { useAppSelector } from '../../app/hooks'
-import { selectMenubarTab } from '../../slices/menuBarSlice'
+import { useAppSelector } from '../../redux/app/hooks'
+import { selectMenubarTab } from '../../redux/slices/menuBarSlice'
 
 export const useGlobalMenuTabStyle = () => {
   const currentMenubarTab = useAppSelector(selectMenubarTab)

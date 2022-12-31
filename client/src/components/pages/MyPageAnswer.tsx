@@ -1,11 +1,11 @@
 import { useEffect } from 'react'
 import { useOutletContext } from 'react-router-dom'
-import { useAppDispatch, useAppSelector } from '../../app/hooks'
+import { useAppDispatch, useAppSelector } from '../../redux/app/hooks'
 import { useQueryUserAnswer } from '../../lib/reactQuery/useQuery/useQueryUserAnswer'
 import { UserInfo } from '../../types'
 import { Error } from '../shared/elements/Error/Error'
 import { Loading } from '../shared/elements/Loading/Loading'
-import { changeMenubarTab, selectMenubarTab } from '../../slices/menuBarSlice'
+import { changeMenubarTab, selectMenubarTab } from '../../redux/slices/menuBarSlice'
 import { MyPageAnswerItem } from '../MyPage/MyPageAnswer/MyPageAnswerItem'
 
 export const MyPageAnswer = () => {

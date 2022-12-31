@@ -1,9 +1,9 @@
 import axios, { AxiosResponse } from 'axios'
 import { useEffect } from 'react'
 import { RouterProvider } from 'react-router-dom'
-import { useAppSelector } from './app/hooks'
+import { useAppSelector } from './redux/app/hooks'
 import { CsrfToken } from './types'
-import { selectCsrfState } from './slices/csrfSlice'
+import { selectCsrfState } from './redux/slices/csrfSlice'
 import { router } from './router'
 
 const App = () => {

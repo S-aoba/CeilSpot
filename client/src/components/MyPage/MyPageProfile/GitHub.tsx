@@ -1,6 +1,6 @@
 import { FaGithub } from 'react-icons/fa'
-import { useAppDispatch, useAppSelector } from '../../../app/hooks'
-import { selectUserInfo, setEditedUserInfo } from '../../../slices/userInfoSlice'
+import { useAppDispatch, useAppSelector } from '../../../redux/app/hooks'
+import { selectUserInfo, setEditedUserInfo } from '../../../redux/slices/userInfoSlice'
 
 type Props = {
   githubURL: string

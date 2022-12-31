@@ -1,5 +1,5 @@
-import { useAppDispatch, useAppSelector } from '../../../app/hooks'
-import { changeMenubarTab, selectMenubarTab } from '../../../slices/menuBarSlice'
+import { useAppDispatch, useAppSelector } from '../../../redux/app/hooks'
+import { changeMenubarTab, selectMenubarTab } from '../../../redux/slices/menuBarSlice'
 import {
   MyPageMenuLinkTab as ProfileTab,
   MyPageMenuLinkTab as AnswerTab,

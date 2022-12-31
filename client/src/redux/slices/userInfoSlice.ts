@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { RootState } from '../app/store'
-import { UserInfo } from '../types'
+import { UserInfo } from '../../types'
 
 export interface UserInfoState {
   editedUserInfo: UserInfo

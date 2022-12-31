@@ -5,8 +5,8 @@ import { Error } from '../shared/elements/Error/Error'
 import { Loading } from '../shared/elements/Loading/Loading'
 import { QuestionItem } from '../QList/QItem'
 import { useEffect } from 'react'
-import { useAppDispatch, useAppSelector } from '../../app/hooks'
-import { changeMenubarTab, selectMenubarTab } from '../../slices/menuBarSlice'
+import { useAppDispatch, useAppSelector } from '../../redux/app/hooks'
+import { changeMenubarTab, selectMenubarTab } from '../../redux/slices/menuBarSlice'
 
 export const MyPageQuestion = () => {
   const { username } = useOutletContext<UserInfo>()

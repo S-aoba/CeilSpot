@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { RootState } from '../app/store'
-import { QuestionType } from '../types'
+import { QuestionType } from '../../types'
 
 export interface QuestionState {
   editedQuestion: QuestionType
