@@ -84,7 +84,7 @@ export const QuestionForm = () => {
                     })
                   )
                 }}
-                children={editedQuestion.id === '' ? '送信する' : '更新する'}
+                label={editedQuestion.id === '' ? '送信する' : '更新する'}
                 disabled={!editedQuestion.title || !editedQuestion.body}
               />
             </div>

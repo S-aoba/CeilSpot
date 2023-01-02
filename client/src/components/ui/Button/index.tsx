@@ -2,13 +2,13 @@ import { Link } from 'react-router-dom'
 
 type ButtonProps = {
   type: 'submit' | 'reset' | 'button' | 'link'
-  children: string
+  label: string
   onClick?: () => void
   path?: string
   disabled?: boolean
 }
 
-export const Button: React.FC<ButtonProps> = ({ type, onClick, children, path, disabled }) => {
+export const Button: React.FC<ButtonProps> = ({ type, onClick, label, path, disabled }) => {
   if (type === 'link') {
     return (
       <Link
@@ -16,7 +16,7 @@ export const Button: React.FC<ButtonProps> = ({ type, onClick, children, path, d
         onClick={onClick}
         className=' rounded-lg bg-blue-500 py-3 px-3 text-sm text-white hover:brightness-90'
       >
-        {children}
+        {label}
       </Link>
     )
   } else {
@@ -27,7 +27,7 @@ export const Button: React.FC<ButtonProps> = ({ type, onClick, children, path, d
         onClick={onClick}
         className=' rounded-lg bg-blue-500 py-3 px-3 text-sm text-white hover:brightness-90 disabled:opacity-40 disabled:brightness-100'
       >
-        {children}
+        {label}
       </button>
     )
   }

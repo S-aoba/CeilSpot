@@ -44,7 +44,7 @@ export const MyPageProfile = () => {
           </div>
           <WebSite websiteURL={website!} />
           <div className=' flex justify-center py-2'>
-            <Button type='submit' children='更新する' />
+            <Button type='submit' label='更新する' />
           </div>
         </form>
         <hr className=' my-4' />

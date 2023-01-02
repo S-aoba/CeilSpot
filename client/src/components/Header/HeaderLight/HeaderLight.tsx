@@ -28,7 +28,7 @@ export const HeaderLight: React.FC<Props> = ({ isAuth }) => {
           <LinkBtn
             type='link'
             onClick={() => dispatch(changeMenubarTab({ ...currentMenuBarTabType, globalMenu: 'default' }))}
-            children='質問する'
+            label='質問する'
             path='/question/ask'
           />
         </>

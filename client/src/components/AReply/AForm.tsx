@@ -32,7 +32,7 @@ export const AnswerForm: React.FC<Props> = ({ question_id }) => {
             <Button
               disabled={!editedAnswer.body}
               type='submit'
-              children='送信する'
+              label='送信する'
               onClick={() =>
                 dispatch(
                   setEditedAnswer({
