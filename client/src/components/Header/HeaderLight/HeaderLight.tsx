@@ -23,7 +23,7 @@ export const HeaderLight: React.FC<Props> = ({ isAuth }) => {
   return (
     <div className=' col-span-7 flex h-10 max-h-10 items-center justify-center gap-3 px-2 lg:col-span-10 lg:justify-end'>
       {isAuth ? (
-        <>
+        <div className=' flex items-center gap-2'>
           <IconMenu />
           <LinkBtn
             type='link'
@@ -31,7 +31,7 @@ export const HeaderLight: React.FC<Props> = ({ isAuth }) => {
             label='質問する'
             path='/question/ask'
           />
-        </>
+        </div>
       ) : (
         <div className=' flex items-center gap-2'>
           <Login className=' btn-info btn-sm btn h-10 text-white hover:opacity-75'>Login</Login>
