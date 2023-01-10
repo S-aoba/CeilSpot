@@ -1,0 +1,8 @@
+export { MyPage } from './MyPage'
+export { MyPageAnswer } from './MyPageAnswer'
+export { MyPageProfile } from './MyPageProfile'
+export { MyPageQuestion } from './MyPageQuestion'
+export { QuestionAsk } from './QAsk'
+export { QuestionDetail } from './QDetail'
+export { QuestionList } from './QList'
+export { Root } from './Root'
