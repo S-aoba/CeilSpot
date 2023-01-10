@@ -127,7 +127,7 @@ export const useMutateQuestion = () => {
         queryClient.invalidateQueries(['userAnswers'])
         queryClient.invalidateQueries(['singleAnswer'])
         const userId = res.data
-        navigate('/dashboard/question', { state: userId })
+        navigate('/myPage/question', { state: userId })
         toastInfo('削除しました')
       },
       onError: (err: any) => {
