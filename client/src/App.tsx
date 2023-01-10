@@ -4,7 +4,7 @@ import { RouterProvider } from 'react-router-dom'
 import { useAppSelector } from './redux/app/hooks'
 import { CsrfToken } from './types'
 import { selectCsrfState } from './redux/slices/csrfSlice'
-import { router } from './router'
+import { routerConfig } from './routerConfig'
 
 const App = () => {
   const csrf = useAppSelector(selectCsrfState)
@@ -17,7 +17,7 @@ const App = () => {
       console.log(error)
     })
   }, [csrf])
-  return <RouterProvider router={router} />
+  return <RouterProvider router={routerConfig} />
 }
 
 export default App
