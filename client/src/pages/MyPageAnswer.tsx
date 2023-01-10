@@ -1,1 +1,1 @@
-export { MyPageAnswer } from '../components/page/MyPageAnswer'
+export { MyPageAnswerPage } from '../components/page/MyPageAnswer'

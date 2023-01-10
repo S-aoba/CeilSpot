@@ -1,1 +1,1 @@
-export { MyPageQuestion } from '../components/page/MyPageQuestion'
+export { MyPageQuestionPage } from '../components/page/MyPageQuestion'

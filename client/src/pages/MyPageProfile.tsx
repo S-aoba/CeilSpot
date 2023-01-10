@@ -1,1 +1,1 @@
-export { MyPageProfile } from '../components/page/MyPageProfile'
+export { MyPageProfilePage } from '../components/page/MyPageProfile'

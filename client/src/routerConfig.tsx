@@ -1,45 +1,45 @@
 import {
-  MyPage,
-  MyPageAnswer,
-  MyPageProfile,
-  MyPageQuestion,
-  QuestionAsk,
-  QuestionDetail,
-  QuestionList,
-  Root,
+  MyPagePage,
+  MyPageAnswerPage,
+  MyPageProfilePage,
+  MyPageQuestionPage,
+  QuestionAskPage,
+  QuestionDetailPage,
+  QuestionListPage,
+  RootPage,
 } from './pages'
 import { createBrowserRouter, Navigate } from 'react-router-dom'
 
 export const routerConfig = createBrowserRouter([
   {
-    element: <Root />,
+    element: <RootPage />,
     children: [
       {
         path: '/',
-        element: <QuestionList />,
+        element: <QuestionListPage />,
       },
       {
         path: '/:username/question/:questionId',
-        element: <QuestionDetail />,
+        element: <QuestionDetailPage />,
       },
       {
         path: '/question/ask',
-        element: <QuestionAsk />,
+        element: <QuestionAskPage />,
       },
       {
-        element: <MyPage />,
+        element: <MyPagePage />,
         children: [
           {
             path: '/myPage/question',
-            element: <MyPageQuestion />,
+            element: <MyPageQuestionPage />,
           },
           {
             path: '/myPage/answer',
-            element: <MyPageAnswer />,
+            element: <MyPageAnswerPage />,
           },
           {
             path: '/myPage/profile',
-            element: <MyPageProfile />,
+            element: <MyPageProfilePage />,
           },
         ],
       },

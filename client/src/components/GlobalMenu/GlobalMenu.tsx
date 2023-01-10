@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from '../../redux/app/hooks'
 import { useQueryUserIdAndUsername } from '../../lib/reactQuery/useQuery/useQueryUserIdAndUsername'
-import { QuestionList } from '../../pages/QList'
 import { changeMenubarTab, selectMenubarTab } from '../../redux/slices/menuBarSlice'
 import { Loading } from '../shared/elements/Loading/Loading'
 import { useGlobalMenuTabStyle } from './useGlobalMenuTabStyle'
@@ -12,7 +11,6 @@ export const GlobalMenu = () => {
   const currentMenuBarTabType = useAppSelector(selectMenubarTab)
   const { questionsStyle, eventStyle, informationStyle, myPageStyle } = useGlobalMenuTabStyle()
 
-  if (error) return <QuestionList />
   if (isLoading) return <Loading />
   return (
     <div className=' flex justify-center border-b bg-blue-100 py-4'>
