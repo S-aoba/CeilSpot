@@ -16,6 +16,7 @@
     "babel-plugin-prismjs": "^2.1.0",
     "daisyui": "^2.46.0",
     "dompurify": "^2.4.1",
+    "firebase": "^9.15.0",
     "localforage": "^1.10.0",
     "marked": "^4.2.4",
     "match-sorter": "^6.3.1",
