@@ -1,12 +1,12 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom'
-import { Root } from './components/pages/Root'
-import { QuestionList } from './components/pages/QList'
-import { QuestionDetail } from './components/pages/QDetail'
-import { QuestionAsk } from './components/pages/QAsk'
-import { MyPage } from './components/pages/MyPage'
-import { MyPageQuestion } from './components/pages/MyPageQuestion'
-import { MyPageAnswer } from './components/pages/MyPageAnswer'
-import { MyPageProfile } from './components/pages/MyPageProfile'
+import { Root } from './pages/Root'
+import { QuestionList } from './pages/QList'
+import { QuestionDetail } from './pages/QDetail'
+import { QuestionAsk } from './pages/QAsk'
+import { MyPage } from './pages/MyPage'
+import { MyPageQuestion } from './pages/MyPageQuestion'
+import { MyPageAnswer } from './pages/MyPageAnswer'
+import { MyPageProfile } from './pages/MyPageProfile'
 
 export const routerConfig = createBrowserRouter([
   {

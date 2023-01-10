@@ -1,12 +1,12 @@
-import { QuestionItem } from '../QList/QItem'
-import { useQueryQuestions } from '../../lib/reactQuery/useQuery/useQueryQuestions'
-import { RootBase } from '../shared/layout/RootBase'
-import { Error } from '../shared/elements/Error/Error'
-import { QuestionType } from '../../types'
-import { Loading } from '../shared/elements/Loading/Loading'
-import { SideContent } from '../QList/SideContent'
+import { QuestionItem } from '../components/QList/QItem'
+import { useQueryQuestions } from '../lib/reactQuery/useQuery/useQueryQuestions'
+import { RootBase } from '../components/shared/layout/RootBase'
+import { Error } from '../components/shared/elements/Error/Error'
+import { QuestionType } from '../types'
+import { Loading } from '../components/shared/elements/Loading/Loading'
+import { SideContent } from '../components/QList/SideContent'
 import { useLayoutEffect } from 'react'
-import { useScreen } from '../hooks/useScreen'
+import { useScreen } from '../components/hooks/useScreen'
 
 export const QuestionList = () => {
   const { data: dataQuestions, isLoading: isLoadingQuestions, error } = useQueryQuestions()
