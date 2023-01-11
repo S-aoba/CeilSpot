@@ -59,7 +59,7 @@ async def update_question(request: Request, response: Response, id: str, data: D
     raise HTTPException(status_code=404, detail="Update question failed")
 
 
-@router.delete("/api/question/{id}", response_model=str)
+@router.delete("/api/question/{id}", response_model=dict)
 async def delete_question(request: Request, response: Response, id: str, csrf_protect: CsrfProtect = Depends()):
     new_token = auth.verify_csrf_update_jwt(request, csrf_protect, request.headers)
     res = await db_delete_question(id)

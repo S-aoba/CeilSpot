@@ -69,12 +69,12 @@ async def db_update_question(id: str, data: dict) -> Union[dict, bool]:
 
 
 # questionの削除
-async def db_delete_question(id: str) -> Union[str, bool]:
+async def db_delete_question(id: str) -> Union[dict, bool]:
     question = await collection_question.find_one({"_id": ObjectId(id)})
     if question:
         deleted_question = await collection_question.delete_one({"_id": ObjectId(id)})
         if deleted_question.deleted_count > 0:
             rm_question_id_from_answer = await collection_answer.delete_many({"question_id": id})
             target_user_id = await collection_user.find_one({"username": question["post_username"]})
-            return str(target_user_id["_id"])
+            return {"username": target_user_id["username"], "user_id": str(target_user_id["_id"])}
     return False
