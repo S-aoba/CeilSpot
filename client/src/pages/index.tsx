@@ -1,4 +1,3 @@
-export { MyPagePage } from './MyPage'
 export { MyPageAnswerPage } from './MyPageAnswer'
 export { MyPageProfilePage } from './MyPageProfile'
 export { MyPageQuestionPage } from './MyPageQuestion'

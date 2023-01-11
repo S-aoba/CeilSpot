@@ -2,16 +2,14 @@ import { Link } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from '../../store/app/hooks'
 import { useQueryUserIdAndUsername } from '../../lib/reactQuery/useQuery/useQueryUserIdAndUsername'
 import { changeMenubarTab, selectMenubarTab } from '../../store/slices/menuBarSlice'
-import { Loading } from '../shared/elements/Loading/Loading'
 import { useGlobalMenuTabStyle } from './useGlobalMenuTabStyle'
 
 export const GlobalMenu = () => {
   const dispatch = useAppDispatch()
-  const { data: userIdAndUsername, isLoading, error } = useQueryUserIdAndUsername()
+  const { data: userIdAndUsername } = useQueryUserIdAndUsername()
   const currentMenuBarTabType = useAppSelector(selectMenubarTab)
   const { questionsStyle, eventStyle, informationStyle, myPageStyle } = useGlobalMenuTabStyle()
 
-  if (isLoading) return <Loading />
   return (
     <div className=' flex justify-center border-b bg-blue-100 py-4'>
       <nav className=' container mx-auto pl-5'>
@@ -53,7 +51,7 @@ export const GlobalMenu = () => {
               <Link
                 to={'/myPage/question'}
                 relative='path'
-                state={userIdAndUsername.userId}
+                state={userIdAndUsername}
                 onClick={() => {
                   dispatch(changeMenubarTab({ ...currentMenuBarTabType, globalMenu: 'myPage' }))
                 }}

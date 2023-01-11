@@ -1,5 +1,6 @@
 import { useAppDispatch, useAppSelector } from '../../../store/app/hooks'
 import { changeMenubarTab, selectMenubarTab } from '../../../store/slices/menuBarSlice'
+import { UserIdAndUsernameType } from '../../../types'
 import {
   MyPageMenuLinkTab as ProfileTab,
   MyPageMenuLinkTab as AnswerTab,
@@ -8,10 +9,10 @@ import {
 import { MyPageMenuTabStyle } from './MyPageMenuTabStyle'
 
 type Props = {
-  userId: string
+  userIdAndUsername: UserIdAndUsernameType
 }
 
-export const MyPageMenu: React.FC<Props> = ({ userId }) => {
+export const MyPageMenu: React.FC<Props> = ({ userIdAndUsername }) => {
   const { questionsStyle, answerStyle, profileStyle } = MyPageMenuTabStyle()
   const dispatch = useAppDispatch()
   const currentMenuBarTabType = useAppSelector(selectMenubarTab)
@@ -22,7 +23,7 @@ export const MyPageMenu: React.FC<Props> = ({ userId }) => {
         <ul className=' flex list-none gap-x-5 font-mono text-sm font-semibold tracking-wide text-stone-500'>
           <li>
             <QuestionTab
-              userId={userId}
+              userIdAndUsername={userIdAndUsername}
               path={`/myPage/question`}
               className={questionsStyle}
               tabWord='自分の質問'
@@ -31,7 +32,7 @@ export const MyPageMenu: React.FC<Props> = ({ userId }) => {
           </li>
           <li>
             <AnswerTab
-              userId={userId}
+              userIdAndUsername={userIdAndUsername}
               path={`/myPage/answer`}
               className={answerStyle}
               tabWord='自分の回答'
@@ -40,7 +41,7 @@ export const MyPageMenu: React.FC<Props> = ({ userId }) => {
           </li>
           <li>
             <ProfileTab
-              userId={userId}
+              userIdAndUsername={userIdAndUsername}
               path={`/myPage/profile`}
               className={profileStyle}
               tabWord='プロフィール'

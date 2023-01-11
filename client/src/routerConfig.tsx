@@ -1,5 +1,4 @@
 import {
-  MyPagePage,
   MyPageAnswerPage,
   MyPageProfilePage,
   MyPageQuestionPage,
@@ -26,24 +25,20 @@ export const routerConfig = createBrowserRouter([
         path: '/question/ask',
         element: <QuestionAskPage />,
       },
+
       {
-        element: <MyPagePage />,
-        children: [
-          {
-            path: '/myPage/question',
-            element: <MyPageQuestionPage />,
-          },
-          {
-            path: '/myPage/answer',
-            element: <MyPageAnswerPage />,
-          },
-          {
-            path: '/myPage/profile',
-            element: <MyPageProfilePage />,
-          },
-        ],
+        path: '/myPage/question',
+        element: <MyPageQuestionPage />,
       },
-      { path: '*', element: <Navigate to='.' /> },
+      {
+        path: '/myPage/answer',
+        element: <MyPageAnswerPage />,
+      },
+      {
+        path: '/myPage/profile',
+        element: <MyPageProfilePage />,
+      },
     ],
   },
+  { path: '*', element: <Navigate to='.' /> },
 ])
