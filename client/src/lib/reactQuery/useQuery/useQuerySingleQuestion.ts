@@ -1,10 +1,10 @@
 import { useQuery } from 'react-query'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
-import { useAppDispatch } from '../../../redux/app/hooks'
+import { useAppDispatch } from '../../../store/app/hooks'
 import { QuestionType } from '../../../types'
-import { toggleCsrfState } from '../../../redux/slices/csrfSlice'
-import { resetEditedQuestion } from '../../../redux/slices/questionSlice'
+import { toggleCsrfState } from '../../../store/slices/csrfSlice'
+import { resetEditedQuestion } from '../../../store/slices/questionSlice'
 
 export const useQuerySingleQuestion = (id: string) => {
   const navigate = useNavigate()

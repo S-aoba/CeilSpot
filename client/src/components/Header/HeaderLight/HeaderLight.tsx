@@ -4,8 +4,8 @@ import { SignUp } from './SignUp'
 import { IconMenu } from './IconMenu'
 import { useScreen } from '../../hooks/useScreen'
 import { useDispatch } from 'react-redux'
-import { changeMenubarTab, selectMenubarTab } from '../../../redux/slices/menuBarSlice'
-import { useAppSelector } from '../../../redux/app/hooks'
+import { changeMenubarTab, selectMenubarTab } from '../../../store/slices/menuBarSlice'
+import { useAppSelector } from '../../../store/app/hooks'
 import { Button as LinkBtn } from '../../ui/Button'
 
 type Props = {

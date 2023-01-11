@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
-import { useAppDispatch, useAppSelector } from '../../redux/app/hooks'
+import { useAppDispatch, useAppSelector } from '../../store/app/hooks'
 import { useQueryUserIdAndUsername } from '../../lib/reactQuery/useQuery/useQueryUserIdAndUsername'
-import { changeMenubarTab, selectMenubarTab } from '../../redux/slices/menuBarSlice'
+import { changeMenubarTab, selectMenubarTab } from '../../store/slices/menuBarSlice'
 import { Loading } from '../shared/elements/Loading/Loading'
 import { useGlobalMenuTabStyle } from './useGlobalMenuTabStyle'
 

@@ -1,8 +1,8 @@
 import axios from 'axios'
 import { useQuery } from 'react-query'
 import { useNavigate } from 'react-router-dom'
-import { useAppDispatch } from '../../../redux/app/hooks'
-import { toggleCsrfState } from '../../../redux/slices/csrfSlice'
+import { useAppDispatch } from '../../../store/app/hooks'
+import { toggleCsrfState } from '../../../store/slices/csrfSlice'
 import { QuestionType } from '../../../types'
 
 export const useQueryUserQuestion = (username: string) => {

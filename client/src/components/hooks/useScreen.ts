@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useAppDispatch } from '../../redux/app/hooks'
-import { resetEditedQuestion } from '../../redux/slices/questionSlice'
+import { useAppDispatch } from '../../store/app/hooks'
+import { resetEditedQuestion } from '../../store/slices/questionSlice'
 
 export const useScreen = () => {
   const [screenWidth, setScreenWidth] = useState(window.innerWidth)

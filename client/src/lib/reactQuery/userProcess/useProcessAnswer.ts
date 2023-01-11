@@ -1,6 +1,6 @@
 import { FormEvent } from 'react'
-import { useAppSelector } from '../../../redux/app/hooks'
-import { selectAnswer } from '../../../redux/slices/answerSlice'
+import { useAppSelector } from '../../../store/app/hooks'
+import { selectAnswer } from '../../../store/slices/answerSlice'
 import { useMutateAnswer } from '../useMutate/useMutateAnswer'
 
 export const useProcessAnswer = () => {

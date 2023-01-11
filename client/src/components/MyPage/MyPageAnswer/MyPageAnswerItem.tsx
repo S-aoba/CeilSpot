@@ -6,8 +6,8 @@ import { QItemLanguageIcon } from '../../QList/QItemLanguageIcon'
 import { Error } from '../../shared/elements/Error/Error'
 import { Loading } from '../../shared/elements/Loading/Loading'
 import { useDispatch } from 'react-redux'
-import { useAppSelector } from '../../../redux/app/hooks'
-import { changeMenubarTab, selectMenubarTab } from '../../../redux/slices/menuBarSlice'
+import { useAppSelector } from '../../../store/app/hooks'
+import { changeMenubarTab, selectMenubarTab } from '../../../store/slices/menuBarSlice'
 
 export const MyPageAnswerItem: React.FC<AnswerType> = ({ id, body, question_id, respondent_username }) => {
   const dispatch = useDispatch()
