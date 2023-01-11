@@ -109,7 +109,7 @@ export const useMutateQuestion = () => {
   )
   const deleteQuestionMutation = useMutation(
     (id: string) =>
-      axios.delete<QuestionType>(`${import.meta.env.VITE_API_URL}/question/${id}`, {
+      axios.delete<string>(`${import.meta.env.VITE_API_URL}/question/${id}`, {
         withCredentials: true,
       }),
     {
@@ -126,8 +126,10 @@ export const useMutateQuestion = () => {
         queryClient.invalidateQueries(['userQuestions'])
         queryClient.invalidateQueries(['userAnswers'])
         queryClient.invalidateQueries(['singleAnswer'])
-        const userId = res.data
-        navigate('/myPage/question', { state: userId })
+        const userIdAndUsername = res.data
+        console.log(userIdAndUsername)
+
+        navigate('/myPage/question', { state: userIdAndUsername })
         toastInfo('削除しました')
       },
       onError: (err: any) => {
