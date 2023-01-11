@@ -1,6 +1,6 @@
 import { Suspense } from 'react'
 import { Loading } from '../../shared/elements/Loading/Loading'
-import { MyPageQuestion } from './MyPage'
+import { MyPageQuestion } from './MyPageQuestion'
 
 export const MyPageQuestionPage = () => {
   return (
